@@ -1,8 +1,9 @@
 .courseHeading {
-    width: 1200px;
+    /* width: 1200px; */
     height: 480px;
     display: flex;
     align-items: flex-start;
+    justify-content: center;
     padding-left: 30px;
     padding-top: 50px;
     background-color: #0047B2;
@@ -20,7 +21,7 @@
     width: 830px;
     height: 45px;
     margin-top: 30px;
-    margin-left: -230px;
+    /* margin-left: -230px; */
     font-style: "Lexend", sans-serif;
     font-weight: 500;
     font-size: 20px;
