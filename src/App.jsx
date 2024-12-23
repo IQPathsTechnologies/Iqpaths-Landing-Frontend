@@ -1,6 +1,6 @@
 import './App.css'
 import Header from './Components/Header/Header'
-import CourseSection from './Components/CourseSection/CourseSelect'
+import CourseSection from './Components/CourseSection/CourseSection'
 
 function App() {
 

@@ -1,12 +1,13 @@
 .courseHeading {
     /* width: 1200px; */
-    height: 480px;
+    height: 450px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     padding-left: 30px;
     padding-top: 50px;
     background-color: #0047B2;
+    position: relative;
 }
 
 .courseDetails {
@@ -14,14 +15,15 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    position: absolute;
+    left: 7rem;
     /* border: 2px solid red; */
 }
 
 .heading {
     width: 830px;
     height: 45px;
-    margin-top: 30px;
-    /* margin-left: -230px; */
+    margin-top: 20px;
     font-style: "Lexend", sans-serif;
     font-weight: 500;
     font-size: 20px;
@@ -30,20 +32,65 @@
 
 .title {
     margin-top: -5px;
-    margin-left: 20px;
     font-style: "Lexend", sans-serif;
     font-weight: 700;
     font-size: 60px;
+    padding-bottom: 10px;
     color: white;
 }
 
 .description {
-    width: 750px;
+    width: 700px;
     margin-top: -130px;
-    margin-left: 60px;
     font-style: "Manrope", sans-serif;
     font-weight: 600;
     font-size: 16px;
     text-align: left;
+    color: white;
     /* border: 2px solid red; */
+}
+
+.extraInfo {
+    display: flex; 
+    flex-direction: row;
+}
+
+.info {
+    display: flex;
+}
+
+.info p {
+    margin-left: 4px;
+    margin-right: 30px;
+    margin-top: 0px;
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+    font-style: "Jost", sans-serif;
+}
+
+.info img {
+    width: 16px;
+    height: 16px;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+    /* border: 2px solid red; */
+}
+
+.rating p {
+    margin-top: 0px;
+    margin-right: 10px;
+    font-style: "Lexend", sans-serif;
+    font-weight: 550;
+    font-size: 14px;
+    color: #F1C40F;
+}
+
+.rating img {
+    width: 83px;
+    height: 15px;
 }
