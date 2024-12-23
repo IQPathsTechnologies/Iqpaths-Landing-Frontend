@@ -1,10 +1,13 @@
 import './App.css'
+import Header from './Components/Header/Header'
+import CourseSection from './Components/CourseSection/CourseSelect'
 
 function App() {
 
   return (
     <>
-     <div>This is iq path frontend landing page</div>
+      <Header />
+      {/* <CourseSection /> */}
     </>
   )
 }

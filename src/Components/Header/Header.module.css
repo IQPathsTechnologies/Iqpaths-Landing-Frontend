@@ -1,0 +1,85 @@
+.header {
+  width: 312%;
+  margin-left: -440px;
+  margin-top: -292px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 80px;
+}
+
+.logoImage {
+  max-height: 50px;
+}
+
+.navbar {
+  flex-grow: 1;
+  margin: 0 0px;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  margin: 0 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.navItem:hover {
+  color: #007bff;
+}
+
+.active {
+  font-weight: bold;
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+}
+
+.authButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.signUp {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signUp:hover {
+  background-color: #0056b3;
+}
+
+.login {
+  background-color: #fff;
+  color: #007bff;
+  border: 1px solid #007bff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.login:hover {
+  background-color: #007bff;
+  color: #fff;
+}
