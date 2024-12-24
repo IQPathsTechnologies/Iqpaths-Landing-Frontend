@@ -11,6 +11,13 @@ const CourseSection = ({
   lessons = "20 Lessons",
   quizzes = "3 Quizzes",
   rating = "4.5",
+  coursePrice = "$549",
+  discount = "40% off",
+  hoursLeft = "5 hours left at this price!",
+  hours = "54.5 hours on-demand video",
+  download = "Downloadable Resources",
+  access = "Access on mobile and TV",
+
 
 }) => {
   return (
@@ -48,6 +55,71 @@ const CourseSection = ({
             <p> {rating} </p>
             <img src="src/assets/rating.png" alt="ratings" />
           </div>
+        </div>
+      </div>
+
+      <div className={styles.courseLearning}>
+        <div className={styles.whatHeading}>
+          <p>What you'll learn</p>
+        </div>
+        <div className={styles.courseInfo}>
+          <ul>
+            <li className={styles.info1}>In this course, you will gain proficiency in how to analyze a number of statistical procedures in SPSSS.</li>
+            <li className={styles.info2}>You will learn how to interpret the output of a number of different statical tests.</li>
+            <li className={styles.info3}>Learn how to write the result of statistical analyses using APA format.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className={styles.rightSection}>
+        <div className={styles.coursePreview}>
+          <img src="src/assets/preview.png" alt="Preview" />
+        </div>
+        <div className={styles.coursePricing}>
+          <p className={styles.price}> { coursePrice} </p>
+          <p className={styles.discount}> { discount } </p>
+        </div>
+        <div className={styles.timeLeft}>
+          <img src="src/assets/alarm.png" alt="Alarm" />
+          <p> {hoursLeft} </p>
+        </div>
+        <div className={styles.buyDetails}>
+          <div className={styles.details}> 
+            <button className={styles.cart}>
+              <p> Add to cart </p> 
+            </button>
+            <img src="src/assets/wishlist.png" alt="Wishlist"  className={styles.wishlist} />
+          </div>
+          <button className={styles.buy}>
+            <p> Buy Now </p> 
+          </button>
+          <p className={styles.moneyBack}>
+            <p> 30 Day Money Back Guarantee </p>  
+          </p>
+        </div>
+        <div className={styles.courseInclude}>
+          <p className={styles.includes}> This course includes: </p>
+          <div className={styles.content}>
+            <img src="src/assets/camera.png" alt="Camera" />
+            <p> {hours} </p>
+          </div>
+          <div className={styles.content}>
+            <img src="src/assets/download.png" alt="Download" />
+            <p> {download} </p>
+          </div>
+          <div className={styles.content}>
+            <img src="src/assets/access.png" alt="Access" />
+            <p> {access} </p>
+          </div>
+        </div>
+        <div className={styles.coupon}>
+          <div className={styles.gift}>
+            <p className={styles.p1}> SHARE </p>
+            <p> GIFT </p>
+            <p> APPLY COUPON </p>
+          </div>
+          <input type="text" placeholder="Enter coupon" className={styles.coupons}/>
+          <button className={styles.apply}> Apply </button>
         </div>
       </div>
     </>
