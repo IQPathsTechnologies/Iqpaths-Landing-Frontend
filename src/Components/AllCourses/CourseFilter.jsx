@@ -47,14 +47,14 @@ const CourseFilter = () => {
                     ))}
                 </div>
 
-                <div className={styles.filteredContent}>
+                {/* <div className={styles.filteredContent}>
                     <p>
                         Showing content for:{" "}
                         <span className={styles.activeCategoryLabel}>
                             {activeCategory}
                         </span>
                     </p>
-                </div>
+                </div> */}
             </div>
         </>
     );
