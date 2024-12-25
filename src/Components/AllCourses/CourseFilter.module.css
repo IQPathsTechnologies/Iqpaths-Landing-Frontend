@@ -1,0 +1,121 @@
+/* Main container for the section */
+.coursesSection {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 4%;
+    padding: 20px;
+    text-align: center;
+    /* border: 2px solid red; */
+  }
+  
+  /* Header styling */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  /* Title styling */
+  .title {
+    font-style: "Lexend", sans-serif;
+    font-weight: 700;
+    font-size: 55px;
+    color: #0047B2;
+    margin: 0;
+  }
+  
+  /* Filter button styling */
+  .filterButton {
+    width: 140px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: 1.5px solid #003FFF;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .filterButton p {
+    font-style: "Lexend", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #0047B2;
+  }
+  
+  .filterButton:hover {
+    background-color: #559bfd;
+    /* color: #ffffff; */
+  }
+
+  .filterButton p:hover {
+    color: white;
+  }
+  
+  /* Category tabs container */
+  .categoryTabs {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px 20px;
+    overflow-x: auto; 
+    scrollbar-width: none; 
+    /* border: 2px solid red; */
+  }
+  
+  .categoryTabs::-webkit-scrollbar {
+    display: none; /* Hides scrollbar for Webkit browsers */
+  }
+  
+  /* Individual tabs */
+  .tab {
+    font-size: 14px;
+    font-weight: bold;
+    color: #252B42;
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 11px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    gap: 10px;
+    font-style: "Lexend", sans-serif;
+    font-weight: 550;
+    font-size: 12px;
+    /* border: 2px solid red; */
+  }
+  
+  .tab:hover {
+    color: #0056d2;
+  }
+  
+  .activeTab {
+    background-color: #0047B2;
+    color: #ffffff;
+  }
+
+  .activeTab:hover {
+    color: white;
+  }
+
+  .filteredContent {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.activeCategoryLabel {
+    font-weight: bold;
+    color: #0056d2;
+}
+  

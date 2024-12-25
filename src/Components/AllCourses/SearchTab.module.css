@@ -1,0 +1,93 @@
+.overlay {
+    position: absolute; /* Can also use position: fixed for full-page overlay */
+    top: 99%;
+    left: 18%;
+    /* transform: translate(-50%, -50%); */
+    z-index: 100; 
+    width: 800px;
+  }
+
+.searchBar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px; /* Add padding around the entire search bar */
+    max-width: 800px;
+    margin: auto; /* Center the search bar */
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.inputWrapper {
+    position: relative;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    /* gap: 10px; */
+    border-radius: 12px;
+    border: 1px solid #888888;
+    /* border: 1px solid red; */
+  }
+  
+  /* Input field */
+  .searchInput {
+    flex: 1;
+    padding: 12px 15px 12px 40px; /* Adjust left padding for the image */
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #555;
+    border-right: 1px solid #ddd;
+  }
+  
+  .searchInput::placeholder {
+    color: #aaa;
+    font-size: 14px;
+  }
+  
+  /* Image inside the input field */
+  .inputIcon {
+    position: absolute;
+    left: 12px; /* Adjust spacing from the left */
+    width: 16px; /* Icon size */
+    height: 16px;
+    pointer-events: none; /* Prevent the image from interfering with user input */
+  }
+  
+  /* Search button */
+  .searchButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0047B2;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: none;
+    /* border: 2px solid red; */
+  }
+  
+  .searchButton:hover {
+    background-color: #0041a8;
+  }
+  
+  /* Search icon styling for the button */
+  .searchButton img{
+    width: 19px;
+    height: 19px;
+    margin-right: 8px;
+    font-size: 14px;
+  }
