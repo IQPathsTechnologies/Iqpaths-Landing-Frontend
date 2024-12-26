@@ -1,0 +1,17 @@
+.carouselContainer {
+    overflow: hidden;
+    width: 100%; /* Adjust as needed */
+    position: relative;
+  }
+  
+  .carousel {
+    display: flex;
+    transition: none; /* Prevent any snapping animation */
+  }
+  
+  .carouselItem {
+    width: 300px;
+    margin-right: 20px;
+  }
+  
+  

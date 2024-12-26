@@ -1,0 +1,120 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* margin: 0 auto; */
+    padding:  20px 50px;
+    /* border: 2px solid blue; */
+}
+
+.content{
+    padding: 20px 0px 20px 20px;
+    /* border: 2px solid red; */
+}
+
+/* .content img{
+    border: 2px solid yellow;
+    margin-bottom: 20px;
+} */
+
+.content h1{
+    font-size: 3rem;
+    font-weight: 700;
+    color: #454555;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    /* border: 2px solid yellow; */
+    padding: 0px 10px 0px 0px;
+}
+
+.content p{
+    font-size: 1.2rem;
+    color: #454555;
+    margin-bottom: 20px;
+    /* border: 2px solid yellow; */
+    padding: 0px 80px 0px 0px;
+}
+
+.testimonialcards{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid green; */
+    background: #DCE8FD ;
+    border-radius: 24px;
+}
+.card{
+    padding: 20px 20px 0px 20px;
+}
+
+.cardHeading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    margin: 10px 20px 30px 20px;
+    /* border: 2px solid yellow; */
+}
+
+.cardHeading h4{
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0047B2;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    /* border: 2px solid yellow; */
+    padding: 0px 180px 0px 0px;
+}
+
+.dots{
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 0px 0px 0px 0px;
+    margin-top: -30px;
+    color: #767587;
+    /* border: 2px solid yellow; */
+}
+
+.description{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 10px 20px 30px 20px; */
+    padding: 20px 20px;
+    /* border: 2px solid yellow; */
+    font-size: 1.5rem;
+    color: #454555;
+}
+
+.profileContainerFooter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0px;
+    /* border: 2px solid yellow; */
+}
+
+.profileContainer{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 20px;
+    align-items: center;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 20px;
+    gap: 20px;
+}
+
+.btn{
+    color: #454555;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 2px solid #454555;
+    border-radius: 30px;
+    cursor: pointer;
+}
