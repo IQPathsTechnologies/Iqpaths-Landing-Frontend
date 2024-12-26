@@ -1,0 +1,227 @@
+/* SimilarCourses.module.css */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 45px;
+    margin-left: 50px;
+    /* max-width: 1200px; */
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    border: 2px solid grey;
+  }
+  
+  h2 {
+    width: 400px;
+    font-style: "Poppins", sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    text-align: left;
+    color: black;
+  }
+  
+  .content {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .leftSection {
+    width: 43%;
+    height: 600px;
+    /* flex: 1; */
+    background: #f9f9f9;
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .left {
+    position: relative;
+    width: 100%;
+  }
+  
+  .leftImage {
+    margin-top: 4px;
+    margin-left: -20px;
+    width: 535px;
+    height: 640px;
+    border-radius: 30px;
+    object-fit: cover;
+  }
+  
+  .leftInfo {
+    /* flex: 1; */
+    position: absolute;
+    /* top: 50%; */
+    width: 100%;
+    bottom: -12%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    /* background: rgba(0, 0, 0, 0.5); */
+    border-radius: 8px;
+  }
+  
+  .instructor {
+    width: 100px;
+    font-style: "Manrope", sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    color: white;
+    margin-bottom: -12px;
+  }
+  
+  .title {
+    font-style: "Manrope", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+    color: white;
+    margin-bottom: -4px;
+    /* border: 2px solid red; */
+  }
+
+  .extraInfo {
+    display: flex;
+  }
+  
+  .price {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .discountedPrice {
+    color: #ff5722;
+    font-size: 18px;
+  }
+  
+  .originalPrice {
+    font-size: 18px;
+    color: #888;
+    text-decoration: line-through;
+    margin-left: 8px;
+  }
+  
+  .reviews {
+    font-size: 14px;
+    color: white;
+    margin-top: 14px;
+    margin-left: 20px;
+    /* gap: 20px; */
+  }
+  
+  .stars {
+    margin-right: 2px;
+    color: #ffd700;
+    /* border: 2px solid red; */
+  }
+  
+  .tags {
+    margin-top: 12px;
+  }
+  
+  .tag {
+    background: #ff5722;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 8px;
+    margin-right: 8px;
+    display: inline-block;
+  }
+  
+  .rightSection {
+    /* flex: 2; */
+    width: 55%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .card {
+    height: 400px;
+    /* background: #fff; */
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    width: calc(40% - 20px); /* 2 cards per row */
+    width: 250px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }  
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .cardImage {
+    width: 280px;
+    height: 170px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-top: -15px;
+    margin-left: -15px;
+    margin-bottom: 12px;
+    /* border: 2px solid red; */
+  }
+  
+  .cardInfo {
+    text-align: left;
+  }
+  
+  .cardTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .cardInstructor {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  
+  .cardPrice {
+    font-size: 14px;
+    color: #222;
+    margin-bottom: 8px;
+  }
+  
+  .cardPrice .discountedPrice {
+    color: #ff5722;
+    font-size: 16px;
+  }
+  
+  .cardPrice .originalPrice {
+    font-size: 12px;
+    color: #888;
+    text-decoration: line-through;
+    margin-left: 8px;
+  }
+  
+  .card .tags {
+    margin-top: 10px;
+  }
+  
+  .card .tag {
+    background: #ff5722;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 8px;
+    margin-right: 8px;
+    display: inline-block;
+  }
+  
