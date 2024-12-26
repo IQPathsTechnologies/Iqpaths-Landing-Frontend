@@ -1,12 +1,20 @@
 import React from 'react';
+import CourseSection from '../../Components/CourseSection/CourseSection'
+import CourseDetails from '../../Components/CourseSection/CourseDetails'
+import Certificate from '../../Components/Certificate/Certificate'
+import Instructor from '../../Components/Instructor/Instructor'
+import SimilarCourses from '../../Components/SimilarCourses/SimilarCourses'
 
-const Courses = () => {
+const Home = () => {
     return (
         <div>
-            <h1>Courses</h1>
-            <p>Welcome to the courses page. Here you will find a variety of courses to help you learn and grow.</p>
+            <CourseSection />
+            <CourseDetails />
+            <Certificate />
+            <Instructor />
+            <SimilarCourses />
         </div>
     );
 };
 
-export default Courses;
+export default Home;
