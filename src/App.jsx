@@ -8,20 +8,17 @@ import HeroSection from './Components/AllCourses/HeroSection'
 import SearchTab from './Components/AllCourses/SearchTab'
 import CourseFilter from './Components/AllCourses/CourseFilter'
 import CourseCard from './Components/AllCourses/CourseCard'
+import { Outlet } from 'react-router-dom'
 
 function App() {
 
   return (
     <>
       <Header />
-      {/* <HeroSection /> */}
-      {/* <SearchTab /> */}
-      {/* <CourseFilter /> */}
-      {/* <CourseCard /> */}
-      <CourseSection />
-      <CourseDetails />
-      <Certificate />
-      <Instructor />
+      <main>
+        <Outlet />
+      </main>
+      {/* <Footer /> */}
     </>
   )
 }
