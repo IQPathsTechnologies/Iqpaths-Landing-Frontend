@@ -9,14 +9,14 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.logo}>
         <img
-          src="src/assets/logo.png" 
+          src="src/assets/logo.svg" 
           alt="Paths Logo"
           className={styles.logoImage}
         />
       </div>
       <nav className={styles.navbar}>
         <ul className={styles.navList}>
-          {['Home', 'About Us', 'Services', 'Courses', 'Contact Us'].map((tab) => (
+          {['Home', 'About Us', 'Services', 'Courses', 'My Learnings', 'Contact Us'].map((tab) => (
             <li
               key={tab}
               className={`${styles.navItem} ${activeTab === tab ? styles.active : ''}`}
