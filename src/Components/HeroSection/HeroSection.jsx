@@ -1,33 +1,36 @@
 import React from 'react'
+import styles from './HeroSection.module.css';
 
 function HeroSection() {
   return (
-    <div className='container'>
-        <div className="left">
-            <div className="content">
+    <div className={styles.container}>
+        <div className={styles.left}>
+            <div className={styles.content}>
               <h1>Master New Skills with Course Mastery</h1>
-              <P>Embrace life's vastness, venture forth, and discover the wonders waiting beyond. The world beckons; seize its grand offerings now!</P>
+              <p>Embrace life's vastness, venture forth, and discover the wonders waiting beyond. The world beckons; seize its grand offerings now!</p>
             </div>
-            <div className="button">
-              Register
+            <div className={styles.buttonContainer}>
+              <div className={styles.button}>
+                Register
+              </div>
             </div>
-            <div className="stats">
-              <div>
-                <h1>30+</h1>
+            <div className={styles.stats}>
+              <div className={styles.statsSection}>
+                <h1 className={styles.yellow}>30+</h1>
                 <div>Courses to choose from</div>
               </div>
-              <div>
-                <div>3000+</div>
+              <div className={styles.statsSection}>
+                <h1 className={styles.blue}>3000+</h1>
                 <div>students Trained</div>
               </div>
-              <div>
-                <div>10+</div>
+              <div className={styles.statsSection}>
+                <h1 className={styles.red}>10+</h1>
                 <div>Professional Trainers</div>
               </div>
             </div>
         </div>
-        <div className="right">
-
+        <div className={styles.right}>
+            <img src="src/assets/heroSectionImage.png" alt="" />
         </div>
     </div>
   )

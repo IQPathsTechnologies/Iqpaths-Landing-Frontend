@@ -1,0 +1,31 @@
+.container {
+    /* border: 2px solid green; */
+    padding: 30px;
+}
+
+.heading{
+    margin-bottom: 20px;
+    padding: 0px 50px;
+    /* border: 2px solid blue; */
+    line-height: 0.9;
+}
+
+.heading h1{
+    font-size: 3.4rem;
+    font-weight: 600;
+    color: #0047B2;
+}
+
+.heading p{
+    color: #6C757D;
+    line-height: 1.5;
+}
+
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 20px;
+    justify-content: space-around;
+    padding: 20px 40px;
+    /* border: 2px solid red; */
+}

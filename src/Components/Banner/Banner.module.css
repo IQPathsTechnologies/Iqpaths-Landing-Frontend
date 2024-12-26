@@ -1,0 +1,12 @@
+.carousel{
+    display: flex;
+    justify-content: center;
+}
+
+
+.carouselImage{
+    width: 95%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}

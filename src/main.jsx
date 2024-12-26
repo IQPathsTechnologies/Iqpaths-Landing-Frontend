@@ -4,8 +4,8 @@ import { BrowserRouter, createBrowserRouter, RouterProvider } from 'react-router
 import App from './App';
 import './index.css';
 import { createRoot } from 'react-dom/client';
-import Home from './pages/Home';
-import Courses from './pages/Courses';
+import Home from './pages/Home/Home';
+import Courses from './pages/Courses/Courses';
 
 
 const router = createBrowserRouter([
