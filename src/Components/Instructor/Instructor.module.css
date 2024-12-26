@@ -1,0 +1,114 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid #007bff; */
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    /* max-width: 800px; */
+    margin: auto;
+    margin-top: 50px;
+}
+
+.leftSection {
+    width: 500px;
+    /* height: 400px; */
+    margin-left: 70px;
+    /* margin-right: 40px; */
+    /* flex: 1; */
+    text-align: center;
+    padding: 20px;
+    /* border: 2px solid red; */
+}
+
+  .title {
+      font-style: "Lexend", sans-serif;
+      font-size: 48px;
+      font-weight: 600;
+      color: #0047B2;
+      margin-bottom: 10px;
+      /* border-bottom: 2px dashed #007bff; */
+      display: inline-block;
+      margin-top: -10px;
+      padding-bottom: 5px;
+    }
+    
+    .description {
+        font-style: "Lexend", sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        color: #252B42;
+        margin-top: 10px;
+    }
+    
+    .rightSection {
+        width: 420px;
+        height: 390px;
+        margin-right: 60px;
+        /* flex: 1; */
+        text-align: center;
+        background-color: #0047B2;
+        color: white;
+        padding: 20px;
+        border-radius: 25px;
+        position: relative;
+        /* border: 2px solid red; */
+    }
+    
+    .instructorName {
+        width: 180px;
+        font-style: "Lexend", sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        margin-left: 20px;
+        margin-bottom: 5px;
+        color: #FAFAFA;
+    }
+    
+    .instructorTitle {
+        width: 300px;
+        font-size: 16px;
+        /* font-weight: 200; */
+        font-style: "Manrope", sans-serif;
+        margin-bottom: 15px;
+        margin-left: 5px;
+        margin-top: 0px;
+    }
+    
+    .instructorDescription {
+        width: 400px;
+        margin-top: 30px;
+        margin-left: 20px;
+        display: flex;
+        font-size: 14px;
+        font-style: "Manrope", sans-serif;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        text-align: left;
+    }
+    
+    .imageWrapper {
+        position: absolute;
+        bottom: -20px;
+    margin-left: 120px;
+    margin-bottom: 40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* border: 3px solid white; */
+    /* background-color: white; */
+    background: linear-gradient(135deg, #e4eef9, #78b9fe);
+    /* border: 2px solid red; */
+}
+  
+  .instructorImage {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+  }
+  
