@@ -17,7 +17,7 @@ function collaborator() {
             We Parter with More Than 10+ Companies
         </div>
         <div className={styles.carousel}>
-            <InfiniteCarouselRight
+            <InfiniteCarouselLeft
                   images={images}
              />
         </div>
