@@ -1,26 +1,30 @@
 .overlay {
     position: absolute; /* Can also use position: fixed for full-page overlay */
-    top: 99%;
+    top: 101%;
     left: 18%;
     /* transform: translate(-50%, -50%); */
     z-index: 100; 
-    width: 800px;
+    /* width: 800px; */
   }
 
 .searchBar {
     height: 60px;
     display: flex;
     align-items: center;
+    /* justify-content: center; */
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 5px; /* Add padding around the entire search bar */
-    max-width: 800px;
+    /* max-width: 900px; */
+    width: 950px;
     margin: auto; /* Center the search bar */
     padding-right: 15px;
     padding-left: 15px;
+    margin-left: -65px;
+    /* border: 2px solid red; */
 }
 
 .inputWrapper {

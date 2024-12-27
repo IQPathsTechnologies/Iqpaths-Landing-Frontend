@@ -136,7 +136,7 @@ const CourseCard = () => {
                         Learn Now
                     </button>
                 </div>
-                ))}
+                ))} 
             </div>
         </>
     );

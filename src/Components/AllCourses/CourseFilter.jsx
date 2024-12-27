@@ -33,7 +33,7 @@ const CourseFilter = () => {
                 </div>
 
                 {/* Category Tabs Section */}
-                <div className={styles.categoryTabs}>
+                <div className={styles.categoryTabs}>  
                     {categories.map((category, index) => (
                     <button
                         key={index}

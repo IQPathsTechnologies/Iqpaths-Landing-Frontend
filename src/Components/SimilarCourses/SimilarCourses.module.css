@@ -4,10 +4,11 @@
     margin: 0 auto;
     margin-top: 45px;
     margin-left: 50px;
+    margin-bottom: 70px;
     /* max-width: 1200px; */
     padding: 20px;
     font-family: 'Arial', sans-serif;
-    border: 2px solid grey;
+    /* border: 2px solid grey; */
   }
   
   h2 {
@@ -28,7 +29,7 @@
   
   .leftSection {
     width: 43%;
-    height: 600px;
+    height: 717px;
     /* flex: 1; */
     background: #f9f9f9;
     border-radius: 30px;
@@ -39,6 +40,7 @@
     align-items: center;
     justify-content: center;
     gap: 15px;
+    /* border: 2px solid red; */
   }
   
   .left {
@@ -50,7 +52,7 @@
     margin-top: 4px;
     margin-left: -20px;
     width: 535px;
-    height: 640px;
+    height: 760px;
     border-radius: 30px;
     object-fit: cover;
   }
@@ -94,9 +96,11 @@
   }
   
   .price {
+    padding-right: 40px;
     font-size: 16px;
     font-weight: 600;
     color: white;
+    /* border: 2px solid red; */
   }
   
   .discountedPrice {
@@ -120,9 +124,9 @@
   }
   
   .stars {
+    margin-left: 20px;
     margin-right: 2px;
     color: #ffd700;
-    /* border: 2px solid red; */
   }
   
   .tags {
@@ -148,7 +152,7 @@
   }
   
   .card {
-    height: 400px;
+    height: auto;
     /* background: #fff; */
     border: 1px solid #e0e0e0;
     border-radius: 12px;
@@ -173,7 +177,6 @@
     margin-top: -15px;
     margin-left: -15px;
     margin-bottom: 12px;
-    /* border: 2px solid red; */
   }
   
   .cardInfo {
@@ -181,16 +184,34 @@
   }
   
   .cardTitle {
-    font-size: 16px;
-    font-weight: 600;
+    /* height: 40px; */
+    font-style: "Manrope", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
     color: #333;
+    margin-left: 0px;
     margin-bottom: 8px;
+    /* border: 2px solid red; */
   }
   
   .cardInstructor {
+    margin-top: -5px;
+    font-weight: "Manrope", sans-serif;
     font-size: 14px;
+    font-weight: 400;
     color: #666;
     margin-bottom: 8px;
+  }
+
+  .content {
+    font-style: "Manrope", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .stars {
+    margin-left: -23px;
+    /* border: 2px solid red; */
   }
   
   .cardPrice {
@@ -200,23 +221,29 @@
   }
   
   .cardPrice .discountedPrice {
-    color: #ff5722;
-    font-size: 16px;
+    font-style: "Manrope", sans-serif;
+    font-weight: 700;
+    color: #1B1B1BE5;
+    font-size: 20px;
   }
   
   .cardPrice .originalPrice {
-    font-size: 12px;
+    font-size: 15px;
     color: #888;
     text-decoration: line-through;
     margin-left: 8px;
   }
   
   .card .tags {
-    margin-top: 10px;
+    width: 200px;
+    margin-top: -175px;
+    margin-left: -10px;
+    margin-bottom: 145px;
+    /* border: 2px solid red; */
   }
   
   .card .tag {
-    background: #ff5722;
+    background: #A04AE3;
     color: #fff;
     padding: 5px 10px;
     font-size: 12px;

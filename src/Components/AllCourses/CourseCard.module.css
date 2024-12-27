@@ -16,7 +16,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
-    /* border: 2px solid red; */
 }
 
 .card:hover {
@@ -62,7 +61,7 @@
 }
 
 .ranking {
-    width: 145px;
+    width: 170px;
     height: 20px;
     margin-left: 155px;
     margin-top: -20px;
@@ -76,6 +75,7 @@
     width: 62px;
     height: 14px;
     margin-right: 5px;
+    /* border: 2px solid red; */
 }
 
 .rating {
