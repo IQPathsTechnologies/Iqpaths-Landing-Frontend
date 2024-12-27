@@ -9,13 +9,14 @@
 
 /* Individual card styling */
 .card {
-    width: 325px;
+    width: 350px;
     background-color: #FAFAFA;
     border: 1px solid #ddd;
     border-radius: 21px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
+    /* border: 2px solid red; */
 }
 
 .card:hover {
