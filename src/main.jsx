@@ -5,7 +5,8 @@ import App from './App';
 import './index.css';
 import { createRoot } from 'react-dom/client';
 import Home from './pages/Home/Home';
-import Courses from './pages/Courses/Courses';
+// import Courses from './pages/Courses/Courses';
+import Course from './pages/Course/Course';
 
 
 const router = createBrowserRouter([
@@ -19,11 +20,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/courses',
-        element: <Courses />,
+        // element: <Courses />,
       },
       {
-        path: '/',
-        element: <Home />,
+        path: '/course',
+        element: <Course />,
       },
     ],
   },
