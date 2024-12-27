@@ -97,7 +97,7 @@
 
 .courseLearning {
     width: 680px;
-    height: 200px;
+    height: 230px;
     margin-top: 100px;
     margin-left: 136px;
     border-radius: 12px;
@@ -117,15 +117,17 @@
 .info1 {
     width: 300px;
     height: 84px;
+    margin-bottom: 15px;
     font-style: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 18px;
+    /* border: 2px solid red; */
 }
 
 .info2 {
     width: 300px;
     height: 84px;
-    margin-top: -82px;
+    margin-top: -105px;
     margin-left: 53%;
     font-style: "Manrope", sans-serif;
     font-weight: 400;
@@ -136,6 +138,7 @@
     width: 300px;
     height: 84px;
     font-style: "Manrope", sans-serif;
+    margin-top: 25px;
     font-weight: 400;
     font-size: 18px;
 }
@@ -277,18 +280,19 @@
 }
 
 .moneyBack {
-    width: 163px;
+    width: 170px;
     height: 9px;
 }
 
 .moneyBack p {
-    width: 180px;
-    margin-left: 75px;
+    width: 200px;
+    margin-left: 68px;
     margin-top: -5px;
     font-style: "Poppins", sans-serif;
     font-weight: 600;
     font-size: 12px;
     color: #818181;
+    /* border: 2px solid red; */
 }
 
 .courseInclude {

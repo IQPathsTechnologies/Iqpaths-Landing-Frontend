@@ -1,12 +1,11 @@
 /* Main container for the section */
 .coursesSection {
-    width: 85%;
+    width: 91%;
     max-width: 1200px;
     margin: 0 auto;
     margin-top: 4%;
     padding: 20px;
     text-align: center;
-    /* border: 2px solid red; */
   }
   
   /* Header styling */
@@ -39,7 +38,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
   }
-
+  
   .filterButton p {
     font-style: "Lexend", sans-serif;
     font-weight: 700;
@@ -51,7 +50,7 @@
     background-color: #559bfd;
     /* color: #ffffff; */
   }
-
+  
   .filterButton p:hover {
     color: white;
   }
@@ -78,7 +77,7 @@
   
   /* Individual tabs */
   .tab {
-    font-size: 14px;
+    /* font-size: 18px; */
     font-weight: bold;
     color: #252B42;
     background: transparent;
@@ -91,7 +90,8 @@
     gap: 10px;
     font-style: "Lexend", sans-serif;
     font-weight: 550;
-    font-size: 12px;
+    font-size: 13px;
+    /* border: 2px solid red; */
     /* border: 2px solid red; */
   }
   

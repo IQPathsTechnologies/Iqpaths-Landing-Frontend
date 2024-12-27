@@ -54,13 +54,13 @@
         padding: 20px;
         border-radius: 25px;
         position: relative;
-        /* border: 2px solid red; */
     }
     
     .instructorName {
-        width: 180px;
+        width: 350px;
         font-style: "Lexend", sans-serif;
         font-size: 20px;
+        text-align: left;
         font-weight: 500;
         margin-left: 20px;
         margin-bottom: 5px;
@@ -68,13 +68,14 @@
     }
     
     .instructorTitle {
-        width: 300px;
+        width: 380px;
         font-size: 16px;
         /* font-weight: 200; */
         font-style: "Manrope", sans-serif;
         margin-bottom: 15px;
-        margin-left: 5px;
+        margin-left: -12px;
         margin-top: 0px;
+        /* border: 2px solid red; */
     }
     
     .instructorDescription {

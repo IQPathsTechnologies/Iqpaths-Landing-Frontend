@@ -11,8 +11,8 @@ const SearchTab = () => {
             <img
                 src="src/assets/searchGrey.png" 
                 alt="Search"
-                className={styles.inputIcon}
-            />
+                 className={styles.inputIcon}
+            /> 
             <input
                 type="text"
                 className={styles.searchInput}

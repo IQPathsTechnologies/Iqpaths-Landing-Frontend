@@ -10,13 +10,14 @@
 
 .tabs {
     display: flex;
+    /* padding-top: 2px; */
     /* padding-top: 5px; */
     border-bottom: 1px solid #ccc;
 }
 
 .tabButton {
     flex: 1;
-    padding: 10px 15px;
+    padding: 15px 15px;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
@@ -50,10 +51,11 @@
 .overview {
     margin: -20px;
     padding-top: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 35px;
+    padding-right: 35px;
     padding-bottom: 25px;
     font-style: "Jost", sans-serif;
+    text-align: justify;
     font-weight: 400;
     font-size: 18px;
     color: #555555;
@@ -127,21 +129,21 @@
 .lesson:last-child {
     border-bottom: none;
     /* border: 2px solid red; */
-  }
-  
-  .lessonTitle {
+}
+
+.lessonTitle {
     flex: 2;
     font-size: 14px;
-  }
+}
 
-  .lessonCheck {
+.lessonCheck {
     flex: 1;
     text-align: right;
     color: green;
     font-size: 14px;
-  }
+}
 
-  .lessons {
+.lessons {
     display: flex;
     font-style: "Jost", sans-serif;
     font-size: 18px;
@@ -167,6 +169,7 @@
     font-size: 12px;
     cursor: pointer;
     border-radius: 8px;
+    border: none;
     gap: 10px;
     background-color: #2580D5;
     color: white;
@@ -179,9 +182,9 @@
     font-weight: 400;
     color: #555555;
     /* border: 2px solid red; */
-  }
+}
 
-  .instructor {
+.instructor {
     border-radius: 10px;
     padding: 20px;
     font-family: Arial, sans-serif;
@@ -461,10 +464,12 @@
 }
 
 .commentDate {
+    width: 200px;
     font-size: 14px;
     font-weight: 400;
     color: #777;
-    margin-left: 530px;
+    margin-left: 510px;
+    /* border: 2px solid red; */
 }
 
 .commentText {

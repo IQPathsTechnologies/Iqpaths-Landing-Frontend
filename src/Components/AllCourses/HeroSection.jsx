@@ -5,7 +5,7 @@ import styles from './HeroSection.module.css';
 const HeroSection = () => {
   const overlayText = 'Learn something new everyday.'; 
   const overlayText2 = 'Become professionals and ready to join the world.';
-
+ 
   return (
     <div className={styles.heroSection}>
       <img src="./src/assets/heroImage.jpg" alt="Hero" className={styles.heroImage} />

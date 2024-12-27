@@ -14,10 +14,11 @@ const SimilarCourses = () => {
       title: "Design Fundamentals",
       instructor: "Kitani Studio",
       image: "src/assets/sideCourse1.png", // Replace with actual image path
+      content: "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       price: "24.92",
       originalPrice: "32.90",
-      reviews: "(1.2k)",
       stars: 4.5,
+      ratings: "(1.2k)",
       tags: ["Best Seller", "20% OFF"],
     },
     {
@@ -25,10 +26,11 @@ const SimilarCourses = () => {
       title: "Ionic - Build iOS, Android & Web...",
       instructor: "Kitani Studio",
       image: "src/assets/sideCourse2.png", // Replace with actual image path
+      content: "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       price: "24.92",
       originalPrice: "32.90",
-      reviews: "(1.2k)",
       stars: 4.5,
+      ratings: "(1.2k)",
       tags: ["Best Seller", "20% OFF"],
     },
     {
@@ -36,10 +38,11 @@ const SimilarCourses = () => {
       title: "Bootcamp Vue.js Web Framework",
       instructor: "Kitani Studio",
       image: "src/assets/sideCourse3.png", // Replace with actual image path
+      content: "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       price: "24.92",
       originalPrice: "32.90",
-      reviews: "(1.2k)",
       stars: 4.5,
+      ratings: "(1.2k)",
       tags: ["Best Seller", "20% OFF"],
     },
     {
@@ -47,10 +50,11 @@ const SimilarCourses = () => {
       title: "VUE JAVASCRIPT COURSE",
       instructor: "Kitani Studio",
       image: "src/assets/sideCourse4.png", // Replace with actual image path
+      content: "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       price: "24.92",
       originalPrice: "32.90",
-      reviews: "(1.2k)",
       stars: 4.5,
+      ratings: "(1.2k)",
       tags: ["Best Seller", "20% OFF"],
     },
   ]);
@@ -135,11 +139,18 @@ const SimilarCourses = () => {
                     {course.tags?.map((tag, index) => (
                       <span key={index} className={styles.tag}>
                         {tag}
-                      </span>
+                      </span> 
                     ))}
                   </p>
                   <h4 className={styles.cardTitle}>{course.title}</h4>
                   <p className={styles.cardInstructor}>by {course.instructor}</p>
+                  <p className={styles.content}>{course.content}</p>
+                  <p className={styles.reviews}>
+                    <span className={styles.stars}>
+                      {"⭐".repeat(Math.floor(course.stars || 0))}
+                    </span>{" "}
+                    {course.ratings}
+                  </p>
                   <p className={styles.cardPrice}>
                     {course.price && (
                       <>
@@ -149,12 +160,6 @@ const SimilarCourses = () => {
                         </span>
                       </>
                     )}
-                  </p>
-                  <p className={styles.reviews}>
-                    <span className={styles.stars}>
-                      {"⭐".repeat(Math.floor(course.stars || 0))}
-                    </span>{" "}
-                    {course.reviews}
                   </p>
                 </div>
               </div>
