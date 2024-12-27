@@ -5,7 +5,7 @@ import Certificate from '../../Components/Certificate/Certificate'
 import Instructor from '../../Components/Instructor/Instructor'
 import SimilarCourses from '../../Components/SimilarCourses/SimilarCourses'
 
-const Home = () => {
+const Course = () => {
     return (
         <div>
             <CourseSection />
@@ -17,4 +17,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Course;
