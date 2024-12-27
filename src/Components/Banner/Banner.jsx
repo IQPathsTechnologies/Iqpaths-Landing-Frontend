@@ -1,30 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Banner.module.css';
+import ButtonCarousel from '../../utility/ButtonCarousel/ButtonCarousel';
 
+const images = [
+    'src/assets/Banner/1.png',
+    'src/assets/Banner/1.png',
+    'src/assets/Banner/1.png',
+];
 const Banner = () => {
-    const images = [
-        'src/assets/Banner/1.png',
-        'src/assets/Banner/1.png',
-        'src/assets/Banner/1.png',
-    ];
-
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    const nextSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
-
-    const prevSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-    };
 
     return (
         <div className={styles.carousel}>
-            {/* <button onClick={prevSlide} className={styles.carouselButton}>Previous</button> */}
-            <img src={images[currentIndex]} alt="carousel" className={styles.carouselImage} />
-            {/* <button onClick={nextSlide} className={styles.carouselButton}>Next</button> */}
+            <ButtonCarousel>
+                {images.map((image, index) =>{
+                    console.log(image);
+                    return <img src={image} alt="carousel" className={styles.carouselImage} key={index} />;
+                })}
+            </ButtonCarousel>
+            
         </div>
     );
 };
 
-export default Banner;
+export default Banner; 
