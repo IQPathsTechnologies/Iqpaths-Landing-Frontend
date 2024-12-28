@@ -1,115 +1,114 @@
-.container{
+.container {
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
-    /* margin: 0 auto; */
-    padding:  20px 50px;
-    /* border: 2px solid blue; */
+    align-items: center;
+    gap: 50px;
+    padding: 20px 50px;
 }
 
-.content{
-    padding: 20px 0px 20px 20px;
-    /* border: 2px solid red; */
+.content {
+    padding: 20px 30px;
+    width: 40%;
 }
 
-/* .content img{
-    border: 2px solid yellow;
-    margin-bottom: 20px;
-} */
-
-.content h1{
+.content h1 {
     font-size: 3rem;
     font-weight: 700;
     color: #454555;
     margin-bottom: 20px;
-    margin-top: 10px;
-    /* border: 2px solid yellow; */
-    padding: 0px 10px 0px 8px;
 }
 
-.content p{
+.content p {
     font-size: 1.2rem;
     color: #454555;
     margin-bottom: 20px;
-    /* border: 2px solid yellow; */
-    padding: 0px 80px 0px 8px;
 }
 
-.testimonialcards{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* border: 2px solid green; */
-    background: #DCE8FD ;
+.testimonialcards {
+    width: 80%;
+    background: #DCE8FD;
     border-radius: 24px;
-}
-.card{
-    padding: 20px 20px 0px 20px;
+    overflow: hidden;
+    position: relative;
 }
 
-.cardHeading{
+.card {
+    padding: 20px 40px;
+    transition: transform 0.5s ease-out;
+}
+
+.cardHeading {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 30px;
-    margin: 10px 20px 30px 20px;
-    /* border: 2px solid yellow; */
+    margin: 10px 0 30px;
+    /* border: 2px solid blue; */
 }
 
-.cardHeading h4{
+.cardHeading h4 {
     font-size: 1rem;
     font-weight: 600;
     color: #0047B2;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    /* border: 2px solid yellow; */
-    padding: 0px 180px 0px 0px;
 }
 
-.dots{
+.dots {
     font-size: 2.5rem;
-    text-align: center;
-    padding: 0px 0px 0px 0px;
-    margin-top: -30px;
     color: #767587;
-    /* border: 2px solid yellow; */
 }
 
-.description{
+.description {
+    min-height: 150px; /* Adjust based on expected content */
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+    color: #454555;
+    text-align: justify;
+    /* border: 2px solid blue;            */
+  }
+
+.profileContainerFooter {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* margin: 10px 20px 30px 20px; */
-    padding: 20px 20px;
-    /* border: 2px solid yellow; */
-    font-size: 1.5rem;
+}
+
+.profileContainer {
+    display: flex;
+    align-items: center;
+}
+
+.profileContainer img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.profile img {
+    border-radius: 60px;
+    margin-right: 10px;
+}
+
+.profileInfo h2 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #454555;
+    margin: 10px 0 5px;
+}
+
+.profileInfo p {
+    font-size: 0.8rem;
     color: #454555;
 }
 
-.profileContainerFooter{
+.buttons {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 30px 0px;
-    /* border: 2px solid yellow; */
-}
-
-.profileContainer{
-    display: flex;
-    justify-content: space-between;
-    margin: 30px 20px;
-    align-items: center;
-}
-
-.buttons{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 30px 20px;
     gap: 20px;
 }
 
-.btn{
+.btn {
     color: #454555;
     font-size: 1.5rem;
     font-weight: 600;
@@ -117,4 +116,9 @@
     border: 2px solid #454555;
     border-radius: 30px;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #f8f7f7;
 }

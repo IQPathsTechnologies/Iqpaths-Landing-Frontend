@@ -7,9 +7,27 @@
     width: 300px;
     height: 370px;
     /* border: 2px solid #0047B2; */
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);   
-
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1); 
 }
+
+.card2{
+    animation: appearFromRight ease-out forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 60%;
+}
+
+.card1{
+    animation: appearFromCenter ease-out forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 60%;
+}
+
+.card0{
+    animation: appearFromLeft ease-out forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 60%;
+}
+
 
 .card img{
     width: 35px;
@@ -50,4 +68,45 @@
     background: #1C1C1C;
     color: white;
     cursor: pointer;
+}
+
+
+@keyframes appearFromCenter{
+    from{
+        opacity: 0.25;
+        /* scale: 0.5; */
+        transform: translateY(250px);
+    }
+    to{
+        opacity: 1;
+        /* scale: 1; */
+        transform: translateY(0);
+    }
+}
+
+@keyframes appearFromLeft{
+    from{
+        opacity: 0.25;
+        transform: translate(-200px, 250px);
+    }
+    to{
+        opacity: 1;
+        /* scale: 1; */
+        transform: translate(0px, 0px);
+        /* transform: translateZ(0); */
+    }
+}
+
+@keyframes appearFromRight{
+    from{
+        opacity: 0.25;
+        /* scale: 0.5; */
+        transform: translate(200px, 250px);
+    }
+    to{
+        opacity: 1;
+        /* scale: 1; */
+        transform: translate(0px, 0px);
+        transform: translateY(0);
+    }
 }
