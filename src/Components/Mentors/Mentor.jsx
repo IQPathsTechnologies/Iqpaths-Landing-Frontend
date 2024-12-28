@@ -34,9 +34,9 @@ function Mentor() {
         </div>
       </div>
       <div className="carousel">
-        <InfiniteCarouselLeft
+        {/* <InfiniteCarouselLeft
           images={images}
-        />
+        /> */}
         <br />
         <InfiniteCarouselRight
           images={images}

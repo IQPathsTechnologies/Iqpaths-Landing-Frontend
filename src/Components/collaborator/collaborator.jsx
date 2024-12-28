@@ -14,7 +14,7 @@ function collaborator() {
   return (
     <div className={styles.container}>
         <div className={styles.title}>
-            We Parter with More Than 10+ Companies
+            We Partners with More Than 10+ Companies
         </div>
         <div className={styles.carousel}>
             <InfiniteCarouselLeft
