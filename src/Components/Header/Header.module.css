@@ -1,9 +1,9 @@
 .header {
-  height: 60px;
+  height: 90px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 30px;
+  padding: 0px 0px 0px 30px; 
   background-color: #fff;
   border-bottom: 1px solid #ccc;
 }
@@ -16,7 +16,7 @@
 }
 
 .logoImage {
-  max-height: 60px;
+  max-height: 70px;
 }
 
 .navbar {
@@ -29,14 +29,17 @@
   display: flex;
   list-style: none;
   padding: 0;
+  /* border: 2px solid blue; */
   
 }
 
 .navItem {
   padding: 0 20px;
   cursor: pointer;
+  text-decoration: none;
   font-size: 16px;
-  color: #333;
+  color: #28353D;
+  font-weight: 550;
   transition: color 0.3s;
 }
 
@@ -45,41 +48,56 @@
 }
 
 .active {
+  scale: 1.1;
   font-weight: bold;
   color: #007bff;
-  border-bottom: 2px solid #007bff;
 }
+
+.lightBlue{
+  width: 450px;
+  padding: 0px;
+  height: 100%;
+  margin-right: -25px;
+  background: linear-gradient(to left, #004D66, #003FFF);
+  z-index: 0;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  /* transform: rotate(20deg); */
+  transform: skewX(-30deg);
+  /* border: 2px solid blue; */
+}
+
+.darkBlue{
+  /* border: 2px solid white; */
+  width: 405px;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(to right, #004D66, #003FFF);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  
+}
+
 
 .authButtons {
   display: flex;
-  gap: 10px;
+  gap: 20px;
+  /* border: 2px solid blue; */
+  margin: 20px 60px;
+  transform: skewX(30deg);
 }
 
-.signUp {
-  background-color: #007bff;
-  color: #fff;
+
+.btn{
+  padding: 10px 20px;
   border: none;
-  padding: 5px 15px;
-  border-radius: 5px;
+  border-radius: 28px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-size: 16px;
+  font-weight: 500;
+  color: #28353D;
+  background-color: #FBFBFB ;
+  border: 2px solid #007bff;
 }
-
-.signUp:hover {
-  background-color: #0056b3;
-}
-
-.login {
-  background-color: #fff;
-  color: #007bff;
-  border: 1px solid #007bff;
-  padding: 5px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.login:hover {
-  background-color: #007bff;
-  color: #fff;
-} 

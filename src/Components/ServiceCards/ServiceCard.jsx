@@ -3,7 +3,6 @@ import styles from './ServiceCard.module.css'
 import { Link } from 'react-router-dom';
 function ServiceCard({ data }) {
     const { logo, link, index, title, description } = data;
-    // console.log(logo)
 
     return (
         <div className={`${styles.card} ${styles[`card${index % 3}`]}`}>
