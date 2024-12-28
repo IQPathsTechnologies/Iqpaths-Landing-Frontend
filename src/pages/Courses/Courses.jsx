@@ -3,6 +3,8 @@ import HeroSection from '../../Components/AllCourses/HeroSection'
 import SearchTab from '../../Components/AllCourses/SearchTab';
 import CourseFilter from '../../Components/AllCourses/CourseFilter';
 import CourseCard from '../../Components/AllCourses/CourseCard';
+import AdSection from '../../Components/AllCourses/AdSection';
+import NewsletterSection from '../../Components/AllCourses/NewsletterSection'
 
 const Courses = () => {
     return (
@@ -11,6 +13,8 @@ const Courses = () => {
             <SearchTab />
             <CourseFilter />
             <CourseCard />
+            <AdSection />
+            <NewsletterSection />
         </div>
     );
 };

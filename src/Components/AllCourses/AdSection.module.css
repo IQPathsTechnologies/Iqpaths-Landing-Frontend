@@ -1,0 +1,66 @@
+.adSection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #B2CCFF;
+    padding: 30px 20px;
+    height: 300px;
+    margin-top: 90px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.content {
+    /* max-width: 800px;  */
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+
+.title {
+    font-style: "Lexend", sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #454555;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-style: "Manrope", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #454555;
+    margin-bottom: 20px;
+    line-height: 1.6; /* Improves readability */
+}
+
+.button {
+    background-color: #0047B2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    /* border: 2px solid red; */
+  }
+  
+  .button:hover {
+    background-color: #003a94;
+  }
+  
+  .imageContainer {
+    width: 100%;
+    max-width: 600px; /* Limits the image width */
+    margin-top: 20px;
+  }
+  
+  .image {
+    width: 570px;
+    height: 319px; 
+    margin-bottom: -25px;
+    margin-right: 40px;
+    border-radius: 8px;
+    /* border: 2px solid green; */
+  }
+  
