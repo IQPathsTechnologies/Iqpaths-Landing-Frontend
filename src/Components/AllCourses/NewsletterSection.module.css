@@ -1,0 +1,57 @@
+.newsletterSection {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 80px;
+    background: linear-gradient(90deg, #0047B2, #063A88);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 40px 40px 0 0; /* Rounded corners only at the top */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .textContainer {
+    margin-left: 20px;
+    /* max-width: 70%; */
+  }
+  
+  .title {
+    font-style: "Lexend", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: -15px;
+  }
+  
+  .description {
+    font-style: "Manrope", sans-serif;
+    font-weight: 300;
+    font-size: 19px;
+    color: #FAFAFA;
+  }
+  
+  .subscribeButton {
+    width: 126px;
+    height: 52px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 12px;
+    margin-right: 20px;
+    padding: 10px 20px;
+    padding-left: 15px;
+    font-style: "Lexend", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* border: 2px solid red; */
+  }
+  
+  .subscribeButton:hover {
+    background-color: #0350cb;
+    color: white;
+  }
+  
