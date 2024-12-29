@@ -41,6 +41,7 @@
   
   /* Input field */
   .searchInput {
+    background-color: transparent;
     flex: 1;
     padding: 12px 15px 12px 40px; /* Adjust left padding for the image */
     border: none;
