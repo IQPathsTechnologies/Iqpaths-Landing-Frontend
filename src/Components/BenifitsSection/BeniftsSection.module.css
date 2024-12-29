@@ -1,99 +1,50 @@
 .container {
-    display: flex;
-    justify-content: space-between;
-    padding: 40px 20px;
-    gap: 20px; /* Add a gap for spacing between sections */
-    background-color: #f9f9f9; /* Light background for better contrast */
-    border-radius: 16px; /* Rounded corners for the container */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  }
-  
-  .videoSection {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 20px;
+  /* border: 2px solid blue; */
+}
+
+.videoSection{
     width: 50%;
-    padding: 90px 0;
+    /* border: 2px solid red; */
+    padding: 90px 0px;
+}
+
+
+.containt{
+    /* border: 2px solid green; */
+    padding: 0px 50px;
+}
+
+.heading{
+    padding: 0px 60px;
+    margin-bottom: 60px;
+}
+.queryContainer{
     display: flex;
-    justify-content: center;
-    align-items: center; /* Center video within section */
-  }
-  
-  .videoSection img {
-    max-width: 100%; /* Responsive image */
-    border-radius: 8px; /* Rounded corners for the video */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for video */
-  }
-  
-  .containt {
-    width: 50%; /* Ensure the content takes equal space */
-    padding: 0 50px;
-  }
-  
-  .heading {
-    padding: 0 60px;
-    margin-bottom: 40px; /* Reduced margin for better balance */
-  }
-  
-  .heading h1 {
-    font-size: 3.2rem; /* Slightly smaller for better responsiveness */
+    flex-direction: column;
+    gap: 40px;
+    padding: 0px 80px 0px 60px;
+}
+
+
+.heading h1{
+    font-size: 3.7rem;
     font-weight: 700;
     margin-bottom: 20px;
     color: #454555;
-    line-height: 1.3; /* Improved readability */
-  }
-  
-  .heading span {
+    /* border: 2px solid yellow; */
+}
+
+.heading span{
     color: #0047B2;
-  }
-  
-  .heading p {
+    /* border: 2px solid yellow; */
+}
+
+.heading p{
     color: #767587;
-    font-size: 1.1rem; /* Slightly smaller for consistency */
-    font-weight: 500; /* Adjusted weight for better readability */
-    line-height: 1.6; /* Improved paragraph spacing */
-  }
-  
-  .queryContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 30px; /* Reduced gap for tighter alignment */
-    padding: 0 40px; /* Adjusted padding for better layout */
-  }
-  
-  .queryContainer .card {
-    border-radius: 12px;
-    background: #ffffff; /* White background for cards */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
-    padding: 20px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hover effects */
-  }
-  
-  .queryContainer .card:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
-  }
-  
-  .queryContainer .card .title {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    color: #454555;
-    margin-bottom: 10px;
-  }
-  
-  .queryContainer .card .description {
-    font-size: 1rem;
-    color: #767587;
-    line-height: 1.5; /* Improved readability */
-  }
-  
-  .queryContainer .card .readMore {
-    font-size: 1rem;
-    font-weight: 400;
-    color: #0047B2;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: color 0.3s ease; /* Smooth hover effect */
-  }
-  
-  .queryContainer .card .readMore:hover {
-    color: #002f7a; /* Darker shade on hover */
-  }
-  
+    /* border: 2px solid yellow; */
+}
