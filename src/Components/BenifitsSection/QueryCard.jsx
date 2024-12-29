@@ -1,15 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./QueryCard.module.css";
 
-function QueryCard({ title, shortDescription, longDescription }) {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const toggleContent = () => {
-    setIsExpanded(!isExpanded);
-  };
-
+function QueryCard({ title, shortDescription, longDescription, isExpanded, onClick }) {
   return (
-    <div className={styles.container} onClick={toggleContent}>
+    <div className={styles.container} onClick={onClick}>
       <div className={styles.dropdownIcon}>
         <img src="src/assets/Tick Square.png" alt="icon" />
       </div>
@@ -18,7 +12,9 @@ function QueryCard({ title, shortDescription, longDescription }) {
         <p className={styles.description}>
           {isExpanded ? longDescription : shortDescription}
         </p>
-        <span className={styles.readMore}>{isExpanded? `Read Less..` : `Read More...`}</span>
+        <span className={styles.readMore}>
+          {isExpanded ? "Read Less..." : "Read More..."}
+        </span>
       </div>
     </div>
   );
