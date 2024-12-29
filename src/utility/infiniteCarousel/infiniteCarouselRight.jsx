@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styles from './infiniteCarousel.module.css';
 
-const RightCarousel = ({ images, speed = 20 }) => {
+const RightCarousel = ({ images, speed = 20, onImageClick }) => {
   const [translateX, setTranslateX] = useState(0);
   const containerRef = useRef(null);
   const requestRef = useRef();
@@ -29,7 +29,7 @@ const RightCarousel = ({ images, speed = 20 }) => {
     return () => {
       cancelAnimationFrame(animationFrame);
     };
-  }, [images, speed]);
+  }, [images, speed, totalWidth]);
 
   return (
     <div className={styles.carouselContainer} ref={containerRef}>
@@ -47,6 +47,7 @@ const RightCarousel = ({ images, speed = 20 }) => {
             src={src}
             alt={`Carousel item ${index + 1}`}
             className={styles.carouselItem}
+            onClick={() => onImageClick(src)} // Pass the clicked image to onImageClick
           />
         ))}
       </div>
