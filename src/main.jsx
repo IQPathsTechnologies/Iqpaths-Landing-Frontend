@@ -8,6 +8,7 @@ import Home from './pages/Home/Home';
 import Courses from './pages/Courses/Courses';
 import Course from './pages/Course/Course';
 import Error from './pages/Error/error';
+import ContactUs from './pages/ContactUs/ContactUs'
 import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: '*',
         element: <Error />
+      },
+      {
+        path: '/contact',
+        element: <ContactUs />
       },
       // {
       //   path: '/login',
