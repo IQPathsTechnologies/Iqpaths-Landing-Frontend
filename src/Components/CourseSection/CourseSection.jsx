@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import SignUpPopup from './SignUpPopup';
-import SignUpPopup from "./SignUpPopUp";
+import SignUpPopup from "./SignUpPopup";
 import styles from "./CourseSection.module.css";
 
 const CourseSection = ({
