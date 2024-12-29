@@ -52,10 +52,37 @@
     color: #0047B2;
 }
 
-.dots {
-    font-size: 2.5rem;
-    color: #767587;
+.dotContainer {
+    /* font-size: 2.5rem;
+    color: #767587; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
+
+.dots{
+    transition: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #767587;
+    padding: 2px;
+}
+
+.dotActive {
+    background-color: #0047B2;
+    opacity: 1;
+}
+
+.dotnotActive {
+    background-color: #767587;
+    padding: 1px;
+    opacity: 0.5;
+}
+
 
 .description {
     min-height: 150px; /* Adjust based on expected content */

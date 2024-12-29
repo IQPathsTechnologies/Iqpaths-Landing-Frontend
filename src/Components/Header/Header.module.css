@@ -43,6 +43,11 @@
   transition: color 0.3s;
 }
 
+.link{
+  text-decoration: none;
+  color: #28353D;
+}
+
 .navItem:hover {
   color: #007bff;
 }

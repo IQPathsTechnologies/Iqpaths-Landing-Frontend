@@ -1,9 +1,12 @@
 // Header.jsx
 import React, { useState } from 'react';
 import styles from './Header.module.css';
+import { Link } from 'react-router-dom';
+
 
 const Header = () => {
   const [activeTab, setActiveTab] = useState('Home');
+  
 
   return (
     <header className={styles.header}>
@@ -24,6 +27,7 @@ const Header = () => {
             "My Learnings",
             "Contact Us",
           ].map((tab) => (
+            <Link to={`/${tab}`} key={tab} className={styles.link}>
             <li
               key={tab}
               className={`${styles.navItem} ${
@@ -33,14 +37,19 @@ const Header = () => {
             >
               {tab}
             </li>
+            </Link>
           ))}
         </ul>
       </nav>
       <div className={styles.lightBlue}>
         <div className={styles.darkBlue}>
           <div className={styles.authButtons}>
-            <div className={styles.btn}>Sign Up</div>
-            <div className={styles.btn}>Login</div>
+            <Link to="/signup" className={styles.link}>
+                <div className={styles.btn}>Sign Up</div>
+            </Link>
+            <Link to="/login" className={styles.link}>
+              <div className={styles.btn}>Login</div>
+            </Link>
           </div>
         </div>
       </div>

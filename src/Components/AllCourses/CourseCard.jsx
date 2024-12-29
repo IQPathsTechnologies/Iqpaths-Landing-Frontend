@@ -1,93 +1,99 @@
 import React from 'react';
 import styles from "./CourseCard.module.css";
-
 import pythonImg from "../../assets/subject.png";
 import machineLearningImg from "../../assets/subject.png";
 import backendImg from "../../assets/subject.png";
 import frontendImg from "../../assets/subject.png";
 import uiuxImg from "../../assets/subject.png";
 import ratingImg from "../../assets/rating.png"
+import { Link } from 'react-router-dom';
+const courses = [
+    {
+        courseId: 1,
+        image: pythonImg,
+        badge: "Start Learning",
+        img: ratingImg,
+        rating: "4.0 (2 rating)",
+        title: "DS using Python",
+        details: [
+            "Learn ML course with internship in IQPath Technologies",
+            "Limited seats available!!",
+            { original: "Rs. 9999", discounted: "Rs. 4999" },
+        ],
+    },
+    {
+        courseId: 2,
+        image: machineLearningImg,
+        badge: "Start Learning",
+        img: ratingImg,
+        rating: "4.0 (2 rating)",
+        title: "Machine Learning",
+        details: [
+            "Learn ML course with internship in IQPath Technologies",
+            "Limited seats available!!",
+            { original: "Rs. 9999", discounted: "Rs. 4999" },
+        ],
+    },
+    {
+        courseId: 3,
+        image: machineLearningImg,
+        badge: "Start Learning",
+        img: ratingImg,
+        rating: "4.0 (2 rating)",
+        title: "Machine Learning",
+        details: [
+            "Learn ML course with internship in IQPath Technologies",
+            "Limited seats available!!",
+            { original: "Rs. 9999", discounted: "Rs. 4999" },
+        ],
+    },
+    {
+        courseId: 4,
+        image: backendImg,
+        badge: "Start Learning",
+        img: ratingImg,
+        rating: "4.0 (2 rating)",
+        title: "Back End Developer",
+        details: [
+            "Learn ML course with internship in IQPath Technologies",
+            "Limited seats available!!",
+            { original: "Rs. 9999", discounted: "Rs. 4999" },
+        ],
+    },
+    {
+        courseId: 5,
+        image: frontendImg,
+        badge: "Start Learning",
+        img: ratingImg,
+        rating: "4.0 (2 rating)",
+        title: "Front End Developer",
+        details: [
+            "Learn ML course with internship in IQPath Technologies",
+            "Limited seats available!!",
+            { original: "Rs. 9999", discounted: "Rs. 4999" },
+        ],
+    },
+    {
+        courseId: 6,
+        image: uiuxImg,
+        badge: "Start Learning",
+        img: ratingImg,
+        rating: "4.0 (2 rating)",
+        title: "UI/UX Design",
+        details: [
+            "Learn ML course with internship in IQPath Technologies",
+            "Limited seats available!!",
+            { original: "Rs. 9999", discounted: "Rs. 4999" },
+        ],  
+    },
+];
 
 const CourseCard = () => {
-    const courses = [
-        {
-            image: pythonImg,
-            badge: "Start Learning",
-            img: ratingImg,
-            rating: "4.0 (2 rating)",
-            title: "DS using Python",
-            details: [
-                "Learn ML course with internship in IQPath Technologies",
-                "Limited seats available!!",
-                { original: "Rs. 9999", discounted: "Rs. 4999" },
-            ],
-        },
-        {
-            image: machineLearningImg,
-            badge: "Start Learning",
-            img: ratingImg,
-            rating: "4.0 (2 rating)",
-            title: "Machine Learning",
-            details: [
-                "Learn ML course with internship in IQPath Technologies",
-                "Limited seats available!!",
-                { original: "Rs. 9999", discounted: "Rs. 4999" },
-            ],
-        },
-        {
-            image: machineLearningImg,
-            badge: "Start Learning",
-            img: ratingImg,
-            rating: "4.0 (2 rating)",
-            title: "Machine Learning",
-            details: [
-                "Learn ML course with internship in IQPath Technologies",
-                "Limited seats available!!",
-                { original: "Rs. 9999", discounted: "Rs. 4999" },
-            ],
-        },
-        {
-            image: backendImg,
-            badge: "Start Learning",
-            img: ratingImg,
-            rating: "4.0 (2 rating)",
-            title: "Back End Developer",
-            details: [
-                "Learn ML course with internship in IQPath Technologies",
-                "Limited seats available!!",
-                { original: "Rs. 9999", discounted: "Rs. 4999" },
-            ],
-        },
-        {
-            image: frontendImg,
-            badge: "Start Learning",
-            img: ratingImg,
-            rating: "4.0 (2 rating)",
-            title: "Front End Developer",
-            details: [
-                "Learn ML course with internship in IQPath Technologies",
-                "Limited seats available!!",
-                { original: "Rs. 9999", discounted: "Rs. 4999" },
-            ],
-        },
-        {
-            image: uiuxImg,
-            badge: "Start Learning",
-            img: ratingImg,
-            rating: "4.0 (2 rating)",
-            title: "UI/UX Design",
-            details: [
-                "Learn ML course with internship in IQPath Technologies",
-                "Limited seats available!!",
-                { original: "Rs. 9999", discounted: "Rs. 4999" },
-            ],  
-        },
-    ];
-
     return (
         <>
             <div className={styles.cardsContainer}>
             {courses.map((course, index) => (
+                // <Link to={`/course/${course.courseId}`} className={styles.link}>
                 <div key={index} className={styles.card}>
                     {/* Card Image */}
                     <img
@@ -132,10 +138,12 @@ const CourseCard = () => {
                     </div>
 
                     {/* Action Button */}
-                    <button className={styles.learnNowButton}>
-                        Learn Now
-                    </button>
+                    
+                        <button className={styles.learnNowButton}>
+                            Learn Now
+                        </button>
                 </div>
+                // </Link>
                 ))} 
             </div>
         </>

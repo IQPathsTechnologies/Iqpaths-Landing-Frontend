@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './ButtonCarousel.module.css';
 
-function ButtonCarousel({ children }) {
+function ButtonCarousel({ children, autoslide = false, autoslideTime = 3000 }) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const prevSlide = () => {
@@ -15,6 +15,14 @@ function ButtonCarousel({ children }) {
             prevIndex === React.Children.count(children) - 1 ? 0 : prevIndex + 1
         );
     };
+
+    useEffect(() => {
+        if(!autoslide) return;
+
+        const interval = setInterval(nextSlide , autoslideTime);
+
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <div className={styles.container}>

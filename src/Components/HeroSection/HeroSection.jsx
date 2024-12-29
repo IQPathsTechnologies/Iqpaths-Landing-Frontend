@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styles from './HeroSection.module.css';
 
 function HeroSection() {
@@ -10,9 +11,12 @@ function HeroSection() {
               <p>Embrace life's vastness, venture forth, and discover the wonders waiting beyond. The world beckons; seize its grand offerings now!</p>
             </div>
             <div className={styles.buttonContainer}>
-              <div className={styles.button}>
+              <Link to="/courses" className={styles.button}>
                 Register
-              </div>
+              </Link>
+              {/* <div className={styles.button}>
+                Register
+              </div> */}
             </div>
             <div className={styles.stats}>
               <div className={styles.statsSection}>
