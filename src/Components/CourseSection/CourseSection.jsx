@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SignUpPopup from "./SignUpPopup";
 import styles from "./CourseSection.module.css";
+import CourseDetails from "./CourseDetails";
 
 const CourseSection = ({
   programName = "Data Science",
@@ -97,6 +98,8 @@ const CourseSection = ({
               </ul>
             </div>
           </div>
+
+          <CourseDetails />
         </div>
 
         {/* Right Section */}

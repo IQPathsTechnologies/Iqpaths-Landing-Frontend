@@ -1,10 +1,14 @@
 .container {
-    /* display: flex; */
+    /* display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: flex-start; */
+    height: 220vh;
+    border-top: 1px solid #0047B2;
 }
 
 .leftSection {
+    position: absolute;
+    width: 100%;
     flex: 1;
     /* margin-right: 20px; */
 }
@@ -155,15 +159,26 @@
 }
 
 .rightSectionWrapper {
-    flex: 0 0 300px;
+    /* flex: 0 0 300px; */
+    position: sticky;
+    width: 320px;
+    height: 700px;
+    /* right: 0;  */
+    margin-left: auto;
+    margin-right: 100px;
+    margin-top: 120px;
+    top: 20px; 
+    /* border: 2px solid red; */
+    
 }
 
 .rightSection {
     width: 320px;
     height: 700px;
     position: absolute;
-    right: 30px;
-    top: 200px;
+    /* margin-top: 150px; */
+     /* right: 30px; */
+    /* top: 200px;  */
     display: flex;
     flex-direction: column;
     background-color: white;

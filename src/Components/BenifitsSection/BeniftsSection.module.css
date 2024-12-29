@@ -4,13 +4,13 @@
     align-items: flex-start;
     padding: 40px 20px;
     gap: 20px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 .videoSection {
     width: 700px;
-    padding: 110px 0px;
-    border: 2px solid blue;
+    padding: 140px 0px;
+    /* border: 2px solid blue; */
 }
 
 .video {
@@ -23,7 +23,7 @@
 .containt {
     /* flex: 1; */
     padding: 0px 50px;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
 }
 
 .heading {
