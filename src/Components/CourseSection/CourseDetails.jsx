@@ -4,7 +4,19 @@ import styles from './CourseDetails.module.css';
 const CourseDetails = () => {
     const [activeTab, setActiveTab] = useState("Overview");
     const [openDropdown, setOpenDropdown] = useState(null);
+    const [currentPage, setCurrentPage] = useState(1);  // State to manage current page of reviews
+    const reviewsPerPage = 3;
 
+    const allReviews = [
+        { name: "Guy Hawkins", date: "October 03, 2022", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
+        { name: "Jacob Jones", date: "October 03, 2023", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
+        { name: "Laura Hipster", date: "October 03, 2024", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
+        { name: "Laura Hipster", date: "October 03, 2024", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
+        { name: "Laura Hipster", date: "October 03, 2024", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
+        { name: "Laura Hipster", date: "October 03, 2024", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
+        { name: "Laura Hipster", date: "October 03, 2024", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
+        { name: "Laura Hipster", date: "October 03, 2024", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
+    ];  
 
     const overallRating = [
         { stars: 5, percentage: 90 },
@@ -13,6 +25,13 @@ const CourseDetails = () => {
         { stars: 2, percentage: 2 },
         { stars: 1, percentage: 1 },
     ]
+
+    const indexOfLastReview = currentPage * reviewsPerPage;
+    const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
+    const currentReviews = allReviews.slice(indexOfFirstReview, indexOfLastReview);
+
+    // Change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     const tabContent = {
         Overview: (
@@ -188,11 +207,7 @@ const CourseDetails = () => {
                     </div>
                 </div>
                 <div className={styles.commentSection}>
-                    {[
-                        { name: "Guy Hawkins", date: "October 03, 2022", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
-                        { name: "Jacob Jones", date: "October 03, 2023", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
-                        { name: "Laura Hipster", date: "October 03, 2024", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
-                    ].map((review, index) => (
+                    {currentReviews.map((review, index) => (
                         <div key={index} className={styles.comment}>
                             <div className={styles.commentHeader}>
                                 <img src="/src/assets/user.png" alt="User" className={styles.commentAvatar} />
@@ -211,11 +226,24 @@ const CourseDetails = () => {
                     ))}
                 </div>
                 <div className={styles.pagination}>
-                    <button className={styles.pageButton}>&lt;</button>
-                    <button className={`${styles.pageButton} ${styles.activePage}`}>1</button>
-                    <button className={styles.pageButton}>2</button>
-                    <button className={styles.pageButton}>3</button>
-                    <button className={styles.pageButton}>&gt;</button>
+                    <button 
+                        onClick={() => paginate(currentPage - 1)} 
+                        disabled={currentPage === 1} 
+                        className={styles.paginationButton}
+                    >
+                        &lt; {/* Left Arrow (Backward) */}
+                    </button>
+                    <span className={styles.pageNumber}>{currentPage}</span>
+                    <span className={styles.totalPages}>
+                        / {Math.ceil(allReviews.length / reviewsPerPage)} {/* Total Pages */}
+                    </span>
+                    <button 
+                        onClick={() => paginate(currentPage + 1)} 
+                        disabled={currentPage === Math.ceil(allReviews.length / reviewsPerPage)} 
+                        className={styles.paginationButton}
+                    >
+                        &gt; {/* Right Arrow (Forward) */}
+                    </button>
                 </div>
             </div>
         ),

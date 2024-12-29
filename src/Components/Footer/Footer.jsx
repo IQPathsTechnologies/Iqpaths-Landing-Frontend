@@ -18,27 +18,29 @@ const Footer = () => {
                     <p className= {styles.footerDescription}> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero enim eligendi dolorem, corporis amet iure temporibus ipsam quas, 
                         voluptatum totam repudiandae laudantium, deserunt rem veniam laborum? Soluta officia officiis ut?</p>
 
-                    <div className={styles.socialmediaLogoContainer}>
-                        <img
-                            src="src/assets/facebookLogo.svg" 
-                            alt="Paths Logo"
-                            className={styles.socialmediaLogo}
-                        />
-                        <img
+                    <div className={styles.socialmediaLogoContainer}> 
+                        <a href="*">
+                             <img
                             src="src/assets/twitterLogo.svg" 
                             alt="Paths Logo"
                             className={styles.socialmediaLogo}
-                        />
-                        <img
-                            src="src/assets/linkedinLogo.svg" 
-                            alt="Paths Logo"
-                            className={styles.socialmediaLogo}
-                        />
-                        <img
-                            src="src/assets/instagramLogo.svg" 
-                            alt="Paths Logo"
-                            className={styles.socialmediaLogo}
-                        />
+                            />
+                        </a> 
+                        <a href="https://www.linkedin.com/company/iqpaths/" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src="src/assets/linkedinLogo.svg" 
+                                alt="Paths Logo"
+                                className={styles.socialmediaLogo}
+                            /> 
+                        </a> 
+                        
+                        <a href="https://www.instagram.com/iqpaths/" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src="src/assets/instagramLogo.svg" 
+                                alt="Paths Logo"
+                                className={styles.socialmediaLogo}
+                            />
+                        </a>                        
                     </div>
                 </div>
 
