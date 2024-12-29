@@ -231,7 +231,7 @@ const CourseDetails = () => {
                         disabled={currentPage === 1} 
                         className={styles.paginationButton}
                     >
-                        &#8592; {/* Left Arrow (Backward) */}
+                        &lt; {/* Left Arrow (Backward) */}
                     </button>
                     <span className={styles.pageNumber}>{currentPage}</span>
                     <span className={styles.totalPages}>
@@ -242,7 +242,7 @@ const CourseDetails = () => {
                         disabled={currentPage === Math.ceil(allReviews.length / reviewsPerPage)} 
                         className={styles.paginationButton}
                     >
-                        &#8594; {/* Right Arrow (Forward) */}
+                        &gt; {/* Right Arrow (Forward) */}
                     </button>
                 </div>
             </div>
