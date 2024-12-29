@@ -27,11 +27,11 @@ function Mentor() {
           step of the way.
         </p>
 
-        <div className={styles.buttonContainer}> 
+        {/* <div className={styles.buttonContainer}> 
             <div className={styles.button}>
                 Explore More
             </div>
-        </div>
+        </div> */}
       </div>
       <div className="carousel">
         {/* <InfiniteCarouselLeft
