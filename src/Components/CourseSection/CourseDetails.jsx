@@ -5,6 +5,15 @@ const CourseDetails = () => {
     const [activeTab, setActiveTab] = useState("Overview");
     const [openDropdown, setOpenDropdown] = useState(null);
 
+
+    const overallRating = [
+        { stars: 5, percentage: 90 },
+        { stars: 4, percentage: 5 },
+        { stars: 3, percentage: 2 },
+        { stars: 2, percentage: 2 },
+        { stars: 1, percentage: 1 },
+    ]
+
     const tabContent = {
         Overview: (
             <div className={styles.overview}>
@@ -164,13 +173,7 @@ const CourseDetails = () => {
                         </div>
                     </div>
                     <div className={styles.ratingBreakdown}>
-                        {[
-                            { stars: 5, percentage: 90 },
-                            { stars: 4, percentage: 5 },
-                            { stars: 3, percentage: 2 },
-                            { stars: 2, percentage: 2 },
-                            { stars: 1, percentage: 1 },
-                        ].map((rating, index) => (
+                        {overallRating.map((rating, index) => (
                             <div key={index} className={styles.ratingBarRow}>
                                 <span>{rating.stars} ★</span>
                                 <div className={styles.ratingBar}>
