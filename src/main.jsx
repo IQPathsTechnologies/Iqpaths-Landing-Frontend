@@ -7,6 +7,8 @@ import { createRoot } from 'react-dom/client';
 import Home from './pages/Home/Home';
 import Courses from './pages/Courses/Courses';
 import Course from './pages/Course/Course';
+import Error from './pages/Error/error';
+import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
 const router = createBrowserRouter([
@@ -19,13 +21,33 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: '/Home',
+        element: <Home />,
+      },
+      {
         path: '/courses',
         element: <Courses />,
+      },
+      {
+        path: '/course/:courseId',
+        element: <Course />,
       },
       {
         path: '/course',
         element: <Course />,
       },
+      {
+        path: '*',
+        element: <Error />
+      },
+      // {
+      //   path: '/login',
+      //   element: <SignUpPopup />
+      // },
+      // {
+      //   path: '/singup',
+      //   element: <SignUpPopup />
+      // }
     ],
   },
 ]);

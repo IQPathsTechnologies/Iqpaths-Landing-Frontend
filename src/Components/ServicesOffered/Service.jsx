@@ -8,7 +8,7 @@ const content = [
         logo: "/src/assets/servicesImages/desktop_windows.png",
         title: "Courses",
         description: "We offer a variety of courses to enhance your skills. Our courses are designed by industry experts and cover a wide range of topics to help you stay ahead in your career. Whether you are a beginner or an experienced professional, we have something for everyone.",
-        link: "/courses"
+        link: "/Courses"
     },
     {
         index: 1,

@@ -11,7 +11,7 @@ const Banner = () => {
 
     return (
         <div className={styles.carousel}>
-            <ButtonCarousel>
+            <ButtonCarousel autoslide={true}>
                 {images.map((image, index) =>{
                     console.log(image);
                     return <img src={image} alt="carousel" className={styles.carouselImage} key={index} />;

@@ -23,6 +23,20 @@ const testimonials = [
     role: "UI/UX Designer at Microsoft",
     image: "src/assets/user1.png",
   },
+  {
+    quote:
+      "WOC gave me the tools and confidence to excel in my career. The instructors were inspiring and supportive.",
+    name: "John Doe",
+    role: "Software Engineer at Google",
+    image: "src/assets/user1.png",
+  },
+  {
+    quote:
+      "An amazing learning experience! The courses are very practical and insightful. Highly recommend WOC to everyone.",
+    name: "Jane Smith",
+    role: "UI/UX Designer at Microsoft",
+    image: "src/assets/user1.png",
+  },
 ];
 
 function Testimonial() {
@@ -53,7 +67,14 @@ function Testimonial() {
         <div className={styles.card}>
           <div className={styles.cardHeading}>
             <h4>What they say</h4>
-            <div className={styles.dots}>. . . . .</div>
+            <div className={styles.dotContainer}>
+              {testimonials.map((_, index) => (
+                <div
+                  key={index}
+                  className={`${styles.dots} ${index === currentIndex ? styles.dotactive : styles.dotnotActive}`}
+                ></div>
+              ))}
+            </div>
           </div>
           <div className={styles.description}>{quote}</div>
           <div className={styles.profileContainerFooter}>
