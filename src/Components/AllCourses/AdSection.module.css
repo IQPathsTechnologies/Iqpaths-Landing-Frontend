@@ -8,32 +8,35 @@
     margin-top: 90px;
     border-radius: 2px;
     text-align: center;
-}
-
-.content {
+  }
+  
+  .content {
     /* max-width: 800px;  */
     margin-bottom: 20px;
     margin-left: 40px;
-}
-
-.title {
+  }
+  
+  .title {
+    width: 125%;
     font-style: "Lexend", sans-serif;
     font-size: 40px;
     font-weight: 700;
     color: #454555;
     margin-bottom: 10px;
-}
-
-.description {
+  }
+  
+  .description {
+    width: 125%;
     font-style: "Manrope", sans-serif;
     font-weight: 500;
     font-size: 20px;
     color: #454555;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     line-height: 1.6; /* Improves readability */
-}
-
-.button {
+  }
+  
+  .button {
+    margin-top: 10px;
     background-color: #0047B2;
     color: #fff;
     border: none;
@@ -47,6 +50,7 @@
   
   .button:hover {
     background-color: #003a94;
+    /* border: 2px solid red; */
   }
   
   .imageContainer {
