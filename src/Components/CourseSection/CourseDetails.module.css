@@ -526,3 +526,56 @@
 .pageButton:active {
     background-color: #e0e0e0;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px; /* Space between items */
+}
+
+.paginationButton {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.paginationButton:disabled {
+    background-color: #f5f5f5;
+    color: #aaa;
+    cursor: not-allowed;
+    border-color: #e0e0e0;
+}
+
+.paginationButton:hover:not(:disabled) {
+    background-color: #e0e0e0;
+    border-color: #b3b3b3;
+}
+
+.pageNumber {
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.totalPages {
+    display: none; /* Hide the total pages if not in the design */
+}
