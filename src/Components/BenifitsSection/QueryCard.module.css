@@ -6,6 +6,8 @@
     padding: 20px;
     transition: box-shadow 0.3s ease-in-out;
     cursor: pointer;
+    /* border: 2px solid blue; */
+    transition: transition 0.3s ease-in-out;
 }
 
 .container:hover {

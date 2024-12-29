@@ -18,6 +18,7 @@ function QueryCard({ title, shortDescription, longDescription }) {
         <p className={styles.description}>
           {isExpanded ? longDescription : shortDescription}
         </p>
+        <span className={styles.readMore}>{isExpanded? `Read Less..` : `Read More...`}</span>
       </div>
     </div>
   );
