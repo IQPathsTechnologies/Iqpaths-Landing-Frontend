@@ -8,8 +8,9 @@ import Home from './pages/Home/Home';
 import Courses from './pages/Courses/Courses';
 import Course from './pages/Course/Course';
 import Error from './pages/Error/error';
-import ContactUs from './pages/ContactUs/ContactUs'
-import SignUpPopup from './Components/CourseSection/SignUpPopUp';
+import ContactUs from './pages/ContactUs/ContactUs';
+import MyLearning from './pages/MyLearning/MyLearning';
+// import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <ContactUs />
+      },
+      {
+        path: '/myLearning',
+        element: <MyLearning />
       },
       // {
       //   path: '/login',
