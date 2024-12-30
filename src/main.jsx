@@ -12,6 +12,7 @@ import ContactUs from './pages/ContactUs/ContactUs';
 import MyLearning from './pages/MyLearning/MyLearning';
 import ViewLectures from './pages/ViewLectures/ViewLectures';
 import LoginSignup from './Components/loginSignup/loginSignup';
+import { UserProvider } from './context/userContext';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <LoginSignup />
+      },
+      {
+        path: '/signup',
+        element: <LoginSignup />
       }
       // {
       //   path: '/login',
@@ -75,6 +80,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <>
+  <UserProvider>
     <RouterProvider router = {router} />
+  </UserProvider>
   </>
 );
