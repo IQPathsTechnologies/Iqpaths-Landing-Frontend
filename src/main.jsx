@@ -12,6 +12,7 @@ import ContactUs from './pages/ContactUs/ContactUs';
 import MyLearning from './pages/MyLearning/MyLearning';
 import ViewLectures from './pages/ViewLectures/ViewLectures';
 import LoginSignup from './Components/loginSignup/loginSignup';
+import CartPage from './pages/CartPage/CartPage';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <LoginSignup />
+      },
+      {
+        path: '/cart',
+        element: <CartPage />
       }
       // {
       //   path: '/login',

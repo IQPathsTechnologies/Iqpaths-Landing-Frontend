@@ -1,0 +1,145 @@
+.container {
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    background-color: #F4F4F4;
+}
+
+.breadcrumb {
+    margin-left: 15px;
+    font-style: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #666;
+}
+
+.breadcrumb span {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+.cartTable {
+    width: 97%;
+    margin: 2rem 0;
+    margin-left: 12px;
+    /* background-color: white; */
+}
+
+.cartTable th,
+.cartTable td {
+    border: 1px solid #ccc;
+    background-color: white;
+    padding: 1rem;
+    text-align: left;
+}
+
+.cartTable th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+.cartTable select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+
+.buttons {
+    width: 97%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+    margin-left: 13px;
+}
+
+.returnButton,
+.updateButton {
+    width: 200px;
+    height: 50px;
+    background: none;
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-style: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.returnButton {
+    width: 300px;
+}
+
+.bottomSection {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.coupon {
+    margin-left: 14px;
+    /* width: 20px; */
+    height: 40px;
+    margin-top: 30px;
+    display: flex;
+    gap: 1rem;
+}
+
+.couponInput {
+    padding: 0.5rem;
+    border: 1.5px solid rgb(169, 168, 168);
+    border-radius: 2px;
+    width: 250px;
+}
+
+.applyCoupon {
+    width: 160px;
+    background: #0047B2;
+    /* border: 1.5px solid rgb(169, 168, 168); */
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.cartTotal {
+    margin-right: 22px;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 4px;
+    width: 280px;
+    height: 200px;
+}
+
+.cartTotal h3 {
+    margin-top: 5px;
+    margin-left: 0px;
+    margin-bottom: 1rem;
+    font-style: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.totalRow {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+    margin-bottom: 14px;
+    /* margin-top: 5px; */
+    /* border: 2px solid red; */
+}
+
+.checkoutButton {
+    background: #0047B2;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    width: 80%;
+    height: 40px;
+    margin-left: 30px;
+    /* margin-top: 1rem; */
+  }
+  
