@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import SignUpPopup from "./SignUpPopup";
 import styles from "./CourseSection.module.css";
 import CourseDetails from "./CourseDetails";
 import { getRazorPay, loadRazorPay } from "../../utility/Razorpay/Razorpay";
 import { verifyPayment, createOrder } from "../../utility/Razorpay/RazorpayApi";
 import { useParams } from "react-router-dom";
+import { UserContext } from '../../context/userContext';
 
 const CourseSection = ({
   programName = "Data Science",
@@ -23,8 +24,8 @@ const CourseSection = ({
   download = "Downloadable Resources",
   access = "Access on mobile and TV",
   //temp data
-  courseId = "676ebe1440e9f00ef41cbac2",
-  amount = 2000,
+  courseId = "6772c5a7b22b4a5a4665a64b",
+  amount = 1999,
 }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isRazorPayPopupVisible, setIsRazorPayPopupVisible] = useState(false);
@@ -33,18 +34,22 @@ const CourseSection = ({
 
   const { title, id } = useParams();
   console.log(title, id);
+  
+  const { user } = useContext(UserContext);
 
 
   const handlePurchase = useCallback(async () => {
-      const {token, orderId, amount, currency, key, name, description} = await createOrder(courseId);
+      const {token, orderId, amount, currency, key, keys, name, description} = await createOrder(courseId);
+      console.log(token, orderId, amount, currency, key, keys, name, description);
       setOrderToken(token);
-      setRazorpayOptions({ orderId: "order_PdLp5tRKBHcb2N", amount: 2000, currency : "INR", key, name, description });
+      setRazorpayOptions({ orderId: "order_PdLp5tRKBHcb2N", amount: 2000, currency : "INR", keys, name, description });
       handlePayNow();
       
     }, [courseId]);
 
 
-  const handlePayNow = useCallback (() =>{
+  const handlePayNow = useCallback (async() =>{
+      await loadRazorPay();
       setIsRazorPayPopupVisible(true);
       const rzp = getRazorPay({
         ...razorpayOptions,
