@@ -46,7 +46,7 @@ const Header = () => {
           {[
             "Home",
             "About Us",
-            "Services",
+            // "Services",
             "Courses",
             "My Learnings",
             "Contact Us",
