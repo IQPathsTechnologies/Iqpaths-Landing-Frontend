@@ -11,6 +11,7 @@ import Error from './pages/Error/error';
 import ContactUs from './pages/ContactUs/ContactUs';
 import MyLearning from './pages/MyLearning/MyLearning';
 import ViewLectures from './pages/ViewLectures/ViewLectures';
+import LoginSignup from './Components/loginSignup/loginSignup';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: '/viewLectures',
         element: <ViewLectures />
+      },
+      {
+        path: '/login',
+        element: <LoginSignup />
       }
       // {
       //   path: '/login',

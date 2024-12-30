@@ -1,0 +1,92 @@
+.container {
+    display: flex;
+}
+
+.img{
+    flex: 1;
+    width: 20px;
+    padding: 50px;
+}
+.formContainer{
+    flex: 1;
+    padding: 150px;
+    max-width: 500px;
+
+}
+
+
+.toggleButtons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.toggleButton {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.activeButton {
+    background-color: #3b82f6;
+    color: white;
+    font-weight: bold;
+}
+
+.formField {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.formField label {
+    font-size: 1rem;
+    color: #333;
+}
+
+.formField input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.formOptions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.formButton {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3b82f6;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.formButton:hover {
+    background-color: #2563eb;
+}
+
+.formOptions a {
+    font-size: 0.9rem;
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.formOptions a:hover {
+    text-decoration: underline;
+}
