@@ -1,8 +1,10 @@
 // Header.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from './Header.module.css';
 import SignUpPopup from "../CourseSection/SignUpPopup";
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../context/userContext';
+import { AuthService } from '../../axios/User';
 
  
 const Header = () => {
@@ -11,25 +13,39 @@ const Header = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const [popupType, setPopupType] = useState("");
+
+  const { user, isLoggedIn, setIsLoggedIn, setUser } = useContext(UserContext);
+
+  const apiClass = new AuthService();
+   
+  const handleLogout = async () => {
+    try {
+      await apiClass.logout(); // Assuming there's a logout method in AuthService
+      localStorage.removeItem('user');
+      setUser(null);
+      setIsLoggedIn(false);
+    } catch (error) {
+      console.error("Logout failed", error);
+    }
+  }
+    // const handleOpenPopup = (type) => {
+    //   setPopupType(type);
+    //   setIsPopupVisible(true); // Show the pop-up
+    //   document.body.style.overflow = "hidden"; // Disable scrolling
+    // };
   
-    const handleOpenPopup = (type) => {
-      setPopupType(type);
-      setIsPopupVisible(true); // Show the pop-up
-      document.body.style.overflow = "hidden"; // Disable scrolling
-    };
+    // const handleClosePopup = () => {
+    //   setIsPopupVisible(false); // Hide the pop-up
+    //   setPopupType("");
+    //   document.body.style.overflow = "auto"; // Enable scrolling
+    // };
   
-    const handleClosePopup = () => {
-      setIsPopupVisible(false); // Hide the pop-up
-      setPopupType("");
-      document.body.style.overflow = "auto"; // Enable scrolling
-    };
-  
-    useEffect(() => {
-      // Cleanup in case the component unmounts
-      return () => {
-        document.body.style.overflow = "auto";
-      };
-    }, []);
+    // useEffect(() => {
+    //   // Cleanup in case the component unmounts
+    //   return () => {
+    //     document.body.style.overflow = "auto";
+    //   };
+    // }, []);
   
 
   return (
@@ -67,14 +83,23 @@ const Header = () => {
       </nav>
       <div className={styles.lightBlue}>
         <div className={styles.darkBlue}>
+        {isLoggedIn ? (
           <div className={styles.authButtons}>
-            {/* <Link to="/signup" className={styles.link}> */}
-                <div className={styles.btn} onClick={() => handleOpenPopup("Sign Up")}>Sign Up</div>
-            {/* </Link> */}
-            {/* <Link to="/login" className={styles.link}> */}
-              <div className={styles.btn} onClick={() => handleOpenPopup("Login")}>Login</div>
-            {/* </Link> */}
+            <Link to="/profile" className={styles.link}>
+              <div className={styles.btn}>Profile</div>
+            </Link>
+            <div className={styles.btn} onClick={handleLogout}>Logout</div>
           </div>
+        ) : (
+          <div className={styles.authButtons}>
+            <Link to={{ pathname: '/signup', state: { type: 'signup' } }} className={styles.link}>
+                <div className={styles.btn}>Sign Up</div>
+            </Link>
+            <Link to={{ pathname: '/login', state: { type: 'login' } }} className={styles.link}>
+              <div className={styles.btn}>Login</div>
+            </Link>
+          </div>
+        )}
         </div>
       </div>
 

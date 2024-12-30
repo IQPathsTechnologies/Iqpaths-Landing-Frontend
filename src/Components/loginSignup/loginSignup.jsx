@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import styles from './loginSignup.module.css';
 import axios from 'axios';
+import { UserContext } from '../../context/userContext';
+import { useLocation } from 'react-router-dom';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -9,6 +11,15 @@ const LoginSignup = () => {
     const [loginData, setLoginData] = useState({ email: '', password: '' });
     const [signupData, setSignupData] = useState({ email: '', name: '', mobileNo: '', password: '' });
     const navigate = useNavigate();
+    const location = useLocation();
+    const type = location.state?.type || (location.pathname.includes('signup') ? 'signup' : 'login');
+
+
+    useEffect(() => {
+        setActiveForm(type);
+    }, [type]);
+
+    const { setUser, setIsLoggedIn } = useContext(UserContext);
 
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
@@ -20,6 +31,10 @@ const LoginSignup = () => {
             const response = await axios.post('/api/user/login', loginData);
             if (response.status === 200) {
                 console.log('Login successful!');
+                setUser(response.data.data);
+                setIsLoggedIn(true);
+                localStorage.setItem('user', JSON.stringify(response.data.data));
+
                 // If login is successful, redirect to home page
                 navigate('/home');
             } else {
@@ -40,6 +55,10 @@ const LoginSignup = () => {
             const response = await axios.post('/api/user/register', signupData);
             if (response.status == 201) {
                 console.log('Signup successful! Check your email for verification.');
+                setUser(response.data.data);
+                setIsLoggedIn(true);
+                localStorage.setItem('user', JSON.stringify(response.data.data));
+
                 navigate('/home');
             } else {
                 console.log('Signup failed. Please try again.');
