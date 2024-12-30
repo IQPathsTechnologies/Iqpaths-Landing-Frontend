@@ -17,7 +17,7 @@ const AdSection = () => {
       <div className={styles.content}>
         <h1 className={styles.title}>{data.title}</h1>
         <p className={styles.description}>{data.description}</p>
-        <button className={styles.button}>{data.buttonText}</button>
+        {/* <button className={styles.button}>{data.buttonText}</button> */}
       </div>
       <div className={styles.imageContainer}>
         <img

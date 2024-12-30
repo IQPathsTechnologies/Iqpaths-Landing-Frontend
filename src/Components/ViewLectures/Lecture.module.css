@@ -1,0 +1,20 @@
+/* Parent container styling */
+.appContainer {
+    display: flex;
+    flex-direction: column;
+    height: 115vh;
+    overflow: hidden;
+  }
+  
+  .mainContainer {
+    display: flex;
+    justify-content: space-between;
+    /* flex: 1; */
+  }
+  
+  .middleContainer {
+    flex: 1; /* Allow the middle section to take available space */
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+  }

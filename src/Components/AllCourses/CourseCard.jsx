@@ -8,7 +8,8 @@ import uiuxImg from "../../assets/subject.png";
 import ratingImg from "../../assets/rating.png";
 import { Link } from "react-router-dom";
 
-const CourseCard = ({ activeCategory }) => {
+// Props: courses and selectedFilters
+const CourseCard = ({ activeCategory, selectedFilters }) => {
   const courses = [
     {
       courseId: 1,
@@ -96,11 +97,24 @@ const CourseCard = ({ activeCategory }) => {
     },
   ];
 
-  // Filter courses based on the active category
+  // Function to apply filters
+  const applyFilters = (course) => {
+    for (const [filterCategory, filterValues] of Object.entries(selectedFilters)) {
+      if (filterValues.length > 0) {
+        if (!filterValues.some((filter) => course[filterCategory]?.includes(filter))) {
+          return false; // If any filter doesn't match, exclude the course
+        }
+      }
+    }
+    return true; // If all filters match, include the course
+  };
+
+  // Filter courses based on the active category and selectedFilters
   const filteredCourses =
     activeCategory === "ALL PROGRAM"
-      ? courses
-      : courses.filter((course) => course.category === activeCategory);
+      ? courses.filter(applyFilters)
+      : courses.filter((course) => course.category === activeCategory && applyFilters(course));
+
 
   return (
     <div className={styles.cardsContainer}>
@@ -110,11 +124,7 @@ const CourseCard = ({ activeCategory }) => {
           <Link to={`/course/${course.title}/${course.courseId}`} key={index} className={styles.link}>
           <div key={index} className={styles.card}>
             {/* Card Image */}
-            <img
-              src={course.image}
-              alt={course.title}
-              className={styles.cardImage}
-            />
+            <img src={course.image} alt={course.title} className={styles.cardImage} />
 
             {/* Card Content */}
             <div className={styles.cardContent}>
@@ -125,11 +135,7 @@ const CourseCard = ({ activeCategory }) => {
                   <span className={styles.badge}>{course.badge}</span>
                 </div>
                 <div className={styles.ranking}>
-                  <img
-                    src={course.img}
-                    alt="rating"
-                    className={styles.stars}
-                  />
+                  <img src={course.img} alt="rating" className={styles.stars} />
                   <p className={styles.rating}>{course.rating}</p>
                 </div>
               </div>
@@ -142,20 +148,12 @@ const CourseCard = ({ activeCategory }) => {
                 <ul className={styles.pointsList}>
                   {course.details.map((detail, i) => (
                     <li key={i} className={styles.point}>
-                      {i === 0 && (
-                        <span className={styles.primaryDetail}>{detail}</span>
-                      )}
-                      {i === 1 && (
-                        <span className={styles.secondaryDetail}>{detail}</span>
-                      )}
+                      {i === 0 && <span className={styles.primaryDetail}>{detail}</span>}
+                      {i === 1 && <span className={styles.secondaryDetail}>{detail}</span>}
                       {i === 2 && (
                         <span className={styles.priceDetail}>
-                          <span className={styles.originalPrice}>
-                            {detail.original}
-                          </span>{" "}
-                          <span className={styles.discountedPrice}>
-                            {detail.discounted}
-                          </span>
+                          <span className={styles.originalPrice}>{detail.original}</span>{" "}
+                          <span className={styles.discountedPrice}>{detail.discounted}</span>
                         </span>
                       )}
                     </li>

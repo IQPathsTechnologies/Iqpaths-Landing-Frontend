@@ -1,121 +1,199 @@
 /* Main container for the section */
 .coursesSection {
-    width: 91%;
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-top: 4%;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  /* Header styling */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-  }
-  
-  /* Title styling */
-  .title {
-    font-style: "Lexend", sans-serif;
-    font-weight: 700;
-    font-size: 55px;
-    color: #0047B2;
-    margin: 0;
-  }
-  
-  /* Filter button styling */
-  .filterButton {
-    width: 140px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    border: 1.5px solid #003FFF;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .filterButton p {
-    font-style: "Lexend", sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    color: #0047B2;
-  }
-  
-  .filterButton:hover {
-    background-color: #559bfd;
-    /* color: #ffffff; */
-  }
-  
-  .filterButton p:hover {
-    color: white;
-  }
-  
-  /* Category tabs container */
-  .categoryTabs {
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 10px 20px;
-    overflow-x: auto; 
-    scrollbar-width: none; 
-    /* border: 2px solid red; */
-  }
-  
-  .categoryTabs::-webkit-scrollbar {
-    display: none; /* Hides scrollbar for Webkit browsers */
-  }
-  
-  /* Individual tabs */
-  .tab {
-    /* font-size: 18px; */
-    font-weight: bold;
-    color: #252B42;
-    background: transparent;
-    border: none;
-    border-radius: 10px;
-    padding: 12px 11px;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    gap: 10px;
-    font-style: "Lexend", sans-serif;
-    font-weight: 550;
-    font-size: 13px;
-    /* border: 2px solid red; */
-    /* border: 2px solid red; */
-  }
-  
-  .tab:hover {
-    color: #0056d2;
-  }
-  
-  .activeTab {
-    background-color: #0047B2;
-    color: #ffffff;
-  }
-
-  .activeTab:hover {
-    color: white;
-  }
-
-  .filteredContent {
-    margin-top: 20px;
-    font-size: 16px;
-    color: #333;
+  width: 91%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 4%;
+  padding: 20px;
+  text-align: center;
 }
 
-.activeCategoryLabel {
-    font-weight: bold;
-    color: #0056d2;
+/* Header styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
 }
-  
+
+/* Title styling */
+.title {
+  font-style: "Lexend", sans-serif;
+  font-weight: 700;
+  font-size: 55px;
+  color: #0047B2;
+  margin: 0;
+}
+
+/* Filter button styling */
+.filterButton {
+  width: 140px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0047B2;
+  border: 1.5px solid #003FFF;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filterButton p {
+  font-style: "Lexend", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: white;
+}
+
+.filterButton:hover {
+  background-color: #023c94;
+}
+
+.filterButton p:hover {
+  color: white;
+}
+
+/* Category tabs container */
+.categoryTabs {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 10px 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.categoryTabs::-webkit-scrollbar {
+  display: none; /* Hides scrollbar for Webkit browsers */
+}
+
+/* Individual tabs */
+.tab {
+  font-weight: bold;
+  color: #252B42;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 11px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  gap: 10px;
+  font-style: "Lexend", sans-serif;
+  font-weight: 550;
+  font-size: 13px;
+}
+
+.tab:hover {
+  color: #0056d2;
+}
+
+.activeTab {
+  background-color: #0047B2;
+  color: #ffffff;
+}
+
+.activeTab:hover {
+  color: white;
+}
+
+/* Filter Dropdown */
+.filterDropdown {
+  position: absolute;
+  /* top: 80px; */
+  right: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 320px;
+  margin-top: -100px;
+  margin-right: 39px;
+  z-index: 10;
+  text-align: left;
+}
+
+/* Filter Category Section */
+.category {
+  margin-bottom: 20px;
+}
+
+.categoryTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-style: "Lexend", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #0047B2;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.arrow {
+  font-size: 18px;
+  color: #0047B2;
+  transition: transform 0.3s ease;
+}
+
+.arrow::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+/* Rotate arrow when open */
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Subcategories */
+.subcategories {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: none; /* Hidden by default */
+}
+
+.subcategories.open {
+  display: block; /* Show subcategories when toggled */
+}
+
+.subcategory {
+  margin-bottom: 8px;
+}
+
+.checkbox {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* Apply Filters Button */
+.applyFiltersButton {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #0047B2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-style: "Lexend", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.applyFiltersButton:hover {
+  background-color: #013e9a;
+  /* border: 2px solid red; */
+}
