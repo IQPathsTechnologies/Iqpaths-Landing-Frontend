@@ -43,7 +43,7 @@ function Testimonial() {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <img src="src/assets/invertedComma.svg" alt="" />
+        <img src="/invertedComma.svg" alt="" />
         <h1>What our students have to say</h1>
         <p>
           Our students are our biggest fans. Here's what they have to say about
@@ -72,7 +72,7 @@ function Testimonial() {
             <div className={styles.profileContainer}>
               <div className={styles.profile}>
                 <img
-                  src={profilePhoto || "src/assets/defaultProfile.png"} // Fallback for missing image
+                  src={profilePhoto || "/defaultProfile.png"} // Fallback for missing image
                   alt={name || "Anonymous"}
                 />
               </div>

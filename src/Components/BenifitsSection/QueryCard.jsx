@@ -5,7 +5,7 @@ function QueryCard({ title, shortDescription, longDescription, isExpanded, onCli
   return (
     <div className={styles.container} onClick={onClick}>
       <div className={styles.dropdownIcon}>
-        <img src="src/assets/Tick Square.png" alt="icon" />
+        <img src="/Tick Square.png" alt="icon" />
       </div>
       <div className={styles.content}>
         <h4 className={styles.title}>{title}</h4>

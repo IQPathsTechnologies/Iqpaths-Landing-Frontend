@@ -36,7 +36,7 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.logo}>
         <img
-          src="src/assets/logo.svg"
+          src="/logo.svg"
           alt="Paths Logo"
           className={styles.logoImage}
         />

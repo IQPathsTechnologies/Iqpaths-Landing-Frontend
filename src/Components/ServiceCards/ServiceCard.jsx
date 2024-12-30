@@ -2,12 +2,12 @@ import React from 'react'
 import styles from './ServiceCard.module.css'
 import { Link } from 'react-router-dom';
 function ServiceCard({ data }) {
-    const { logo, link, index, title, description } = data;
+    const { coverPhoto, link, index, title, description } = data;
 
     return (
         <div className={`${styles.card} ${styles[`card${index % 3}`]}`}>
             <div className={styles.logo}>
-                <img src={logo} alt={title} />
+                <img src={coverPhoto} alt={title} />
             </div>
             <div className={styles.titleContainer}>
                 <h3 className={styles.title}>{title}</h3>

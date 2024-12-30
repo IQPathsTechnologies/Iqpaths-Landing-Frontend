@@ -11,7 +11,7 @@ const Instructor = () => {
     instructorTitle: "Data Scientist, Ph.D. (Bennett University)",
     instructorDescription:
       "Sanket Gupta is an ace software engineer working in the role of Computer Science at Medi-Caps University and a popular machine learning instructor at IQPaths.",
-    instructorImage: "src/assets/instructorCourse.png", // Replace with the correct image path
+    instructorImage: "/instructorCourse.png", // Replace with the correct image path
   };
 
   return (

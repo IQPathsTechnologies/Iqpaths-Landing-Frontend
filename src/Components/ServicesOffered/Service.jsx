@@ -57,6 +57,7 @@ const apiClass = new AuthService();
 const Service = () => {
     const [content, setContent] = useState([]);
 
+
     const getServices = async () => {
         try {
             const services =  await apiClass.getServices();
@@ -72,7 +73,7 @@ const Service = () => {
     useEffect(() => {
         getServices();
     }, []);
-    // console.log(content);
+    console.log(content);
     return (
         <div className={styles.container}>
             <div className={styles.heading}>

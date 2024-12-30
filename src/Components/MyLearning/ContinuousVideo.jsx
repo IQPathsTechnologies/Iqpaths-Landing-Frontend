@@ -13,7 +13,7 @@ const ContinuousVideo = () => {
       instructor: "Lina",
       progress: 5,
       totalLessons: 7,
-      image: "src/assets/learning.png",
+      image: "/learning.png",
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ const ContinuousVideo = () => {
       instructor: "Lina",
       progress: 5,
       totalLessons: 7,
-      image: "src/assets/learning.png",
+      image: "/learning.png",
     },
     {
       id: 3,
@@ -29,7 +29,7 @@ const ContinuousVideo = () => {
       instructor: "Lina",
       progress: 5,
       totalLessons: 7,
-      image: "src/assets/learning.png",
+      image: "/learning.png",
     },
     {
       id: 4,
@@ -37,7 +37,7 @@ const ContinuousVideo = () => {
       instructor: "Lina",
       progress: 5,
       totalLessons: 7,
-      image: "src/assets/learning.png",
+      image: "/learning.png",
     },
   ];
 

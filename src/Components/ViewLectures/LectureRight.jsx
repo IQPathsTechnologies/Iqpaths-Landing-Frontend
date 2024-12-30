@@ -55,7 +55,7 @@ const LectureRight = ({ isVisible, toggleVisibility }) => {
             <ul className={styles.list}>
               {sectionData.downloads.map((download) => (
                 <li key={download.id} className={styles.listItem}>
-                  <img src="src/assets/files.png" alt="files" />
+                  <img src="/files.png" alt="files" />
                   <a href={download.link} download className={styles.downloadLink}>
                     {download.fileName}
                   </a>

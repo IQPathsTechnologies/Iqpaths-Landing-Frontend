@@ -8,7 +8,7 @@ const lectureHeader = () => {
       </div>
       <div className={styles.breadcrumb}>
         <span>
-            <img src="src/assets/Home.png" alt="Home" />
+            <img src="/Home.png" alt="Home" />
         </span>
         <p> &gt; </p>
         <span>

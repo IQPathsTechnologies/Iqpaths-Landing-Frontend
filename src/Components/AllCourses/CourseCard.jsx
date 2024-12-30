@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./CourseCard.module.css";
-import pythonImg from "../../assets/subject.png";
-import machineLearningImg from "../../assets/subject.png";
-import backendImg from "../../assets/subject.png";
-import frontendImg from "../../assets/subject.png";
-import uiuxImg from "../../assets/subject.png";
-import ratingImg from "../../assets/rating.png";
+import pythonImg from "/subject.png";
+import machineLearningImg from "/subject.png";
+import backendImg from "/subject.png";
+import frontendImg from "/subject.png";
+import uiuxImg from "/subject.png";
+import ratingImg from "/rating.png";
 import { Link } from "react-router-dom";
 
 // Props: courses and selectedFilters

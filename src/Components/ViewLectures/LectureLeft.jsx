@@ -10,10 +10,10 @@ const LectureLeft = () => {
     {
       title: "Getting Started",
       items: [
-        { id: 1, image: "src/assets/icons.png", label: "Welcome to the course", isActive: true },
-        { id: 2, image: "src/assets/icons.png",label: "What is React JS?", isActive: false },
-        { id: 3, image: "src/assets/icons.png",label: "Why 'React' but not 'JavaScript'?", isActive: false },
-        { id: 4, image: "src/assets/icons.png",label: "Setting up Environment", isActive: false },
+        { id: 1, image: "/icons.png", label: "Welcome to the course", isActive: true },
+        { id: 2, image: "/icons.png",label: "What is React JS?", isActive: false },
+        { id: 3, image: "/icons.png",label: "Why 'React' but not 'JavaScript'?", isActive: false },
+        { id: 4, image: "/icons.png",label: "Setting up Environment", isActive: false },
       ],
     },
     {
@@ -60,8 +60,8 @@ const LectureLeft = () => {
               <img
                 src={
                   expandedSections[index]
-                    ? "src/assets/down.png"
-                    : "src/assets/rightArrow.png"
+                    ? "/down.png"
+                    : "/rightArrow.png"
                 }
                 alt={expandedSections[index] ? "Down Arrow" : "Right Arrow"}
                 className={styles.arrowIcon}
@@ -94,7 +94,7 @@ const LectureLeft = () => {
     </aside>
   ) : (
     <button className={styles.openButton} onClick={() => setIsVisible(true)}>
-      <img src="src/assets/rightArrow.png" alt="open" />
+      <img src="/rightArrow.png" alt="open" />
     </button>
   );
 };

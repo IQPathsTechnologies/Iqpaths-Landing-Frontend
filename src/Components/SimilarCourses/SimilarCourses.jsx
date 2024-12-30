@@ -7,13 +7,13 @@ const SimilarCourses = () => {
       id: 1,
       title: "Masterclass in Design Thinking, Innovation & Creativity",
       instructor: "Ana Kursova",
-      image: 'src/assets/highlightedCourse.jpg', // Replace with actual image path
+      image: '/highlightedCourse.jpg', // Replace with actual image path
     },
     {
       id: 2,
       title: "Design Fundamentals",
       instructor: "Kitani Studio",
-      image: "src/assets/sideCourse1.png", // Replace with actual image path
+      image: "/sideCourse1.png", // Replace with actual image path
       content: "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       price: "24.92",
       originalPrice: "32.90",
@@ -25,7 +25,7 @@ const SimilarCourses = () => {
       id: 3,
       title: "Ionic - Build iOS, Android & Web...",
       instructor: "Kitani Studio",
-      image: "src/assets/sideCourse2.png", // Replace with actual image path
+      image: "/sideCourse2.png", // Replace with actual image path
       content: "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       price: "24.92",
       originalPrice: "32.90",
@@ -37,7 +37,7 @@ const SimilarCourses = () => {
       id: 4,
       title: "Bootcamp Vue.js Web Framework",
       instructor: "Kitani Studio",
-      image: "src/assets/sideCourse3.png", // Replace with actual image path
+      image: "/sideCourse3.png", // Replace with actual image path
       content: "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       price: "24.92",
       originalPrice: "32.90",
@@ -49,7 +49,7 @@ const SimilarCourses = () => {
       id: 5,
       title: "VUE JAVASCRIPT COURSE",
       instructor: "Kitani Studio",
-      image: "src/assets/sideCourse4.png", // Replace with actual image path
+      image: "/sideCourse4.png", // Replace with actual image path
       content: "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       price: "24.92",
       originalPrice: "32.90",
@@ -63,7 +63,7 @@ const SimilarCourses = () => {
     id: 1,
     title: "Masterclass in Design Thinking, Innovation & Creativity",
     instructor: "Ana Kursova",
-    image: "src/assets/highlightedCourse.jpg", // Replace with actual image path
+    image: "/highlightedCourse.jpg", // Replace with actual image path
     price: "19.99", // Add details similar to other cards
     originalPrice: "29.99",
     reviews: "(2k)",

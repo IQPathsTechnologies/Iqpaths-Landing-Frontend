@@ -9,7 +9,7 @@ const AdSection = () => {
     buttonText: "Enroll now",
     imageAlt: "Woman giving thumbs up with a laptop",
     imageUrl:
-      "src/assets/banner.png", // Replace this URL with the actual image link
+      "/banner.png", // Replace this URL with the actual image link
   };
 
   return (

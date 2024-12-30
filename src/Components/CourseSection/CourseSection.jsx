@@ -34,11 +34,6 @@ const CourseSection = ({
   const { title, id } = useParams();
   console.log(title, id);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    loadRazorPay();
-  }, []);
-
 
   const handlePurchase = useCallback(async () => {
       const {token, orderId, amount, currency, key, name, description} = await createOrder(courseId);
@@ -121,30 +116,30 @@ const CourseSection = ({
 
               <div className={styles.extraInfo}>
                 <div className={styles.info}>
-                  <img src="src/assets/duration.png" alt="Duration" />
+                  <img src="/duration.png" alt="Duration" />
                   <p> {duration} </p>
                 </div>
                 <div className={styles.info}>
-                  <img src="src/assets/students.png" alt="Students" />
+                  <img src="/students.png" alt="Students" />
                   <p> {students} </p>
                 </div>
                 <div className={styles.info}>
-                  <img src="src/assets/levels.png" alt="Levels" />
+                  <img src="/levels.png" alt="Levels" />
                   <p> {levels} </p>
                 </div>
                 <div className={styles.info}>
-                  <img src="src/assets/lessons.png" alt="Lessons" />
+                  <img src="/lessons.png" alt="Lessons" />
                   <p> {lessons} </p>
                 </div>
                 <div className={styles.info}>
-                  <img src="src/assets/quizzes.png" alt="Quizzes" />
+                  <img src="/quizzes.png" alt="Quizzes" />
                   <p> {quizzes} </p>
                 </div>
               </div>
 
               <div className={styles.rating}>
                 <p> {rating} </p>
-                <img src="src/assets/rating.png" alt="ratings" />
+                <img src="/rating.png" alt="ratings" />
               </div>
             </div>
           </div>
@@ -182,7 +177,7 @@ const CourseSection = ({
               <p className={styles.discount}> {discount} </p>
             </div>
             <div className={styles.timeLeft}>
-              <img src="src/assets/alarm.png" alt="Alarm" />
+              <img src="/alarm.png" alt="Alarm" />
               <p> {hoursLeft} </p>
             </div>
             <div className={styles.buyDetails}>
@@ -191,7 +186,7 @@ const CourseSection = ({
                   <p> Add to cart </p>
                 </button>
                 <img
-                  src="src/assets/wishlist.png"
+                  src="/wishlist.png"
                   alt="Wishlist"
                   className={styles.wishlist}
                 />
@@ -206,15 +201,15 @@ const CourseSection = ({
             <div className={styles.courseInclude}>
               <p className={styles.includes}> This course includes: </p>
               <div className={styles.content}>
-                <img src="src/assets/camera.png" alt="Camera" />
+                <img src="/camera.png" alt="Camera" />
                 <p> {hours} </p>
               </div>
               <div className={styles.content}>
-                <img src="src/assets/download.png" alt="Download" />
+                <img src="/download.png" alt="Download" />
                 <p> {download} </p>
               </div>
               <div className={styles.content}>
-                <img src="src/assets/access.png" alt="Access" />
+                <img src="/access.png" alt="Access" />
                 <p> {access} </p>
               </div>
             </div>

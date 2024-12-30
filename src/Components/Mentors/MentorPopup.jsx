@@ -43,13 +43,13 @@ const MentorPopup = ({ image, onClose }) => {
             </p>
             <div className={styles.icons}>
                 <div className={styles.icon}>
-                    <img src="src/assets/twitterLogo.svg" alt="Twitter" />
+                    <img src="/twitterLogo.svg" alt="Twitter" />
                 </div>
                 <div className={styles.icon}>
-                    <img src="src/assets/linkedinLogo.svg" alt="Linked in" />
+                    <img src="/linkedinLogo.svg" alt="Linked in" />
                 </div>
                 <div className={styles.icon}>
-                    <img src="src/assets/instagramLogo.svg" alt="Instagram" />
+                    <img src="/instagramLogo.svg" alt="Instagram" />
                 </div>
             </div>
           </div>
