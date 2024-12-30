@@ -7,6 +7,10 @@
     margin-top: 35px;
 }
 
+.link{
+    text-decoration: none;
+}
+
 /* Individual card styling */
 .card {
     width: 350px;

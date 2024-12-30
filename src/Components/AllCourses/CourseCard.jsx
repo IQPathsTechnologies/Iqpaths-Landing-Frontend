@@ -6,6 +6,7 @@ import backendImg from "../../assets/subject.png";
 import frontendImg from "../../assets/subject.png";
 import uiuxImg from "../../assets/subject.png";
 import ratingImg from "../../assets/rating.png";
+import { Link } from "react-router-dom";
 
 const CourseCard = ({ activeCategory }) => {
   const courses = [
@@ -104,7 +105,9 @@ const CourseCard = ({ activeCategory }) => {
   return (
     <div className={styles.cardsContainer}>
       {filteredCourses.length > 0 ? (
+        
         filteredCourses.map((course, index) => (
+          <Link to={`/course/${course.title}/${course.courseId}`} key={index} className={styles.link}>
           <div key={index} className={styles.card}>
             {/* Card Image */}
             <img
@@ -164,6 +167,7 @@ const CourseCard = ({ activeCategory }) => {
             {/* Action Button */}
             <button className={styles.learnNowButton}>Learn Now</button>
           </div>
+          </Link>
         ))
       ) : (
         <p className={styles.noCourses}>No courses available for this category.</p>

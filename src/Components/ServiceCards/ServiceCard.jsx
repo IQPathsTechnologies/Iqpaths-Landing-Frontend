@@ -14,7 +14,7 @@ function ServiceCard({ data }) {
             </div>
             <div className={styles.description}>{description}</div>
             <div className={styles.buttonContainer}>
-                <Link to={link} className={styles.button}>Learn More</Link>
+                <Link to={`/${title}`} className={styles.button}>Learn More</Link>
             </div>
         </div>
     )

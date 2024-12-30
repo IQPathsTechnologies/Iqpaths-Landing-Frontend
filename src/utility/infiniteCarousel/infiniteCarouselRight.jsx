@@ -2,6 +2,9 @@ import React, { useRef, useEffect, useState } from 'react';
 import styles from './infiniteCarousel.module.css';
 
 const RightCarousel = ({ images, speed = 20, onImageClick }) => {
+  if (!images || images.length === 0) {
+    return null;
+  }
   const [translateX, setTranslateX] = useState(0);
   const containerRef = useRef(null);
   const requestRef = useRef();
