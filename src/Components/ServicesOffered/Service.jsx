@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import ServiceCard from '../ServiceCards/ServiceCard';
 import styles from './Service.module.css';
+import { AuthService } from '../../axios/User';
 
 const content = [
     {
@@ -47,7 +48,32 @@ const content = [
     }
 ];
 
+const apiClass = new AuthService();
+
+
+
+
+
 const Service = () => {
+    const [content, setContent] = useState([]);
+
+
+    const getServices = async () => {
+        try {
+            const services =  await apiClass.getServices();
+            if(services.data){
+                setContent(services.data.data);
+            }
+        } catch (error) {
+            console.log("Service :: getServices :: error", error);
+            throw error;
+        }
+    }
+    
+    useEffect(() => {
+        getServices();
+    }, []);
+    console.log(content);
     return (
         <div className={styles.container}>
             <div className={styles.heading}>

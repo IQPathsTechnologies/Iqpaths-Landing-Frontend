@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "./CourseCard.module.css";
-import pythonImg from "../../assets/subject.png";
-import machineLearningImg from "../../assets/subject.png";
-import backendImg from "../../assets/subject.png";
-import frontendImg from "../../assets/subject.png";
-import uiuxImg from "../../assets/subject.png";
-import ratingImg from "../../assets/rating.png";
+import pythonImg from "/subject.png";
+import machineLearningImg from "/subject.png";
+import backendImg from "/subject.png";
+import frontendImg from "/subject.png";
+import uiuxImg from "/subject.png";
+import ratingImg from "/rating.png";
+import { Link } from "react-router-dom";
 
 // Props: courses and selectedFilters
 const CourseCard = ({ activeCategory, selectedFilters }) => {
@@ -118,7 +119,9 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
   return (
     <div className={styles.cardsContainer}>
       {filteredCourses.length > 0 ? (
+        
         filteredCourses.map((course, index) => (
+          <Link to={`/course/${course.title}/${course.courseId}`} key={index} className={styles.link}>
           <div key={index} className={styles.card}>
             {/* Card Image */}
             <img src={course.image} alt={course.title} className={styles.cardImage} />
@@ -162,6 +165,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
             {/* Action Button */}
             <button className={styles.learnNowButton}>Learn Now</button>
           </div>
+          </Link>
         ))
       ) : (
         <p className={styles.noCourses}>No courses available for this category.</p>

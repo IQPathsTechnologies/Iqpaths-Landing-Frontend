@@ -7,13 +7,13 @@ const SignUpPopup = ({ onClose }) => {
       <div className={styles.popup}>
 
         <div className={styles.rightSection}>
-            <img src="src/assets/loginImage.png" alt="Login image" className={styles.loginImage}/>
+            <img src="/loginImage.png" alt="Login image" className={styles.loginImage}/>
         </div>
 
         <div className={styles.leftSection}>
         {/* Header Section */}
         <div className={styles.header}>
-          <img src="src/assets/logo.svg" alt="Logo" className={styles.logo} />
+          <img src="/logo.svg" alt="Logo" className={styles.logo} />
           <button className={styles.closeButton} onClick={onClose}>
             &times;
           </button>
@@ -27,15 +27,15 @@ const SignUpPopup = ({ onClose }) => {
         {/* Social Sign Up Buttons */}
         <div className={styles.socialButtons}>
           <button className={`${styles.socialButton} ${styles.facebook}`}>
-            <img src="src/assets/Facebook.png" alt="Facebook" />
+            <img src="/Facebook.png" alt="Facebook" />
             Sign Up with Facebook
           </button>
           <button className={`${styles.socialButton} ${styles.apple}`}>
-            <img src="src/assets/Apple.png" alt="Apple" />
+            <img src="/Apple.png" alt="Apple" />
             Sign Up with Apple
           </button>
           <button className={`${styles.socialButton} ${styles.google}`}>
-            <img src="src/assets/Google.png" alt="Google" />
+            <img src="/Google.png" alt="Google" />
             Sign Up with Google
           </button>
         </div>

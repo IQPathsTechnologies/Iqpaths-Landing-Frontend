@@ -58,7 +58,7 @@ const CourseDetails = () => {
                                 {section.lessons} Lessons | {section.duration}
                             </span>
                             <span className={styles.arrowIcon}>
-                                {openDropdown === index ? <img src="src/assets/upArrow.png" alt="Up Arrow" /> : <img src="src/assets/downArrow.png" alt="Down Arrow" />}
+                                {openDropdown === index ? <img src="/upArrow.png" alt="Up Arrow" /> : <img src="/downArrow.png" alt="Down Arrow" />}
                             </span>
                         </div>
                         {openDropdown === index && (
@@ -67,7 +67,7 @@ const CourseDetails = () => {
                                     
                                     <div key={idx} className={styles.lesson}>
                                         <div className={styles.lessons}>
-                                            <img src="src/assets/lesson.png" alt="Lesson" />
+                                            <img src="/lesson.png" alt="Lesson" />
                                             <span className={styles.lessonTitle}>{lesson.title}</span>
                                         </div>
                                         <div className={styles.button}>
@@ -76,10 +76,10 @@ const CourseDetails = () => {
                                             </button>
                                             <span className={styles.lessonTime}>{lesson.time}</span>
                                             {lesson.preview && <span className={styles.lessonCheck}>
-                                                <img src="src/assets/tick.png" alt="Tick" /></span>}
+                                                <img src="/tick.png" alt="Tick" /></span>}
                                             {lesson.locked && <span className={styles.lessonLock}
                                             >
-                                                <img src="src/assets/lock.png" alt="Lock" /></span>}
+                                                <img src="/lock.png" alt="Lock" /></span>}
                                         </div>
                                     </div>
                                 ))}
@@ -93,7 +93,7 @@ const CourseDetails = () => {
             <div className={styles.instructor}>
                 <div className={styles.instructorHeader}>
                     <img 
-                        src="/src/assets/instructor.png" 
+                        src="/instructor.png" 
                         alt="Instructor Logo" 
                         className={styles.instructorLogo} 
                     />
@@ -105,7 +105,7 @@ const CourseDetails = () => {
                         <div className={styles.instructorStats}>
                             <span>
                                 <img 
-                                    src="/src/assets/studentIcon.png" 
+                                    src="/studentIcon.png" 
                                     alt="Students Icon" 
                                     className={styles.icon} 
                                 />
@@ -113,7 +113,7 @@ const CourseDetails = () => {
                             </span>
                             <span>
                                 <img 
-                                    src="/src/assets/lessonIcon.png" 
+                                    src="/lessonIcon.png" 
                                     alt="Lessons Icon" 
                                     className={styles.icon} 
                                 />
@@ -128,19 +128,19 @@ const CourseDetails = () => {
                 <div className={styles.socialMedia}>
                     <span>Follow:</span>
                     <a href="#" className={styles.socialIcon}>
-                        <img src="/src/assets/facebookIcon.png" alt="Facebook" />
+                        <img src="/facebookIcon.png" alt="Facebook" />
                     </a>
                     <a href="#" className={styles.socialIcon}>
-                        <img src="/src/assets/pinterestIcon.png" alt="Pinterest" />
+                        <img src="/pinterestIcon.png" alt="Pinterest" />
                     </a>
                     <a href="#" className={styles.socialIcon}>
-                        <img src="/src/assets/twitterIcon.png" alt="Twitter" />
+                        <img src="/twitterIcon.png" alt="Twitter" />
                     </a>
                     <a href="#" className={styles.socialIcon}>
-                        <img src="/src/assets/instagramIcon.png" alt="Instagram" />
+                        <img src="/instagramIcon.png" alt="Instagram" />
                     </a>
                     <a href="#" className={styles.socialIcon}>
-                        <img src="/src/assets/youtubeIcon.png" alt="YouTube" />
+                        <img src="/youtubeIcon.png" alt="YouTube" />
                     </a>
                 </div>
             </div>
@@ -167,9 +167,9 @@ const CourseDetails = () => {
                         </span>
                         <span className={styles.arrows}>
                             {openDropdown === index ? (
-                                <img src="/src/assets/upArrow.png" alt="Collapse" />
+                                <img src="/upArrow.png" alt="Collapse" />
                             ) : (
-                                <img src="/src/assets/downArrow.png" alt="Expand" />
+                                <img src="/downArrow.png" alt="Expand" />
                             )}
                         </span>
                     </div>
@@ -210,7 +210,7 @@ const CourseDetails = () => {
                     {currentReviews.map((review, index) => (
                         <div key={index} className={styles.comment}>
                             <div className={styles.commentHeader}>
-                                <img src="/src/assets/user.png" alt="User" className={styles.commentAvatar} />
+                                <img src="/user.png" alt="User" className={styles.commentAvatar} />
                                 <div className={styles.names}>
                                     <h4 className={styles.commentName}>{review.name}</h4>
                                     <p className={styles.commentDate}>{review.date}</p>
@@ -218,7 +218,7 @@ const CourseDetails = () => {
                             </div>
                             <p className={styles.commentText}>{review.comment}</p>
                             <div className={styles.reply}>
-                                <img src="src/assets/reply.png" alt="Reply" />
+                                <img src="/reply.png" alt="Reply" />
                                 <button className={styles.replyButton}>Reply</button>
                             </div>
                             

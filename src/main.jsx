@@ -11,7 +11,7 @@ import Error from './pages/Error/error';
 import ContactUs from './pages/ContactUs/ContactUs';
 import MyLearning from './pages/MyLearning/MyLearning';
 import ViewLectures from './pages/ViewLectures/ViewLectures';
-import ProfilePage from './pages/ProfilePage/ProfilePage';
+import LoginSignup from './Components/loginSignup/loginSignup';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
         element: <Courses />,
       },
       {
-        path: '/course/:courseId',
+        path: '/course/:title/:id',
         element: <Course />,
       },
       {
@@ -57,9 +57,9 @@ const router = createBrowserRouter([
         element: <ViewLectures />
       },
       {
-        path: '/profile',
-        element: <ProfilePage />
-      },
+        path: '/login',
+        element: <LoginSignup />
+      }
       // {
       //   path: '/login',
       //   element: <SignUpPopup />

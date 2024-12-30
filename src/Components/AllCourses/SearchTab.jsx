@@ -9,7 +9,7 @@ const SearchTab = () => {
       <div className={styles.searchBar}>
         <div className={styles.inputWrapper}>
             <img
-                src="src/assets/searchGrey.png" 
+                src="/searchGrey.png" 
                 alt="Search"
                  className={styles.inputIcon}
             /> 
@@ -20,7 +20,7 @@ const SearchTab = () => {
             />
         </div>
         <button className={styles.searchButton}>
-          <img src="src/assets/Search.png" alt="Search" />
+          <img src="/Search.png" alt="Search" />
           SEARCH
         </button>
       </div>
