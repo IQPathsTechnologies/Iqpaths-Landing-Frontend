@@ -1,0 +1,177 @@
+/* Middle Section Container */
+.middleSection {
+    padding: 20px;
+    background-color: #F8FAFC;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto; /* Enable single scrollbar */
+}
+
+/* Title Section */
+.titleSection {
+    text-align: center;
+    display: flex;
+    /* justify-content: left; */
+    flex-direction: column;
+    margin-top: -20px;
+    margin-bottom: -15px;
+}
+
+.title {
+    text-align: left;
+    font-style: "Jarkata", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #1E293B;
+}
+
+.subtitle {
+    text-align: left;
+    margin-top: -15px;
+    margin-left: 2px;
+    font-size: 16px;
+    color: #6b7280;
+}
+
+/* Video Section */
+.videoSection {
+    background-color: #EFF4FF;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.courseImage {
+    width: 107%;
+    margin-top: -20px;
+    /* margin-left: -40px; */
+    /* max-width: 600px; */
+    border-radius: 4px;
+}
+
+.videoControls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.playButton {
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 12px;
+    cursor: pointer;
+}
+
+.progressBarContainer {
+    flex: 1;
+    height: 5px;
+    background-color: #e5e7eb;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progressBar {
+    width: 50%; /* Set dynamically based on progress */
+    height: 100%;
+    background-color: #3b82f6;
+}
+
+/* Transcript Section */
+.transcriptSection {
+    /* background-color: #ffffff; */
+    /* border: 1px solid #d1d5db; */
+    /* border-radius: 10px; */
+    padding: 15px;
+}
+
+.transcriptTitle {
+    margin-left: -20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+.transcriptContainer {
+    margin-left: -10px;
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    flex-direction: column;
+    gap: 15px;
+}
+
+.transcriptEntry {
+    margin-top: -10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.timestamp {
+    font-weight: 600;
+    color: black;
+    flex-shrink: 0;
+}
+
+.text {
+    margin-left: 10px;
+    font-style: "Jarkata", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+.lecFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 10px;
+    /* text-align: left; */
+    gap: 20px;
+    /* border: 2px solid red; */
+  }
+
+  .lecFooter img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+
+  .like {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -180px;
+  }
+
+  .dislike {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .issue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .share {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
