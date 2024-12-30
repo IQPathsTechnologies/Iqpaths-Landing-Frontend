@@ -11,6 +11,7 @@ import Error from './pages/Error/error';
 import ContactUs from './pages/ContactUs/ContactUs';
 import MyLearning from './pages/MyLearning/MyLearning';
 import ViewLectures from './pages/ViewLectures/ViewLectures';
+import ProfilePage from './pages/ProfilePage/ProfilePage'
 import LoginSignup from './Components/loginSignup/loginSignup';
 import CartPage from './pages/CartPage/CartPage';
 import { UserProvider } from './context/userContext';
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <LoginSignup />
+      },
+      {
+        path: '/profile',
+        element: <ProfilePage />
       }
       // {
       //   path: '/login',
