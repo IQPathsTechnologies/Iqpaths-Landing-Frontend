@@ -28,24 +28,24 @@ const Header = () => {
       console.error("Logout failed", error);
     }
   }
-    // const handleOpenPopup = (type) => {
-    //   setPopupType(type);
-    //   setIsPopupVisible(true); // Show the pop-up
-    //   document.body.style.overflow = "hidden"; // Disable scrolling
-    // };
+    const handleOpenPopup = (type) => {
+      setPopupType(type);
+      setIsPopupVisible(true); // Show the pop-up
+      document.body.style.overflow = "hidden"; // Disable scrolling
+    };
   
-    // const handleClosePopup = () => {
-    //   setIsPopupVisible(false); // Hide the pop-up
-    //   setPopupType("");
-    //   document.body.style.overflow = "auto"; // Enable scrolling
-    // };
+    const handleClosePopup = () => {
+      setIsPopupVisible(false); // Hide the pop-up
+      setPopupType("");
+      document.body.style.overflow = "auto"; // Enable scrolling
+    };
   
-    // useEffect(() => {
-    //   // Cleanup in case the component unmounts
-    //   return () => {
-    //     document.body.style.overflow = "auto";
-    //   };
-    // }, []);
+    useEffect(() => {
+      // Cleanup in case the component unmounts
+      return () => {
+        document.body.style.overflow = "auto";
+      };
+    }, []);
   
 
   return (

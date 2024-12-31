@@ -25,7 +25,7 @@ const CourseSection = ({
   access = "Access on mobile and TV",
   //temp data
   courseId = "6772c5a7b22b4a5a4665a64b",
-  amount = 1999,
+  // amount = 1999,
 }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isRazorPayPopupVisible, setIsRazorPayPopupVisible] = useState(false);
@@ -39,49 +39,43 @@ const CourseSection = ({
 
 
   const handlePurchase = useCallback(async () => {
-      const {token, orderId, amount, currency, key, keys, name, description} = await createOrder(courseId);
-      console.log(token, orderId, amount, currency, key, keys, name, description);
-      setOrderToken(token);
-      setRazorpayOptions({ orderId: "order_PdLp5tRKBHcb2N", amount: 2000, currency : "INR", keys, name, description });
-      handlePayNow();
-      
-    }, [courseId]);
+    const response = await createOrder(courseId);
+    const { token, currency, key, name, description } = response;
+    const { amount, id } = response.razorpayOrder;
+    const order_id = id;
+    setOrderToken(token);
+    setRazorpayOptions({ order_id, amount, currency,  key, name, description });
+    handlePayNow();
+  }, [courseId]);
 
-
-  const handlePayNow = useCallback (async() =>{
-      await loadRazorPay();
-      setIsRazorPayPopupVisible(true);
-      const rzp = getRazorPay({
-        ...razorpayOptions,
-        prefill: {contact: `+91${user.mobile}`},
-        notes: { ...user, id: courseId},
-        theme: {color: "#0047B2"},
-        handler: async ({
+  const handlePayNow = useCallback(async () => {
+    await loadRazorPay();
+    setIsRazorPayPopupVisible(true);
+    const rzp = getRazorPay({
+      ...razorpayOptions,
+      prefill: { contact: user?.contact || '' },
+      notes: { ...user, id: courseId },
+      theme: { color: "#0047B2" },
+      handler: async ({
+        razorpay_order_id,
+        razorpay_payment_id,
+        razorpay_signature,
+      }) => {
+        verifyPayment({
+          token: orderToken,
           razorpay_order_id,
           razorpay_payment_id,
           razorpay_signature,
-        }) => {
-          verifyPayment(
-            {
-              ...user,
-              token: orderToken,
-              orderId: razorpay_order_id,
-              paymentId: razorpay_payment_id,
-              signature: razorpay_signature,
-            },
-            handlePaymentSuccess
-          );
-        }
-      });
+        });
+      }
+    });
 
-      rzp.on("payment.failed", (response) => {
-        console.log("Payment failed", response.error);
-      });
+    rzp.on("payment.failed", (response) => {
+      console.log("Payment failed", response.error);
+    });
 
-      rzp.open();
-
-
-   }, [ orderToken, razorpayOptions, courseId,  ]);
+    rzp.open();
+  }, [orderToken, razorpayOptions, courseId, user]);
 
 
 

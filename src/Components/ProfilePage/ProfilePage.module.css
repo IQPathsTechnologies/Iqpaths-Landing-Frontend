@@ -40,9 +40,8 @@
     font-weight: bold;
 }
 
-.content {
-    /* flex: 1; */
-}
+/* .content {
+} */
 
 .breadcrumb {
     width: 200px;
@@ -59,7 +58,7 @@
     color: #333;
 }
 
-h1 {
+.breadcrumb h1 {
     width: 100px;
     margin: 1rem 0;
     color: #000000;
