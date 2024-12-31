@@ -6,6 +6,7 @@ import { getRazorPay, loadRazorPay } from "../../utility/Razorpay/Razorpay";
 import { verifyPayment, createOrder } from "../../utility/Razorpay/RazorpayApi";
 import { useParams } from "react-router-dom";
 import { UserContext } from '../../context/userContext';
+import { use } from "react";
 
 
 const CourseSection = ({
@@ -46,8 +47,14 @@ const CourseSection = ({
     const order_id = id;
     setOrderToken(token);
     setRazorpayOptions({ order_id, amount, currency,  key, name, description });
-    handlePayNow();
   }, [courseId]);
+
+  useEffect(() => {
+    if(razorpayOptions){
+      handlePayNow();
+    }
+  }, [razorpayOptions]);
+  
 
   const handlePayNow = useCallback(async () => {
     await loadRazorPay();
@@ -72,7 +79,7 @@ const CourseSection = ({
     });
 
     rzp.on("payment.failed", (response) => {
-      console.log("Payment failed", response.error);
+      console.log("Payment failed");
     });
 
     rzp.open();
