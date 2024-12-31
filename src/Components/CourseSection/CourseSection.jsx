@@ -7,6 +7,7 @@ import { verifyPayment, createOrder } from "../../utility/Razorpay/RazorpayApi";
 import { useParams } from "react-router-dom";
 import { UserContext } from '../../context/userContext';
 
+
 const CourseSection = ({
   programName = "Data Science",
   courseTitle = "Data Science using Python",

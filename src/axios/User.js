@@ -191,7 +191,16 @@ export class AuthService {
         }
     }
 
-    //razor pay
+    async getCourses(){
+        try {
+            const response =  await axios.get("/api/courses/getCourse");
+            // console.log(response.data.data)
+            return response.data.data
+        } catch (error) {
+            console.log("AuthService :: getCourses :: error", error);
+            throw error;
+        }
+    }
 
 
 

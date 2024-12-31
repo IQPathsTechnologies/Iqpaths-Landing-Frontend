@@ -30,13 +30,13 @@ const LoginSignup = () => {
         try {
             const response = await axios.post('/api/user/login', loginData);
             if (response.status === 200) {
-                console.log('Login successful!');
+                console.log('signup successful!');
                 setUser(response.data.data);
                 setIsLoggedIn(true);
                 localStorage.setItem('user', JSON.stringify(response.data.data));
 
-                // If login is successful, redirect to home page
-                navigate('/home');
+                // If signup is successful, redirect to login page
+                navigate('/login');
             } else {
                 console.log('Login failed. Please try again.');
             }

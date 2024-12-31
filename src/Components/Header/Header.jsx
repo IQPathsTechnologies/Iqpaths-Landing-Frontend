@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import styles from './Header.module.css';
 import SignUpPopup from "../CourseSection/SignUpPopup";
-import { Link } from 'react-router-dom';
+import { Link,  } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 import { AuthService } from '../../axios/User';
 

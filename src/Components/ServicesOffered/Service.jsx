@@ -73,7 +73,7 @@ const Service = () => {
     useEffect(() => {
         getServices();
     }, []);
-    console.log(content);
+    // console.log(content);
     return (
         <div className={styles.container}>
             <div className={styles.heading}>
