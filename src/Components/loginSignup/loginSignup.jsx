@@ -30,13 +30,13 @@ const LoginSignup = () => {
         try {
             const response = await axios.post('/api/user/login', loginData);
             if (response.status === 200) {
-                console.log('signup successful!');
+                console.log('Login successful!');
                 setUser(response.data.data);
                 setIsLoggedIn(true);
                 localStorage.setItem('user', JSON.stringify(response.data.data));
 
-                // If signup is successful, redirect to login page
-                navigate('/login');
+                // If login is successful, redirect to home page
+                navigate('/home');
             } else {
                 console.log('Login failed. Please try again.');
             }
@@ -58,8 +58,8 @@ const LoginSignup = () => {
                 setUser(response.data.data);
                 setIsLoggedIn(true);
                 localStorage.setItem('user', JSON.stringify(response.data.data));
-
-                navigate('/home');
+                setActiveForm('login');
+                navigate('/login');
             } else {
                 console.log('Signup failed. Please try again.');
             }

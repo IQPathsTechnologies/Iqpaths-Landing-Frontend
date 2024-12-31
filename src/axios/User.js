@@ -51,7 +51,7 @@ export class AuthService {
  
      async logout(){
          try {
-             await  axios.post("api/user/logout");
+             await  axios.post("api/user/logout", {withCredentials: true});
                 this.clearUser();
          } catch (error) {
              console.log("AuthService :: logout :: error", error);
