@@ -23,6 +23,7 @@ const LoginSignup = () => {
 
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
+        console.log('loginData:', loginData);
         if (!loginData.email || !loginData.password) {
             console.log('Please fill in all fields.');
             return;
@@ -111,7 +112,7 @@ const LoginSignup = () => {
                         <p className={styles.formText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, sequi.</p>
                     
                         {activeForm === 'login' ? (
-                            <form>
+                            <form onClick={handleLoginSubmit}>
                             <div className={styles.formField}>
                                 <label>Email</label>
                                 <input

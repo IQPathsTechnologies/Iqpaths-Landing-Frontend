@@ -41,7 +41,7 @@ const CourseSection = ({
   console.log(title, id);
   
   const { user } = useContext(UserContext);
-  console.log("CourseSection :: user", user);
+  // console.log("CourseSection :: user", user);
   const apiClass = new AuthService();
 
 
@@ -212,20 +212,11 @@ const CourseSection = ({
               <p>What you'll learn</p>
             </div>
             <div className={styles.courseInfo}>
-              <ul>
-                <li className={styles.info1}>
-                  In this course, you will gain proficiency in how to analyze a
-                  number of statistical procedures in SPSSS.
-                </li>
-                <li className={styles.info2}>
-                  You will learn how to interpret the output of a number of
-                  different statical tests.
-                </li>
-                <li className={styles.info3}>
-                  Learn how to write the result of statistical analyses using
-                  APA format.
-                </li>
-              </ul>
+              {courseDetails.whatYouWillLearn?.map((item, index) => (
+                <p key={index} className={styles.info}>
+                  &#8226; {item}
+                </p>
+              ))}
             </div>
           </div>
 
@@ -242,7 +233,12 @@ const CourseSection = ({
               <p className={styles.price}> {courseDetails.price} </p>
               <p className={styles.discount}>
                 {" "}
-                {(((courseDetails.realPrice - courseDetails.discountedPrice)/courseDetails.realPrice) * 100).toFixed(0)}{" % "}
+                {(
+                  ((courseDetails.realPrice - courseDetails.discountedPrice) /
+                    courseDetails.realPrice) *
+                  100
+                ).toFixed(0)}
+                {" % "}
               </p>
             </div>
             <div className={styles.timeLeft}>
