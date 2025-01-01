@@ -7,6 +7,7 @@ import { verifyPayment, createOrder } from "../../utility/Razorpay/RazorpayApi";
 import { useParams } from "react-router-dom";
 import { UserContext } from '../../context/userContext';
 import { AuthService } from '../../axios/User';
+import axios from "axios";
 
 
 
@@ -36,6 +37,9 @@ const CourseSection = ({
   const [razorpayOptions, setRazorpayOptions] = useState(null); 
   const [courseDetails, setCourseDetails] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [coupon, setCoupon] = useState("");
+  const [isApplied, setIsApplied] = useState(false);
+
 
   const { title, id } = useParams();
   console.log(title, id);
@@ -48,7 +52,8 @@ const CourseSection = ({
 
   //razorpay
   const handlePurchase = useCallback(async () => {
-    const response = await createOrder(courseId);
+    console.log("coupon code ye hai re bawa", coupon);
+    const response = await createOrder(courseId, coupon);
     const { token, currency, key, name, description } = response;
     const { amount, id } = response.razorpayOrder;
     const order_id = id;
@@ -135,6 +140,19 @@ const CourseSection = ({
     }
     fetchData();
   }, [id]);
+
+
+  const handleApplyCoupon = async () => {
+
+    if (coupon.trim() !== "") {
+      const couponResponse = await apiClass.useCoupon({ couponCode: coupon, courseId: id });
+      console.log("CourseSection :: handleApplyCoupon :: couponResponse", couponResponse);
+      setIsApplied(true);
+    } else {
+      alert("Please enter a valid coupon.");
+    }
+  };
+  
 
 
   return (
@@ -284,15 +302,19 @@ const CourseSection = ({
                 <p> GIFT </p>
                 <p> APPLY COUPON </p>
               </div> */}
-              <input
-                type="text"
-                placeholder="Enter coupon"
-                className={styles.coupons}
-              />
-              <button className={styles.apply} onClick={handleOpenPopup}>
-                {" "}
-                Apply{" "}
-              </button>
+              <form onSubmit={(e) => { e.preventDefault(); handleApplyCoupon()}}>
+                <input
+                  type="text"
+                  placeholder="Enter coupon"
+                  className={styles.coupons}
+                  value={coupon}
+                  onChange={(e) => setCoupon(e.target.value)}
+                  disabled={isApplied}
+                />
+                <button  className={isApplied ? styles.applied : styles.apply}  type="submit" disabled={isApplied}>
+                {isApplied ? "Applied" : "Apply"}
+                </button>
+              </form>
             </div>
           </div>
         </div>

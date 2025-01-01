@@ -65,7 +65,7 @@ const LoginSignup = () => {
                 console.log('Signup failed. Please try again.');
             }
         } catch (error) {
-            console.error('Error during signup:', error);
+            console.error('Error during signup:', error.response.data);
         }
     };
 
