@@ -61,7 +61,7 @@ export class AuthService {
 
     async getUser(){
         try {
-            return await axios.get("/api/user");
+            return await axios.get("/api/user", {withCredentials: true});
         } catch (error) {
             console.log("AuthService :: getUser :: error", error);
             throw error;
@@ -72,7 +72,7 @@ export class AuthService {
     
     async getUser(){
         try {
-            return await axios.get("/api/user/getUserDetails");
+            return await axios.get("/api/user/getUserDetails", {withCredentials: true});
         } catch (error) {
             console.log("AuthService :: getUser :: error", error);
             throw error;
@@ -81,7 +81,7 @@ export class AuthService {
 
     async updateUserDetails({email, name, mobileNo}){
         try {
-            return await axios.put("/api/user/updateDetails", {name, email, mobileNo});
+            return await axios.put("/api/user/updateDetails", {name, email, mobileNo}, {withCredentials: true});
         } catch (error) {
             console.log("AuthService :: updateUser :: error", error);
             throw error;
@@ -90,7 +90,7 @@ export class AuthService {
 
     async changePassword({oldPassword, newPassword}){
         try {
-            return await axios.put("/api/user/updatePassword", {oldPassword, newPassword});
+            return await axios.put("/api/user/updatePassword", {oldPassword, newPassword}, {withCredentials: true});
         } catch (error) {
             console.log("AuthService :: changePassword :: error", error);
             throw error;
@@ -99,7 +99,7 @@ export class AuthService {
 
     async updateProfilePhoto({profilePicture}){
         try {
-            return await axios.put("/api/user/updateProfilePhoto", {profilePicture});
+            return await axios.put("/api/user/updateProfilePhoto", {profilePicture}, {withCredentials: true});
         } catch (error) {
             console.log("AuthService :: updateProfilePicture :: error", error);
             throw error;
@@ -109,7 +109,7 @@ export class AuthService {
 
     async createMentor({name, email, description, linkedIn, profilePhoto, coverPhoto}){
         try {
-            return await axios.post("/api/mentor/createMentor", {name, email, description, linkedIn, profilePhoto, coverPhoto});
+            return await axios.post("/api/mentor/createMentor", {name, email, description, linkedIn, profilePhoto, coverPhoto}, {withCredentials: true});
         } catch (error) {
             console.log("AuthService :: createMentor :: error", error);
             throw error;
@@ -140,7 +140,7 @@ export class AuthService {
 
     async createService({title, description, coverPhoto}){
         try {
-            return await axios.post("/api/services/createService", {title, description, coverPhoto});
+            return await axios.post("/api/services/createService", {title, description, coverPhoto}, {withCredentials: true});
         } catch (error) {
             console.log("AuthService :: createService :: error", error);
             throw error;

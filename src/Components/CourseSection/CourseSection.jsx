@@ -48,7 +48,7 @@ const CourseSection = ({
     setRazorpayOptions({ order_id, amount, currency,  key, name, description });
     handlePayNow();
   }, [courseId]);
-
+  
   const handlePayNow = useCallback(async () => {
     await loadRazorPay();
     setIsRazorPayPopupVisible(true);
