@@ -2,23 +2,49 @@
     display: flex;
 }
 
-.img{
+/* .img{
     flex: 1;
     width: 20px;
     padding: 50px;
+} */
+.img img {
+    padding: 50px;
+    width: auto;
+    height: 750px;
+    /* max-width: 500px;  */
+    border-radius: 8px; 
+}
+.welcomeText{
+    position: relative;
+    top: -40px;
+    padding: 40px;
+    margin-left: 100px;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.toggleButtonContainer{ 
+    position: absolute;
+    left: 45%;
+    transform: translate(-50%,-120%);
+    padding: 5px;
+    background-color: #0047B280;
+    width: 300px;
+    height: 40px;
+    border-radius: 50px;
 }
 .formContainer{
+    position: relative;
     flex: 1;
-    padding: 150px;
+    padding: 50px;
     max-width: 500px;
-
+    margin-top: 50px;
 }
-
 
 .toggleButtons {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    padding: 2px;
 }
 
 .toggleButton {
@@ -26,14 +52,15 @@
     margin: 0 10px;
     background-color: #f0f0f0;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.4s ease;
+    width: 150px;
 }
 
 .activeButton {
-    background-color: #3b82f6;
+    background-color: #0047B2;
     color: white;
     font-weight: bold;
 }
@@ -42,7 +69,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .formField label {
@@ -52,33 +79,46 @@
 
 .formField input {
     padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #0047B2;
+    border-radius: 50px;
     font-size: 1rem;
-    width: 100%;
+    width: 400px;
+}
+
+.formField input::placeholder{
+    color: #ACACAC;
+    font-weight: 300;
+    font-size: 15px;
 }
 
 .formOptions {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.formText{
+    margin-top: 50px;
+    margin-bottom: 40px;
+    color: #5B5B5B;
+    font-size: 16px;
+    font-weight: 400;    
 }
 
 .formButton {
     padding: 12px;
     border: none;
-    border-radius: 5px;
-    background-color: #3b82f6;
+    border-radius: 50px;
+    background-color: #0047B2;
     color: white;
-    font-size: 1rem;
+    margin-left: 150px;
+    margin-top: 50px;
+    font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
-    width: 100%;
+    width: 170px;
     transition: background-color 0.3s ease;
-}
-
-.formButton:hover {
-    background-color: #2563eb;
 }
 
 .formOptions a {

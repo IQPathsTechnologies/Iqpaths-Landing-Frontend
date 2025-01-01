@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './loginSignup.module.css'
 
 const LoginSignup = () => {
-    const [activeForm, setActiveForm] = useState('signup');
+    const [activeForm, setActiveForm] = useState('Register');
 
     return(   
         <div>
@@ -13,11 +13,13 @@ const LoginSignup = () => {
                     </div> 
                 ) : (
                     <div className={styles.img}>
-                        <img src="src/assets/signupImg.png" alt="signup Image" />
+                        <img src="src/assets/signupImg.png" alt="Register Image" />
                     </div>
                 )}
                 
                 <div className={styles.formContainer}>
+                    <p  className={styles.welcomeText}> Welcome to IQpaths!</p>
+                    <section className={styles.toggleButtonContainer}>
                     <div className={styles.toggleButtons}>
                             <button
                                 className={`${styles.toggleButton} ${activeForm === 'login' ? styles.activeButton : ''}`}
@@ -26,12 +28,15 @@ const LoginSignup = () => {
                                 Login
                             </button>
                             <button
-                                className={`${styles.toggleButton} ${activeForm === 'signup' ? styles.activeButton : ''}`}
-                                onClick={() => setActiveForm('signup')}
+                                className={`${styles.toggleButton} ${activeForm === 'Register' ? styles.activeButton : ''}`}
+                                onClick={() => setActiveForm('Register')}
                             >
-                                Signup
+                                Register
                             </button>
                         </div>
+                    </section>
+                        <p className={styles.formText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, sequi.</p>
+                    
                         {activeForm === 'login' ? (
                             <form>
                             <div className={styles.formField}>
@@ -68,10 +73,9 @@ const LoginSignup = () => {
                                 <label>Password</label>
                                 <input type="password" placeholder="Enter your Password" />
                             </div>
-                            <button className={styles.formButton} type="submit">Signup</button>
+                            <button className={styles.formButton} type="submit">Register</button>
                         </form>
-                    )}
-                    
+                    )}   
                 </div>
             </div>
               
