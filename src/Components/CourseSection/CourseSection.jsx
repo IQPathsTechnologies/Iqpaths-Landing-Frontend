@@ -53,9 +53,6 @@ const CourseSection = ({
     setOrderToken(token);
     setRazorpayOptions({ order_id, amount, currency,  key, name, description });
   }, [courseId]);
-<<<<<<< HEAD
-  
-=======
 
   useEffect(() => {
     if(razorpayOptions){
