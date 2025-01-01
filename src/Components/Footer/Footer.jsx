@@ -19,13 +19,13 @@ const Footer = () => {
                         voluptatum totam repudiandae laudantium, deserunt rem veniam laborum? Soluta officia officiis ut?</p>
 
                     <div className={styles.socialmediaLogoContainer}> 
-                        <a href="*">
+                        {/* <a href="*">
                              <img
                             src="/twitterLogo.svg" 
                             alt="Paths Logo"
                             className={styles.socialmediaLogo}
                             />
-                        </a> 
+                        </a>  */}
                         <a href="https://www.linkedin.com/company/iqpaths/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/linkedinLogo.svg" 
@@ -48,30 +48,22 @@ const Footer = () => {
                     <table>
                         <tr>
                             <td><a href="*">Home</a></td>
-                            <td><a href="*">Course</a></td>
-                            <td><a href="*">Article</a></td>
+                            <td><a href="*">Courses</a></td>
+                            <td><a href="*">About Us</a></td>
                             <td><a href="*">Contact Us</a></td>
                         </tr>
                         <tr>
-                            <td><a href="*">Product</a></td>
-                            <td><a href="*">HTML CSS</a></td>
-                            <td><a href="*">New</a></td>
-                            <td><a href="*">abc@gmail.com</a></td>
+                            <td><a href="*">My learnings
+                            </a></td>
+                            <td><a href="*">Terms and conditions</a></td>
+                            <td><a href="*">Shipping policy 
+                            </a></td>
+                            <td><a href="*">iqpaths@gmail.com</a></td>
                         </tr>
                         <tr>
-                            <td><a href="*">Course</a></td>
-                            <td><a href="*">Javascript</a></td>
-                            <td><a href="*">Old</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="*">Course</a></td>
-                            <td><a href="*">Javascript</a></td>
-                            <td><a href="*">Old</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="*">Course</a></td>
-                            <td><a href="*">Javascript</a></td>
-                            <td><a href="*">Old</a></td>
+                            <td><a href="*">Cookies usage policy</a></td>
+                            <td><a href="*">Mentors</a></td>
+                            <td><a href="*">Privacy policy</a></td>
                         </tr>
                     </table>
                 </div>

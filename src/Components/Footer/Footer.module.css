@@ -56,8 +56,15 @@ td {
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 15px;
+    padding-bottom: 20px;
     font-size: 14px;
     font-weight: 600;
+    margin-right: -200px;
+    width: 200px; /* Set desired width */
+    white-space: nowrap
+}
+table{
+    margin-right: -200px;
 }
 
 .footer a {
