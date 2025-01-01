@@ -7,6 +7,7 @@ import { verifyPayment, createOrder } from "../../utility/Razorpay/RazorpayApi";
 import { useParams } from "react-router-dom";
 import { UserContext } from '../../context/userContext';
 import { AuthService } from '../../axios/User';
+import axios from "axios";
 
 
 
@@ -36,19 +37,23 @@ const CourseSection = ({
   const [razorpayOptions, setRazorpayOptions] = useState(null); 
   const [courseDetails, setCourseDetails] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [coupon, setCoupon] = useState("");
+  const [isApplied, setIsApplied] = useState(false);
+
 
   const { title, id } = useParams();
   console.log(title, id);
   
   const { user } = useContext(UserContext);
-  console.log("CourseSection :: user", user);
+  // console.log("CourseSection :: user", user);
   const apiClass = new AuthService();
 
 
 
   //razorpay
   const handlePurchase = useCallback(async () => {
-    const response = await createOrder(courseId);
+    console.log("coupon code ye hai re bawa", coupon);
+    const response = await createOrder(courseId, coupon);
     const { token, currency, key, name, description } = response;
     const { amount, id } = response.razorpayOrder;
     const order_id = id;
@@ -137,6 +142,19 @@ const CourseSection = ({
   }, [id]);
 
 
+  const handleApplyCoupon = async () => {
+
+    if (coupon.trim() !== "") {
+      const couponResponse = await apiClass.useCoupon({ couponCode: coupon, courseId: id });
+      console.log("CourseSection :: handleApplyCoupon :: couponResponse", couponResponse);
+      setIsApplied(true);
+    } else {
+      alert("Please enter a valid coupon.");
+    }
+  };
+  
+
+
   return (
     <>
       <div className={styles.container}>
@@ -212,20 +230,11 @@ const CourseSection = ({
               <p>What you'll learn</p>
             </div>
             <div className={styles.courseInfo}>
-              <ul>
-                <li className={styles.info1}>
-                  In this course, you will gain proficiency in how to analyze a
-                  number of statistical procedures in SPSSS.
-                </li>
-                <li className={styles.info2}>
-                  You will learn how to interpret the output of a number of
-                  different statical tests.
-                </li>
-                <li className={styles.info3}>
-                  Learn how to write the result of statistical analyses using
-                  APA format.
-                </li>
-              </ul>
+              {courseDetails.whatYouWillLearn?.map((item, index) => (
+                <p key={index} className={styles.info}>
+                  &#8226; {item}
+                </p>
+              ))}
             </div>
           </div>
 
@@ -242,7 +251,12 @@ const CourseSection = ({
               <p className={styles.price}> {courseDetails.price} </p>
               <p className={styles.discount}>
                 {" "}
-                {(((courseDetails.realPrice - courseDetails.discountedPrice)/courseDetails.realPrice) * 100).toFixed(0)}{" % "}
+                {(
+                  ((courseDetails.realPrice - courseDetails.discountedPrice) /
+                    courseDetails.realPrice) *
+                  100
+                ).toFixed(0)}
+                {" % "}
               </p>
             </div>
             <div className={styles.timeLeft}>
@@ -288,15 +302,19 @@ const CourseSection = ({
                 <p> GIFT </p>
                 <p> APPLY COUPON </p>
               </div> */}
-              <input
-                type="text"
-                placeholder="Enter coupon"
-                className={styles.coupons}
-              />
-              <button className={styles.apply} onClick={handleOpenPopup}>
-                {" "}
-                Apply{" "}
-              </button>
+              <form onSubmit={(e) => { e.preventDefault(); handleApplyCoupon()}}>
+                <input
+                  type="text"
+                  placeholder="Enter coupon"
+                  className={styles.coupons}
+                  value={coupon}
+                  onChange={(e) => setCoupon(e.target.value)}
+                  disabled={isApplied}
+                />
+                <button  className={isApplied ? styles.applied : styles.apply}  type="submit" disabled={isApplied}>
+                {isApplied ? "Applied" : "Apply"}
+                </button>
+              </form>
             </div>
           </div>
         </div>

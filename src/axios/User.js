@@ -59,16 +59,6 @@ export class AuthService {
          }
      }
 
-    async getUser(){
-        try {
-            return await axios.get("/api/user", {withCredentials: true});
-        } catch (error) {
-            console.log("AuthService :: getUser :: error", error);
-            throw error;
-        }
-    }
-
-
     
     async getUser(){
         try {
@@ -212,6 +202,16 @@ export class AuthService {
         }
     }
 
+
+    async useCoupon({couponCode, courseId}){
+        try {
+            return await axios.post("/api/coupon/useCoupon", {couponCode, courseId}, {withCredentials: true});
+        } catch (error) {
+            console.log("AuthService :: useCoupon :: error", error);
+            alert("Please enter a valid coupon.");
+            throw error;
+        }
+    }
 
 
 }
