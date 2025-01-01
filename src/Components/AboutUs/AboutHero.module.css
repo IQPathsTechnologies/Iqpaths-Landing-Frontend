@@ -1,0 +1,94 @@
+.heroSection {
+    position: relative;
+    width: 100%;
+    height: 530px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.content {
+    max-width: 600px;
+    z-index: 2;
+}
+
+.content h1 {
+    width: 600px;
+    font-style: "Lexend", sans-serif;
+    font-size: 48px;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.content p {
+    font-style: "Lexend", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 1.5rem;
+}
+
+.exploreButton {
+    width: 180px;
+    height: 40px;
+    background: #0047B2;
+    color: white;
+    border: none;
+    /* padding: 0.75rem 1.5rem; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    gap: 720px;
+    justify-content: space-evenly;
+    transform: translateY(-50%);
+    z-index: 3;
+}
+
+.arrowButton {
+    /* background: rgba(0, 0, 0, 0.5); */
+    background: none;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.indicators {
+    position: absolute;
+    bottom: 3rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    width: 90%;
+    z-index: 3;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.indicator.active {
+    background: #007bff;
+    /* border: 2px solid red; */
+  }
+  
