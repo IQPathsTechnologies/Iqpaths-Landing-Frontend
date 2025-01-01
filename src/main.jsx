@@ -48,11 +48,11 @@ const router = createBrowserRouter([
         element: <Error />
       },
       {
-        path: '/contact',
+        path: '/contact-us',
         element: <ContactUs />
       },
       {
-        path: '/myLearning',
+        path: '/my-Learnings',
         element: <MyLearning />
       },
       {

@@ -6,7 +6,8 @@ import { getRazorPay, loadRazorPay } from "../../utility/Razorpay/Razorpay";
 import { verifyPayment, createOrder } from "../../utility/Razorpay/RazorpayApi";
 import { useParams } from "react-router-dom";
 import { UserContext } from '../../context/userContext';
-import { use } from "react";
+import { AuthService } from '../../axios/User';
+
 
 
 const CourseSection = ({
@@ -33,13 +34,17 @@ const CourseSection = ({
   const [isRazorPayPopupVisible, setIsRazorPayPopupVisible] = useState(false);
   const [orderToken, setOrderToken] = useState(null);
   const [razorpayOptions, setRazorpayOptions] = useState(null); 
+  const [courseDetails, setCourseDetails] = useState([]);
 
   const { title, id } = useParams();
   console.log(title, id);
   
   const { user } = useContext(UserContext);
+  const apiClass = new AuthService();
 
 
+
+  //razorpay
   const handlePurchase = useCallback(async () => {
     const response = await createOrder(courseId);
     const { token, currency, key, name, description } = response;
@@ -55,7 +60,6 @@ const CourseSection = ({
     }
   }, [razorpayOptions]);
   
-
   const handlePayNow = useCallback(async () => {
     await loadRazorPay();
     setIsRazorPayPopupVisible(true);
@@ -110,6 +114,23 @@ const CourseSection = ({
     };
   }, []);
 
+
+  //get content 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await apiClass.getCourseDetails(id);
+        console.log("CourseSection :: useEffect :: response", response);
+        setCourseDetails(response.details);
+
+      } catch (error) {
+        console.log("CourseSection :: useEffect :: error", error);
+      }
+    }
+    fetchData();
+  }, [id]);
+
+
   return (
     <>
       <div className={styles.container}>
@@ -117,14 +138,14 @@ const CourseSection = ({
         <div className={styles.leftSection}>
           <div className={styles.courseHeading}>
             <div className={styles.courseDetails}>
-              <p className={styles.heading}>All Program &gt; {programName}</p>
-              <h6 className={styles.title}> {courseTitle} </h6>
+              <p className={styles.heading}>All Program &gt; {courseDetails.subject}</p>
+              <h6 className={styles.title}> {courseDetails.title} </h6>
               <p className={styles.description}> {description} </p>
 
               <div className={styles.extraInfo}>
                 <div className={styles.info}>
                   <img src="/duration.png" alt="Duration" />
-                  <p> {duration} </p>
+                  <p> {courseDetails.duration} {courseDetails.duration == 1 ? "week" : "weeks"} </p>
                 </div>
                 <div className={styles.info}>
                   <img src="/students.png" alt="Students" />

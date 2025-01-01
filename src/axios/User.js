@@ -202,6 +202,16 @@ export class AuthService {
         }
     }
 
+    async getCourseDetails(courseId){
+        try {
+            const response =  await axios.post(`/api/courses/getCourseDetails`, {courseId}, {withCredentials: true});
+            return response.data.data;
+        } catch (error) {
+            console.log("AuthService :: getCourseDetails :: error", error);
+            throw error;
+        }
+    }
+
 
 
 }
