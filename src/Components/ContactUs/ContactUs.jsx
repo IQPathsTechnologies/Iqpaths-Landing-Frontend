@@ -13,7 +13,7 @@ const ContactUs = () => {
                         type="text"
                         placeholder="Full Name *"
                         className={styles.input}
-                    />
+                    /> 
                     <input
                         type="email"
                         placeholder="Email *"
@@ -25,8 +25,9 @@ const ContactUs = () => {
                         <option value="" disabled selected>
                             Please Select
                         </option>
-                        <option value="option1">Option 1</option>
-                        <option value="option2">Option 2</option>
+                        <option value="option1">Courses</option>
+                        <option value="option2">Internship</option>
+                        <option value="option3">Placement Preparation</option>
                     </select>
                     <select className={styles.select}>
                         <option value="" disabled selected>
