@@ -133,7 +133,7 @@ const LoginSignup = () => {
                         <p className={styles.formText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, sequi.</p>
                     
                         {activeForm === 'login' ? (
-                            <form onSubmit={handleLoginSubmit}>
+                            <form onClick={handleLoginSubmit}>
                             <div className={styles.formField}>
                                 <label>Email</label>
                                 <input
