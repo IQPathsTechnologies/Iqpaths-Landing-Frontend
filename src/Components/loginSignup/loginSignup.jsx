@@ -86,7 +86,7 @@ const LoginSignup = () => {
                     </div>
                 ) : (
                     <div className={styles.img}>
-                        <img src="src/assets/signupImg.png" alt="register Image" />
+                        <img src="/signupImg.png" alt="register Image" />
                     </div>
                 )}
 
