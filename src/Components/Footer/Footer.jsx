@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className={styles.footerLeft}>
                     <div className={styles.footerLogo}>
                         <img
-                        src="src/assets/footerLogo.png" 
+                        src="/footerLogo.png" 
                         alt="Paths Logo"
                         className={styles.logoImage}
                         />
@@ -21,14 +21,14 @@ const Footer = () => {
                     <div className={styles.socialmediaLogoContainer}> 
                         <a href="*">
                              <img
-                            src="src/assets/twitterLogo.svg" 
+                            src="/twitterLogo.svg" 
                             alt="Paths Logo"
                             className={styles.socialmediaLogo}
                             />
                         </a> 
                         <a href="https://www.linkedin.com/company/iqpaths/" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="src/assets/linkedinLogo.svg" 
+                                src="/linkedinLogo.svg" 
                                 alt="Paths Logo"
                                 className={styles.socialmediaLogo}
                             /> 
@@ -36,7 +36,7 @@ const Footer = () => {
                         
                         <a href="https://www.instagram.com/iqpaths/" target="_blank" rel="noopener noreferrer">
                             <img
-                                src="src/assets/instagramLogo.svg" 
+                                src="/instagramLogo.svg" 
                                 alt="Paths Logo"
                                 className={styles.socialmediaLogo}
                             />

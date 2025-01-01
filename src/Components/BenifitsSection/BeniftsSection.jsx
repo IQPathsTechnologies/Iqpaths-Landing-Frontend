@@ -34,7 +34,7 @@ function BeniftsSection() {
   return (
     <div className={styles.container}>
       <div className={styles.videoSection}>
-        <img src="src/assets/video.png" alt="" className={styles.video} />
+        <img src="/video.png" alt="" className={styles.video} />
       </div>
       <div className={styles.containt}>
         <div className={styles.heading}>

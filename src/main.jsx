@@ -11,7 +11,10 @@ import Error from './pages/Error/error';
 import ContactUs from './pages/ContactUs/ContactUs';
 import MyLearning from './pages/MyLearning/MyLearning';
 import ViewLectures from './pages/ViewLectures/ViewLectures';
+import ProfilePage from './pages/ProfilePage/ProfilePage'
 import LoginSignup from './Components/loginSignup/loginSignup';
+// import CartPage from './pages/CartPage/CartPage';
+import { UserProvider } from './context/userContext';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -33,7 +36,7 @@ const router = createBrowserRouter([
         element: <Courses />,
       },
       {
-        path: '/course/:courseId',
+        path: '/course/:title/:id',
         element: <Course />,
       },
       {
@@ -45,11 +48,11 @@ const router = createBrowserRouter([
         element: <Error />
       },
       {
-        path: '/contact',
+        path: '/contact-us',
         element: <ContactUs />
       },
       {
-        path: '/myLearning',
+        path: '/my-Learnings',
         element: <MyLearning />
       },
       {
@@ -59,6 +62,18 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <LoginSignup />
+      },
+      // {
+      //   path: '/cart',
+      //   element: <CartPage />
+      // },
+      {
+        path: '/signup',
+        element: <LoginSignup />
+      },
+      {
+        path: '/profile',
+        element: <ProfilePage />
       }
       // {
       //   path: '/login',
@@ -75,6 +90,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <>
+  <UserProvider>
     <RouterProvider router = {router} />
+  </UserProvider>
   </>
 );

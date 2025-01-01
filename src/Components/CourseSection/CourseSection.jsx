@@ -1,7 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import SignUpPopup from "./SignUpPopup";
 import styles from "./CourseSection.module.css";
 import CourseDetails from "./CourseDetails";
+import { getRazorPay, loadRazorPay } from "../../utility/Razorpay/Razorpay";
+import { verifyPayment, createOrder } from "../../utility/Razorpay/RazorpayApi";
+import { useParams } from "react-router-dom";
+import { UserContext } from '../../context/userContext';
+import { AuthService } from '../../axios/User';
+
+
 
 const CourseSection = ({
   programName = "Data Science",
@@ -19,12 +26,80 @@ const CourseSection = ({
   hours = "54.5 hours on-demand video",
   download = "Downloadable Resources",
   access = "Access on mobile and TV",
+  //temp data
+  courseId = "6772c5a7b22b4a5a4665a64b",
+  // amount = 1999,
 }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [isRazorPayPopupVisible, setIsRazorPayPopupVisible] = useState(false);
+  const [orderToken, setOrderToken] = useState(null);
+  const [razorpayOptions, setRazorpayOptions] = useState(null); 
+  const [courseDetails, setCourseDetails] = useState([]);
+
+  const { title, id } = useParams();
+  console.log(title, id);
+  
+  const { user } = useContext(UserContext);
+  const apiClass = new AuthService();
+
+
+
+  //razorpay
+  const handlePurchase = useCallback(async () => {
+    const response = await createOrder(courseId);
+    const { token, currency, key, name, description } = response;
+    const { amount, id } = response.razorpayOrder;
+    const order_id = id;
+    setOrderToken(token);
+    setRazorpayOptions({ order_id, amount, currency,  key, name, description });
+  }, [courseId]);
+
+  useEffect(() => {
+    if(razorpayOptions){
+      handlePayNow();
+    }
+  }, [razorpayOptions]);
+  
+  const handlePayNow = useCallback(async () => {
+    await loadRazorPay();
+    setIsRazorPayPopupVisible(true);
+    const rzp = getRazorPay({
+      ...razorpayOptions,
+      prefill: { contact: user?.contact || '' },
+      notes: { ...user, id: courseId },
+      theme: { color: "#0047B2" },
+      handler: async ({
+        razorpay_order_id,
+        razorpay_payment_id,
+        razorpay_signature,
+      }) => {
+        verifyPayment({
+          token: orderToken,
+          razorpay_order_id,
+          razorpay_payment_id,
+          razorpay_signature,
+        });
+      }
+    });
+
+    rzp.on("payment.failed", (response) => {
+      console.log("Payment failed");
+    });
+
+    rzp.open();
+  }, [orderToken, razorpayOptions, courseId, user]);
+
+
+
 
   const handleOpenPopup = () => {
-    setIsPopupVisible(true); // Show the pop-up
-    document.body.style.overflow = "hidden"; // Disable scrolling
+
+    //login popup
+    // setIsPopupVisible(true); 
+    // document.body.style.overflow = "hidden"; 
+
+    //razor pay 
+    handlePurchase();
   };
 
   const handleClosePopup = () => {
@@ -39,6 +114,23 @@ const CourseSection = ({
     };
   }, []);
 
+
+  //get content 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await apiClass.getCourseDetails(id);
+        console.log("CourseSection :: useEffect :: response", response);
+        setCourseDetails(response.details);
+
+      } catch (error) {
+        console.log("CourseSection :: useEffect :: error", error);
+      }
+    }
+    fetchData();
+  }, [id]);
+
+
   return (
     <>
       <div className={styles.container}>
@@ -46,36 +138,36 @@ const CourseSection = ({
         <div className={styles.leftSection}>
           <div className={styles.courseHeading}>
             <div className={styles.courseDetails}>
-              <p className={styles.heading}>All Program &gt; {programName}</p>
-              <h6 className={styles.title}> {courseTitle} </h6>
+              <p className={styles.heading}>All Program &gt; {courseDetails.subject}</p>
+              <h6 className={styles.title}> {courseDetails.title} </h6>
               <p className={styles.description}> {description} </p>
 
               <div className={styles.extraInfo}>
                 <div className={styles.info}>
-                  <img src="src/assets/duration.png" alt="Duration" />
-                  <p> {duration} </p>
+                  <img src="/duration.png" alt="Duration" />
+                  <p> {courseDetails.duration} {courseDetails.duration == 1 ? "week" : "weeks"} </p>
                 </div>
                 <div className={styles.info}>
-                  <img src="src/assets/students.png" alt="Students" />
+                  <img src="/students.png" alt="Students" />
                   <p> {students} </p>
                 </div>
                 <div className={styles.info}>
-                  <img src="src/assets/levels.png" alt="Levels" />
+                  <img src="/levels.png" alt="Levels" />
                   <p> {levels} </p>
                 </div>
                 <div className={styles.info}>
-                  <img src="src/assets/lessons.png" alt="Lessons" />
+                  <img src="/lessons.png" alt="Lessons" />
                   <p> {lessons} </p>
                 </div>
                 <div className={styles.info}>
-                  <img src="src/assets/quizzes.png" alt="Quizzes" />
+                  <img src="/quizzes.png" alt="Quizzes" />
                   <p> {quizzes} </p>
                 </div>
               </div>
 
               <div className={styles.rating}>
                 <p> {rating} </p>
-                <img src="src/assets/rating.png" alt="ratings" />
+                <img src="/rating.png" alt="ratings" />
               </div>
             </div>
           </div>
@@ -106,14 +198,14 @@ const CourseSection = ({
         <div className={styles.rightSectionWrapper}>
           <div className={styles.rightSection}>
             <div className={styles.coursePreview}>
-              <img src="src/assets/preview.png" alt="Preview" />
+              <img src="/preview.png" alt="Preview" />
             </div>
             <div className={styles.coursePricing}>
               <p className={styles.price}> {coursePrice} </p>
               <p className={styles.discount}> {discount} </p>
             </div>
             <div className={styles.timeLeft}>
-              <img src="src/assets/alarm.png" alt="Alarm" />
+              <img src="/alarm.png" alt="Alarm" />
               <p> {hoursLeft} </p>
             </div>
             <div className={styles.buyDetails}>
@@ -122,7 +214,7 @@ const CourseSection = ({
                   <p> Add to cart </p>
                 </button>
                 <img
-                  src="src/assets/wishlist.png"
+                  src="/wishlist.png"
                   alt="Wishlist"
                   className={styles.wishlist}
                 />
@@ -137,15 +229,15 @@ const CourseSection = ({
             <div className={styles.courseInclude}>
               <p className={styles.includes}> This course includes: </p>
               <div className={styles.content}>
-                <img src="src/assets/camera.png" alt="Camera" />
+                <img src="/camera.png" alt="Camera" />
                 <p> {hours} </p>
               </div>
               <div className={styles.content}>
-                <img src="src/assets/download.png" alt="Download" />
+                <img src="/download.png" alt="Download" />
                 <p> {download} </p>
               </div>
               <div className={styles.content}>
-                <img src="src/assets/access.png" alt="Access" />
+                <img src="/access.png" alt="Access" />
                 <p> {access} </p>
               </div>
             </div>

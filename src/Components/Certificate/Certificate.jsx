@@ -4,11 +4,11 @@ import styles from "./Certificate.module.css";
 const Certificate = () => {
   const certificates = [
     {
-      image: 'src/assets/certificate1.png', // Replace with the actual path or URL
+      image: '/certificate1.png', // Replace with the actual path or URL
       alt: "Certificate Front",
     },
     {
-      image: 'src/assets/certificate2.png', // Replace with the actual path or URL
+      image: '/certificate2.png', // Replace with the actual path or URL
       alt: "Certificate Back",
     },
   ];
@@ -17,15 +17,15 @@ const Certificate = () => {
     title: "Get Shareable Certificate",
     points: [
       {
-        icon: 'src/assets/benefit1.png', // Replace with the actual path or URL
+        icon: '/benefit1.png', // Replace with the actual path or URL
         text: "Teachers don’t get lost in the grid view and have a dedicated Podium space.",
       },
       {
-        icon: 'src/assets/benefit2.png', // Replace with the actual path or URL
+        icon: '/benefit2.png', // Replace with the actual path or URL
         text: "TAs and presenters can be moved to the front of the class.",
       },
       {
-        icon: 'src/assets/benefit3.png', // Replace with the actual path or URL
+        icon: '/benefit3.png', // Replace with the actual path or URL
         text: "Teachers can easily see all students and class data at one time.",
       },
     ],

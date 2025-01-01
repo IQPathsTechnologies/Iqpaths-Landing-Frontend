@@ -5,7 +5,6 @@ import Roadmap from '../../Components/Roadmap/Roadmap'
 import Certificate from '../../Components/Certificate/Certificate'
 import Instructor from '../../Components/Instructor/Instructor'
 import SimilarCourses from '../../Components/SimilarCourses/SimilarCourses'
-import TempCompo from '../../Components/tempCompo/tempCompo'
 
 const Course = () => {
     return (
@@ -16,7 +15,6 @@ const Course = () => {
             <Certificate />
             <Instructor />
             <SimilarCourses />
-            {/* <TempCompo /> */}
         </div>
     );
 };

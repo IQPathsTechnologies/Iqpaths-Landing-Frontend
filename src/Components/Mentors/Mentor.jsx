@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Mentor.module.css';
 import InfiniteCarouselRight from '../../utility/infiniteCarousel/infiniteCarouselRight';
 import MentorPopup from './MentorPopup';
+import { AuthService } from '../../axios/User';
+
 
 const images = [
   'src/assets/Mentors/mentor1.jpg',
@@ -11,8 +13,27 @@ const images = [
   'src/assets/Mentors/mentor5.jpg',
 ];
 
+const apiClass = new AuthService();
+
 function Mentor() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [images, setImages] = useState();
+
+  useEffect(() => {
+    const getMentorImages = async () => {
+      try {
+        const response = await apiClass.getMentor();
+        // console.log('Mentor :: getMentorImages :: response', photos);
+        const photos = response.map((mentor) => mentor.profilePhoto);
+        setImages(photos);
+      } catch (error) {
+        console.log('Mentor :: getMentorImages :: error', error);
+      }
+    };
+    getMentorImages();
+  }, []);
+
+
 
   const openPopup = (image) => {
     setSelectedImage(image);
