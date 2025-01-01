@@ -10,6 +10,8 @@ const LoginSignup = () => {
     const [activeForm, setActiveForm] = useState('login');
     const [loginData, setLoginData] = useState({ email: '', password: '' });
     const [signupData, setSignupData] = useState({ email: '', name: '', mobileNo: '', password: '' });
+    const [errorMessageLogin, setErrorMessageLogin] = useState('');
+    const [errorMessageSignup, setErrorMessageSignup] = useState(''); 
     const navigate = useNavigate();
     const location = useLocation();
     const type = location.state?.type || (location.pathname.includes('signup') ? 'signup' : 'login');
@@ -23,7 +25,7 @@ const LoginSignup = () => {
 
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
-        console.log('loginData:', loginData);
+        setErrorMessageLogin(''); 
         if (!loginData.email || !loginData.password) {
             console.log('Please fill in all fields.');
             return;
@@ -42,12 +44,19 @@ const LoginSignup = () => {
                 console.log('Login failed. Please try again.');
             }
         } catch (error) {
-            console.error('Error during login:', error);
+            const match = error.response.data.match(/<pre>(.*?)<br>/);
+            if (match && match[1]) {
+                const errorMessage = match[1].replace(/&#39;/g, "'");
+                setErrorMessageLogin(errorMessage);
+            } else {
+                console.log('Error message not found');
+            }
         }
     };
 
     const handleSignupSubmit = async (e) => {
         e.preventDefault();
+        setErrorMessageSignup(''); 
         if (!signupData.email || !signupData.name || !signupData.mobileNo || !signupData.password) {
             console.log('Please fill in all fields.');
             return;
@@ -65,7 +74,19 @@ const LoginSignup = () => {
                 console.log('Signup failed. Please try again.');
             }
         } catch (error) {
-            console.error('Error during signup:', error.response.data);
+            const match = error.response.data.match(/<pre>(.*?)<br>/);
+            if (match && match[1]) {
+                const errorMessage = match[1].replace(/&#39;/g, "'");
+                if (errorMessage && errorMessage.includes("E11000 duplicate key error collection")) {
+                    setErrorMessageSignup("Error: User already exists with this email.")
+                }
+                else{
+                    setErrorMessageSignup(errorMessage);
+                }
+                
+            } else {
+                console.log('Error message not found');
+            }
         }
     };
 
@@ -102,10 +123,10 @@ const LoginSignup = () => {
                                 Login
                             </button>
                             <button
-                                className={`${styles.toggleButton} ${activeForm === 'register' ? styles.activeButton : ''}`}
-                                onClick={() => setActiveForm('register')}
+                                className={`${styles.toggleButton} ${activeForm === 'signup' ? styles.activeButton : ''}`}
+                                onClick={() => setActiveForm('signup')}
                             >
-                                register
+                                register        
                             </button>
                         </div>
                     </section>
@@ -117,7 +138,7 @@ const LoginSignup = () => {
                                 <label>Email</label>
                                 <input
                                     type="email"
-                                    name="email"
+                                    name="email" 
                                     placeholder="Enter your email"
                                     value={loginData.email}
                                     onChange={(e) => handleInputChange(e, 'login')}
@@ -133,6 +154,7 @@ const LoginSignup = () => {
                                     onChange={(e) => handleInputChange(e, 'login')}
                                 />
                             </div>
+                            {errorMessageLogin && <p className={styles.errorMessageLogin}>{errorMessageLogin}</p>}
                             <div className={styles.formOptions}>
                                 <label>
                                     <input type="checkbox" /> Remember me
@@ -185,6 +207,7 @@ const LoginSignup = () => {
                                     onChange={(e) => handleInputChange(e, 'signup')}
                                 />
                             </div>
+                            {errorMessageSignup && <p className={styles.errorMessageSignup}>{errorMessageSignup}</p>}
                             <button className={styles.formButton} type="submit">register</button>
                         </form>
                     )}   

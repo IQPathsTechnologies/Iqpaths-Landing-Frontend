@@ -130,3 +130,16 @@
 .formOptions a:hover {
     text-decoration: underline;
 }
+
+.errorMessageLogin {
+    color: red;
+}
+
+.errorMessageSignup {
+    color: red;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
