@@ -86,28 +86,32 @@ const LoginSignup = () => {
                     </div>
                 ) : (
                     <div className={styles.img}>
-                        <img src="/signupImg.png" alt="Signup" />
+                        <img src="/signupImg.png" alt="register Image" />
                     </div>
                 )}
 
                 <div className={styles.formContainer}>
+                    <p  className={styles.welcomeText}> Welcome to IQpaths!</p>
+                    <section className={styles.toggleButtonContainer}>
                     <div className={styles.toggleButtons}>
-                        <button
-                            className={`${styles.toggleButton} ${activeForm === 'login' ? styles.activeButton : ''}`}
-                            onClick={() => setActiveForm('login')}
-                        >
-                            Login
-                        </button>
-                        <button
-                            className={`${styles.toggleButton} ${activeForm === 'signup' ? styles.activeButton : ''}`}
-                            onClick={() => setActiveForm('signup')}
-                        >
-                            Signup
-                        </button>
-                    </div>
-
-                    {activeForm === 'login' ? (
-                        <form onSubmit={handleLoginSubmit}>
+                            <button
+                                className={`${styles.toggleButton} ${activeForm === 'login' ? styles.activeButton : ''}`}
+                                onClick={() => setActiveForm('login')}
+                            >
+                                Login
+                            </button>
+                            <button
+                                className={`${styles.toggleButton} ${activeForm === 'register' ? styles.activeButton : ''}`}
+                                onClick={() => setActiveForm('register')}
+                            >
+                                register
+                            </button>
+                        </div>
+                    </section>
+                        <p className={styles.formText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, sequi.</p>
+                    
+                        {activeForm === 'login' ? (
+                            <form>
                             <div className={styles.formField}>
                                 <label>Email</label>
                                 <input
@@ -180,11 +184,9 @@ const LoginSignup = () => {
                                     onChange={(e) => handleInputChange(e, 'signup')}
                                 />
                             </div>
-                            <button className={styles.formButton} type="submit">
-                                Signup
-                            </button>
+                            <button className={styles.formButton} type="submit">register</button>
                         </form>
-                    )}
+                    )}   
                 </div>
             </div>
         </div>
