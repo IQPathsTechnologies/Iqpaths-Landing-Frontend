@@ -179,16 +179,16 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                       {i === 1 && <span className={styles.secondaryDetail}>{detail}</span>}
                       
                       <span className={styles.priceDetail}>
-                        <span className={styles.originalPrice}>{detail.original}</span>{" "}
-                        <span className={styles.discountedPrice}>{detail.discounted}</span>
+                        <span className={styles.originalPrice}>{detail.realPrice}</span>{" "}
+                        <span className={styles.discountedPrice}>{detail.price}</span>
                       </span>
                       
                     </li>
                   ))}
                   <li className={styles.point}>
                       <span className={styles.priceDetail}>
-                        <span className={`${styles.originalPrice} ${course.discountedPrice ? styles.strike : ""}`}>{course.price}</span>{" "}
-                        <span className={styles.discountedPrice}>{course.discountedPrice}</span>
+                        <span className={`${styles.originalPrice} ${course.discountedPrice ? styles.strike : ""}`}>{course.realPrice}</span>{" "}
+                        <span className={styles.discountedPrice}>{course.price}</span>
                       </span>
                   </li>
                 </ul>
