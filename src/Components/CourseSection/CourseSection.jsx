@@ -35,11 +35,13 @@ const CourseSection = ({
   const [orderToken, setOrderToken] = useState(null);
   const [razorpayOptions, setRazorpayOptions] = useState(null); 
   const [courseDetails, setCourseDetails] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const { title, id } = useParams();
   console.log(title, id);
   
   const { user } = useContext(UserContext);
+  console.log("CourseSection :: user", user);
   const apiClass = new AuthService();
 
 
@@ -65,7 +67,7 @@ const CourseSection = ({
     setIsRazorPayPopupVisible(true);
     const rzp = getRazorPay({
       ...razorpayOptions,
-      prefill: { contact: user?.contact || '' },
+      prefill: { contact: user?.user.mobileNo || '' },
       notes: { ...user, id: courseId },
       theme: { color: "#0047B2" },
       handler: async ({
@@ -115,13 +117,17 @@ const CourseSection = ({
   }, []);
 
 
+  
+
   //get content 
   useEffect(() => {
+    window.scrollTo(0, 0);
     async function fetchData() {
       try {
         const response = await apiClass.getCourseDetails(id);
         console.log("CourseSection :: useEffect :: response", response);
         setCourseDetails(response.details);
+        setLoading(false);
 
       } catch (error) {
         console.log("CourseSection :: useEffect :: error", error);
@@ -138,14 +144,20 @@ const CourseSection = ({
         <div className={styles.leftSection}>
           <div className={styles.courseHeading}>
             <div className={styles.courseDetails}>
-              <p className={styles.heading}>All Program &gt; {courseDetails.subject}</p>
+              <p className={styles.heading}>
+                All Program &gt; {courseDetails.subject}
+              </p>
               <h6 className={styles.title}> {courseDetails.title} </h6>
               <p className={styles.description}> {description} </p>
 
               <div className={styles.extraInfo}>
                 <div className={styles.info}>
                   <img src="/duration.png" alt="Duration" />
-                  <p> {courseDetails.duration} {courseDetails.duration == 1 ? "week" : "weeks"} </p>
+                  <p>
+                    {" "}
+                    {courseDetails.duration}{" "}
+                    {courseDetails.duration == 1 ? "week" : "weeks"}{" "}
+                  </p>
                 </div>
                 <div className={styles.info}>
                   <img src="/students.png" alt="Students" />
@@ -153,7 +165,7 @@ const CourseSection = ({
                 </div>
                 <div className={styles.info}>
                   <img src="/levels.png" alt="Levels" />
-                  <p> {levels} </p>
+                  <p> {courseDetails?.chapters?.length} Modules </p>
                 </div>
                 <div className={styles.info}>
                   <img src="/lessons.png" alt="Lessons" />
@@ -166,8 +178,31 @@ const CourseSection = ({
               </div>
 
               <div className={styles.rating}>
-                <p> {rating} </p>
-                <img src="/rating.png" alt="ratings" />
+                {loading ? (
+                  <p>Loading...</p> // Show a loader or placeholder while fetching data
+                ) : (
+                  <>
+                    <p>{courseDetails.review}</p>
+                    {[...Array(courseDetails.review || 0)].map((_, i) => (
+                      <img
+                        key={i}
+                        src="/starFilled.svg"
+                        alt="rating"
+                        className={styles.star}
+                      />
+                    ))}
+                    {[...Array(5 - (courseDetails.review || 0))].map(
+                      (_, index) => (
+                        <img
+                          key={index}
+                          src="/starEmpty.svg"
+                          alt="rating"
+                          className={styles.star}
+                        />
+                      )
+                    )}
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -179,13 +214,16 @@ const CourseSection = ({
             <div className={styles.courseInfo}>
               <ul>
                 <li className={styles.info1}>
-                  In this course, you will gain proficiency in how to analyze a number of statistical procedures in SPSSS.
+                  In this course, you will gain proficiency in how to analyze a
+                  number of statistical procedures in SPSSS.
                 </li>
                 <li className={styles.info2}>
-                  You will learn how to interpret the output of a number of different statical tests.
+                  You will learn how to interpret the output of a number of
+                  different statical tests.
                 </li>
                 <li className={styles.info3}>
-                  Learn how to write the result of statistical analyses using APA format.
+                  Learn how to write the result of statistical analyses using
+                  APA format.
                 </li>
               </ul>
             </div>
@@ -201,8 +239,11 @@ const CourseSection = ({
               <img src="/preview.png" alt="Preview" />
             </div>
             <div className={styles.coursePricing}>
-              <p className={styles.price}> {coursePrice} </p>
-              <p className={styles.discount}> {discount} </p>
+              <p className={styles.price}> {courseDetails.price} </p>
+              <p className={styles.discount}>
+                {" "}
+                {(((courseDetails.realPrice - courseDetails.discountedPrice)/courseDetails.realPrice) * 100).toFixed(0)}{" % "}
+              </p>
             </div>
             <div className={styles.timeLeft}>
               <img src="/alarm.png" alt="Alarm" />
@@ -242,17 +283,20 @@ const CourseSection = ({
               </div>
             </div>
             <div className={styles.coupon}>
-              <div className={styles.gift}>
+              {/* <div className={styles.gift}>
                 <p className={styles.p1}> SHARE </p>
                 <p> GIFT </p>
                 <p> APPLY COUPON </p>
-              </div>
+              </div> */}
               <input
                 type="text"
                 placeholder="Enter coupon"
                 className={styles.coupons}
               />
-              <button className={styles.apply} onClick={handleOpenPopup}> Apply </button>
+              <button className={styles.apply} onClick={handleOpenPopup}>
+                {" "}
+                Apply{" "}
+              </button>
             </div>
           </div>
         </div>

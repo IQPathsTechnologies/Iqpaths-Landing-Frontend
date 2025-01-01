@@ -104,12 +104,13 @@ const apiClass = new AuthService();
 const CourseCard = ({ activeCategory, selectedFilters }) => {
 
   const [courses, setCourses] = useState([]);
+  
 
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await apiClass.getCourses();
-        console.log("CourseCard :: useEffect :: response", response);
+        console.log("AllCourseCard :: useEffect :: response", response);
         setCourses(response);
 
       } catch (error) {
@@ -150,7 +151,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
           <Link to={`/course/${course.title}/${course._id}`} key={index} className={styles.link}>
           <div key={index} className={styles.card}>
             {/* Card Image */}
-            <img src={course.image} alt={course.title} className={styles.cardImage} />
+            <img src={course.thumbnail} alt={course.title} className={styles.cardImage} />
 
             {/* Card Content */}
             <div className={styles.cardContent}>
