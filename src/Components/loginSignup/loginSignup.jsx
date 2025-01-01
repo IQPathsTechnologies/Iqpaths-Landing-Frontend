@@ -138,7 +138,7 @@ const LoginSignup = () => {
                                 <label>Email</label>
                                 <input
                                     type="email"
-                                    name="email"
+                                    name="email" 
                                     placeholder="Enter your email"
                                     value={loginData.email}
                                     onChange={(e) => handleInputChange(e, 'login')}
