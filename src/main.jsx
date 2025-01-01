@@ -13,7 +13,8 @@ import MyLearning from './pages/MyLearning/MyLearning';
 import ViewLectures from './pages/ViewLectures/ViewLectures';
 import ProfilePage from './pages/ProfilePage/ProfilePage'
 import LoginSignup from './Components/loginSignup/loginSignup';
-// import CartPage from './pages/CartPage/CartPage';
+import CartPage from './pages/CartPage/CartPage';
+import AboutUs from './pages/AboutUs/AboutUs';
 import { UserProvider } from './context/userContext';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
@@ -63,10 +64,10 @@ const router = createBrowserRouter([
         path: '/login',
         element: <LoginSignup />
       },
-      // {
-      //   path: '/cart',
-      //   element: <CartPage />
-      // },
+      {
+        path: '/cart',
+        element: <CartPage />
+      },
       {
         path: '/signup',
         element: <LoginSignup />
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
       {
         path: '/profile',
         element: <ProfilePage />
+      },
+      {
+        path: '/about',
+        element: <AboutUs />
       }
       // {
       //   path: '/login',
