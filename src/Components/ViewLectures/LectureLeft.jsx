@@ -28,6 +28,69 @@ const LectureLeft = () => {
       title: "React States & Working with Events",
       items: [],
     },
+    {
+      title: "Getting Started",
+      items: [
+        { id: 1, image: "/icons.png", label: "Welcome to the course", isActive: true },
+        { id: 2, image: "/icons.png",label: "What is React JS?", isActive: false },
+        { id: 3, image: "/icons.png",label: "Why 'React' but not 'JavaScript'?", isActive: false },
+        { id: 4, image: "/icons.png",label: "Setting up Environment", isActive: false },
+      ],
+    },
+    {
+      title: "JavaScript Refresher",
+      items: [],
+    },
+    {
+      title: "React Basics & Working with Components",
+      items: [],
+    },
+    {
+      title: "React States & Working with Events",
+      items: [],
+    },
+    {
+      title: "Getting Started",
+      items: [
+        { id: 1, image: "/icons.png", label: "Welcome to the course", isActive: true },
+        { id: 2, image: "/icons.png",label: "What is React JS?", isActive: false },
+        { id: 3, image: "/icons.png",label: "Why 'React' but not 'JavaScript'?", isActive: false },
+        { id: 4, image: "/icons.png",label: "Setting up Environment", isActive: false },
+      ],
+    },
+    {
+      title: "JavaScript Refresher",
+      items: [],
+    },
+    {
+      title: "React Basics & Working with Components",
+      items: [],
+    },
+    {
+      title: "React States & Working with Events",
+      items: [],
+    },
+    {
+      title: "Getting Started",
+      items: [
+        { id: 1, image: "/icons.png", label: "Welcome to the course", isActive: true },
+        { id: 2, image: "/icons.png",label: "What is React JS?", isActive: false },
+        { id: 3, image: "/icons.png",label: "Why 'React' but not 'JavaScript'?", isActive: false },
+        { id: 4, image: "/icons.png",label: "Setting up Environment", isActive: false },
+      ],
+    },
+    {
+      title: "JavaScript Refresher",
+      items: [],
+    },
+    {
+      title: "React Basics & Working with Components",
+      items: [],
+    },
+    {
+      title: "React States & Working with Events",
+      items: [],
+    },
   ];
 
   const toggleSection = (index) => {
@@ -40,12 +103,13 @@ const LectureLeft = () => {
   return isVisible ? (
     <aside className={styles.leftBar}>
       {/* Close Button */}
-      <button
+      <div
         className={styles.closeButton}
         onClick={() => setIsVisible(false)}
       >
-        Close
-      </button>
+        <img src="/prevLec.svg" alt="Home" /> 
+        <span>Close</span>
+      </div>
 
       {/* Dynamic Sections */}
       <div className={styles.sectionContainer}>
@@ -82,6 +146,7 @@ const LectureLeft = () => {
                       {/* {item.image} */}
                       {item.label}
                     </li>
+                    
                   ))
                 ) : (
                   <li className={styles.noContent}>No content available</li>
@@ -94,7 +159,7 @@ const LectureLeft = () => {
     </aside>
   ) : (
     <button className={styles.openButton} onClick={() => setIsVisible(true)}>
-      <img src="/rightArrow.png" alt="open" />
+      <img src="/nextLec.svg" alt="open" />
     </button>
   );
 };

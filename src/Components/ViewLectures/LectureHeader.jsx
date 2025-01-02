@@ -16,8 +16,6 @@ const lectureHeader = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.navigation}>
-      </div>
       <div className={styles.breadcrumb}>
         {/* Generate breadcrumbs dynamically */}
         <span>
@@ -37,10 +35,19 @@ const lectureHeader = () => {
         ))}
       </div>
       <div className={styles.actionIcons}>
-        <p className={styles.icon}> &lt; </p>
-        <p className={styles.previous}> Previous </p>
-        <p className={styles.next}> Next </p>
-        <p className={styles.icon}> &gt; </p>
+        <div className={styles.buttonContainer}>
+          <div >
+            <img src="/prevLec.svg" alt="Home" /> 
+          </div>
+          <p className={styles.previous}> Previous </p>
+        </div>
+        <div className={styles.buttonContainer}>
+          <p className={styles.next}> Next </p>
+          <div>
+            <img src="/nextLec.svg" alt="Home" /> 
+          </div>
+        </div>
+
       </div>
     </header>
   );

@@ -60,7 +60,7 @@ function BeniftsSection() {
           Your browser does not support the video tag.
         </video>
         <div className={styles.playPauseIcon} onClick={handleVideoClick}>
-          {isPlaying ? '❚❚' : '▶️'} 
+          {isPlaying ? (<img src="/pause.svg" alt="" />) : (<img src="/play.svg" alt="" />)} 
         </div>
         <img src="/Triangle.png" alt="" className={styles.triangle} />
       </div>

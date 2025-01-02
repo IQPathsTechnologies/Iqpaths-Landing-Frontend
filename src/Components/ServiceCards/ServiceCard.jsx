@@ -5,7 +5,7 @@ function ServiceCard({ data }) {
     const { coverPhoto, link, index, title, description } = data;
 
     return (
-        <div className={`${styles.card} ${styles[`card${index % 3}`]}`}>
+        <div className={`${styles.card} ${styles[`card${index % 3}`]} `}>
             <div className={styles.logo}>
                 <img src={coverPhoto} alt={title} />
             </div>

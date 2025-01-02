@@ -9,12 +9,16 @@ function QueryCard({ title, shortDescription, longDescription, isExpanded, onCli
       </div>
       <div className={styles.content}>
         <h4 className={styles.title}>{title}</h4>
-        <p className={styles.description}>
+        <p
+          className={`${styles.description} ${
+            isExpanded ? styles.expandedContent : ""
+          }`}
+        >
           {isExpanded ? longDescription : shortDescription}
         </p>
-        <span className={styles.readMore}>
+        <div className={styles.readMore}>
           {isExpanded ? "Read Less..." : "Read More..."}
-        </span>
+        </div>
       </div>
     </div>
   );

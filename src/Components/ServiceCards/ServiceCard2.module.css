@@ -1,0 +1,140 @@
+.card{
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 24px;
+    width: 300px;
+    height: 260px;
+    /* border: 2px solid #0047B2; */
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.link{
+    text-decoration: none;
+}
+
+.logo{
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.card0{
+    animation: appearFromLeft ease-out forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 60%;
+    border-bottom: 4px solid #FF385C;
+}
+.card1{
+    animation: appearFromCenter ease-out forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 60%;
+    border-bottom: 4px solid #FFA177;
+}
+.card2{
+    animation: appearFromRight ease-out forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 60%;
+    border-bottom: 4px solid #00CDAC;
+}
+.card3{
+    border-bottom: 4px solid #00d8ff;
+}
+.card4{
+    border-bottom: 4px solid #c8e9a0;
+}
+.card5{
+    border-bottom: 4px solid #2D8CFF;
+}
+
+
+
+.card img{
+    width: 35px;
+    height: 35px;
+    margin-right: 20px;
+    /* border: 2px solid red; */
+}
+
+
+.card .title{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0047B2;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    /* border: 2px solid red; */
+}
+
+.description{
+    color: #6C757D;
+    height: 250px;
+    font-size: 1rem;
+    /* border: 2px solid blue; */
+    line-height: 1.3;
+    text-align: justify;
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    /* border: 2px solid green; */
+}
+
+.buttonContainer .button{
+    text-decoration: none;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #1C1C1C;
+    color: white;
+    cursor: pointer;
+}
+
+
+@keyframes appearFromCenter{
+    from{
+        opacity: 0.25;
+        /* scale: 0.5; */
+        transform: translateY(250px);
+    }
+    to{
+        opacity: 1;
+        /* scale: 1; */
+        transform: translateY(0);
+    }
+}
+
+@keyframes appearFromLeft{
+    from{
+        opacity: 0.25;
+        transform: translate(-200px, 250px);
+    }
+    to{
+        opacity: 1;
+        /* scale: 1; */
+        transform: translate(0px, 0px);
+        /* transform: translateZ(0); */
+    }
+}
+
+@keyframes appearFromRight{
+    from{
+        opacity: 0.25;
+        /* scale: 0.5; */
+        transform: translate(200px, 250px);
+    }
+    to{
+        opacity: 1;
+        /* scale: 1; */
+        transform: translate(0px, 0px);
+        transform: translateY(0);
+    }
+}

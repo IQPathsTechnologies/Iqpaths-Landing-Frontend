@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import ServiceCard from '../ServiceCards/ServiceCard';
+import ServiceCard2 from '../ServiceCards/ServiceCard2';
 import styles from './Service.module.css';
 import { AuthService } from '../../axios/User';
 
@@ -82,7 +82,7 @@ const Service = () => {
             </div>
             <div className={styles.cardContainer}>
                 {content.map((data, key) => (
-                    <ServiceCard key={key} data={data} className = {styles.card} />
+                    <ServiceCard2 key={key} data={data} className = {styles.card} />
                 ))}
             </div>
         </div>
