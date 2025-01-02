@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const createOrder = async (courseId) => {
+const createOrder = async (courseId, couponCode) => {
     try {
-        const {data }= await axios.post('/api/payment/createOrder', {courseId},{withCredentials: true});
+        const {data }= await axios.post('/api/payment/createOrder', {courseId, couponCode},{withCredentials: true});
         console.log('Razorpay :: createOrder :: data', data.data);
         return data.data;
     } catch (error) {

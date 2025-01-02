@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./BeniftsSection.module.css";
 import QueryCard from "./QueryCard";
 
@@ -25,16 +25,39 @@ const content = [
 
 function BeniftsSection() {
   const [expandedIndex, setExpandedIndex] = useState(null); // Tracks which section is expanded
+  const videoRef = useRef(null);
 
   const toggleContent = (index) => {
     // If the same index is clicked, collapse it; otherwise, expand it
     setExpandedIndex(expandedIndex === index ? null : index);
   };
 
+
+  const handleVideoClick = () => {
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+    } else {
+      videoRef.current.pause();
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.videoSection}>
-        <img src="/video.png" alt="" className={styles.video} />
+        {/* <img src="/video.png" alt="" className={styles.video} /> */}
+
+        <video
+          className={styles.video}
+          ref={videoRef}
+          onClick={handleVideoClick}
+          autoPlay
+          loop
+          // muted
+        >
+          <source src="BenifitsVideo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <img src="/Triangle.png" alt="" className={styles.triangle} />
       </div>
       <div className={styles.containt}>
         <div className={styles.heading}>

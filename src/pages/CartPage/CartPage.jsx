@@ -1,14 +1,14 @@
-// import React from 'react';
-// import CartPage from '../../Components/CartPage/CartPage'
-// import NewsletterSection from '../../Components/AllCourses/NewsletterSection'
+import React from 'react';
+import CartPage from '../../Components/CartPage/CartPage'
+import NewsletterSection from '../../Components/AllCourses/NewsletterSection'
 
-// const Cart = () => {
-//     return (
-//         <div>
-//             <CartPage />
-//             <NewsletterSection />
-//         </div>
-//     );
-// };
+const Cart = () => {
+    return (
+        <div>
+            <CartPage />
+            <NewsletterSection />
+        </div>
+    );
+};
 
-// export default Cart;
+export default Cart;
