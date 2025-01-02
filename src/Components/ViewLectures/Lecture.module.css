@@ -2,14 +2,15 @@
 .appContainer {
     display: flex;
     flex-direction: column;
-    height: 115vh;
-    overflow: hidden;
+    height: 100vh; /* Full height for the app container */
+    overflow: hidden; 
   }
   
   .mainContainer {
     display: flex;
     justify-content: space-between;
-    /* flex: 1; */
+    flex: 1;
+    overflow: hidden;
   }
   
   .middleContainer {

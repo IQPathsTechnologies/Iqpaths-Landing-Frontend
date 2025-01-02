@@ -4,30 +4,46 @@ import styles from "./lectureHeader.module.css";
 const lectureHeader = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.navigation}>
-      </div>
       <div className={styles.breadcrumb}>
-        <span>
+        <div>
             <img src="/Home.png" alt="Home" />
-        </span>
-        <p> &gt; </p>
-        <span>
+        </div>
+        <div>
+           <img src="/CaretRight.svg" alt="Home" /> 
+        </div>
+
+        <div>
             Courses
-        </span>
-        <p> &gt; </p> 
-        <span>
+        </div>
+       
+        <div>
+           <img src="/CaretRight.svg" alt="Home" /> 
+        </div>
+        <div>
             User Experience
-        </span> 
-        <p> &gt; </p> 
-        <span className={styles.active}>
+        </div> 
+       
+        <div>
+           <img src="/CaretRight.svg" alt="Home" /> 
+        </div>
+        <div className={styles.active}>
             Ideate 101
-        </span>
+        </div>
       </div>
       <div className={styles.actionIcons}>
-        <p className={styles.icon}> &lt; </p>
-        <p className={styles.previous}> Previous </p>
-        <p className={styles.next}> Next </p>
-        <p className={styles.icon}> &gt; </p>
+        <div className={styles.buttonContainer}>
+          <div >
+            <img src="/prevLec.svg" alt="Home" /> 
+          </div>
+          <p className={styles.previous}> Previous </p>
+        </div>
+        <div className={styles.buttonContainer}>
+          <p className={styles.next}> Next </p>
+          <div>
+            <img src="/nextLec.svg" alt="Home" /> 
+          </div>
+        </div>
+
       </div>
     </header>
   );

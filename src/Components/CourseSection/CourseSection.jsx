@@ -8,6 +8,7 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { UserContext } from '../../context/userContext';
 import { AuthService } from '../../axios/User';
 import axios from "axios";
+import { set } from "react-hook-form";
 
 
 
@@ -39,6 +40,7 @@ const CourseSection = ({
   const [loading, setLoading] = useState(true);
   const [coupon, setCoupon] = useState("");
   const [isApplied, setIsApplied] = useState(false);
+  const [whishlist, setWhishlist] = useState(false);
 
 
   const { title, id } = useParams();
@@ -52,7 +54,7 @@ const CourseSection = ({
 
   //razorpay
   const handlePurchase = useCallback(async () => {
-    console.log("coupon code ye hai re bawa", coupon);
+    
     const response = await createOrder(courseId, coupon);
     const { token, currency, key, name, description } = response;
     const { amount, id } = response.razorpayOrder;
@@ -154,6 +156,17 @@ const CourseSection = ({
     }
   };
   
+
+  const addToWhishlist = async () => {
+    // try {
+    //   const response = await apiClass.addToWhishlist(id);
+    //   console.log("CourseSection :: addToWhishlist :: response", response);
+    //   setWhishlist(true);
+    // } catch (error) {
+    //   console.log("CourseSection :: addToWhishlist :: error", error);
+    // }
+    setWhishlist(!whishlist);
+  }
 
 
   return (
@@ -257,7 +270,7 @@ const CourseSection = ({
                     courseDetails.realPrice) *
                   100
                 ).toFixed(0)}
-                {" % "}
+                {" %off "}
               </p>
             </div>
             <div className={styles.timeLeft}>
@@ -269,11 +282,20 @@ const CourseSection = ({
                 <button className={styles.cart} onClick={handleOpenPopup}>
                   <p> Add to cart </p>
                 </button>
-                <img
-                  src="/wishlist.png"
-                  alt="Wishlist"
-                  className={styles.wishlist}
-                />
+
+                <div className={styles.whishlist} onClick={addToWhishlist}>
+
+                  {whishlist ? (
+                    <img src="/heartFilled.svg" alt="Wishlist" />
+                  ) : (
+                    <img src="/heartEmpty.svg" alt="Wishlist" />
+                  )  
+                  }
+
+                  {/* <img src="/heartEmpty.svg" alt="Wishlist" />
+                  <img src="/heartFilled.svg" alt="Wishlist" /> */}
+                  {/* <p> Wishlist </p> */}
+                </div>
               </div>
               <button className={styles.buy} onClick={handleOpenPopup}>
                 <p> Buy Now </p>

@@ -17,21 +17,21 @@ const BenefitCard = ({ image, title, description, bgColor }) => (
 const AboutBenefit = () => {
   const benefits = [
     {
-      image: "public/monitor.png", // Replace with the path to your image
+      image: "/monitor.png", // Replace with the path to your image
       title: "One on One Monitor",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting.",
       bgColor: "#007bff", // Blue
     },
     {
-      image: "public/hour.png", // Replace with the path to your image
+      image: "/hour.png", // Replace with the path to your image
       title: "24/7 Mentor",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting.",
       bgColor: "#28a745", // Green
     },
     {
-      image: "public/desktop.png", // Replace with the path to your image
+      image: "/desktop.png", // Replace with the path to your image
       title: "Whiteboard",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting.",

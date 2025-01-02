@@ -14,6 +14,7 @@
     padding: 50px 0px 50px 0px;
     /* border: 2px solid blue; */
     position: relative;
+    display: inline-block;
     z-index: 1;
 }
 
@@ -33,7 +34,7 @@
     /* border: 2px solid red; */
 }
 
-.video:hover {
+/* .video:hover {
     transform: scale(1.2) translate(50px, 0px) ;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -41,25 +42,71 @@
 .video:hover ~ .triangle {
     transform: scale(1.2) translate(30px, 30px);
     z-index: 10;
-}
+} */
+
+
 
 .playPauseIcon {
     position: absolute;
     top: 50%;
     right: 50%;
-    transform: translate(50%, 50%);
+    width: 80px;
+    /* transform: translate(120px); */
     font-size: 3rem;
     color: white;
     cursor: pointer;
     z-index: 2; /* Ensure the icon is above the video */
     display: none;
     transition: opacity 0.3s ease;
+    /* border: 2px solid black; */
+    /* padding: 10px; */
+    /* padding: 30px; */
+    /* border-radius: 50%; */
   }
+
+.playPauseIcon img{
+    /* width: 100%;
+    height: 100%; */
+    border-radius: 50%;
+}
   
-.video:hover + .playPauseIcon {
-    display: block; /* Show the icon on hover */
+/* .video:hover + .playPauseIcon {
+    display: block; 
     opacity: 1;
  }
+
+ .videoSection:hover .playPauseIcon {
+    display: block; 
+    opacity: 1;
+ }
+
+ .playPauseIcon:hover ~ .triangle{
+    transform: scale(1.2) translate(30px, 30px);
+    z-index: 10;
+ }
+
+ .playPauseIcon:hover ~ .video{
+    transform: scale(1.2) translate(50px, 0px) ;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+ } */
+
+.videoSection:hover .video {
+    transform: scale(1.2) translate(50px, 30px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+.videoSection:hover .triangle {
+    transform: scale(1.2) translate(50px, 30px);
+    z-index: 10;
+}
+
+.videoSection:hover .playPauseIcon {
+    display: block;
+    transform: translate(120px);
+    opacity: 1;
+}
+
+
 
 .triangle {
     position: absolute;
@@ -105,6 +152,7 @@
     flex-direction: column;
     gap: 30px;
     padding: 0px 60px;
+    
     /* border: 2px solid red; */
 }
 

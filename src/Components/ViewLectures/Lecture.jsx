@@ -15,14 +15,16 @@ const Lecture = () => {
 
       <div className={styles.mainContainer}>
         {/* Left Section */}
-        <LectureLeft />
+        <div className={styles.leftContainer}>
+          <LectureLeft />
+        </div>
 
         <div className={styles.middleContainer}>
           <LectureMiddle />
         </div>
 
         {/* Right Section */}
-        <LectureRight isVisible={isRightVisible} toggleVisibility={setIsRightVisible} />
+        {/* <LectureRight isVisible={isRightVisible} toggleVisibility={setIsRightVisible} /> */}
       </div>
     </div>
   );
