@@ -35,6 +35,19 @@ const LectureMiddle = () => {
           alt="Course Thumbnail"
           className={styles.courseImage}
         />
+
+        {/* <video
+          className={styles.courseImage}
+          // onClick={handleVideoClick}
+          autoPlay
+          loop
+          controls
+          // muted
+        >
+          <source src="/BenifitsVideo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video> */}
+        
         <div className={styles.videoControls}>
           <button className={styles.playButton}>▶</button>
           {/* Progress Bar */}

@@ -43,6 +43,24 @@
     z-index: 10;
 }
 
+.playPauseIcon {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    z-index: 2; /* Ensure the icon is above the video */
+    display: none;
+    transition: opacity 0.3s ease;
+  }
+  
+.video:hover + .playPauseIcon {
+    display: block; /* Show the icon on hover */
+    opacity: 1;
+ }
+
 .triangle {
     position: absolute;
     width: 45%;

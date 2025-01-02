@@ -48,7 +48,7 @@ const Certificate = () => {
 
       {/* Benefits */}
       <div className={styles.benefits}>
-        <button className={styles.benefitsss}>Benefits</button>
+        {/* <button className={styles.benefitsss}>Benefits</button> */}
         <h2 className={styles.benefitsTitle}>{benefits.title}</h2>
         <ul className={styles.benefitsList}>
           {benefits.points.map((point, index) => (

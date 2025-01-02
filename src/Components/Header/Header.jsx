@@ -23,14 +23,27 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
+      // Call the logout API
       await apiClass.logout();
+  
+      // Remove user data from localStorage
       localStorage.removeItem('user');
+  
+      // Reset user context and login state
       setUser(null);
       setIsLoggedIn(false);
+  
+      // Redirect to the login page
+      // navigate('/login');
     } catch (error) {
+      // Log the error for debugging
       console.error("Logout failed", error);
+  
+      // Optionally provide feedback to the user
+      alert("An error occurred while logging out. Please try again.");
     }
   };
+  
 
   const handleOpenPopup = (type) => {
     setPopupType(type);

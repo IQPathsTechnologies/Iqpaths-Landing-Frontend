@@ -2,27 +2,27 @@ import axios from "axios";
 
 export class AuthService {
 
-    constructor() {
-        const user = localStorage.getItem('user');
-        this.user = user ? JSON.parse(user) : null;
-    }
+    // constructor() {
+    //     const user = localStorage.getItem('user');
+    //     this.user = user ? JSON.parse(user) : null;
+    // }
 
-    setUser(user) {
-        this.user = user;
-        localStorage.setItem('user', JSON.stringify(user));
-    }
+    // setUser(user) {
+    //     this.user = user;
+    //     localStorage.setItem('user', JSON.stringify(user));
+    // }
 
-    clearUser() {
-        this.user = null;
-        localStorage.removeItem('user');
-    }
+    // clearUser() {
+    //     this.user = null;
+    //     localStorage.removeItem('user');
+    // }
 
 
     // user methods
     async createAccount({name, email, mobileNo, password}) {
         try {
          const userAccount = await axios.post("/api/user/register", {name, password, email, mobileNo,});
-         this.setUser(userAccount.data.data);
+        //  this.setUser(userAccount.data.data);
          
          if(userAccount){
              return this.login({email, password});
@@ -40,7 +40,7 @@ export class AuthService {
     async login({email, password}){
         try {
             const response =  await axios.post("/api/user/login", {email, password});
-            this.setUser(response.data.data);
+            // this.setUser(response.data.data);
             return response.data.data;
              
          } catch (error) {
@@ -52,7 +52,7 @@ export class AuthService {
      async logout(){
          try {
              await  axios.post("api/user/logout", {withCredentials: true});
-                this.clearUser();
+                // this.clearUser();
          } catch (error) {
              console.log("AuthService :: logout :: error", error);
              throw error;

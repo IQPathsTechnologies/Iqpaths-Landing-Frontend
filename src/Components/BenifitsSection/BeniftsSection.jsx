@@ -24,7 +24,8 @@ const content = [
 ];
 
 function BeniftsSection() {
-  const [expandedIndex, setExpandedIndex] = useState(null); // Tracks which section is expanded
+  const [expandedIndex, setExpandedIndex] = useState(null); 
+  const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
   const toggleContent = (index) => {
@@ -39,6 +40,7 @@ function BeniftsSection() {
     } else {
       videoRef.current.pause();
     }
+    setIsPlaying(!isPlaying);
   };
 
   return (
@@ -57,6 +59,9 @@ function BeniftsSection() {
           <source src="BenifitsVideo.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        <div className={styles.playPauseIcon} onClick={handleVideoClick}>
+          {isPlaying ? '❚❚' : '▶️'} 
+        </div>
         <img src="/Triangle.png" alt="" className={styles.triangle} />
       </div>
       <div className={styles.containt}>
