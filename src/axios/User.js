@@ -17,7 +17,6 @@ export class AuthService {
     //     localStorage.removeItem('user');
     // }
 
-
     // user methods
     async createAccount({name, email, mobileNo, password}) {
         try {

@@ -1,27 +1,40 @@
 import React from "react";
+import {useNavigate, useLocation } from "react-router-dom";
 import styles from "./lectureHeader.module.css";
 
 const lectureHeader = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const pathSegments = location.pathname.split("/").filter((segment) => segment);
+
+  const handleBreadcrumbClick = (index) => {
+    // Generate the path for the clicked breadcrumb
+    const pathToNavigate = `/${pathSegments.slice(0, index + 1).join("/")}`;
+    navigate(pathToNavigate);
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.navigation}>
       </div>
       <div className={styles.breadcrumb}>
+        {/* Generate breadcrumbs dynamically */}
         <span>
-            <img src="/Home.png" alt="Home" />
+          <img src="/Home.png" alt="Home" onClick={() => navigate("/")} style={{ cursor: "pointer" }} />
         </span>
-        <p> &gt; </p>
-        <span>
-            Courses
-        </span>
-        <p> &gt; </p> 
-        <span>
-            User Experience
-        </span> 
-        <p> &gt; </p> 
-        <span className={styles.active}>
-            Ideate 101
-        </span>
+        {pathSegments.map((segment, index) => (
+          <React.Fragment key={index}>
+            <p> &gt; </p>
+            <span
+              onClick={() => handleBreadcrumbClick(index)}
+              style={{ cursor: index === pathSegments.length - 1 ? "default" : "pointer" }}
+              className={index === pathSegments.length - 1 ? styles.active : ""}
+            >
+              {decodeURIComponent(segment)}
+            </span>
+          </React.Fragment>
+        ))}
       </div>
       <div className={styles.actionIcons}>
         <p className={styles.icon}> &lt; </p>
