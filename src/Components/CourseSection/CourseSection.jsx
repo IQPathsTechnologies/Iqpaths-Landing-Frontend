@@ -4,7 +4,7 @@ import styles from "./CourseSection.module.css";
 import CourseDetails from "./CourseDetails";
 import { getRazorPay, loadRazorPay } from "../../utility/Razorpay/Razorpay";
 import { verifyPayment, createOrder } from "../../utility/Razorpay/RazorpayApi";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { UserContext } from '../../context/userContext';
 import { AuthService } from '../../axios/User';
 import axios from "axios";
@@ -49,12 +49,10 @@ const CourseSection = ({
   const { user } = useContext(UserContext);
   // console.log("CourseSection :: user", user);
   const apiClass = new AuthService();
-
   const navigate = useNavigate();
 
   //razorpay
   const handlePurchase = useCallback(async () => {
-    
     const response = await createOrder(courseId, coupon);
     const { token, currency, key, name, description } = response;
     const { amount, id } = response.razorpayOrder;
