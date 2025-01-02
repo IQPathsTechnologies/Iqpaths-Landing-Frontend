@@ -1,45 +1,66 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useContext } from 'react';
 import styles from './ContinuousVideo.module.css';
+import { AuthService } from '../../axios/User';
+import UserContext from '../../context/userContext';
+
+const lessons = [
+  {
+    id: 1,
+    title: "AWS Certified Solutions Architect",
+    instructor: "Lina",
+    progress: 5,
+    totalLessons: 7,
+    image: "/learning.png",
+  },
+  {
+    id: 2,
+    title: "AWS Certified Solutions Architect",
+    instructor: "Lina",
+    progress: 5,
+    totalLessons: 7,
+    image: "/learning.png",
+  },
+  {
+    id: 3,
+    title: "AWS Certified Solutions Architect",
+    instructor: "Lina",
+    progress: 5,
+    totalLessons: 7,
+    image: "/learning.png",
+  },
+  {
+    id: 4,
+    title: "AWS Certified Solutions Architect",
+    instructor: "Lina",
+    progress: 5,
+    totalLessons: 7,
+    image: "/learning.png",
+  },
+];
 
 const ContinuousVideo = () => {
   const carouselRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  // const [lessons, setLessons] = useState([]);
 
-  const lessons = [
-    {
-      id: 1,
-      title: "AWS Certified Solutions Architect",
-      instructor: "Lina",
-      progress: 5,
-      totalLessons: 7,
-      image: "/learning.png",
-    },
-    {
-      id: 2,
-      title: "AWS Certified Solutions Architect",
-      instructor: "Lina",
-      progress: 5,
-      totalLessons: 7,
-      image: "/learning.png",
-    },
-    {
-      id: 3,
-      title: "AWS Certified Solutions Architect",
-      instructor: "Lina",
-      progress: 5,
-      totalLessons: 7,
-      image: "/learning.png",
-    },
-    {
-      id: 4,
-      title: "AWS Certified Solutions Architect",
-      instructor: "Lina",
-      progress: 5,
-      totalLessons: 7,
-      image: "/learning.png",
-    },
-  ];
+
+  const { user } = useContext(UserContext);
+  const apiClass = new AuthService();
+
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       // const response = await apiClass.getMyCourses({ userId: user._id });
+  //       setLessons(response.lessons);
+  //     } catch (error) {
+  //       console.error("Error fetching lessons", error);
+  //     }
+  //   };
+  // }, [user._id]);
+  
+
 
   const updateScrollButtons = () => {
     const carousel = carouselRef.current;

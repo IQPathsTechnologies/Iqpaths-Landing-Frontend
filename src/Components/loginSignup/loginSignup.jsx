@@ -170,6 +170,14 @@ const LoginSignup = () => {
                   Login
                 </button>
               </form>
+              <button className={styles.googleButton}>
+                <img
+                  src="/googleLogo.png"
+                  alt="Google Logo"
+                  className={styles.googleLogo}
+                />
+                Sign in with Google
+              </button>
             </div>
           ) : (
             <div className={styles.loginContainer}>
@@ -246,6 +254,14 @@ const LoginSignup = () => {
                   register
                 </button>
               </form>
+              <button className={styles.googleButton}>
+                <img
+                  src="/googleLogo.png"
+                  alt="Google Logo"
+                  className={styles.googleLogo}
+                />
+                Sign in with Google
+              </button>
             </div>
           )}
         </div>
