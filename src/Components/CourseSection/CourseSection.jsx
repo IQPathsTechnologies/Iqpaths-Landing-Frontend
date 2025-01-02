@@ -4,7 +4,7 @@ import styles from "./CourseSection.module.css";
 import CourseDetails from "./CourseDetails";
 import { getRazorPay, loadRazorPay } from "../../utility/Razorpay/Razorpay";
 import { verifyPayment, createOrder } from "../../utility/Razorpay/RazorpayApi";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { UserContext } from '../../context/userContext';
 import { AuthService } from '../../axios/User';
 import axios from "axios";
@@ -48,7 +48,7 @@ const CourseSection = ({
   // console.log("CourseSection :: user", user);
   const apiClass = new AuthService();
 
-
+  const navigate = useNavigate();
 
   //razorpay
   const handlePurchase = useCallback(async () => {
@@ -96,8 +96,9 @@ const CourseSection = ({
     rzp.open();
   }, [orderToken, razorpayOptions, courseId, user]);
 
-
-
+  const handleGoBack = () => {
+    navigate(-1); 
+  };
 
   const handleOpenPopup = () => {
 
@@ -163,7 +164,7 @@ const CourseSection = ({
           <div className={styles.courseHeading}>
             <div className={styles.courseDetails}>
               <p className={styles.heading}>
-                All Program &gt; {courseDetails.subject}
+              <span onClick={handleGoBack} style={{ cursor: "pointer"}}>All Programs </span>&gt; {courseDetails.subject}
               </p>
               <h6 className={styles.title}> {courseDetails.title} </h6>
               <p className={styles.description}> {description} </p>

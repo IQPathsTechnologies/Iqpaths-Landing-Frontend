@@ -1,10 +1,11 @@
 .footer {
-    background: linear-gradient(to right,#012F73, #0248B3);
     display: flex;
     align-items: center;
     color: white;
+}
+.footerWrapper{
+    background: linear-gradient(to right,#012F73, #0248B3);
     padding: 20px 0;
-
 }
 
 .footerContainer{
@@ -19,6 +20,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .logoImage {
@@ -47,6 +49,10 @@
 .socialmediaLogo{
     margin: 10px;
 }
+.youtubeLogo{
+    margin: 10px;
+    border: 1.5px solid white;
+}
 
 .linksContainer{
     padding: auto;
@@ -54,10 +60,18 @@
 
 td {
     padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 15px;
+    padding-right: 15px;
+    /* padding-top: 15px; */
+    padding-bottom: 20px;
     font-size: 14px;
     font-weight: 600;
+    margin-right: -200px;
+    width: 200px; /* Set desired width */
+    white-space: nowrap
+}
+table{
+    margin-right: -100px;
+    margin-top: 30px;
 }
 
 .footer a {
@@ -67,4 +81,19 @@ td {
 
 .footer a:hover {
     text-decoration: underline;
+}
+.footerDivider {
+    border: none;            /* Remove default browser styling */
+    border-top: 1px solid #ccc; /* Add a thin solid line */
+    margin-bottom: 50px;
+    margin-top: -40px;
+    width: 100%;             /* Ensure it spans the entire width */
+}
+
+.copyright {
+    margin-top: -20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
