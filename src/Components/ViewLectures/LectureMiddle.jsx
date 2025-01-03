@@ -30,13 +30,13 @@ const LectureMiddle = () => {
 
       {/* Video Section */}
       <div className={styles.videoSection}>
-        <img
-          src="lecture.png" // Replace with actual image URL
+        {/* <img
+          src="lecture.png" 
           alt="Course Thumbnail"
           className={styles.courseImage}
-        />
+        /> */}
 
-        {/* <video
+        <video
           className={styles.courseImage}
           // onClick={handleVideoClick}
           autoPlay
@@ -46,7 +46,7 @@ const LectureMiddle = () => {
         >
           <source src="/BenifitsVideo.mp4" type="video/mp4" />
           Your browser does not support the video tag.
-        </video> */}
+        </video>
         
         <div className={styles.videoControls}>
           <button className={styles.playButton}>▶</button>

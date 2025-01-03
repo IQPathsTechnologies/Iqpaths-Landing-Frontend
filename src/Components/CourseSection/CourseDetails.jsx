@@ -132,12 +132,13 @@ const CourseDetails = () => {
         <div className={styles.instructor}>
           <div className={styles.instructorHeader}>
             <img
-              src="/instructor.png"
+              // src="/instructor.png"
+              src= {courseDetails.instructor?.profilePhoto || "/instructor.png"}
               alt="Instructor Logo"
               className={styles.instructorLogo}
             />
             <div className={styles.instructorInfo}>
-              <h3>ThimPress</h3>
+              {/* <h3>{courseDetails?.instructor?.name}</h3> */}
               <p>
                 LearnPress is a comprehensive WordPress LMS Plugin for
                 WordPress. This is one of the best WordPress LMS Plugins which
@@ -164,9 +165,9 @@ const CourseDetails = () => {
             </div>
           </div>
           <div className={styles.instructorDescription}>
-            LearnPress is a comprehensive WordPress LMS Plugin for WordPress.
-            This is one of the best WordPress LMS Plugins which can be used to
-            easily create & sell courses online.
+          <p>
+            Our instructor at IQPaths is a seasoned professional with extensive experience in the field. With a passion for teaching and a deep understanding of the subject matter, they have successfully guided numerous students towards achieving their learning goals. Their engaging teaching style, combined with practical insights and real-world examples, ensures that students not only grasp theoretical concepts but also learn how to apply them effectively.
+          </p>
           </div>
           <div className={styles.socialMedia}>
             <span>Follow:</span>
