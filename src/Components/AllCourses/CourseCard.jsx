@@ -175,8 +175,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                 <ul className={styles.pointsList}>
                   {course.description.map((detail, i) => (
                     <li key={i} className={styles.point}>
-                      {i === 0 && <span className={styles.primaryDetail}>{detail}</span>}
-                      {i === 1 && <span className={styles.secondaryDetail}>{detail}</span>}
+                      {<span className={styles.primaryDetail}>{detail}</span>}
                       
                       <span className={styles.priceDetail}>
                         <span className={styles.originalPrice}>{detail.realPrice}</span>{" "}
