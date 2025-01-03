@@ -86,6 +86,10 @@ const LoginSignup = () => {
     }
   };
 
+  const handleGoogleLogin = () => {
+    window.location.href = "http://localhost:8000/api/user/auth/google";
+  };
+
   return (
     <div>
       <div className={styles.container}>
@@ -170,7 +174,7 @@ const LoginSignup = () => {
                   Login
                 </button>
               </form>
-              <button className={styles.googleButton}>
+              <button className={styles.googleButton} onClick={handleGoogleLogin}>
                 <img
                   src="/googleLogo.png"
                   alt="Google Logo"
@@ -254,7 +258,7 @@ const LoginSignup = () => {
                   register
                 </button>
               </form>
-              <button className={styles.googleButton}>
+              <button className={styles.googleButton} onClick={handleGoogleLogin}>
                 <img
                   src="/googleLogo.png"
                   alt="Google Logo"
