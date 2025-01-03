@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import styles from './MentorPopup.module.css';
+import { Link } from 'react-router-dom';
 
-const MentorPopup = ({ image, onClose }) => {
+const MentorPopup = ({ image, onClose, details }) => {
   // Disable background scrolling when popup is open
   useEffect(() => {
     if (image) {
@@ -35,18 +36,18 @@ const MentorPopup = ({ image, onClose }) => {
             <img src={image} alt="Mentor" className={styles.image} />
           </div>
           <div className={styles.textContainer}>
-            <h2>Mentor Name</h2>
+            <h2>{details.name}</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem
-              habitant a tincidunt cras accumsan integer suscipit. Libero
-              accumsan eget aliquet.
+              {details.description}
             </p>
             <div className={styles.icons}>
                 <div className={styles.icon}>
                     <img src="/twitterLogo.svg" alt="Twitter" />
                 </div>
                 <div className={styles.icon}>
+                    <Link to={details.linkedin}>
                     <img src="/linkedinLogo.svg" alt="Linked in" />
+                    </Link>
                 </div>
                 <div className={styles.icon}>
                     <img src="/instagramLogo.svg" alt="Instagram" />

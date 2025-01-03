@@ -18,29 +18,36 @@ const apiClass = new AuthService();
 function Mentor() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [images, setImages] = useState();
+  const [mentorDetails, setmentorDetails] = useState(null);
+  const [selectedMentor, setSelectedMentor] = useState(null); 
 
   useEffect(() => {
-    const getMentorImages = async () => {
+    const getMentors = async () => {
       try {
         const response = await apiClass.getMentor();
         // console.log('Mentor :: getMentorImages :: response', photos);
         const photos = response.map((mentor) => mentor.profilePhoto);
+        console.log('Mentor :: getMentorImages :: response', response);
+        setmentorDetails(response);
         setImages(photos);
       } catch (error) {
         console.log('Mentor :: getMentorImages :: error', error);
       }
     };
-    getMentorImages();
+    getMentors();
   }, []);
 
 
 
   const openPopup = (image) => {
     setSelectedImage(image);
+    const mentor = mentorDetails.find((mentor) => mentor.profilePhoto === image);
+    setSelectedMentor(mentor)
   };
 
   const closePopup = () => {
     setSelectedImage(null);
+    setSelectedMentor(null);
   };
 
   return (
@@ -60,7 +67,7 @@ function Mentor() {
         />
       </div>
       {selectedImage && (
-        <MentorPopup image={selectedImage} onClose={closePopup} />
+        <MentorPopup image={selectedImage} details={selectedMentor} onClose={closePopup} />
       )}
     </div>
   );

@@ -88,6 +88,9 @@ const LoginSignup = () => {
 
   const handleGoogleLogin = () => {
     window.location.href = "http://localhost:8000/api/user/auth/google";
+    console.log("Signup successful!");
+    setUser(response.data.data);
+    setIsLoggedIn(true);
   };
 
   return (
