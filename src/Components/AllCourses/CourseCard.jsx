@@ -156,14 +156,19 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
             {/* Card Content */}
             <div className={styles.cardContent}>
               {/* Badge */}
-              <div>
+              <div className={styles.badgeContainer}>
                 <div className={styles.learning}>
-                  <img src="src/assets/play.png" alt="" />
-                  <span className={styles.badge}>{course.badge}</span>
+                  <img src="/play.png" alt="" />
+                  <span className={styles.badge}>Start Learning</span>
                 </div>
                 <div className={styles.ranking}>
-                  <img src={course.img} alt="rating" className={styles.stars} />
-                  <p className={styles.rating}>{course.rating}</p>
+                  {[...Array(course.review || 0)].map((_, i) => (
+                    <img src="/starFilled.svg" alt="rating" className={styles.stars} key={i}/>
+                  ))}
+                  {[...Array(5 - course.review || 0)].map((_, i) => (
+                    <img src="/starEmpty.svg" alt="rating" className={styles.stars} key={i} />
+                  ))}
+                  <span className={styles.rating}>{(course.review).toFixed(1)} Rating</span>
                 </div>
               </div>
 
@@ -176,7 +181,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                   {course.description.map((detail, i) => (
                     <li key={i} className={styles.point}>
                       {<span className={styles.primaryDetail}>{detail}</span>}
-                      
+
                       <span className={styles.priceDetail}>
                         <span className={styles.originalPrice}>{detail.realPrice}</span>{" "}
                         <span className={styles.discountedPrice}>{detail.price}</span>

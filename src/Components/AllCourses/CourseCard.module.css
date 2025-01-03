@@ -45,14 +45,15 @@
 /* Badge styling */
 .learning {
     display: flex;
-    margin-top: 4px;
-    margin-left: 0px;
+    /* margin-top: 4px;
+    margin-left: 0px; */
 }
 
 .learning img {
     width: 20px;
     height: 20px;
     margin-right: 4px;
+    /* border: 2px solid red; */
 }
 
 .badge {
@@ -64,15 +65,30 @@
     font-size: 14px;
 }
 
+.badgeContainer{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* margin-top: 10px; */
+    /* border: 2px solid red; */
+
+}
+
 .ranking {
-    width: 170px;
-    height: 20px;
-    margin-left: 155px;
-    margin-top: -20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 20px;
+    
+}
+
+.ranking img{
+    width: 15px;
+    height: 15px;
+    /* margin-right: 5px; */
     /* border: 2px solid red; */
+    margin: auto 0px;
+    padding: auto 0px;
 }
 
 .stars {
@@ -87,6 +103,9 @@
     font-weight: 500;
     font-size: 14px;
     color: #6A6B6C;
+    align-items: center;
+    margin: auto 5px auto 5px;
+
 }
 
 /* Title styling */
@@ -96,6 +115,7 @@
     font-weight: 600;
     color: #07152F;
     margin-top: 20px;
+    /* height: 80px; */
 }
 
 /* Details list */
