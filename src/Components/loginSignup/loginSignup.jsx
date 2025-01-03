@@ -21,6 +21,15 @@ const LoginSignup = () => {
     setActiveForm(type);
   }, [type]);
 
+  useEffect(() => {
+    // Check for the error query parameter in the URL
+    const queryParams = new URLSearchParams(location.search);
+    const error = queryParams.get('error');
+    if (error === 'userAlreadyExists') {
+      setErrorMessageSignup("Error: User already logged in with this email.");
+    }
+  }, [location.search]);
+
   // React Hook Form setup
   const {
     register: registerLogin,
@@ -86,11 +95,10 @@ const LoginSignup = () => {
     }
   };
 
-  const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:8000/api/user/auth/google";
-    console.log("Signup successful!");
-    setUser(response.data.data);
-    setIsLoggedIn(true);
+  const handleGoogleLogin = (formType) => {
+    const redirectUrl = formType === "login" ? "login" : "signup";
+    // console.log(redirectUrl);
+    window.location.href = `http://localhost:8000/api/user/auth/google?state=${redirectUrl}`;
   };
 
   return (
@@ -177,7 +185,7 @@ const LoginSignup = () => {
                   Login
                 </button>
               </form>
-              <button className={styles.googleButton} onClick={handleGoogleLogin}>
+              <button className={styles.googleButton} onClick={()=>handleGoogleLogin("login")}>
                 <img
                   src="/googleLogo.png"
                   alt="Google Logo"
@@ -261,7 +269,7 @@ const LoginSignup = () => {
                   register
                 </button>
               </form>
-              <button className={styles.googleButton} onClick={handleGoogleLogin}>
+              <button className={styles.googleButton} onClick={()=>handleGoogleLogin("signup")}>
                 <img
                   src="/googleLogo.png"
                   alt="Google Logo"
