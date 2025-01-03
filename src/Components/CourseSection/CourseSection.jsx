@@ -257,7 +257,7 @@ const CourseSection = ({
         <div className={styles.rightSectionWrapper}>
           <div className={styles.rightSection}>
             <div className={styles.coursePreview}>
-              <img src="/preview.png" alt="Preview" />
+              <img src={courseDetails.thumbnail} alt="Preview" />
             </div>
             <div className={styles.coursePricing}>
               <p className={styles.price}> {courseDetails.price} </p>

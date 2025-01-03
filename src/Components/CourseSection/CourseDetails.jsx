@@ -50,9 +50,7 @@ const CourseDetails = () => {
           try {
             const response = await apiClass.getCourseDetails(id);
             console.log("CourseSection :: useEffect :: response ye card k liye", response);
-            setCourseDetails(response.details);
-            setLoading(false);
-    
+            setCourseDetails(response.details);    
           } catch (error) {
             console.log("CourseSection :: useEffect :: error", error);
           }
@@ -76,7 +74,7 @@ const CourseDetails = () => {
             This is one of the best WordPress LMS Plugins which can be used to
             easily create & sell courses online.
           </p>
-          {courseDetails.chapters.map((section, index) => (
+          {courseDetails?.chapters?.map((section, index) => (
             <div key={index} className={styles.section}>
               <div
                 className={styles.sectionHeader}
@@ -98,15 +96,11 @@ const CourseDetails = () => {
               </div>
               {openDropdown === index && (
                 <div className={styles.sectionContent}>
-                  {[
-                    { id: 1, title: "Lesson 1", time: "12:30", preview: true },
-                    { id: 2, title: "Lesson 2", time: "10:05", preview: true },
-                    { id: 3, title: "Lesson 3", time: "2:25", locked: true },
-                  ].map((lesson, idx) => (
+                  {section?.lectures?.map((lesson, idx) => (
                     <div key={idx} className={styles.lesson}>
                       <div className={styles.lessons}>
                         <img src="/lesson.png" alt="Lesson" />
-                        <span className={styles.lessonTitle}>
+                        <span className={styles.name}>
                           {lesson.title}
                         </span>
                       </div>
@@ -114,7 +108,7 @@ const CourseDetails = () => {
                         <button className={styles.previewButton}>
                           {lesson.preview ? "Preview" : "Locked"}
                         </button>
-                        <span className={styles.lessonTime}>{lesson.time}</span>
+                        <span className={styles.lessonTime}>{lesson.duration} hour</span>
                         {lesson.preview && (
                           <span className={styles.lessonCheck}>
                             <img src="/tick.png" alt="Tick" />
