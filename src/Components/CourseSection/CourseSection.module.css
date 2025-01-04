@@ -1,21 +1,22 @@
 .container {
-    /* display: flex;
+    display: flex;
     justify-content: space-between;
-    align-items: flex-start; */
+    align-items: flex-start;
     /* height: 280vh; */
     /* height: 225vh;
     min-height: 230vh;
     max-height: 280vh; */
     height: clamp(255vh, 270vh, 280vh);
     border-top: 1px solid #0047B2;
+    /* border: 2px solid red; */
 }
 
 .leftSection {
     position: absolute;
     width: 100%;
-    flex: 1;
+    /* flex: 1; */
     /* margin-right: 20px; */
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 .courseHeading {

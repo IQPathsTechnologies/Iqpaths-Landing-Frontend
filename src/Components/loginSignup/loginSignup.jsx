@@ -35,12 +35,14 @@ const LoginSignup = () => {
     register: registerLogin,
     handleSubmit: handleLoginSubmit,
     formState: { errors: loginErrors },
+    // reset:loginreset
   } = useForm();
 
   const {
     register: registerSignup,
     handleSubmit: handleSignupSubmit,
     formState: { errors: signupErrors },
+    reset:signupreset
   } = useForm();
 
   const onSubmitLogin = async (data) => {
@@ -72,9 +74,10 @@ const LoginSignup = () => {
       const response = await axios.post("/api/user/register", data);
       if (response.status === 201) {
         console.log("Signup successful!");
-        setUser(response.data.data);
+        //setUser(response.data.data);
         // setIsLoggedIn(true);
         // localStorage.setItem("user", JSON.stringify(response.data.data));
+        signupreset();
         setActiveForm("login");
         navigate("/login");
       }

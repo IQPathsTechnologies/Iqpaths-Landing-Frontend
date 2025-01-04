@@ -6,7 +6,7 @@ const roadmapSteps = [
     id: 1,
     title: 'Find a role that suits you',
     description: 'Discover open positions and find your desired one on the Visioncraft website, job listings, or social media.',
-  },
+  }, 
   {
     id: 2,
     title: 'Send your application',
