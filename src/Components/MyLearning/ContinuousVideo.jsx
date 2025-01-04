@@ -42,23 +42,29 @@ const ContinuousVideo = () => {
   const carouselRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
-  // const [lessons, setLessons] = useState([]);
+  const [courses, setCourses] = useState([]);
 
 
-  const { user } = useContext(UserContext);
+  // const { user } = useContext(UserContext);
   const apiClass = new AuthService();
 
+  const userId = 
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       // const response = await apiClass.getMyCourses({ userId: user._id });
-  //       setLessons(response.lessons);
-  //     } catch (error) {
-  //       console.error("Error fetching lessons", error);
-  //     }
-  //   };
-  // }, [user._id]);
+
+  useEffect(() => {
+    const fetchData = async (user) => {
+      console.log('ContinuousVideo :: fetchData :: user', user);
+      try {
+        // const response = await apiClass.getUserCourses({ userId: });
+        // setCourses(response);
+        console.log('ContinuousVideo :: fetchData :: response', response);
+
+      } catch (error) {
+        console.error("Error fetching lessons", error);
+      }
+    };
+    fetchData();
+  }, [user._id]);
   
 
 

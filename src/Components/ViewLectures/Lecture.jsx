@@ -52,7 +52,7 @@ const Lecture = () => {
 
   const nextPrevLecture = async (chapterId, lectureId, flag) => {
     try{
-      const response = await apiClass.getNextPrevLecture(chapterId);
+      const response = await apiClass.getNextPrevLecture(chapterId, lectureId);
       if(flag === 'next'){
         setSelectedLecture(response.details.nextLecture);
       }
@@ -65,11 +65,15 @@ const Lecture = () => {
   }
 
 
+
+
+
   return (
     <div className={styles.appContainer}>
       {/* Header */}
       <LectureHeader 
-        navigation= {nextPrevLecture}
+        // navigation= {nextPrevLecture}
+        
         selectedChapter={selectedChapter}
         selectedLecture={selectedLecture}
       />

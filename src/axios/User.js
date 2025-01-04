@@ -221,9 +221,9 @@ export class AuthService {
         }
     }
 
-    async getMyCourses({userId}){
+    async getUserCourses({userId}){
         try {
-            const response =  await axios.get(`/api/courses/getMyCourses/${userId}`, {withCredentials: true});
+            const response =  await axios.get(`/api/mylearnings/users/${userId}`, {withCredentials: true});
             return response.data.data;
         } catch (error) {
             console.log("AuthService :: getMyCourses :: error", error);
@@ -264,7 +264,7 @@ export class AuthService {
 
     async getNextPrevLecture(lectureId, chapterId){
         try{
-            const response = await axios.post(`/api/lectures/getLectureDetails`, {lectureId, chapterId}, {withCredentials: true});
+            const response = await axios.post(`/api/lectures/getNextPreLecture`, {lectureId, chapterId}, {withCredentials: true});
             return response.data.data;
         }
         catch(error){

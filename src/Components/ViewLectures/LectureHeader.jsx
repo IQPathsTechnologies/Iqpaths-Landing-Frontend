@@ -6,6 +6,10 @@ const lectureHeader = ({navigation, selectedChapter, selectedLecture }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  console.log("selectedChapter", selectedChapter);
+  console.log("selectedLecture jo next vale me aya ", selectedLecture);
+  console.log("selected lecture ki id ye hai ", selectedLecture?._id);
+
   const pathSegments = location.pathname
     .split("/")
     .filter((segment) => segment);
@@ -47,13 +51,13 @@ const lectureHeader = ({navigation, selectedChapter, selectedLecture }) => {
         ))}
       </div>
       <div className={styles.actionIcons}>
-        <div className={styles.buttonContainer} onClick={navigation(selectedChapter._id, selectedLecture._id, 'prev')}>
+        <div className={styles.buttonContainer} onClick={navigation(selectedChapter?._id, selectedLecture?._id, 'prev')}>
           <div>
             <img src="/prevLec.svg" alt="Home" />
           </div>
           <p className={styles.previous}> Previous </p>
         </div>
-        <div className={styles.buttonContainer} onClick={navigation(selectedChapter._id, selectedLecture._id, 'next')}>
+        <div className={styles.buttonContainer} onClick={navigation(selectedChapter?._id, selectedLecture?._id, 'next')}>
           <p className={styles.next}> Next </p>
           <div>
             <img src="/nextLec.svg" alt="Home" />
