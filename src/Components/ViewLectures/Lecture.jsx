@@ -49,8 +49,8 @@ const Lecture = () => {
   const handleLectureSelect = (lecture , ChapterSectionId) =>{
     setSelectedLecture(lecture);
     setSelectedChapter(ChapterSectionId)
-    console.log("lecture is  line number 52", lecture);
-    console.log("chapter selectionid is line number 53 ", ChapterSectionId);
+    // console.log("lecture is  line number 52", lecture);
+    // console.log("chapter selectionid is line number 53 ", ChapterSectionId);
   }
   const nextPrevLecture = async (chapterId, lectureId, flag) => {
     try{
@@ -65,7 +65,9 @@ const Lecture = () => {
       console.error("Error fetching next/prev lectures:", error);
     }
   }
-
+  const handleLectureSelectionInHeader = (lectureDetails)=>{
+    console.log(lectureDetails);
+  }
   return (
     <div className={styles.appContainer}>
       {/* Header */}
@@ -74,6 +76,7 @@ const Lecture = () => {
         
         selectedChapter={selectedChapter}
         selectedLecture={selectedLecture}
+        getNextPreviousDetails ={handleLectureSelectionInHeader}
       />
 
       <div className={styles.mainContainer}>

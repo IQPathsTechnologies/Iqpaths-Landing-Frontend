@@ -8,7 +8,7 @@ const LectureLeft = ({
 }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [expandedSections, setExpandedSections] = useState({});
-  console.log("left me ye chapter aye", chapters);
+  // console.log("left me ye chapter aye", chapters);
   // Dynamic data
   const sections = [
     {
@@ -217,7 +217,7 @@ const LectureLeft = ({
               />
             </div>
 
-            {console.log("section", section.lectures)}
+            {/* {console.log("section", section.lectures)} */}
             {}
             {/* Section Content */}
             {expandedSections[index] && (
