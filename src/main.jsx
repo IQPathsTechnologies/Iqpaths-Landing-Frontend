@@ -16,6 +16,7 @@ import LoginSignup from './Components/loginSignup/loginSignup';
 import CartPage from './pages/CartPage/CartPage';
 import AboutUs from './pages/AboutUs/AboutUs';
 import { UserProvider } from './context/userContext';
+import CoursesProvider from './context/coursesContext';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -99,8 +100,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <>
+  <CoursesProvider>
   <UserProvider>
     <RouterProvider router = {router} />
   </UserProvider>
+  </CoursesProvider>
   </>
 );

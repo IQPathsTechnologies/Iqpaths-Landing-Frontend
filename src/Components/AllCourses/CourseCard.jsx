@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styles from "./CourseCard.module.css";
 import pythonImg from "/subject.png";
 import machineLearningImg from "/subject.png";
@@ -8,93 +8,93 @@ import uiuxImg from "/subject.png";
 import ratingImg from "/rating.png";
 import { Link } from "react-router-dom";
 import { AuthService } from '../../axios/User';
-
-const courses = [
-  {
-    courseId: 1,
-    category: "DATA SCIENCE",
-    image: pythonImg,
-    badge: "Start Learning",
-    img: ratingImg,
-    rating: "4.0 (2 ratings)",
-    title: "DS using Python",
-    details: [
-      "Learn ML course with internship in IQPath Technologies",
-      "Limited seats available!!",
-      { original: "Rs. 9999", discounted: "Rs. 4999" },
-    ],
-  },
-  {
-    courseId: 2,
-    category: "MACHINE LEARNING",
-    image: machineLearningImg,
-    badge: "Start Learning",
-    img: ratingImg,
-    rating: "4.0 (2 ratings)",
-    title: "Machine Learning",
-    details: [
-      "Learn ML course with internship in IQPath Technologies",
-      "Limited seats available!!",
-      { original: "Rs. 9999", discounted: "Rs. 4999" },
-    ],
-  },
-  {
-    courseId: 3,
-    category: "MACHINE LEARNING",
-    image: machineLearningImg,
-    badge: "Start Learning",
-    img: ratingImg,
-    rating: "4.0 (2 ratings)",
-    title: "Machine Learning",
-    details: [
-      "Learn ML course with internship in IQPath Technologies",
-      "Limited seats available!!",
-      { original: "Rs. 9999", discounted: "Rs. 4999" },
-    ],
-  },
-  {
-    courseId: 4,
-    category: "WEB DEVELOPMENT",
-    image: backendImg,
-    badge: "Start Learning",
-    img: ratingImg,
-    rating: "4.0 (2 ratings)",
-    title: "Back End Developer",
-    details: [
-      "Learn ML course with internship in IQPath Technologies",
-      "Limited seats available!!",
-      { original: "Rs. 9999", discounted: "Rs. 4999" },
-    ],
-  },
-  {
-    courseId: 5,
-    category: "WEB DEVELOPMENT",
-    image: frontendImg,
-    badge: "Start Learning",
-    img: ratingImg,
-    rating: "4.0 (2 ratings)",
-    title: "Front End Developer",
-    details: [
-      "Learn ML course with internship in IQPath Technologies",
-      "Limited seats available!!",
-      { original: "Rs. 9999", discounted: "Rs. 4999" },
-    ],
-  },
-  {
-    courseId: 6,
-    category: "UI/UX",
-    image: uiuxImg,
-    badge: "Start Learning",
-    img: ratingImg,
-    rating: "4.0 (2 ratings)",
-    title: "UI/UX Design",
-    details: [
-      "Learn ML course with internship in IQPath Technologies",
-      "Limited seats available!!",
-      { original: "Rs. 9999", discounted: "Rs. 4999" },
-    ],
-  },
-];
+import { CoursesContext } from "../../context/coursesContext";
+// const courses = [
+//   {
+//     courseId: 1,
+//     category: "DATA SCIENCE",
+//     image: pythonImg,
+//     badge: "Start Learning",
+//     img: ratingImg,
+//     rating: "4.0 (2 ratings)",
+//     title: "DS using Python",
+//     details: [
+//       "Learn ML course with internship in IQPath Technologies",
+//       "Limited seats available!!",
+//       { original: "Rs. 9999", discounted: "Rs. 4999" },
+//     ],
+//   },
+//   {
+//     courseId: 2,
+//     category: "MACHINE LEARNING",
+//     image: machineLearningImg,
+//     badge: "Start Learning",
+//     img: ratingImg,
+//     rating: "4.0 (2 ratings)",
+//     title: "Machine Learning",
+//     details: [
+//       "Learn ML course with internship in IQPath Technologies",
+//       "Limited seats available!!",
+//       { original: "Rs. 9999", discounted: "Rs. 4999" },
+//     ],
+//   },
+//   {
+//     courseId: 3,
+//     category: "MACHINE LEARNING",
+//     image: machineLearningImg,
+//     badge: "Start Learning",
+//     img: ratingImg,
+//     rating: "4.0 (2 ratings)",
+//     title: "Machine Learning",
+//     details: [
+//       "Learn ML course with internship in IQPath Technologies",
+//       "Limited seats available!!",
+//       { original: "Rs. 9999", discounted: "Rs. 4999" },
+//     ],
+//   },
+//   {
+//     courseId: 4,
+//     category: "WEB DEVELOPMENT",
+//     image: backendImg,
+//     badge: "Start Learning",
+//     img: ratingImg,
+//     rating: "4.0 (2 ratings)",
+//     title: "Back End Developer",
+//     details: [
+//       "Learn ML course with internship in IQPath Technologies",
+//       "Limited seats available!!",
+//       { original: "Rs. 9999", discounted: "Rs. 4999" },
+//     ],
+//   },
+//   {
+//     courseId: 5,
+//     category: "WEB DEVELOPMENT",
+//     image: frontendImg,
+//     badge: "Start Learning",
+//     img: ratingImg,
+//     rating: "4.0 (2 ratings)",
+//     title: "Front End Developer",
+//     details: [
+//       "Learn ML course with internship in IQPath Technologies",
+//       "Limited seats available!!",
+//       { original: "Rs. 9999", discounted: "Rs. 4999" },
+//     ],
+//   },
+//   {
+//     courseId: 6,
+//     category: "UI/UX",
+//     image: uiuxImg,
+//     badge: "Start Learning",
+//     img: ratingImg,
+//     rating: "4.0 (2 ratings)",
+//     title: "UI/UX Design",
+//     details: [
+//       "Learn ML course with internship in IQPath Technologies",
+//       "Limited seats available!!",
+//       { original: "Rs. 9999", discounted: "Rs. 4999" },
+//     ],
+//   },
+// ];
 
 
 const apiClass = new AuthService();
@@ -102,10 +102,7 @@ const apiClass = new AuthService();
 
 // Props: courses and selectedFilters
 const CourseCard = ({ activeCategory, selectedFilters }) => {
-
-  const [courses, setCourses] = useState([]);
-  
-
+  const {courses,setCourses}= useContext(CoursesContext)
   useEffect(() => {
     async function fetchData() {
       try {
