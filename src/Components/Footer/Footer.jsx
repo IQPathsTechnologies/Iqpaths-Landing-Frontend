@@ -46,13 +46,13 @@ const Footer = () => {
                 <div className={styles.linksContainer}>
                     <table>
                         <tr>
-                            <td><a href="*">Home</a></td>
-                            <td><a href="*">Courses</a></td>
-                            <td><a href="*"> Contact Us</a></td>
+                            <td><a href="/">Home</a></td>
+                            <td><a href="/courses">Courses</a></td>
+                            <td><a href="/contact-us"> Contact Us</a></td>
                             
                         </tr>
                         <tr>
-                            <td><a href="*">My learnings</a></td>
+                            <td><a href="/my-learnings">My learnings</a></td>
                             <td><a href="*">Terms and conditions</a></td>
                             <td><a href="*">info@iqpaths.com</a></td>  
                         </tr>
@@ -62,7 +62,7 @@ const Footer = () => {
                             <td><a href="*">Privacy policy</a></td>
                         </tr>
                         <tr>
-                            <td><a href="*"></a>About Us</td>
+                            <td><a href="/about-us"></a>About Us</td>
                             <td><a href="*">Shipping policy </a></td>
                         </tr>  
                         
