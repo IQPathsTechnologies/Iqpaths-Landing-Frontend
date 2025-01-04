@@ -49,7 +49,8 @@ const LoginSignup = () => {
       const response = await axios.post("/api/user/login", data);
       if (response.status === 200) {
         console.log("Login successful!");
-        setUser(response.data.data);
+        console.log(response.data.data);
+        setUser(response.data.data.user);
         setIsLoggedIn(true);
         localStorage.setItem("user", JSON.stringify(response.data.data));
         navigate("/home");
@@ -191,7 +192,7 @@ const LoginSignup = () => {
                   alt="Google Logo"
                   className={styles.googleLogo}
                 />
-                Sign in with Google
+                log in with Google
               </button>
             </div>
           ) : (

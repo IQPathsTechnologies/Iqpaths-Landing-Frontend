@@ -1,26 +1,95 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LectureHeader from "./LectureHeader";
 import LectureLeft from "./LectureLeft";
 import LectureRight from "./LectureRight";
 import LectureMiddle from "./LectureMiddle";
 import styles from "./Lecture.module.css";
+import { AuthService } from '../../axios/User';
+import { useParams } from "react-router-dom";
 
 const Lecture = () => {
   const [isRightVisible, setIsRightVisible] = useState(true);
+  const [chapters, setChapters] = useState([]); 
+  const [lectures, setLectures] = useState([]); 
+  const [selectedLecture, setSelectedLecture] = useState(null); 
+  const [selectedChapter, setSelectedChapter] = useState(null); 
+  const apiClass = new AuthService();
+
+
+  // const { courseId } = useParams();
+  const courseId = "677676a2cedfbdb0b89e4636"; 
+
+  useEffect(() => {
+    const fetchChapters = async () => {
+      try {
+        const response = await apiClass.getPurchasedCourseDetails(courseId);
+        console.log(response.details.chapters);
+        setChapters(response.details.chapters);
+        // const lectures = response.details.chapters.map((chapters) => chapters.lectures);
+        // setLectures(lectures);
+        // console.log('Lecture :: fetchChapters :: response', lectures);
+      } catch (error) {
+        console.error("Error fetching chapters:", error);
+      }
+    };
+    fetchChapters();
+  }, []);
+
+
+  const fetchLecture = async (chapterId) => {
+    try {
+      const response = await apiClass.getChapterLectureByChapterId(chapterId);
+      setLectures(response.details.lectures);
+      // console.log('Lecture :: fetchLecture :: response', response);
+    } catch (error) {
+      console.error("Error fetching lectures:", error);
+    }
+  };
+
+  const handleLectureSelect = (lecture) =>{
+    setSelectedLecture(lecture);
+  }
+
+  const nextPrevLecture = async (chapterId, lectureId, flag) => {
+    try{
+      const response = await apiClass.getNextPrevLecture(chapterId);
+      if(flag === 'next'){
+        setSelectedLecture(response.details.nextLecture);
+      }
+      else if(flag == 'prev'){
+        setSelectedLecture(response.details.prevLecture);
+      }
+    } catch (error) {
+      console.error("Error fetching next/prev lectures:", error);
+    }
+  }
+
 
   return (
     <div className={styles.appContainer}>
       {/* Header */}
-      <LectureHeader />
+      <LectureHeader 
+        navigation= {nextPrevLecture}
+        selectedChapter={selectedChapter}
+        selectedLecture={selectedLecture}
+      />
 
       <div className={styles.mainContainer}>
         {/* Left Section */}
         <div className={styles.leftContainer}>
-          <LectureLeft />
+          <LectureLeft
+            chapters = {chapters}
+            lectures = {lectures}
+            onChapterSelect = {fetchLecture}
+            onLectureSelect = {handleLectureSelect}
+            selectedChapter={selectedChapter}
+          />
         </div>
 
         <div className={styles.middleContainer}>
-          <LectureMiddle />
+          <LectureMiddle 
+            selectedLecture={selectedLecture}
+          />
         </div>
 
         {/* Right Section */}

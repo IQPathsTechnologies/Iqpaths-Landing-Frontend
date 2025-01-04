@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function ServiceCard({ data }) {
     const { coverPhoto, link, index, title, description } = data;
 
-    console.log(data)
+    // console.log(data)
 
     return (
         <Link to={`/${title}`} className={styles.link}>

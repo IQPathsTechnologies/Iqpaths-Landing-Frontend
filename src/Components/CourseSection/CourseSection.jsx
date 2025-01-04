@@ -29,7 +29,7 @@ const CourseSection = ({
   download = "Downloadable Resources",
   access = "Access on mobile and TV",
   //temp data
-  courseId = "6772c5a7b22b4a5a4665a64b",
+  // courseId = "6772c5a7b22b4a5a4665a64b",
   // amount = 1999,
 }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -45,6 +45,7 @@ const CourseSection = ({
 
   const { title, id } = useParams();
   console.log(title, id);
+  const courseId = id;
   
   const { user } = useContext(UserContext);
   // console.log("CourseSection :: user", user);
@@ -72,7 +73,7 @@ const CourseSection = ({
     setIsRazorPayPopupVisible(true);
     const rzp = getRazorPay({
       ...razorpayOptions,
-      prefill: { contact: user?.user.mobileNo || '' },
+      prefill: { contact: user?.user?.mobileNo || '' },
       notes: { ...user, id: courseId },
       theme: { color: "#0047B2" },
       handler: async ({
@@ -156,13 +157,13 @@ const CourseSection = ({
   
 
   const addToWhishlist = async () => {
-    // try {
-    //   const response = await apiClass.addToWhishlist(id);
-    //   console.log("CourseSection :: addToWhishlist :: response", response);
-    //   setWhishlist(true);
-    // } catch (error) {
-    //   console.log("CourseSection :: addToWhishlist :: error", error);
-    // }
+    try {
+      const response = await apiClass.addToWishlist(courseId);
+      console.log("CourseSection :: addToWhishlist :: response", response);
+      setWhishlist(true);
+    } catch (error) {
+      console.log("CourseSection :: addToWhishlist :: error", error);
+    }
     setWhishlist(!whishlist);
   }
 

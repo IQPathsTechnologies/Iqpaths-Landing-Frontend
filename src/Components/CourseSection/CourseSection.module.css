@@ -3,9 +3,10 @@
     justify-content: space-between;
     align-items: flex-start; */
     /* height: 280vh; */
-    height: auto;
-    min-height: 255vh;
-    max-height: 280vh;
+    /* height: 225vh;
+    min-height: 230vh;
+    max-height: 280vh; */
+    height: clamp(255vh, 270vh, 280vh);
     border-top: 1px solid #0047B2;
 }
 

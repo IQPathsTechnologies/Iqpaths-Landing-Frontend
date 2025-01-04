@@ -1,7 +1,12 @@
 import React from "react";
 import styles from "./LectureMiddle.module.css";
 
-const LectureMiddle = () => {
+const LectureMiddle = ({ selectedLecture }) => {
+
+  if (!selectedLecture) {
+    return <p>Please select a lecture to start playing.</p>;
+  }
+
   const transcriptData = [
     {
       time: "00:00",
@@ -22,9 +27,9 @@ const LectureMiddle = () => {
     <div className={styles.middleSection}>
       {/* Title and Subtitle */}
       <div className={styles.titleSection}>
-        <h1 className={styles.title}>Title</h1>
+        <h1 className={styles.title}>{selectedLecture.title}</h1>
         <p className={styles.subtitle}>
-          By Dr. Aaryan Singhal • 25min • 4 Notes
+          By Dr. Aaryan Singhal • {selectedLecture.duration} 
         </p>
       </div>
 
@@ -42,19 +47,21 @@ const LectureMiddle = () => {
           autoPlay
           loop
           controls
+          src={selectedLecture.video}
           // muted
         >
-          <source src="/BenifitsVideo.mp4" type="video/mp4" />
+          {/* <source src="/BenifitsVideo.mp4" type="video/mp4" /> */}
+          {console.log("selectedLecture.video", selectedLecture.video)}
           Your browser does not support the video tag.
         </video>
         
-        <div className={styles.videoControls}>
+        {/* <div className={styles.videoControls}>
           <button className={styles.playButton}>▶</button>
-          {/* Progress Bar */}
+         
           <div className={styles.progressBarContainer}>
             <div className={styles.progressBar}></div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Transcript Section */}

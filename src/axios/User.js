@@ -200,6 +200,15 @@ export class AuthService {
             throw error;
         }
     }
+    async getPurchasedCourseDetails(courseId){
+        try {
+            const response =  await axios.post(`/api/courses/getPurchasedCourseDetails`, {courseId}, {withCredentials: true});
+            return response.data.data;
+        } catch (error) {
+            console.log("AuthService :: getCourseDetails :: error", error);
+            throw error;
+        }
+    }
 
 
     async useCoupon({couponCode, courseId}){
@@ -222,5 +231,46 @@ export class AuthService {
         }
     }
 
+    async getChapterLectureByChapterId(chapterId){
+        try {
+            return await axios.post(`/api/chapters/getChapterDetails`, {chapterId}, {withCredentials: true});
+        } catch (error) {
+            console.log("AuthService :: getChapterLectureByChapterId :: error", error);
+            throw error;
+        }
+    }
+
+
+    async updateNewsletterSubscription(){
+
+        try {
+            return await axios.get(`/api/user/updateNewsLetter`, {withCredentials: true});
+        } catch (error) {
+            console.log("AuthService :: setNewsletterSubscription :: error", error);
+            throw error;
+        }
+    }
+
+
+    async addToWishlist(courseId){
+        try {
+            return await axios.get(`/api/wishlist/toggleWishlist/${courseId} `,{withCredentials: true});
+        } catch (error) {
+            console.log("AuthService :: getMyWishlist :: error", error);
+            throw error;
+        }
+    }
+
+
+    async getNextPrevLecture(lectureId, chapterId){
+        try{
+            const response = await axios.post(`/api/lectures/getLectureDetails`, {lectureId, chapterId}, {withCredentials: true});
+            return response.data.data;
+        }
+        catch(error){
+            console.log("AuthService :: getNextPrevLecture :: error", error);
+            throw error;
+        }
+    }
 
 }

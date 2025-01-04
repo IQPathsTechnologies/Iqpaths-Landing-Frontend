@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./lectureHeader.module.css";
 
-const lectureHeader = () => {
+const lectureHeader = ({navigation, selectedChapter, selectedLecture }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -47,13 +47,13 @@ const lectureHeader = () => {
         ))}
       </div>
       <div className={styles.actionIcons}>
-        <div className={styles.buttonContainer}>
+        <div className={styles.buttonContainer} onClick={navigation(selectedChapter._id, selectedLecture._id, 'prev')}>
           <div>
             <img src="/prevLec.svg" alt="Home" />
           </div>
           <p className={styles.previous}> Previous </p>
         </div>
-        <div className={styles.buttonContainer}>
+        <div className={styles.buttonContainer} onClick={navigation(selectedChapter._id, selectedLecture._id, 'next')}>
           <p className={styles.next}> Next </p>
           <div>
             <img src="/nextLec.svg" alt="Home" />

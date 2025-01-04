@@ -27,7 +27,7 @@ function Mentor() {
         const response = await apiClass.getMentor();
         // console.log('Mentor :: getMentorImages :: response', photos);
         const photos = response.map((mentor) => mentor.profilePhoto);
-        console.log('Mentor :: getMentorImages :: response', response);
+        // console.log('Mentor :: getMentorImages :: response', response);
         setmentorDetails(response);
         setImages(photos);
       } catch (error) {

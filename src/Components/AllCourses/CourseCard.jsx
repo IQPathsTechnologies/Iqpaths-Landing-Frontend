@@ -191,8 +191,8 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                   ))}
                   <li className={styles.point}>
                       <span className={styles.priceDetail}>
-                        <span className={`${styles.originalPrice} ${course.discountedPrice ? styles.strike : ""}`}>{course.realPrice}</span>{" "}
-                        <span className={styles.discountedPrice}>{course.price}</span>
+                        <span className={`${styles.originalPrice} ${course.discountedPrice ? styles.strike : ""}`}>Rs. {course.realPrice}</span>{" "}
+                        <span className={styles.discountedPrice}>Rs. {course.price}</span>
                       </span>
                   </li>
                 </ul>

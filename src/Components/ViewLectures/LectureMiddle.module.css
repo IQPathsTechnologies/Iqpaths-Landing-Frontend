@@ -48,11 +48,11 @@
 }
 
 .courseImage {
-    width: 107%;
-    margin-top: -20px;
+    width: 100%;
+    /* margin-top: -20px; */
     /* margin-left: -40px; */
     /* max-width: 600px; */
-    border-radius: 4px;
+    border-radius: 12px;
 }
 
 .videoControls {

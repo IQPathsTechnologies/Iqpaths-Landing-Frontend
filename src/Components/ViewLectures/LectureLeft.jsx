@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import styles from "./LectureLeft.module.css";
 
-const LectureLeft = () => {
+const LectureLeft = ({ chapters, lectures, onChapterSelect, onLectureSelect, selectedChapter }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [expandedSections, setExpandedSections] = useState({});
 
+
+  console.log("left me ye chapter aye",chapters)
   // Dynamic data
   const sections = [
     {
@@ -113,14 +115,14 @@ const LectureLeft = () => {
 
       {/* Dynamic Sections */}
       <div className={styles.sectionContainer}>
-        {sections.map((section, index) => (
+        {chapters.map((section, index) => (
           <div key={index} className={styles.section}>
             {/* Section Title and Toggle Arrow */}
             <div
               className={styles.sectionHeader}
               onClick={() => toggleSection(index)}
             >
-              <h3 className={styles.sectionTitle}>{section.title}</h3>
+              <h3 className={styles.sectionTitle}>{section.name}</h3>
               <img
                 src={
                   expandedSections[index]
@@ -132,19 +134,21 @@ const LectureLeft = () => {
               />
             </div>
 
+            {console.log("section",section.lectures)}
             {/* Section Content */}
             {expandedSections[index] && (
               <ul className={styles.sectionItems}>
-                {section.items.length > 0 ? (
-                  section.items.map((item) => (
+                {section?.lectures?.length > 0 ? (
+                  section.lectures.map((item) => (
                     <li
                       key={item.id}
                       className={`${styles.sectionItem} ${
                         item.isActive ? styles.activeItem : ""
                       }`}
+                      onClick={() => onLectureSelect(item)}
                     >
                       {/* {item.image} */}
-                      {item.label}
+                      {item.title}
                     </li>
                     
                   ))
