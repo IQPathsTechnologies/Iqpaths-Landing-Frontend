@@ -1,11 +1,12 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./lectureHeader.module.css";
+import { AuthService } from '../../axios/User';
 
-const lectureHeader = ({navigation, selectedChapter, selectedLecture }) => {
+const lectureHeader = ({ selectedChapter, selectedLecture }) => {
   const navigate = useNavigate();
   const location = useLocation();
-
+  const apiClass = new AuthService(); 
   console.log("selectedChapter", selectedChapter);
   console.log("selectedLecture jo next vale me aya ", selectedLecture);
   console.log("selected lecture ki id ye hai ", selectedLecture?._id);
@@ -19,7 +20,8 @@ const lectureHeader = ({navigation, selectedChapter, selectedLecture }) => {
     const pathToNavigate = `/${pathSegments.slice(0, index + 1).join("/")}`;
     navigate(pathToNavigate);
   };
-
+  const handleNextPrevious=()=>{
+  };
   return (
     <header className={styles.header}>
       <div className={styles.breadcrumb}>
@@ -51,13 +53,13 @@ const lectureHeader = ({navigation, selectedChapter, selectedLecture }) => {
         ))}
       </div>
       <div className={styles.actionIcons}>
-        <div className={styles.buttonContainer} onClick={navigation(selectedChapter?._id, selectedLecture?._id, 'prev')}>
+        <div className={styles.buttonContainer} >
           <div>
             <img src="/prevLec.svg" alt="Home" />
           </div>
           <p className={styles.previous}> Previous </p>
         </div>
-        <div className={styles.buttonContainer} onClick={navigation(selectedChapter?._id, selectedLecture?._id, 'next')}>
+        <div className={styles.buttonContainer} onClick={handleNextPrevious}>
           <p className={styles.next}> Next </p>
           <div>
             <img src="/nextLec.svg" alt="Home" />

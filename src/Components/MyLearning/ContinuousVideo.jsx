@@ -48,23 +48,23 @@ const ContinuousVideo = () => {
   // const { user } = useContext(UserContext);
   const apiClass = new AuthService();
 
-  const userId = 
+  
 
 
-  useEffect(() => {
-    const fetchData = async (user) => {
-      console.log('ContinuousVideo :: fetchData :: user', user);
-      try {
-        // const response = await apiClass.getUserCourses({ userId: });
-        // setCourses(response);
-        console.log('ContinuousVideo :: fetchData :: response', response);
+  // useEffect(() => {
+  //   const fetchData = async (user) => {
+  //     console.log('ContinuousVideo :: fetchData :: user', user);
+  //     try {
+  //       // const response = await apiClass.getUserCourses({ userId: });
+  //       // setCourses(response);
+  //       console.log('ContinuousVideo :: fetchData :: response', response);
 
-      } catch (error) {
-        console.error("Error fetching lessons", error);
-      }
-    };
-    fetchData();
-  }, [user._id]);
+  //     } catch (error) {
+  //       console.error("Error fetching lessons", error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, [user._id]);
   
 
 
