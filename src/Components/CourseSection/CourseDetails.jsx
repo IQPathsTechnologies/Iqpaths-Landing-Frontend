@@ -12,7 +12,7 @@ const CourseDetails = () => {
 
     
     const { title, id } = useParams();
-    console.log(title, id);
+    // console.log(title, id);
 
 
 
@@ -49,7 +49,7 @@ const CourseDetails = () => {
         async function fetchData() {
           try {
             const response = await apiClass.getCourseDetails(id);
-            console.log("CourseSection :: useEffect :: response ye card k liye", response);
+            // console.log("CourseSection :: useEffect :: response ye card k liye", response);
             setCourseDetails(response.details);    
           } catch (error) {
             console.log("CourseSection :: useEffect :: error", error);

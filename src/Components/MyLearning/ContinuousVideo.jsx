@@ -57,7 +57,7 @@ const ContinuousVideo = () => {
       // console.log('ContinuousVideo :: fetchData :: user', user.user._id);
 
       try {
-        const response = await apiClass.getUserCourses({ userId });  
+        const response = await apiClass.getUserCourses(userId);  
         setCourses(response.course);
         setIsLoading(false);
         console.log('ContinuousVideo :: fetchData :: response', response);

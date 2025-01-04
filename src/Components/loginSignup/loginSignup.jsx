@@ -7,7 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const LoginSignup = () => {
   const [activeForm, setActiveForm] = useState("login");
-  const { setUser, setIsLoggedIn } = useContext(UserContext);
+  const { setUser, setIsLoggedIn, setUserId } = useContext(UserContext);
   const [errorMessageLogin, setErrorMessageLogin] = useState("");
   const [errorMessageSignup, setErrorMessageSignup] = useState("");
   const navigate = useNavigate();
@@ -53,6 +53,7 @@ const LoginSignup = () => {
         console.log("Login successful!");
         console.log(response.data.data);
         setUser(response.data.data.user);
+        setUserId(response.data.data.user.user._id);
         setIsLoggedIn(true);
         localStorage.setItem("user", JSON.stringify(response.data.data));
         navigate("/home");

@@ -253,7 +253,7 @@
     width: 90px;
     height: 30px;
     margin-top: 30px;
-    margin-left: -10px;
+    margin-left: 50px;
     display: flex;
     font-size: 20px;
     padding: 0px 2px;
@@ -381,6 +381,7 @@
 
 
 
+
 .includes {
     margin-left: 30px;
     font-style: "Manrope", sans-serif;
@@ -470,4 +471,38 @@
     border: 1px solid green; /* Matches the background */
     cursor: not-allowed; /* To indicate that it’s non-clickable */
     opacity: 0.8; /* Slightly muted to differentiate from active state */
+}
+
+.displayCoupon {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 20px;
+    gap: 30px;
+    /* border: 2px solid red; */
+}
+
+
+.couponDisplaying {
+    font-style: "Lexend", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    width: 175px;
+    height: 20px;
+    text-align: center;
+    padding: 5px 10px;
+    color: #0047B2;
+    border: 2px dotted black;
+}
+
+.cancelCoupon{
+    width: 20px;
+    height: 20px;
+    font-size: 24px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
 }
