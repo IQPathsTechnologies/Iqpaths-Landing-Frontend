@@ -14,7 +14,7 @@ const lectureHeader = ({
   // console.log("selectedChapter", selectedChapter);
   // console.log("selectedLecture jo next vale me aya ", selectedLecture);
   // console.log("selected lecture ki id ye hai ", selectedLecture?._id);
-
+  
   const pathSegments = location.pathname
     .split("/")
     .filter((segment) => segment);

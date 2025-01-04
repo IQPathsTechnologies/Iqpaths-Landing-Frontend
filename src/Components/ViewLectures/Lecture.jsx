@@ -16,8 +16,8 @@ const Lecture = () => {
   const apiClass = new AuthService();
 
 
-  // const { courseId } = useParams();
-  const courseId = "677676a2cedfbdb0b89e4636"; 
+  const { courseId } = useParams();
+  // const courseId = "677676a2cedfbdb0b89e4636"; 
 
   useEffect(() => {
     const fetchChapters = async () => {
