@@ -8,7 +8,7 @@ import { AuthService } from '../../axios/User';
 import { useParams } from "react-router-dom";
 
 const Lecture = () => {
-  const [isRightVisible, setIsRightVisible] = useState(true);
+  // const [isRightVisible, setIsRightVisible] = useState(true);
   const [chapters, setChapters] = useState([]); 
   // const [lectures, setLectures] = useState([]); 
   const [selectedLecture, setSelectedLecture] = useState(null); 
@@ -33,10 +33,22 @@ const Lecture = () => {
   }, []);
 
 
-  const handleLectureSelect = (lecture) =>{
-    setSelectedLecture(lecture);
-  }
+  // const fetchLecture = async (chapterId) => {
+  //   try {
+  //     const response = await apiClass.getChapterLectureByChapterId(chapterId);
+  //     setLectures(response.details.lectures);
+  //     // console.log('Lecture :: fetchLecture :: response', response);
+  //   } catch (error) {
+  //     console.error("Error fetching lectures:", error);
+  //   }
+  // };
 
+  const handleLectureSelect = (lecture , ChapterSectionId) =>{
+    setSelectedLecture(lecture);
+    setSelectedChapter(ChapterSectionId)
+    console.log("lecture is  line number 52", lecture);
+    console.log("chapter selectionid is line number 53 ", ChapterSectionId);
+  }
   const nextPrevLecture = async (chapterId, lectureId, flag) => {
     try{
       const response = await apiClass.getNextPrevLecture(chapterId, lectureId);
@@ -50,10 +62,6 @@ const Lecture = () => {
       console.error("Error fetching next/prev lectures:", error);
     }
   }
-
-
-
-
 
   return (
     <div className={styles.appContainer}>
@@ -70,7 +78,6 @@ const Lecture = () => {
           <LectureLeft
             chapters = {chapters}
             onLectureSelect = {handleLectureSelect}
-            selectedChapter={selectedChapter}
           />
         </div>
 
