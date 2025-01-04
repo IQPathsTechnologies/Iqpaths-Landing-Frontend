@@ -1,0 +1,18 @@
+.course {
+    display: flex;
+    flex-direction: column;
+    /* gap: 20px; */
+    /* border: 2px solid black; */
+}
+
+.details {
+    position: relative;
+    /* border: 2px solid red; */
+}
+
+.roadmap {
+    position: relative;
+    /* margin-top: 20px; */
+    /* padding-top: 200px; */
+    /* border: 2px solid green; */
+}

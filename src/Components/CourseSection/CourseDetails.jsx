@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AuthService } from '../../axios/User';
 import { useParams } from "react-router-dom";
-import styles from './CourseDetails.module.css';
+import styles from './CourseDetails.module.css'; 
 
 const CourseDetails = () => {
     const [activeTab, setActiveTab] = useState("Overview");
