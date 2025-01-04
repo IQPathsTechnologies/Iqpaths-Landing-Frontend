@@ -27,11 +27,12 @@ const lectureHeader = ({
 
   const handleNextPrevious = async (chapterId, lectureId, flag) => {
     try {
-      const response = await apiClass.getNextPrevLecture(chapterId, lectureId);
+      const response = await apiClass.getNextPrevLecture(lectureId, chapterId);
+      console.log("response", response);
       if (flag === "next") {
-        getNextPreviousDetails(response.details.nextLecture);
+        getNextPreviousDetails(response.nextLecture);
       } else if (flag == "prev") {
-        getNextPreviousDetails(response.details.prevLecture);
+        getNextPreviousDetails(response.preLecture);
       }
     } catch (error) {
       console.error("Error fetching next/prev lectures:", error);

@@ -6,6 +6,7 @@ import LectureMiddle from "./LectureMiddle";
 import styles from "./Lecture.module.css";
 import { AuthService } from '../../axios/User';
 import { useParams } from "react-router-dom";
+import { set } from "react-hook-form";
 
 const Lecture = () => {
   // const [isRightVisible, setIsRightVisible] = useState(true);
@@ -63,7 +64,7 @@ const Lecture = () => {
     }
   }
   const handleLectureSelectionInHeader = (lectureDetails)=>{
-    console.log(lectureDetails);
+    setSelectedLecture(lectureDetails);
   }
   return (
     <div className={styles.appContainer}>
