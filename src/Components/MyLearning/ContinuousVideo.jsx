@@ -39,7 +39,7 @@ const lessons = [
   },
 ];
 
-const ContinuousVideo = ({ userId = "6777eab662bc763f5ae23572" }) => {
+const ContinuousVideo = () => {
   const carouselRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -49,13 +49,15 @@ const ContinuousVideo = ({ userId = "6777eab662bc763f5ae23572" }) => {
 
   const { user } = useContext(UserContext);
   const apiClass = new AuthService();
+  const userId = user.user._id;
 
 
   useEffect(() => {
-    const fetchData = async (userId) => {
+    const fetchData = async () => {
       // console.log('ContinuousVideo :: fetchData :: user', user.user._id);
+
       try {
-        const response = await apiClass.getUserCourses({ userId: user.user._id });  
+        const response = await apiClass.getUserCourses({ userId });  
         setCourses(response.course);
         setIsLoading(false);
         console.log('ContinuousVideo :: fetchData :: response', response);
@@ -65,7 +67,7 @@ const ContinuousVideo = ({ userId = "6777eab662bc763f5ae23572" }) => {
       }
     };
     fetchData();
-  }, [user.user._id]);
+  }, [user]);
   //ye change karna jab user id context se aaye
   
 
