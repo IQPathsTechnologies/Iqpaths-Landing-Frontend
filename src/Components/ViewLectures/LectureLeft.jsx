@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./LectureLeft.module.css";
 
-const LectureLeft = ({ chapters, lectures, onChapterSelect, onLectureSelect, selectedChapter }) => {
+const LectureLeft = ({ chapters, onChapterSelect, onLectureSelect, selectedChapter }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [expandedSections, setExpandedSections] = useState({});
 

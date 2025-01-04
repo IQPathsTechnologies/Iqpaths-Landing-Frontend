@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 const Lecture = () => {
   const [isRightVisible, setIsRightVisible] = useState(true);
   const [chapters, setChapters] = useState([]); 
-  const [lectures, setLectures] = useState([]); 
+  // const [lectures, setLectures] = useState([]); 
   const [selectedLecture, setSelectedLecture] = useState(null); 
   const [selectedChapter, setSelectedChapter] = useState(null); 
   const apiClass = new AuthService();
@@ -25,9 +25,6 @@ const Lecture = () => {
         const response = await apiClass.getPurchasedCourseDetails(courseId);
         console.log(response.details.chapters);
         setChapters(response.details.chapters);
-        // const lectures = response.details.chapters.map((chapters) => chapters.lectures);
-        // setLectures(lectures);
-        // console.log('Lecture :: fetchChapters :: response', lectures);
       } catch (error) {
         console.error("Error fetching chapters:", error);
       }
@@ -35,16 +32,6 @@ const Lecture = () => {
     fetchChapters();
   }, []);
 
-
-  const fetchLecture = async (chapterId) => {
-    try {
-      const response = await apiClass.getChapterLectureByChapterId(chapterId);
-      setLectures(response.details.lectures);
-      // console.log('Lecture :: fetchLecture :: response', response);
-    } catch (error) {
-      console.error("Error fetching lectures:", error);
-    }
-  };
 
   const handleLectureSelect = (lecture) =>{
     setSelectedLecture(lecture);
@@ -72,8 +59,7 @@ const Lecture = () => {
     <div className={styles.appContainer}>
       {/* Header */}
       <LectureHeader 
-        // navigation= {nextPrevLecture}
-        
+        navigation= {nextPrevLecture}
         selectedChapter={selectedChapter}
         selectedLecture={selectedLecture}
       />
@@ -83,8 +69,6 @@ const Lecture = () => {
         <div className={styles.leftContainer}>
           <LectureLeft
             chapters = {chapters}
-            lectures = {lectures}
-            onChapterSelect = {fetchLecture}
             onLectureSelect = {handleLectureSelect}
             selectedChapter={selectedChapter}
           />
