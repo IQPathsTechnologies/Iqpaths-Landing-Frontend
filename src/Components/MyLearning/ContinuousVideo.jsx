@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect, useContext } from 'react';
 import styles from './ContinuousVideo.module.css';
 import { AuthService } from '../../axios/User';
 import UserContext from '../../context/userContext';
+import { Link } from 'react-router-dom';
 
 const lessons = [
   {
@@ -38,33 +39,34 @@ const lessons = [
   },
 ];
 
-const ContinuousVideo = () => {
+const ContinuousVideo = ({ userId = "6777eab662bc763f5ae23572" }) => {
   const carouselRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [courses, setCourses] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
 
-  // const { user } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const apiClass = new AuthService();
 
-  
 
+  useEffect(() => {
+    const fetchData = async (userId) => {
+      // console.log('ContinuousVideo :: fetchData :: user', user.user._id);
+      try {
+        const response = await apiClass.getUserCourses({ userId: user.user._id });  
+        setCourses(response.course);
+        setIsLoading(false);
+        console.log('ContinuousVideo :: fetchData :: response', response);
 
-  // useEffect(() => {
-  //   const fetchData = async (user) => {
-  //     console.log('ContinuousVideo :: fetchData :: user', user);
-  //     try {
-  //       // const response = await apiClass.getUserCourses({ userId: });
-  //       // setCourses(response);
-  //       console.log('ContinuousVideo :: fetchData :: response', response);
-
-  //     } catch (error) {
-  //       console.error("Error fetching lessons", error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, [user._id]);
+      } catch (error) {
+        console.error("Error fetching lessons", error);
+      }
+    };
+    fetchData();
+  }, [user.user._id]);
+  //ye change karna jab user id context se aaye
   
 
 
@@ -100,26 +102,44 @@ const ContinuousVideo = () => {
       <h2>Welcome back, ready for your next lesson?</h2>
       <div className={styles.carousel}>
         <div className={styles.cardContainer} ref={carouselRef}>
-          {lessons.map((lesson) => (
-            <div key={lesson.id} className={styles.card}>
-              <img src={lesson.image} alt={lesson.title} className={styles.image} />
-              <h3 className={styles.title}>{lesson.title}</h3>
-              <div className={styles.details}>
-                <span className={styles.instructor}>{lesson.instructor}</span>
-                <div className={styles.progressBar}>
-                  <div
-                    className={styles.progress}
-                    style={{
-                      width: `${(lesson.progress / lesson.totalLessons) * 100}%`,
-                    }}
-                  ></div>
+          {isLoading ? (
+            Array.from({ length: 4 }).map((_, index) => (
+              <div key={index} className={styles.card}>
+                <div className={styles.image} style={{ backgroundColor: "#f0f0f0" }}></div>
+                <h3 className={styles.title} style={{ backgroundColor: "#f0f0f0" }}></h3>
+                <div className={styles.details}>
+                  <span className={styles.instructor} style={{ backgroundColor: "#f0f0f0" }}></span>
+                  <div className={styles.progressBar} style={{ backgroundColor: "#f0f0f0" }}>
+                    <div className={styles.progress} style={{ width: "0%" }}></div>
+                  </div>
+                  <span className={styles.progressText} style={{ backgroundColor: "#f0f0f0" }}></span>
                 </div>
-                <span className={styles.progressText}>
-                  Lesson {lesson.progress} of {lesson.totalLessons}
-                </span>
               </div>
-            </div>
-          ))}
+            ))
+          ) :   
+            courses.map((lesson) => (
+              <div key={lesson.id} className={styles.card}>
+                <Link to={`/view-lectures/${lesson.courseId}`} className={styles.link}>
+                <img src={lesson.thumbnail} alt={lesson.title} className={styles.image} />
+                <h3 className={styles.title}>{lesson.title}</h3>
+                <div className={styles.details}>
+                  <span className={styles.instructor}>{lesson.instructor}</span>
+                  <div className={styles.progressBar}>
+                    <div
+                      className={styles.progress}
+                      style={{
+                        width: `${(lesson.progress / lesson.totalLessons) * 100}%`,
+                      }}
+                    ></div>
+                  </div>
+                  <span className={styles.progressText}>
+                    Lesson {lesson.progress} of {lesson.totalLessons}
+                  </span>
+                </div>
+                </Link>
+              </div>
+            ))
+          }
         </div>
         <div className={styles.navigationButtons}>
           <button

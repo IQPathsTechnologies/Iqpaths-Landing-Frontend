@@ -57,6 +57,10 @@ const router = createBrowserRouter([
         element: <MyLearning />
       },
       {
+        path: '/view-Lectures/:courseId',
+        element: <ViewLectures />
+      },
+      {
         path: '/viewLectures',
         element: <ViewLectures />
       },

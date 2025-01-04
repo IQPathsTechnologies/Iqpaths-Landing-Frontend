@@ -25,9 +25,6 @@ const Lecture = () => {
         const response = await apiClass.getPurchasedCourseDetails(courseId);
         console.log(response.details.chapters);
         setChapters(response.details.chapters);
-        // const lectures = response.details.chapters.map((chapters) => chapters.lectures);
-        // setLectures(lectures);
-        // console.log('Lecture :: fetchChapters :: response', lectures);
       } catch (error) {
         console.error("Error fetching chapters:", error);
       }
@@ -72,8 +69,7 @@ const Lecture = () => {
     <div className={styles.appContainer}>
       {/* Header */}
       <LectureHeader 
-        // navigation= {nextPrevLecture}
-        
+        navigation= {nextPrevLecture}
         selectedChapter={selectedChapter}
         selectedLecture={selectedLecture}
         getNextPreviousDetails ={handleLectureSelectionInHeader}
