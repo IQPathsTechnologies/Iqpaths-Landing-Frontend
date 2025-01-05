@@ -22,6 +22,8 @@ import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import TermsCondition from './pages/TermsCondition/TermsCondition';
 import CancellationRefund from './pages/CancellationRefund/CancellationRefund';
 import Logout from './Components/LogOut/Logout';
+import Placement from './pages/Placement/Placement';
+import ComingSoon from './pages/ComingSoon/ComingSoon';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -52,7 +54,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/Placement Preparation',
-        element: <Courses />,
+        element: <Placement />,
       },
       {
         path: '*',
@@ -107,7 +109,27 @@ const router = createBrowserRouter([
       {
         path:'/logout',
         element:<Logout/>
-      }
+      },
+      // {
+      //   path: '/placement',
+      //   element: <Placement />
+      // },
+      {
+        path: '/coming',
+        element: <ComingSoon />
+      },
+      {
+        path: 'Workshops & Webinars',
+        element: <ComingSoon />
+      },
+      {
+        path: 'Mock Technical Interviews',
+        element: <ComingSoon />
+      },
+      {
+        path: 'Industry Projects',
+        element: <ComingSoon />
+      },
       // {
       //   path: '/login',
       //   element: <SignUpPopup />

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Footer.module.css';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -14,8 +15,7 @@ const Footer = () => {
                         className={styles.logoImage}
                         />
                     </div>
-                    <p className= {styles.footerDescription}> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero enim eligendi dolorem, corporis amet iure temporibus ipsam quas, 
-                        voluptatum totam repudiandae laudantium, deserunt rem veniam laborum? Soluta officia officiis ut?</p>
+                    <p className= {styles.footerDescription}> IQPaths Technologies: Bridging the gap between skills and opportunities. Empowering individuals with innovative learning solutions, expert training, and personalized career guidance. Your partner in building a future-ready career.</p>
 
                     <div className={styles.socialmediaLogoContainer}> 
                         <a href="https://www.youtube.com/@IQPaths" target="_blank" rel="noopener noreferrer">
@@ -46,24 +46,24 @@ const Footer = () => {
                 <div className={styles.linksContainer}>
                     <table>
                         <tr>
-                            <td><a href="/">Home</a></td>
-                            <td><a href="/courses">Courses</a></td>
-                            <td><a href="/contact-us"> Contact Us</a></td>
+                            <td><Link to="/">Home</Link></td>
+                            <td><Link to="/courses">Courses</Link></td>
+                            <td><Link to="/contact-us"> Contact Us</Link></td>
                             
                         </tr>
                         <tr>
-                            <td><a href="/my-learnings">My learnings</a></td>
-                            <td><a href="/terms">Terms and conditions</a></td>
-                            <td><a href="*">info@iqpaths.com</a></td>  
+                            <td><Link to="/my-learnings">My learnings</Link></td>
+                            <td><Link to="/terms">Terms and conditions</Link></td>
+                            <td><Link to="*">info@iqpaths.com</Link></td>  
                         </tr>
                         <tr>
-                            <td><a href="*">Cookies usage policy</a></td>
-                            <td><a href="*">Mentors</a></td>
-                            <td><a href="/privacy">Privacy policy</a></td>
+                            <td><Link to="*">Cookies usage policy</Link></td>
+                            <td><Link to="*">Mentors</Link></td>
+                            <td><Link to="/privacy">Privacy policy</Link></td>
                         </tr>
                         <tr>
-                            <td><a href="/about"></a>About Us</td>
-                            <td><a href="/cancellation">Shipping policy </a></td>
+                            <td><Link to="/about-us">About Us</Link></td>
+                            <td><Link to="/cancellation">Shipping policy </Link></td>
                         </tr>  
                         
                     </table>

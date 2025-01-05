@@ -23,7 +23,7 @@ const content = [
         logo: "/src/assets/servicesImages/desktop_mac.png",
         title: "Placement Preparation",
         description: "Prepare for your dream job with our placement preparation services. We offer comprehensive training and resources to help you excel in interviews and secure your desired job. From resume building to mock interviews, we cover all aspects of the placement process.",
-        link: "/placement-preparation"
+        link: "/placement"
     },
     {
         index: 3,
@@ -79,7 +79,7 @@ const Service = () => {
         <div className={styles.container}>
             <div className={styles.heading}>
                 <h1>Services Offered</h1>
-                <p>Welcome to our services page. Here you can find all the services we offer to help you achieve your goals and enhance your skills. Whether you are looking to improve your knowledge through our courses, gain practical experience with our internships, or prepare for your dream job with our placement preparation services, we have something for everyone. Explore our offerings and take the next step in your career journey.</p>
+                <p>We  provide data-driven learning solutions, advanced software development training, and personalized placement services, empowering individuals to thrive in their careers.</p>
             </div>
             <div className={styles.cardContainer}>
                 {content.map((data, key) => (

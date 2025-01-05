@@ -70,7 +70,7 @@ const Roadmap = () => {
               icon: '🤝',
             },
             ];
-            console.log("CourseSection me user aa raha", updatedRoadmap);
+            // console.log("CourseSection me user aa raha", updatedRoadmap);
             setRoadmap(updatedRoadmap);
       } catch (error) {
         console.log("CourseSection me user ni aa raha", error);
