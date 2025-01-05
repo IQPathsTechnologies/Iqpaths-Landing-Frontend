@@ -17,7 +17,7 @@ import CartPage from './pages/CartPage/CartPage';
 import AboutUs from './pages/AboutUs/AboutUs';
 import { UserProvider } from './context/userContext';
 import CoursesProvider from './context/coursesContext';
-import { checkForLoginLoader } from './utility/middleware/RedirectLoaders';
+import { checkForLoginLoader, IsuserLogedinAndValid } from './utility/middleware/RedirectLoaders';
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import TermsCondition from './pages/TermsCondition/TermsCondition';
 import CancellationRefund from './pages/CancellationRefund/CancellationRefund';
@@ -67,11 +67,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/view-Lectures/:courseId',
-        element: <ViewLectures />
-      },
-      {
-        path: '/viewLectures',
-        element: <ViewLectures />
+        element: <ViewLectures />,
+        loader:IsuserLogedinAndValid
       },
       {
         path: '/login',

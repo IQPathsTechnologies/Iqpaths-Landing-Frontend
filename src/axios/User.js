@@ -60,13 +60,13 @@ export class AuthService {
      async logout(){
          try {
              const response = await  axios.post("api/user/logout", {withCredentials: true});
+             console.log(response);
+             return response;
          } catch (error) {
              console.log("AuthService :: logout :: error", error);
              throw error;
          }
      }
-
-    
     async getUser(){
         try {
             return await axios.get("/api/user/getUserDetails", {withCredentials: true});
