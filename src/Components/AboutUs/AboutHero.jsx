@@ -47,8 +47,10 @@ const AboutHero = () => {
       <div className={styles.content}>
         <h1>{slides[currentSlide].title}</h1>
         <p>{slides[currentSlide].description}</p>
-        <button className={styles.exploreButton}>
-          {slides[currentSlide].buttonText}
+        <button className={styles.exploreButton}> 
+          <a href="/courses" className={styles.button}>
+            {slides[currentSlide].buttonText}
+          </a>
         </button>
       </div>
       <div className={styles.controls}>
