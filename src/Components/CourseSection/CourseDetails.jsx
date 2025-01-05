@@ -191,33 +191,8 @@ const CourseDetails = () => {
       ),
       FAQs: (
         <div className={styles.faqs}>
-          {[
-            {
-              id: 1,
-              question: "What Does Royalty Free Mean?",
-              answer:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis faucibus odio arcu dui, adipiscing facilisis. Urna, donec turpis egestas volutpat. Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in.",
-            },
-            {
-              id: 2,
-              question: "What Does Royalty Free Mean?",
-              answer:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis faucibus odio arcu dui, adipiscing facilisis. Urna, donec turpis egestas volutpat. Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in.",
-            },
-            {
-              id: 3,
-              question: "What Does Royalty Free Mean?",
-              answer:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis faucibus odio arcu dui, adipiscing facilisis. Urna, donec turpis egestas volutpat. Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in.",
-            },
-            {
-              id: 4,
-              question: "What Does Royalty Free Mean?",
-              answer:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis faucibus odio arcu dui, adipiscing facilisis. Urna, donec turpis egestas volutpat. Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in.",
-            },
-          ].map((faq, index) => (
-            <div key={faq.id} className={styles.faqItem}>
+          {courseDetails?.faq?.map((faq, index) => (
+            <div key={faq._id} className={styles.faqItem}>
               <div
                 className={styles.faqHeader}
                 onClick={() =>

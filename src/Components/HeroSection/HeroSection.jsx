@@ -7,8 +7,8 @@ function HeroSection() {
     <div className={styles.container}>
         <div className={styles.left}>
             <div className={styles.content}>
-              <h1>Master New Skills with Course Mastery</h1>
-              <p>Embrace life's vastness, venture forth, and discover the wonders waiting beyond. The world beckons; seize its grand offerings now!</p>
+              <h1>Where Intelligence Meets Opportunity</h1>
+              <p>Empowering future leaders with cutting-edge data-driven learning and personalized placement solutions.</p>
             </div>
             <div className={styles.buttonContainer}>
               <Link to="/courses" className={styles.button}>

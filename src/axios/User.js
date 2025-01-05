@@ -283,4 +283,13 @@ export class AuthService {
         }
     }
 
+    async getRoadmap(courseId){
+        try {
+            return await axios.get(`/api/roadmap/getRoadmapById/${courseId}`);
+        } catch (error) {
+            console.log("AuthService :: getRoadmap :: error", error);
+            throw error;
+        }
+    }
+
 }

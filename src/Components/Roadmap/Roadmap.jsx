@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Roadmap.module.css';
+import { useParams } from 'react-router-dom';
+import { AuthService } from '../../axios/User';
+
 
 const roadmapSteps = [
   {
@@ -46,11 +49,42 @@ const roadmapSteps = [
 ];
 
 const Roadmap = () => {
+  const [Roadmap, setRoadmap] = useState([]);
+
+  const { id } = useParams();
+  const courseId = id;
+
+  const apiClass = new AuthService();
+
+
+  useEffect(() => {
+    const fetchData = async function () {
+      try {
+          const response = await apiClass.getRoadmap(courseId);
+            const updatedRoadmap = [
+            ...response.data.roadmaps,
+            {
+              id: response.data.roadmaps.length + 1,
+              title: 'Start a new journey!',
+              description: '',
+              icon: '🤝',
+            },
+            ];
+            console.log("CourseSection me user aa raha", updatedRoadmap);
+            setRoadmap(updatedRoadmap);
+      } catch (error) {
+        console.log("CourseSection me user ni aa raha", error);
+      }
+    }
+    fetchData();
+  }, []);
+
+
   return (
     <div className={styles.container}>
       {/* <h2 className={styles.heading}>Roadmap to Join Us</h2> */}
       <div className={styles.timeline}>
-        {roadmapSteps.map((step, index) => (
+        {Roadmap?.map((step, index) => (
           <div key={step.id} className={styles.stepContainer}>
             <div
               className={`${styles.stepContent} ${
@@ -69,6 +103,7 @@ const Roadmap = () => {
             </div>
           </div>
         ))}
+        
       </div>
     </div>
   );

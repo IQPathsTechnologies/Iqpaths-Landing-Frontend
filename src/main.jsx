@@ -46,6 +46,10 @@ const router = createBrowserRouter([
         element: <Course />,
       },
       {
+        path: '/Placement Preparation',
+        element: <Courses />,
+      },
+      {
         path: '*',
         element: <Error />
       },

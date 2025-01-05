@@ -25,11 +25,11 @@
 
 .content{
     /* border: 2px solid green; */
-    padding: 20px 50px ;
+    padding: 20px 0px 20px 40px ;
 }
 
 .content h1{
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     font-weight: 800;
     padding-right: 30px;
     color: #252B42;

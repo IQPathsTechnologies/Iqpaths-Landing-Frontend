@@ -7,9 +7,7 @@ import { verifyPayment, createOrder } from "../../utility/Razorpay/RazorpayApi";
 import { useParams, useNavigate } from "react-router-dom";
 import { UserContext } from '../../context/userContext';
 import { AuthService } from '../../axios/User';
-import axios from "axios";
-import { set } from "react-hook-form";
-import { use } from "react";
+
 
 
 
@@ -22,8 +20,6 @@ const CourseSection = ({
   hours = "54.5 hours on-demand video",
   download = "Downloadable Resources",
   access = "Access on mobile and TV",
-
-  userId,
 }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isRazorPayPopupVisible, setIsRazorPayPopupVisible] = useState(false);
@@ -39,12 +35,12 @@ const CourseSection = ({
 
 
   const { title, id } = useParams();
-  console.log(title, id);
+  // console.log(title, id);
   const courseId = id;
   
   const { user  } = useContext(UserContext);
   const apiClass = new AuthService();
-  console.log("user id ye hai yaah pe line 50 me", userId);
+  // console.log("user id ye hai yaah pe line 50 me", userId);
   const navigate = useNavigate();
 
 
@@ -53,7 +49,7 @@ const CourseSection = ({
     const fetchData = async function () {
       try {
           const response = await apiClass.isCoursePurchase(courseId);
-          console.log("CourseSection me response aa raha", response);
+          // console.log("CourseSection me response aa raha", response);
           setIsPurchased(response.data.data.isPurchased);
           // console.log(response.data.data.isPurchased)
       } catch (error) {
@@ -152,7 +148,7 @@ const CourseSection = ({
     async function fetchData() {
       try {
         const response = await apiClass.getCourseDetails(id);
-        console.log("CourseSection :: useEffect :: response", response);
+        // console.log("CourseSection :: useEffect :: response", response);
         setCourseDetails(response.details);
         setLoading(false);
 

@@ -16,7 +16,7 @@ const Home = () => {
             <BeniftsSection />
             <Banner />
             <Mentor />
-            <Collaborator />
+            {/* <Collaborator /> */}
             <Testimonials />
         </div>
     );
