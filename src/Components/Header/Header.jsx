@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, redirect } from 'react-router-dom';
 import styles from './Header.module.css';
 import SignUpPopup from "../CourseSection/SignUpPopup";
 import { UserContext } from '../../context/userContext';
@@ -23,14 +23,14 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      await apiClass.logout();
+      const response = await apiClass.logout();
       setIsLoggedIn(false);
 
       // Redirect to the login page
-      // navigate('/home');
+      redirect('/home');
     } catch (error) {
       // Log the error for debugging
-      // console.error("Logout failed", error);
+       console.error("Logout failed", error);
       // Optionally provide feedback to the user
       alert("An error occurred while logging out. Please try again.");
     }
