@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export class AuthService {
 
     // constructor() {
@@ -61,6 +62,7 @@ export class AuthService {
          try {
              const response = await  axios.post("api/user/logout", {withCredentials: true});
              console.log(response);
+             redirect('/home');
              return response;
          } catch (error) {
              console.log("AuthService :: logout :: error", error);

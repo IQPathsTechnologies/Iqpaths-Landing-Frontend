@@ -23,11 +23,10 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await apiClass.logout();
+      await apiClass.logout();
       setIsLoggedIn(false);
 
       // Redirect to the login page
-      redirect('/home');
     } catch (error) {
       // Log the error for debugging
        console.error("Logout failed", error);

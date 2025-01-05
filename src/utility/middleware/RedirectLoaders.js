@@ -5,7 +5,7 @@ export const checkForLoginLoader = async()=>{
     const apiClass = new AuthService();
     try {
         const response = await apiClass.getUserForLogin();
-        return redirect("/home");
+        return redirect("/");
       } catch (error) {
         return null;
     } 
@@ -18,7 +18,7 @@ export const IsuserLogedinAndValid = async()=>{
       const response = await apiClass.getUserForLogin();
       return null
     } catch (error) {
-      return redirect("/home");
+      return redirect("/");
   } 
 }
 
