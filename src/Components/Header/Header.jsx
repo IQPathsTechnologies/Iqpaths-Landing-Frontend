@@ -9,7 +9,7 @@ const Header = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [popupType, setPopupType] = useState("");
 
-  const { user, isLoggedIn, setIsLoggedIn, setUser } = useContext(UserContext);
+  const {  isLoggedIn, setIsLoggedIn } = useContext(UserContext);
 
   const apiClass = new AuthService();
 
@@ -23,22 +23,14 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      // Call the logout API
       await apiClass.logout();
-  
-      // Remove user data from localStorage
-      localStorage.removeItem('user');
-  
-      // Reset user context and login state
-      setUser(null);
       setIsLoggedIn(false);
-  
+
       // Redirect to the login page
-      // navigate('/login');
+      navigate('/');
     } catch (error) {
       // Log the error for debugging
-      console.error("Logout failed", error);
-  
+      // console.error("Logout failed", error);
       // Optionally provide feedback to the user
       alert("An error occurred while logging out. Please try again.");
     }

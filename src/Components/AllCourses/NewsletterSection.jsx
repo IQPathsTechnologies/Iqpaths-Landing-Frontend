@@ -1,6 +1,5 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, {useState, useEffect} from "react";
 import styles from "./NewsletterSection.module.css";
-import { UserContext } from '../../context/userContext';
 import { AuthService } from '../../axios/User';
 
 const NewsletterSection = () => {
@@ -10,28 +9,29 @@ const NewsletterSection = () => {
       "Know about insights and interview tips of IQPath early from the rest...",
     buttonText: "SUBSCRIBE",
   };
-
-  const [newsletterData, setNewsletterData] = useState(false);
-  const {user} = useContext(UserContext);
-  const apiClass = new AuthService();
-
-  let newsletterSubscribe;
-  
+  const [newsLetterStatus, setnewsLetterStatus] = useState(false);
+  const apiClass = new AuthService();  
   useEffect(() => {
-    if(user){
-      newsletterSubscribe = user.newsletterSubscribe;
-      setNewsletterData(newsletterSubscribe);
+    const getnewsletterdetails = async function(){
+      const response = await apiClass.getNewsLetterDetails();
+      if(response.data.status === 200 ){
+        if(response.data.newsLetterStatus){
+          setnewsLetterStatus(true)
+        };
+      }
     }
-  }, [user])
-
+    getnewsletterdetails();
+  }, [])
 
 
   const handleSubscribe = async () => {
     try {
-      const response = await apiClass.updateNewsletterSubscription();
-      setNewsletterData(response.data.data.newsletterSubscribe);
+        const response = await apiClass.updateNewsletterSubscription();
+        setnewsLetterStatus(response.data.data.newsletterSubscribe);
+  
     } catch (error) {
       console.error("Error subscribing to newsletter:", error);
+      alert("please login first");
     }
   }
 
@@ -42,10 +42,10 @@ const NewsletterSection = () => {
         <p className={styles.description}>{data.description}</p>
       </div>
       <div 
-        className={`${styles.subscribeButton} ${newsletterData ? styles.subscribed : ''}`} 
+        className={`${styles.subscribeButton} ${newsLetterStatus ? styles.subscribed : ''}`} 
         onClick={handleSubscribe}
       >
-        {newsletterData ? "Subscribed" : "Subscribe"}
+        {newsLetterStatus ? "Subscribed" : "Subscribe"}
       </div>
     </div>
   );

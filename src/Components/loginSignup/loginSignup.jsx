@@ -7,7 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const LoginSignup = () => {
   const [activeForm, setActiveForm] = useState("login");
-  const { setUser, setIsLoggedIn, setUserId } = useContext(UserContext);
+  const { setIsLoggedIn } = useContext(UserContext);
   const [errorMessageLogin, setErrorMessageLogin] = useState("");
   const [errorMessageSignup, setErrorMessageSignup] = useState("");
   const navigate = useNavigate();
@@ -51,11 +51,8 @@ const LoginSignup = () => {
       const response = await axios.post("/api/user/login", data);
       if (response.status === 200) {
         console.log("Login successful!");
-        console.log(response.data.data);
-        setUser(response.data.data.user);
-        setUserId(response.data.data.user.user._id);
+        console.log(response.data.data);        
         setIsLoggedIn(true);
-        localStorage.setItem("user", JSON.stringify(response.data.data));
         navigate("/home");
       }
     } catch (error) {
@@ -75,9 +72,6 @@ const LoginSignup = () => {
       const response = await axios.post("/api/user/register", data);
       if (response.status === 201) {
         console.log("Signup successful!");
-        //setUser(response.data.data);
-        // setIsLoggedIn(true);
-        // localStorage.setItem("user", JSON.stringify(response.data.data));
         signupreset();
         setActiveForm("login");
         navigate("/login");

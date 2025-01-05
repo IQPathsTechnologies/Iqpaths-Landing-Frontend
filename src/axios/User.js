@@ -35,11 +35,21 @@ export class AuthService {
         }
     }
     
-    
+    async CheckNewsLetterStatus(){
+        try{
+            const response =  await axios.get("/api/user/getNewsLetterStatus",{withCredentials:true});
+            return response.data.data;
+        }catch (error) {
+            console.log("AuthService :: Check News Letter :: error", error);
+            throw error;
+        }
+
+    }
     async login({email, password}){
         try {
             const response =  await axios.post("/api/user/login", {email, password});
             // this.setUser(response.data.data);
+            console.log(response);
             return response.data.data;
              
          } catch (error) {
@@ -50,8 +60,7 @@ export class AuthService {
  
      async logout(){
          try {
-             await  axios.post("api/user/logout", {withCredentials: true});
-                // this.clearUser();
+             const response = await  axios.post("api/user/logout", {withCredentials: true});
          } catch (error) {
              console.log("AuthService :: logout :: error", error);
              throw error;
@@ -221,9 +230,9 @@ export class AuthService {
         }
     }
 
-    async getUserCourses(userId){
+    async getUserCourses(){
         try {
-            const response =  await axios.get(`/api/mylearnings/users/${userId}`, {withCredentials: true});
+            const response =  await axios.get(`/api/mylearnings/users/getCouseDetails`, {withCredentials: true});
             return response.data.data;
         } catch (error) {
             console.log("AuthService :: getMyCourses :: error", error);

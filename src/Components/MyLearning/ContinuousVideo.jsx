@@ -47,17 +47,12 @@ const ContinuousVideo = () => {
   const [isLoading, setIsLoading] = useState(true);
 
 
-  const { user } = useContext(UserContext);
+  // const { user } = useContext(UserContext);
   const apiClass = new AuthService();
-  const userId = user.user._id;
-
-
   useEffect(() => {
     const fetchData = async () => {
-      // console.log('ContinuousVideo :: fetchData :: user', user.user._id);
-
       try {
-        const response = await apiClass.getUserCourses(userId);  
+        const response = await apiClass.getUserCourses();  
         setCourses(response.course);
         setIsLoading(false);
         console.log('ContinuousVideo :: fetchData :: response', response);
@@ -67,7 +62,7 @@ const ContinuousVideo = () => {
       }
     };
     fetchData();
-  }, [user]);
+  }, []);
   //ye change karna jab user id context se aaye
   
 

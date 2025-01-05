@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useCallback, useContext } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import SignUpPopup from "./SignUpPopup";
 import styles from "./CourseSection.module.css";
 import CourseDetails from "./CourseDetails";
 import { getRazorPay, loadRazorPay } from "../../utility/Razorpay/Razorpay";
 import { verifyPayment, createOrder } from "../../utility/Razorpay/RazorpayApi";
 import { useParams, useNavigate } from "react-router-dom";
-import { UserContext } from '../../context/userContext';
 import { AuthService } from '../../axios/User';
 
 
@@ -38,7 +37,7 @@ const CourseSection = ({
   // console.log(title, id);
   const courseId = id;
   
-  const { user  } = useContext(UserContext);
+  //const { user  } = useContext(UserContext);
   const apiClass = new AuthService();
   // console.log("user id ye hai yaah pe line 50 me", userId);
   const navigate = useNavigate();
@@ -79,12 +78,12 @@ const CourseSection = ({
   }, [razorpayOptions]);
   
   const handlePayNow = useCallback(async () => {
-    await loadRazorPay();
+    loadRazorPay();
     setIsRazorPayPopupVisible(true);
     const rzp = getRazorPay({
       ...razorpayOptions,
-      prefill: { contact: user?.user?.mobileNo || '' },
-      notes: { ...user, id: courseId },
+      prefill: {},
+      notes: {},
       theme: { color: "#0047B2" },
       handler: async ({
         razorpay_order_id,
@@ -100,12 +99,12 @@ const CourseSection = ({
       }
     });
 
-    rzp.on("payment.failed", (response) => {
+    rzp.on("payment.failed", () => {
       console.log("Payment failed");
     });
 
     rzp.open();
-  }, [orderToken, razorpayOptions, courseId, user]);
+  }, [orderToken, razorpayOptions, courseId]);
 
   const handleGoBack = () => {
     navigate(-1); 
