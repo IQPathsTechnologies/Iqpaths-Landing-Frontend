@@ -30,7 +30,7 @@ export class AuthService {
                 throw new Error("User account creation failed");
             }
         } catch (error) {
-            console.log("AuthService :: createAccount :: error", error);
+            // console.log("AuthService :: createAccount :: error", error);
             throw error;
         }
     }
@@ -40,7 +40,7 @@ export class AuthService {
             const response =  await axios.get("/api/user/getNewsLetterStatus",{withCredentials:true});
             return response.data.data;
         }catch (error) {
-            console.log("AuthService :: Check News Letter :: error", error);
+            // console.log("AuthService :: Check News Letter :: error", error);
             throw error;
         }
 
@@ -49,23 +49,22 @@ export class AuthService {
         try {
             const response =  await axios.post("/api/user/login", {email, password});
             // this.setUser(response.data.data);
-            console.log(response);
+            // console.log(response);
             return response.data.data;
              
          } catch (error) {
-             console.log("AuthService :: login :: error", error);
+            //  console.log("AuthService :: login :: error", error);
              throw error;
          }
      }
  
      async logout(){
          try {
-             const response = await  axios.post("api/user/logout", {withCredentials: true});
-             console.log(response);
-             redirect('/home');
+             const response = await  axios.post("api/user/logout",{withCredentials: true});
+            //  console.log(response);
              return response;
          } catch (error) {
-             console.log("AuthService :: logout :: error", error);
+            //  console.log("AuthService :: logout :: error", error);
              throw error;
          }
      }
@@ -73,7 +72,7 @@ export class AuthService {
         try {
             return await axios.get("/api/user/getUserDetails", {withCredentials: true});
         } catch (error) {
-            console.log("AuthService :: getUser :: error", error);
+            // console.log("AuthService :: getUser :: error", error);
             throw error;
         }
     }
@@ -82,7 +81,7 @@ export class AuthService {
         try {
             return await axios.put("/api/user/updateDetails", {name, email, mobileNo}, {withCredentials: true});
         } catch (error) {
-            console.log("AuthService :: updateUser :: error", error);
+            // console.log("AuthService :: updateUser :: error", error);
             throw error;
         }
     }
@@ -91,7 +90,7 @@ export class AuthService {
         try {
             return await axios.put("/api/user/updatePassword", {oldPassword, newPassword}, {withCredentials: true});
         } catch (error) {
-            console.log("AuthService :: changePassword :: error", error);
+            // console.log("AuthService :: changePassword :: error", error);
             throw error;
         }
     }
@@ -100,7 +99,7 @@ export class AuthService {
         try {
             return await axios.put("/api/user/updateProfilePhoto", {profilePicture}, {withCredentials: true});
         } catch (error) {
-            console.log("AuthService :: updateProfilePicture :: error", error);
+            // console.log("AuthService :: updateProfilePicture :: error", error);
             throw error;
         }
     }
@@ -110,7 +109,7 @@ export class AuthService {
         try {
             return await axios.post("/api/mentor/createMentor", {name, email, description, linkedIn, profilePhoto, coverPhoto}, {withCredentials: true});
         } catch (error) {
-            console.log("AuthService :: createMentor :: error", error);
+            // console.log("AuthService :: createMentor :: error", error);
             throw error;
         }
     }
@@ -121,7 +120,7 @@ export class AuthService {
             // console.log(response)
             return response.data.data;
         } catch (error) {
-            console.log("AuthService :: getMentor :: error", error);
+            // console.log("AuthService :: getMentor :: error", error);
             throw error;
         }
     }
@@ -131,7 +130,7 @@ export class AuthService {
         try {
             return await axios.get(`/api/mentor/getMentorById/${mentorId}`);
         } catch (error) {
-            console.log("AuthService :: getMentorById :: error", error);
+            // console.log("AuthService :: getMentorById :: error", error);
             throw error;
         }
     }
@@ -141,7 +140,7 @@ export class AuthService {
         try {
             return await axios.post("/api/services/createService", {title, description, coverPhoto}, {withCredentials: true});
         } catch (error) {
-            console.log("AuthService :: createService :: error", error);
+            // console.log("AuthService :: createService :: error", error);
             throw error;
         }
     }
@@ -151,7 +150,7 @@ export class AuthService {
         try {
             return await axios.get("/api/services/getServices");
         } catch (error) {
-            console.log("AuthService :: getServices :: error", error);
+            // console.log("AuthService :: getServices :: error", error);
             throw error;
         }
     }
@@ -163,7 +162,7 @@ export class AuthService {
             // console.log(response.data.data)
             return response.data.data
         } catch (error) {
-            console.log("AuthService :: getTestimonials :: error", error);
+            // console.log("AuthService :: getTestimonials :: error", error);
             throw error;
         }
     }
@@ -174,7 +173,7 @@ export class AuthService {
             // console.log(response.data.data)
             return response.data.data
         } catch (error) {
-            console.log("AuthService :: getCollaborators :: error", error);
+            // console.log("AuthService :: getCollaborators :: error", error);
             throw error;
         }
     }
@@ -185,7 +184,7 @@ export class AuthService {
             // console.log(response.data.data)
             return response.data.data
         } catch (error) {
-            console.log("AuthService :: getBannerImages :: error", error);
+            // console.log("AuthService :: getBannerImages :: error", error);
             throw error;
         }
     }
@@ -196,7 +195,7 @@ export class AuthService {
             // console.log(response.data.data)
             return response.data.data
         } catch (error) {
-            console.log("AuthService :: getCourses :: error", error);
+            // console.log("AuthService :: getCourses :: error", error);
             throw error;
         }
     }
@@ -206,7 +205,7 @@ export class AuthService {
             const response =  await axios.post(`/api/courses/getCourseDetails`, {courseId}, {withCredentials: true});
             return response.data.data;
         } catch (error) {
-            console.log("AuthService :: getCourseDetails :: error", error);
+            // console.log("AuthService :: getCourseDetails :: error", error);
             throw error;
         }
     }
@@ -215,7 +214,7 @@ export class AuthService {
             const response =  await axios.post(`/api/courses/getPurchasedCourseDetails`, {courseId}, {withCredentials: true});
             return response.data.data;
         } catch (error) {
-            console.log("AuthService :: getCourseDetails :: error", error);
+            // console.log("AuthService :: getCourseDetails :: error", error);
             throw error;
         }
     }
@@ -225,7 +224,7 @@ export class AuthService {
         try {
             return await axios.post("/api/coupon/useCoupon", {couponCode, courseId}, {withCredentials: true});
         } catch (error) {
-            console.log("AuthService :: useCoupon :: error", error);
+            // console.log("AuthService :: useCoupon :: error", error);
             alert("Please enter a valid coupon.");
             throw error;
         }
@@ -234,10 +233,10 @@ export class AuthService {
     async getUserCourses(){
         try {
             const response =  await axios.get(`/api/mylearnings/users/getCourseDetails`, {withCredentials: true});
-            console.log("data dikha ooo mekooo",response)
+            // console.log("data dikha ooo mekooo",response)
             return response.data.data;
         } catch (error) {
-            console.log("AuthService :: getMyCourses :: error", error);
+            // console.log("AuthService :: getMyCourses :: error", error);
             throw error;
         }
     }
@@ -246,7 +245,7 @@ export class AuthService {
         try {
             return await axios.post(`/api/chapters/getChapterDetails`, {chapterId}, {withCredentials: true});
         } catch (error) {
-            console.log("AuthService :: getChapterLectureByChapterId :: error", error);
+            // console.log("AuthService :: getChapterLectureByChapterId :: error", error);
             throw error;
         }
     }
@@ -257,7 +256,7 @@ export class AuthService {
         try {
             return await axios.get(`/api/user/updateNewsLetter`, {withCredentials: true});
         } catch (error) {
-            console.log("AuthService :: setNewsletterSubscription :: error", error);
+            // console.log("AuthService :: setNewsletterSubscription :: error", error);
             throw error;
         }
     }
@@ -267,7 +266,7 @@ export class AuthService {
         try {
             return await axios.get(`/api/wishlist/toggleWishlist/${courseId} `,{withCredentials: true});
         } catch (error) {
-            console.log("AuthService :: getMyWishlist :: error", error);
+            // console.log("AuthService :: getMyWishlist :: error", error);
             throw error;
         }
     }
@@ -279,7 +278,7 @@ export class AuthService {
             return response.data.data;
         }
         catch(error){
-            console.log("AuthService :: getNextPrevLecture :: error", error);
+            // console.log("AuthService :: getNextPrevLecture :: error", error);
             throw error;
         }
     }
@@ -289,7 +288,7 @@ export class AuthService {
         try {
             return await axios.get(`/api/user/getPurchasedCourseById/${courseId}`, {withCredentials: true});
         } catch (error) {
-            console.log("AuthService :: isCoursePurchase :: error", error);
+            // console.log("AuthService :: isCoursePurchase :: error", error);
             throw error;
         }
     }
@@ -298,7 +297,7 @@ export class AuthService {
         try {
             return await axios.get(`/api/roadmap/getRoadmapById/${courseId}`);
         } catch (error) {
-            console.log("AuthService :: getRoadmap :: error", error);
+            // console.log("AuthService :: getRoadmap :: error", error);
             throw error;
         }
     }
@@ -308,7 +307,7 @@ export class AuthService {
             return await axios.get("/api/user/getUser", {withCredentials: true});
         }
         catch(error){
-            console.log("AuthService :: getUser :: error", error);
+            // console.log("AuthService :: getUser :: error", error);
             throw error;
         }
     }
