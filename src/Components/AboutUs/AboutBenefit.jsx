@@ -48,11 +48,13 @@ const AboutBenefit = () => {
 
   return (
     <section className={styles.container}>
-      <h2 className={styles.heading}>Benefits of IQ paths</h2>
-      <p className={styles.para}>
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking
-      </p>
+      <div className={styles.headingContainer}>
+        <h2 className={styles.heading}>Benefits of IQ paths</h2>
+        <p className={styles.para}>
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking
+        </p>
+      </div>
       <div className={styles.benefitsGrid}>
         {benefits.map((benefit, index) => (
           <BenefitCard

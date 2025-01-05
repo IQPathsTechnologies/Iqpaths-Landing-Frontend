@@ -9,20 +9,27 @@
   text-align: center;
 }
 
+.headingContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;  
+  /* border: 2px solid black; */
+}
+
 .heading {
   color: #07222C;
   font-style: "Karma", sans-serif;
   font-size: 60px;
-  margin-left: 105px;
-  /* margin-bottom: 1rem; */
   font-weight: 700;
   text-align: center;
 }
 
 .para {
   color: #565A5B;
-  width: 500px;
-  margin-left: 340px;
+  width: 600px;
+  /* margin-left: 340px; */
   margin-top: -10px;
   font-style: "Poppins", sans-serif;
   font-weight: 500;
