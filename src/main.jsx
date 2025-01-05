@@ -17,6 +17,9 @@ import CartPage from './pages/CartPage/CartPage';
 import AboutUs from './pages/AboutUs/AboutUs';
 import { UserProvider } from './context/userContext';
 import CoursesProvider from './context/coursesContext';
+import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
+import TermsCondition from './pages/TermsCondition/TermsCondition';
+import CancellationRefund from './pages/CancellationRefund/CancellationRefund';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -86,8 +89,20 @@ const router = createBrowserRouter([
         element: <ProfilePage />
       },
       {
-        path: '/about-us',
+        path: '/about',
         element: <AboutUs />
+      },
+      {
+        path: '/privacy',
+        element: <PrivacyPolicy />
+      },
+      {
+        path: '/terms',
+        element: <TermsCondition />
+      },
+      {
+        path: '/cancellation',
+        element: <CancellationRefund />
       }
       // {
       //   path: '/login',
