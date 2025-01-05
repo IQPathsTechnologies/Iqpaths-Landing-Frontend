@@ -23,7 +23,7 @@ const content = [
         logo: "/src/assets/servicesImages/desktop_mac.png",
         title: "Placement Preparation",
         description: "Prepare for your dream job with our placement preparation services. We offer comprehensive training and resources to help you excel in interviews and secure your desired job. From resume building to mock interviews, we cover all aspects of the placement process.",
-        link: "/placement-preparation"
+        link: "/placement"
     },
     {
         index: 3,
