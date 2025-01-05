@@ -27,7 +27,7 @@ const Header = () => {
       setIsLoggedIn(false);
 
       // Redirect to the login page
-      navigate('/');
+      // navigate('/home');
     } catch (error) {
       // Log the error for debugging
       // console.error("Logout failed", error);
@@ -53,6 +53,21 @@ const Header = () => {
     return () => {
       document.body.style.overflow = "auto";
     };
+  }, []);
+
+  useEffect(() => {
+    const checkUser = async () => {
+      try {
+        const response = await apiClass.getUser();
+        if (response){
+          setIsLoggedIn(true);
+        }
+      } catch (error) {
+        setIsLoggedIn(false);
+      }
+    };
+
+    checkUser();
   }, []);
 
   return (

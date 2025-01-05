@@ -301,4 +301,14 @@ export class AuthService {
         }
     }
 
+    async getUser(){
+        try{
+            return await axios.get("/api/user/getUser", {withCredentials: true});
+        }
+        catch(error){
+            console.log("AuthService :: getUser :: error", error);
+            throw error;
+        }
+    }
+
 }
