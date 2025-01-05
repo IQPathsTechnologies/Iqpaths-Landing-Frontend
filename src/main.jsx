@@ -21,6 +21,7 @@ import { checkForLoginLoader, IsuserLogedinAndValid } from './utility/middleware
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import TermsCondition from './pages/TermsCondition/TermsCondition';
 import CancellationRefund from './pages/CancellationRefund/CancellationRefund';
+import Logout from './Components/LogOut/Logout';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -102,6 +103,10 @@ const router = createBrowserRouter([
       {
         path: '/cancellation',
         element: <CancellationRefund />
+      },
+      {
+        path:'/logout',
+        element:<Logout/>
       }
       // {
       //   path: '/login',
