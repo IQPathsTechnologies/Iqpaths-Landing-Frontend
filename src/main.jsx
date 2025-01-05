@@ -17,6 +17,7 @@ import CartPage from './pages/CartPage/CartPage';
 import AboutUs from './pages/AboutUs/AboutUs';
 import { UserProvider } from './context/userContext';
 import CoursesProvider from './context/coursesContext';
+import { checkForLoginLoader } from './utility/middleware/RedirectLoaders';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -71,7 +72,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/login',
-        element: <LoginSignup />
+        element: <LoginSignup />,
+        loader: checkForLoginLoader
       },
       {
         path: '/cart',
