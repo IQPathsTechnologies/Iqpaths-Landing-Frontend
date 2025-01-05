@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export class AuthService {
 
     // constructor() {
@@ -232,7 +231,8 @@ export class AuthService {
 
     async getUserCourses(){
         try {
-            const response =  await axios.get(`/api/mylearnings/users/getCouseDetails`, {withCredentials: true});
+            const response =  await axios.get(`/api/mylearnings/users/getCourseDetails`, {withCredentials: true});
+            console.log("data dikha ooo mekooo",response)
             return response.data.data;
         } catch (error) {
             console.log("AuthService :: getMyCourses :: error", error);
@@ -301,7 +301,7 @@ export class AuthService {
         }
     }
 
-    async getUser(){
+    async getUserForLogin(){
         try{
             return await axios.get("/api/user/getUser", {withCredentials: true});
         }

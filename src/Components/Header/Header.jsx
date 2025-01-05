@@ -58,7 +58,7 @@ const Header = () => {
   useEffect(() => {
     const checkUser = async () => {
       try {
-        const response = await apiClass.getUser();
+        const response = await apiClass.getUserForLogin();
         if (response){
           setIsLoggedIn(true);
         }
