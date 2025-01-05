@@ -53,17 +53,17 @@ const Footer = () => {
                         </tr>
                         <tr>
                             <td><a href="/my-learnings">My learnings</a></td>
-                            <td><a href="*">Terms and conditions</a></td>
+                            <td><a href="/terms">Terms and conditions</a></td>
                             <td><a href="*">info@iqpaths.com</a></td>  
                         </tr>
                         <tr>
                             <td><a href="*">Cookies usage policy</a></td>
                             <td><a href="*">Mentors</a></td>
-                            <td><a href="*">Privacy policy</a></td>
+                            <td><a href="/privacy">Privacy policy</a></td>
                         </tr>
                         <tr>
-                            <td><a href="/about-us"></a>About Us</td>
-                            <td><a href="*">Shipping policy </a></td>
+                            <td><a href="/about"></a>About Us</td>
+                            <td><a href="/cancellation">Shipping policy </a></td>
                         </tr>  
                         
                     </table>

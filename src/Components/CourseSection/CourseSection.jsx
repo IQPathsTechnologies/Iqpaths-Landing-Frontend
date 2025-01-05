@@ -90,7 +90,7 @@ const CourseSection = ({
         razorpay_payment_id,
         razorpay_signature,
       }) => {
-        verifyPayment({
+         verifyPayment({
           token: orderToken,
           razorpay_order_id,
           razorpay_payment_id,
@@ -98,6 +98,12 @@ const CourseSection = ({
         });
       }
     });
+
+    rzp.on("payment.success", () => {
+      console.log("Payment successful");
+      setIsPurchased(true);
+    });
+    
 
     rzp.on("payment.failed", () => {
       console.log("Payment failed");
