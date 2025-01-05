@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './comingSoon.module.css';
 import { useNavigate } from 'react-router-dom';
 
 const ComingSoonPage = () => {
     const navigate = useNavigate();
     
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const goBack = () => {
         navigate(-1);
     };

@@ -35,15 +35,15 @@ const Certificate = () => {
     <div className={styles.section}>
       {/* Certificates */}
       <div className={styles.certificates}>
-        {certificates.map((certificate, index) => (
-          <div key={index} className={styles.certificateCard}>
+        
+          <div  className={styles.certificateCard}>
             <img
-              src={certificate.image}
-              alt={certificate.alt}
+              src="/CERTIFICATE.png"
+              alt="Certificate"
               className={styles.certificateImage}
             />
           </div>
-        ))}
+     
       </div>
 
       {/* Benefits */}

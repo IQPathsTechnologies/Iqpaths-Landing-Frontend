@@ -26,7 +26,7 @@ const Instructor = () => {
     async function fetchData() {
       try {
         const response = await apiClass.getCourseDetails(courseId);
-        console.log("CourseSection :: useEffect :: response ye card k liye jo instructor k liey hai ", response.details.instructor);
+        // console.log("CourseSection :: useEffect :: response ye card k liye jo instructor k liey hai ", response.details.instructor);
         setInstructorDetails(response.details.instructor);
       } catch (error) {
         console.log("CourseSection :: useEffect :: error", error);

@@ -153,7 +153,7 @@ const CourseSection = ({
     async function fetchData() {
       try {
         const response = await apiClass.getCourseDetails(id);
-        // console.log("CourseSection :: useEffect :: response", response);
+        console.log("CourseSection :: useEffect :: response", response);
         setCourseDetails(response.details);
         setLoading(false);
 
@@ -169,7 +169,7 @@ const CourseSection = ({
 
     if (coupon.trim() !== "") {
       const couponResponse = await apiClass.useCoupon({ couponCode: coupon, courseId: id });
-      console.log("CourseSection :: handleApplyCoupon :: couponResponse", couponResponse.data.data.course.price);
+      // console.log("CourseSection :: handleApplyCoupon :: couponResponse", couponResponse.data.data.course.price);
       setCouponDiscountedPrice(couponResponse.data.data.course.price);
       setIsApplied(true);
     } else {
@@ -271,7 +271,7 @@ const CourseSection = ({
               <p>What you'll learn</p>
             </div>
             <div className={styles.courseInfo}>
-              {courseDetails.whatYouWillLearn?.map((item, index) => (
+              {courseDetails.whatYouWilLearn?.map((item, index) => (
                 <p key={index} className={styles.info}>
                   &#8226; {item}
                 </p>
