@@ -91,7 +91,7 @@ const router = createBrowserRouter([
         element: <ProfilePage />
       },
       {
-        path: '/about',
+        path: '/about-us',
         element: <AboutUs />
       },
       {

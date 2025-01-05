@@ -99,7 +99,7 @@ const ContinuousVideo = () => {
       <div className={styles.carousel}>
         <div className={styles.cardContainer} ref={carouselRef}>
           {isLoading ? (
-            Array.from({ length: 3 }).map((_, index) => (
+            Array.from({ length: 4 }).map((_, index) => (
               <div key={index} className={styles.card}>
                 <div className={styles.image} style={{ backgroundColor: "#f0f0f0" }}></div>
                 <h3 className={styles.title} style={{ backgroundColor: "#f0f0f0" }}></h3>

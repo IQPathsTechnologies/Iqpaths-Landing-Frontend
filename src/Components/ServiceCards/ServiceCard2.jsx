@@ -10,7 +10,7 @@ function ServiceCard({ data }) {
         <Link to={`/${title}`} className={styles.link}>
         <div className={`${styles.card} ${styles[`card${index % 3}`]} ${styles[`card${index % 6}`]}`}>
             {/* <div className={styles.logo}> */}
-                <img src="src/assets/servicesImages/desktop_mac.png" alt={title}  className={styles.logo} />
+                <img src={coverPhoto} alt={title}  className={styles.logo} />
             {/* </div> */}
             <div className={styles.titleContainer}>
                 <h3 className={styles.title}>{title}</h3>
