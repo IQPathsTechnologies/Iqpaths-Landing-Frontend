@@ -122,7 +122,13 @@ const CourseSection = ({
     // document.body.style.overflow = "hidden"; 
 
     //razor pay 
-    handlePurchase();
+    if(!isPurchased){
+      handlePurchase();
+    }
+    else{
+      alert("You have already purchased this course.");
+    }
+
   };
 
   const handleClosePopup = () => {
@@ -142,7 +148,7 @@ const CourseSection = ({
 
   //get content 
   useEffect(() => {
-    window.scrollTo(0, 1500);
+    window.scrollTo(0, 0);
     async function fetchData() {
       try {
         const response = await apiClass.getCourseDetails(id);
