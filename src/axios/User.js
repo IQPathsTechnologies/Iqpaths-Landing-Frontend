@@ -221,7 +221,7 @@ export class AuthService {
         }
     }
 
-    async getUserCourses({userId}){
+    async getUserCourses(userId){
         try {
             const response =  await axios.get(`/api/mylearnings/users/${userId}`, {withCredentials: true});
             return response.data.data;
@@ -269,6 +269,16 @@ export class AuthService {
         }
         catch(error){
             console.log("AuthService :: getNextPrevLecture :: error", error);
+            throw error;
+        }
+    }
+
+
+    async isCoursePurchase(courseId){
+        try {
+            return await axios.get(`/api/user/getPurchasedCourseById/${courseId}`, {withCredentials: true});
+        } catch (error) {
+            console.log("AuthService :: isCoursePurchase :: error", error);
             throw error;
         }
     }
