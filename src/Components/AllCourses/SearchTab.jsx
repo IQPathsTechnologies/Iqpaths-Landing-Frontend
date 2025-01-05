@@ -11,7 +11,7 @@ const SearchTab = () => {
   const handleWhatweWantToSearch =async()=>{
     const response = await searchClass.search(dataWhichNeedToBeSearched.current.value);
     console.log(response.data.data.courses);
-    // setCourses(response.data.data.courses);
+    setCourses(response.data.data.courses);
   }
   return (
     <div className={styles.overlay}>
