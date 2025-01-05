@@ -1,7 +1,6 @@
-import React, { useRef, useState, useEffect, useContext } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import styles from './ContinuousVideo.module.css';
 import { AuthService } from '../../axios/User';
-import UserContext from '../../context/userContext';
 import { Link } from 'react-router-dom';
 
 const lessons = [
