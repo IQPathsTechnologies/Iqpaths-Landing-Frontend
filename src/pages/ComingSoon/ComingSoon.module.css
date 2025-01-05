@@ -28,7 +28,8 @@
     color: #ff9f43;
     margin-bottom: 1rem;
     text-transform: uppercase;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    /* text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); */
+    text-shadow: 2px 2px 8px rgba(18, 194, 217, 0.5);
 }
 
 .comingSoonMessage {

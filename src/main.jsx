@@ -53,7 +53,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/Placement Preparation',
-        element: <Courses />,
+        element: <Placement />,
       },
       {
         path: '*',
@@ -105,14 +105,26 @@ const router = createBrowserRouter([
         path: '/cancellation',
         element: <CancellationRefund />
       },
-      {
-        path: '/placement',
-        element: <Placement />
-      },
+      // {
+      //   path: '/placement',
+      //   element: <Placement />
+      // },
       {
         path: '/coming',
         element: <ComingSoon />
-      }
+      },
+      {
+        path: 'Workshops & Webinars',
+        element: <ComingSoon />
+      },
+      {
+        path: 'Mock Technical Interviews',
+        element: <ComingSoon />
+      },
+      {
+        path: 'Industry Projects',
+        element: <ComingSoon />
+      },
       // {
       //   path: '/login',
       //   element: <SignUpPopup />
