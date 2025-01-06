@@ -26,7 +26,7 @@ const Course = () => {
 
             <Certificate />
             <Instructor />
-            <SimilarCourses />
+            {/* <SimilarCourses /> */}
         </div>
     );
 };

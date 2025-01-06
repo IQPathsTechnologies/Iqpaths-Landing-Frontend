@@ -335,15 +335,15 @@ const CourseSection = ({
               <p className={styles.includes}> This course includes: </p>
               <div className={styles.content}>
                 <img src="/camera.png" alt="Camera" />
-                <p> {hours} </p>
+                <p> Interactive live sessions</p>
               </div>
               <div className={styles.content}>
                 <img src="/download.png" alt="Download" />
-                <p> {download} </p>
+                <p> Hands on Projects and Assignments </p>
               </div>
               <div className={styles.content}>
                 <img src="/access.png" alt="Access" />
-                <p> {access} </p>
+                <p> Personalized feedback</p>
               </div>
             </div>
             <div className={styles.coupon}>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./PlacementFilter.module.css";
 
 const PlacementFilter = ({ onCategoryChange, onFilterChange }) => {
-  const title = "Discover Course & Bootcamp";
+  const title = "Discover Placements Preparation ";
   const categories = [
     {
       name: "Course Category",
