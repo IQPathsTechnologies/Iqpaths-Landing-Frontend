@@ -15,7 +15,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
     async function fetchData() {
       try {
         const response = await apiClass.getCourses();
-        // console.log("AllCourseCard :: useEffect :: response", response);
+        console.log("AllCourseCard :: useEffect :: response", response);
         setCourses(response);
 
       } catch (error) {
@@ -67,12 +67,29 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                   <span className={styles.badge}>Start Learning</span>
                 </div>
                 <div className={styles.ranking}>
-                  {[...Array(course.review || 0)].map((_, i) => (
-                    <img src="/starFilled.svg" alt="rating" className={styles.stars} key={i}/>
-                  ))}
-                  {[...Array(5 - course.review || 0)].map((_, i) => (
-                    <img src="/starEmpty.svg" alt="rating" className={styles.stars} key={i} />
-                  ))}
+                  {course.review ? 
+                  (
+                    <>
+                      {[...Array(Number(course?.review) || 0)].map((_, i) => (
+                        <img src="/starFilled.svg" alt="rating" className={styles.stars} key={i}/>
+                      ))}
+                      {[...Array(5 - (Number(course?.review) || 0))].map((_, i) => (
+                        <img src="/starEmpty.svg" alt="rating" className={styles.stars} key={i} />
+                      ))}
+                    </>
+                  )
+                  :
+                  (
+                    <>
+                      {[...Array(5)].map((_, i) => (
+                        <img src="/starEmpty.svg" alt="rating" className={styles.stars} key={i} />
+                      ))}
+                    
+                    </>
+
+                  )
+                  }
+                  
                   <span className={styles.rating}>{(course.review).toFixed(1)} Rating</span>
                 </div>
               </div>
