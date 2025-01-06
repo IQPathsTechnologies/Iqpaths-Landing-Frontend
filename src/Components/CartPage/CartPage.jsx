@@ -19,25 +19,24 @@ const CartPage = () => {
     cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
-    <div className={styles.container}>
-      <p className={styles.breadcrumb}>
-        Home / <span>Cart</span>
-      </p>
-      <table className={styles.cartTable}>
-        <thead>
-          <tr>
-            <th>Course Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Subtotal</th>
-          </tr>
-        </thead>
-        <tbody>
+    <div className={styles.cartContainer}>
+      <div className={styles.header}>
+        <h1>Your Cart</h1>
+        <p className={styles.breadcrumb}>
+          Home / <span>Cart</span>
+        </p>
+      </div>
+
+      <div className={styles.cartContent}>
+        <div className={styles.cartItems}>
           {cartItems.map((item) => (
-            <tr key={item.id}>
-              <td>{item.name}</td>
-              <td>${item.price}</td>
-              <td>
+            <div className={styles.cartCard} key={item.id}>
+              <div className={styles.cardContent}>
+                <h3>{item.name}</h3>
+                <p className={styles.price}>${item.price}</p>
+              </div>
+              <div className={styles.quantityControl}>
+                <label>Quantity</label>
                 <select
                   value={item.quantity}
                   onChange={(e) =>
@@ -50,42 +49,35 @@ const CartPage = () => {
                     </option>
                   ))}
                 </select>
-              </td>
-              <td>${item.price * item.quantity}</td>
-            </tr>
+              </div>
+              <p className={styles.subtotal}>
+                Subtotal: ${item.price * item.quantity}
+              </p>
+            </div>
           ))}
-        </tbody>
-      </table>
-      <div className={styles.buttons}>
-        <button className={styles.returnButton}>Return To Course Section</button>
-        <button className={styles.updateButton}>Update Cart</button>
-      </div>
-      <div className={styles.bottomSection}>
-        <div className={styles.coupon}>
-          <input
-            type="text"
-            placeholder="Coupon Code"
-            className={styles.couponInput}
-          />
-          <button className={styles.applyCoupon}>Apply Coupon</button>
         </div>
-        <div className={styles.cartTotal}>
-          <h3>Cart Total</h3>
-          <div className={styles.totalRow}>
-            <span>Subtotal:</span>
-            <span>${calculateSubtotal()}</span>
+
+        <div className={styles.cartSummary}>
+          <h2>Order Summary</h2>
+          <div className={styles.summaryDetails}>
+            <p>
+              <span>Subtotal:</span>
+              <span>${calculateSubtotal()}</span>
+            </p>
+            <p>
+              <span>Shipping:</span>
+              <span>Free</span>
+            </p>
           </div>
-          <hr />
-          <div className={styles.totalRow}>
-            <span>Shipping:</span>
-            <span>Free</span>
+          <div className={styles.total}>
+            <p>
+              <span>Total:</span>
+              <span>${calculateSubtotal()}</span>
+            </p>
           </div>
-          <hr />
-          <div className={styles.totalRow}>
-            <span>Total:</span>
-            <span>${calculateSubtotal()}</span>
-          </div>
-          <button className={styles.checkoutButton}>Proceed to checkout</button>
+          <button className={styles.checkoutButton}>
+            Proceed to Checkout
+          </button>
         </div>
       </div>
     </div>

@@ -23,6 +23,7 @@ import CancellationRefund from './pages/CancellationRefund/CancellationRefund';
 import Logout from './Components/LogOut/Logout';
 import Placement from './pages/Placement/Placement';
 import ComingSoon from './pages/ComingSoon/ComingSoon';
+import Internship from './pages/Internship/Internship';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -113,6 +114,10 @@ const router = createBrowserRouter([
       //   path: '/placement',
       //   element: <Placement />
       // },
+      {
+        path: '/internship',
+        element: <Internship />
+      },
       {
         path: '/coming',
         element: <ComingSoon />
