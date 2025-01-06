@@ -43,7 +43,7 @@ const Instructor = () => {
       {/* Left Section */}
       <div className={styles.leftSection}>
         <h2 className={styles.title}>Our Instructor</h2>
-        <p className={styles.description}>Discover brilliance in code with our expert instructor. Passionate mentors dedicated to fulfilling your coding journey at IQPaths.</p>
+        <p className={styles.description}>Our instructors are experienced professionals passionate about teaching and simplifying complex concepts. Combining industry expertise with engaging teaching methods, they provide personalized guidance and practical insights. Committed to student success, they ensure every learner gains the skills and confidence to excel.</p>
       </div>
 
       {/* Right Section */}

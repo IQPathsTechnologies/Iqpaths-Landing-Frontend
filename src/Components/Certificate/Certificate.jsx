@@ -18,15 +18,15 @@ const Certificate = () => {
     points: [
       {
         icon: '/benefit1.png', // Replace with the actual path or URL
-        text: "Teachers don’t get lost in the grid view and have a dedicated Podium space.",
+        text: "Proof of Skills: Certificates validate students' expertise and enhance their professional profiles",
       },
       {
         icon: '/benefit2.png', // Replace with the actual path or URL
-        text: "TAs and presenters can be moved to the front of the class.",
+        text: "Career Boost: Certificates increase job prospects and help students stand out in applications.",
       },
       {
         icon: '/benefit3.png', // Replace with the actual path or URL
-        text: "Teachers can easily see all students and class data at one time.",
+        text: "Shareable Credentials: Digital certificates are easily shareable and verifiable online.",
       },
     ],
   };

@@ -12,6 +12,7 @@ const CoursePage = () => {
 
   const handleFilterChange = (filters) => {
     setSelectedFilters(filters);
+    console.log(filters);
   };
 
   const courses = [

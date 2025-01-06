@@ -100,7 +100,22 @@ const ContinuousVideo = () => {
       <div className={styles.carousel}>
         <div className={styles.cardContainer} ref={carouselRef}>
           {isLoading ? (
-            <NotLogedIn/>
+            // <NotLogedIn/>
+            Array.from({ length: 4 }).map((_, index) => (
+              <div key={index} className={styles.card}>
+                <div className={styles.image} style={{ backgroundColor: "#f0f0f0" }}></div>
+                <h3 className={styles.title} style={{ backgroundColor: "#f0f0f0" }}></h3>
+                <div className={styles.details}>
+                  <span className={styles.instructor} style={{ backgroundColor: "#f0f0f0" }}></span>
+                  <div className={styles.progressBar} style={{ backgroundColor: "#f0f0f0" }}>
+                    <div className={styles.progress} style={{ width: "0%" }}></div>
+                  </div>
+                  <span className={styles.progressText} style={{ backgroundColor: "#f0f0f0" }}></span>
+                </div>
+              </div>
+            ))
+
+
           ) :   
             courses.map((lesson) => (
               <div key={lesson.id} className={styles.card}>

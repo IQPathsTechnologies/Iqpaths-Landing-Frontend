@@ -2,18 +2,18 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./lectureHeader.module.css";
 import { AuthService } from "../../axios/User";
+import { use } from "react";
 
 const lectureHeader = ({
   selectedChapter,
   selectedLecture,
   getNextPreviousDetails,
+  nextLecture,
+  PrevLecture,
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const apiClass = new AuthService();
-  // console.log("selectedChapter", selectedChapter);
-  // console.log("selectedLecture jo next vale me aya ", selectedLecture);
-  // console.log("selected lecture ki id ye hai ", selectedLecture?._id);
   
   const pathSegments = location.pathname
     .split("/")
@@ -25,19 +25,23 @@ const lectureHeader = ({
     navigate(pathToNavigate);
   };
 
-  const handleNextPrevious = async (chapterId, lectureId, flag) => {
-    try {
-      const response = await apiClass.getNextPrevLecture(lectureId, chapterId);
-      console.log("response", response);
-      if (flag === "next") {
-        getNextPreviousDetails(response.nextLecture);
-      } else if (flag == "prev") {
-        getNextPreviousDetails(response.preLecture);
-      }
-    } catch (error) {
-      console.error("Error fetching next/prev lectures:", error);
-    }
-  };
+  // const handleNextPrevious = async (chapterId, lectureId, flag) => {
+  //   try {
+  //     const response = await apiClass.getNextPrevLecture(lectureId, chapterId);
+  //     console.log("response", response);
+  //     if (flag === "next") {
+  //       getNextPreviousDetails(response.nextLecture);
+  //     } else if (flag == "prev") {
+  //       getNextPreviousDetails(response.preLecture);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching next/prev lectures:", error);
+  //   }
+  // };
+
+
+
+
   return (
     <header className={styles.header}>
       <div className={styles.breadcrumb}>
@@ -72,7 +76,7 @@ const lectureHeader = ({
         <div
           className={styles.buttonContainer}
           onClick={() => {
-            handleNextPrevious(selectedChapter, selectedLecture?._id, "prev");
+            PrevLecture( selectedLecture?._id);
           }}
         >
           <div>
@@ -83,7 +87,7 @@ const lectureHeader = ({
         <div
           className={styles.buttonContainer}
           onClick={() => {
-            handleNextPrevious(selectedChapter, selectedLecture?._id, "next");
+            nextLecture( selectedLecture?._id );
           }}
         >
           <p className={styles.next}> Next </p>

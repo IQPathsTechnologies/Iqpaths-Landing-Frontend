@@ -41,7 +41,7 @@ const CourseFilter = ({ onCategoryChange, onFilterChange }) => {
     "PYTHON",
     "UI/UX",
     "PRODUCT MANAGEMENT",
-    "BRANDING DESIGN",
+    "MANAGEMENT",
     "WEB DEVELOPMENT",
   ];
 
@@ -81,6 +81,7 @@ const CourseFilter = ({ onCategoryChange, onFilterChange }) => {
         }
         updatedFilters[categoryName].push(subcategory);
       }
+      console.log(updatedFilters);
       return updatedFilters;
     });
   };

@@ -33,19 +33,55 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
   const applyFilters = (course) => {
     for (const [filterCategory, filterValues] of Object.entries(selectedFilters)) {
       if (filterValues.length > 0) {
-        if (!filterValues.some((filter) => course[filterCategory]?.includes(filter))) {
-          return false; // If any filter doesn't match, exclude the course
+        const matchesFilter = filterValues.some((filter) => {
+          if (filterCategory === 'Course Category') {
+            // Match filter values with the 'subject' field in the course
+            return course.subject?.toLowerCase().includes(filter.toLowerCase());
+          }
+  
+          if (filterCategory === 'description') {
+            // Check if any description includes the filter value
+            return Array.isArray(course.description) &&
+              course.description.some((desc) => desc.toLowerCase().includes(filter.toLowerCase()));
+          }
+  
+          if (filterCategory === 'review') {
+            // Handle review as a number match
+            return course.review === parseInt(filter.replace('★', '').trim());
+          }
+  
+          if (filterCategory === 'price') {
+            // Check if the price matches (realPrice or discountedPrice)
+            return (
+              course.realPrice?.toString() === filter ||
+              course.discountedPrice?.toString() === filter
+            );
+          }
+  
+          // Default case for other fields (e.g., strings or arrays)
+          const courseValue = course[filterCategory];
+          if (Array.isArray(courseValue)) {
+            return courseValue.includes(filter);
+          }
+  
+          return courseValue?.toString().toLowerCase().includes(filter.toLowerCase());
+        });
+  
+        if (!matchesFilter) {
+          return false; // Exclude the course if any filter doesn't match
         }
       }
     }
-    return true; // If all filters match, include the course
+    return true; // Include the course if all filters match
   };
+  
+  
 
   // Filter courses based on the active category and selectedFilters
   const filteredCourses =
     activeCategory === "ALL PROGRAM"
       ? courses.filter(applyFilters)
-      : courses.filter((course) => course.category === activeCategory && applyFilters(course));
+      : courses.filter((course) => (course.subject).toUpperCase() === activeCategory && applyFilters(course));
 
 
   return (
@@ -70,10 +106,10 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                   {course.review ? 
                   (
                     <>
-                      {[...Array(Number(course?.review) || 0)].map((_, i) => (
+                      {[...Array(Math.ceil(course?.review) || 0)].map((_, i) => (
                         <img src="/starFilled.svg" alt="rating" className={styles.stars} key={i}/>
                       ))}
-                      {[...Array(5 - (Number(course?.review) || 0))].map((_, i) => (
+                      {[...Array(5 - (Math.ceil(course?.review) || 0))].map((_, i) => (
                         <img src="/starEmpty.svg" alt="rating" className={styles.stars} key={i} />
                       ))}
                     </>
