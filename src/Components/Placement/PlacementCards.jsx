@@ -115,7 +115,7 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
                     <span className={styles.discountedPrice}>{course.details[2].discounted}</span>
                   </span>
                   </li>
-                </ul>
+                </ul> 
                 </div>
               </div> */}
 
