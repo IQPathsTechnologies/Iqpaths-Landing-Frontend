@@ -1,157 +1,328 @@
-import React, { useState } from "react";
-import styles from "./ProfilePage.module.css";
+import React, { useState } from 'react';
+import styles from './ProfilePage.module.css';
 
 const ProfilePage = () => {
-  const [profile, setProfile] = useState({
-    firstName: "Md",
-    lastName: "Rimel",
-    email: "rimel1111@gmail.com",
-    address: "Kingston, 5236, United States",
-    currentPassword: "",
-    newPassword: "",
-    confirmNewPassword: "",
+  const [activeSection, setActiveSection] = useState('Profile');
+  const [isEditing, setIsEditing] = useState(false); // Track editing state
+  const [formData, setFormData] = useState({
+    firstName: 'Hricha',
+    lastName: 'Sharma',
+    headline: 'Software Developer',
+    bio: 'Passionate developer with expertise in web development.',
+    language: 'en-US',
+    email: 'sharmahricha6@gmail.com',
+    password: '',
+    confirmPassword: '',
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setProfile({ ...profile, [name]: value });
+  const [selectedImage, setSelectedImage] = useState(null); // For photo section
+
+  const sections = [
+    { name: 'View public profile', link: '/my-learnings' },
+    { name: 'Profile' },
+    { name: 'Photo' },
+    { name: 'Account Security' },
+    { name: 'Close account' },
+  ];
+
+  const handleEditClick = () => setIsEditing(true);
+  const handleCancelClick = () => {
+    setIsEditing(false);
+    setFormData({ ...formData, password: '', confirmPassword: '' }); // Reset passwords on cancel
   };
 
-  const handleSaveChanges = () => {
-    console.log("Profile updated:", profile);
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
   };
 
-  const handleCancel = () => {
-    console.log("Changes canceled");
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => setSelectedImage(reader.result);
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const renderContent = () => {
+    switch (activeSection) {
+      case 'Profile':
+        return (
+          <div className={styles.content}>
+            <h2 className={styles.heading}>Public Profile</h2>
+            <p className={styles.description}>Add information about yourself</p>
+            <form className={styles.form}>
+              <div className={styles.formGroup}>
+                <label className={styles.label} htmlFor="firstName">First Name:</label>
+                <input
+                  className={styles.input}
+                  type="text"
+                  id="firstName"
+                  value={formData.firstName}
+                  placeholder="First Name"
+                  disabled={!isEditing}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className={styles.formGroup}>
+                <label className={styles.label} htmlFor="lastName">Last Name:</label>
+                <input
+                  className={styles.input}
+                  type="text"
+                  id="lastName"
+                  value={formData.lastName}
+                  placeholder="Last Name"
+                  disabled={!isEditing}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className={styles.formGroup}>
+                <label className={styles.label} htmlFor="headline">Headline:</label>
+                <input
+                  className={styles.input}
+                  type="text"
+                  id="headline"
+                  value={formData.headline}
+                  placeholder="Add a professional headline"
+                  maxLength={60}
+                  disabled={!isEditing}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className={styles.formGroup}>
+                <label className={styles.label} htmlFor="bio">Bio:</label>
+                <textarea
+                  className={styles.textarea}
+                  id="bio"
+                  value={formData.bio}
+                  placeholder="Tell more about yourself"
+                  disabled={!isEditing}
+                  onChange={handleInputChange}
+                ></textarea>
+              </div>
+              <div className={styles.formGroup}>
+                <label className={styles.label} htmlFor="language">Language:</label>
+                <select
+                  className={styles.select}
+                  id="language"
+                  value={formData.language}
+                  disabled={!isEditing}
+                  onChange={handleInputChange}
+                >
+                  <option value="en-US">English (US)</option>
+                  <option value="en-GB">English (UK)</option>
+                  <option value="fr">French</option>
+                  <option value="es">Spanish</option>
+                </select>
+              </div>
+              {isEditing ? (
+                <div className={styles.buttonGroupRow}>
+                  <button
+                    type="button"
+                    className={styles.buttonPrimary}
+                    onClick={() => setIsEditing(false)}
+                  >
+                    Save Changes
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.buttonSecondary}
+                    onClick={handleCancelClick}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              ) : (
+                <div className={styles.buttonGroupRow}>
+                  <button
+                    type="button"
+                    className={styles.buttonPrimary}
+                    onClick={handleEditClick}
+                  >
+                    Edit
+                  </button>
+                </div>
+              )}
+            </form>
+          </div>
+        );
+      case 'Photo':
+        return (
+          <div className={styles.content}>
+            <h2 className={styles.heading}>Photo</h2>
+            <p className={styles.description}>
+              Add a nice photo of yourself for your profile.
+            </p>
+            <div className={styles.photoSection}>
+              <div className={styles.imagePreview}>
+                {selectedImage ? (
+                  <img
+                    src={selectedImage}
+                    alt="Selected"
+                    className={styles.previewImage}
+                  />
+                ) : (
+                  <div className={styles.placeholder}>
+                    <span className={styles.icon}>👤</span>
+                  </div>
+                )}
+              </div>
+              <div className={styles.uploadControls}>
+                <input
+                  type="file"
+                  id="uploadImage"
+                  className={styles.fileInput}
+                  onChange={handleImageChange}
+                />
+                <label htmlFor="uploadImage" className={styles.uploadButton}>
+                  Upload image
+                </label>
+                <button type="button" className={styles.saveButton}>
+                  Save
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      case 'Account Security':
+        return (
+          <div className={styles.content}>
+            <h2 className={styles.heading}>Account Security</h2>
+            <p className={styles.description}>
+              Edit your account settings and change your password here.
+            </p>
+            <form className={styles.form}>
+              <div className={styles.formGroup}>
+                <label className={styles.label}>Email:</label>
+                <p className={styles.emailText}>
+                  Your email address is <span>{formData.email}</span>
+                </p>
+              </div>
+              <div className={styles.formGroup}>
+                <label className={styles.label} htmlFor="password">Enter new password:</label>
+                <input
+                  className={styles.input}
+                  type="password"
+                  id="password"
+                  placeholder="Enter new password"
+                  value={formData.password}
+                  disabled={!isEditing}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className={styles.formGroup}>
+                <label className={styles.label} htmlFor="confirmPassword">Re-type new password:</label>
+                <input
+                  className={styles.input}
+                  type="password"
+                  id="confirmPassword"
+                  placeholder="Re-type new password"
+                  value={formData.confirmPassword}
+                  disabled={!isEditing}
+                  onChange={handleInputChange}
+                />
+              </div>
+              {isEditing ? (
+                <div className={styles.buttonGroupRow}>
+                  <button
+                    type="button"
+                    className={styles.buttonPrimary}
+                    onClick={() => setIsEditing(false)}
+                  >
+                    Save Changes
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.buttonSecondary}
+                    onClick={handleCancelClick}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              ) : (
+                <div className={styles.buttonGroupRow}>
+                  <button
+                    type="button"
+                    className={styles.buttonPrimary}
+                    onClick={handleEditClick}
+                  >
+                    Edit
+                  </button>
+                </div>
+              )}
+            </form>
+          </div>
+        );
+        case 'Close account':
+        return (
+          <div className={styles.content}>
+            <h2 className={styles.heading}>Close account</h2>
+            <p className={styles.description}>
+            Close your account permanently.
+            </p>
+            <p className={styles.warning}>Warning:</p>
+            <p className={styles.closePara}>If you close your account, you will be unsubscribed from all 14 of your courses and will lose access to your account and data associated with your account forever, even if you choose to create a new account using the same email address in the future.</p>
+            <p className={styles.closePara}>Please note, if you want to reinstate your account after submitting a deletion request, you will have 14 days after the initial submission date to reach out to privacy@udemy.com to cancel this request.</p>
+            <button
+                    type="button"
+                    className={styles.buttonPrimary}
+                    onClick={handleEditClick}
+                  >
+                    Close Account 
+                  </button>
+          </div>
+        );
+      default:
+        return (
+          <div className={styles.content}>
+            <h2 className={styles.heading}>{activeSection}</h2>
+            <p className={styles.description}>Content for {activeSection}</p>
+          </div>
+        );
+    }
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.sidebar}>
-        <h4>Manage My Account</h4>
-        <ul>
-          <li className={styles.active}>My Profile</li>
-          <li>My Payment Options</li>
-          <li>Payment History</li>
-        </ul>
-        <h4>My Orders</h4>
-        <ul>
-          <li>My Returns</li>
-          <li>My Cancellations</li>
-        </ul>
-        <h4>My Wishlist</h4>
-        <h4>My Purchases</h4>
-      </div>
-
-      <div className={styles.content}>
-        <p className={styles.breadcrumb}>
-          Home / <span>My Account</span>
-        </p>
-        <h1>Welcome! </h1>
-        <h1 className={styles.name}>{`${profile.firstName}`}</h1>
-        <div className={styles.formContainer}>
-          <h2>Edit Your Profile</h2>
-          <div className={styles.profileImage}>
+    <div className={styles.page}>
+      <aside className={styles.sidebar}>
+        <div className={styles.profileInfo}>
+          <div className={styles.profilePhoto}>
             <img
-              src="src/assets/Profile.png"
+              src="https://via.placeholder.com/80"
               alt="Profile"
-              className={styles.image}
+              className={styles.profileImage}
             />
-            <button className={styles.changePhoto}>Change Photo</button>
           </div>
-          <form>
-            <div className={styles.row}>
-              <div className={styles.inputGroup}>
-                <label>First Name</label>
-                <input
-                  type="text"
-                  name="firstName"
-                  value={profile.firstName}
-                  placeholder="Enter you name"
-                  onChange={handleChange}
-                />
-              </div>
-              <div className={styles.inputGroup}>
-                <label>Last Name</label>
-                <input
-                  type="text"
-                  name="lastName"
-                  value={profile.lastName}
-                  placeholder="Enter last name"
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-            <div className={styles.row}>
-            <div className={styles.inputGroup}>
-              <label>Email</label>
-              <input
-                type="email"
-                name="email"
-                value={profile.email}
-                placeholder="Enter email address"
-                onChange={handleChange}
-              />
-            </div>
-            <div className={styles.inputGroup}>
-              <label>Address</label>
-              <input
-                type="text"
-                name="address"
-                value={profile.address}
-                placeholder="Enter your address"
-                onChange={handleChange}
-              />
-            </div>
-            </div>
-
-            <h3 className={styles.password}>Password Changes</h3>
-            <div className={`${styles.inputGroup} ${styles.passEdit}`}>
-              {/* <label>Current Password</label> */}
-              <input
-                type="password"
-                name="currentPassword"
-                value={profile.currentPassword}
-                placeholder="Current Password"
-                onChange={handleChange}
-              />
-            </div>
-            
-              <div className={`${styles.inputGroup} ${styles.passEdit}`}>
-                {/* <label>New Password</label> */}
-                <input
-                  type="password"
-                  name="newPassword"
-                  value={profile.newPassword}
-                  placeholder="New Password"
-                  onChange={handleChange}
-                />
-              </div>
-              <div className={`${styles.inputGroup} ${styles.passEdit}`}>
-                {/* <label>Confirm New Password</label> */}
-                <input
-                  type="password"
-                  name="confirmNewPassword"
-                  value={profile.confirmNewPassword}
-                  placeholder="Confirm New Password"
-                  onChange={handleChange}
-                />
-              </div>
-            <div className={styles.buttonGroup}>
-              <button type="button" className={styles.cancel} onClick={handleCancel}>
-                Cancel
-              </button>
-              <button
-                type="button"
-                className={styles.saveChanges}
-                onClick={handleSaveChanges}
-              >
-                Save Changes
-              </button>
-            </div>
-          </form>
+          <div className={styles.profileName}>Hricha Sharma</div>
         </div>
-      </div>
+        {sections.map((section) =>
+          section.link ? (
+            <a
+              key={section.name}
+              href={section.link}
+              className={`${styles.navButton} ${
+                activeSection === section.name ? styles.active : ''
+              }`}
+            >
+              {section.name}
+            </a>
+          ) : (
+            <button
+              key={section.name}
+              className={`${styles.navButton} ${
+                activeSection === section.name ? styles.active : ''
+              }`}
+              onClick={() => setActiveSection(section.name)}
+            >
+              {section.name}
+            </button>
+          )
+        )}
+      </aside>
+      <main className={styles.mainContent}>
+        {renderContent()}
+      </main>
     </div>
   );
 };
