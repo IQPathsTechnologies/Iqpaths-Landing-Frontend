@@ -19,7 +19,7 @@ const CartPage = () => {
       <div className={styles.header}>
         <h1>Your Cart</h1>
         <p className={styles.breadcrumb}>
-          Home / <span>Cart</span>
+          <a href="/" className={styles.breadHome}> Home </a> / <span>Cart</span>
         </p>
       </div>
 
