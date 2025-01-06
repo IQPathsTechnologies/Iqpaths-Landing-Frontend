@@ -1,152 +1,176 @@
 /* General Styles */
 .cartContainer {
-    padding: 2rem;
-    background: linear-gradient(135deg, #f0f8ff, #e8efff);
-    font-family: "Poppins", sans-serif;
-    color: #333;
-    min-height: 100vh;
-  }
-  
-  .header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .header h1 {
-    font-size: 2.8rem;
-    font-weight: bold;
-    color: #003399;
-    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  .breadcrumb {
-    margin-top: 0.5rem;
-    font-size: 15px;
-    color: #666;
-  }
-  
-  .breadcrumb span {
-    color: #003399;
-    font-weight: bold;
-  }
-  
-  /* Cart Content Layout */
-  .cartContent {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  
-  .cartItems {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  /* Cart Cards */
-  .cartCard {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #ffffff;
-    padding: 1.8rem;
-    border-radius: 15px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .cartCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .cardContent h3 {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 0.5rem;
-  }
-  
-  .cardContent .price {
-    font-size: 16px;
-    color: #666;
-  }
-  
-  .quantityControl {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .quantityControl label {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 0.5rem;
-  }
-  
-  .quantityControl select {
-    padding: 0.6rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
-  .subtotal {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  /* Order Summary */
-  .cartSummary {
-    flex: 1;
-    background: linear-gradient(135deg, #ffffff, #f7f9ff);
-    padding: 2.2rem;
-    border-radius: 15px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  background: linear-gradient(135deg, #e9f5fc, #dfeeff);
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #003399;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.breadcrumb {
+  margin-top: 0.5rem;
+  font-size: 15px;
+  color: #666;
+}
+
+.breadcrumb span {
+  color: #003399;
+  font-weight: bold;
+}
+
+/* Cart Content Layout */
+.cartContent {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.cartItems {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Cart Cards */
+.cartCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cartCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cardContent h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.cardContent .price {
+  font-size: 16px;
+  color: #666;
+}
+
+.removeButton {
+  background: #ff6666;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+.removeButton:hover {
+  background: #cc0000;
+}
+
+.removeIcon {
+  font-size: 18px;
+}
+
+/* Order Summary */
+.cartSummary {
+  flex: 1;
+  background: linear-gradient(135deg, #ffffff, #f7f9ff);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
 }
 
 .cartSummary h2 {
-    width: 100%;
-    display: flex;
-    font-size: 22px;
-    color: #003399;
-    margin-left: -12px;
-    margin-bottom: 1.8rem;
-    text-align: left;
-    /* border: 2px solid red; */
-  }
-  
-  .summaryDetails p,
-  .total p {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.2rem;
-    font-size: 16px;
-    color: #555;
-  }
-  
-  .total p {
-    font-size: 20px;
-    font-weight: bold;
-    color: #003399;
-  }
-  
-  .checkoutButton {
-    width: 100%;
-    padding: 1rem;
-    font-size: 16px;
-    background: linear-gradient(135deg, #003399, #0047b2);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-  }
-  
-  .checkoutButton:hover {
-    background: linear-gradient(135deg, #002266, #003399);
-    transform: translateY(-3px);
-  }
-  
+  width: 100%;
+  font-size: 22px;
+  color: #003399;
+  margin-left: -12px;
+  margin-bottom: 1.5rem;
+  /* border: 2px solid red; */
+}
+
+.summaryDetails p,
+.total p {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+  font-size: 16px;
+  color: #555;
+}
+
+.total p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #003399;
+}
+
+.checkoutButton {
+  width: 100%;
+  padding: 1rem;
+  font-size: 16px;
+  background: linear-gradient(135deg, #003399, #0047b2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.checkoutButton:hover {
+  background: linear-gradient(135deg, #002266, #003399);
+  transform: translateY(-3px);
+}
+
+/* Empty Cart Styles */
+.emptyCart {
+  text-align: center;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+}
+
+.emptyCart h2 {
+  width: 100%;
+  font-size: 22px;
+  color: #003399;
+  margin-left: -10px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.emptyCart p {
+  font-size: 16px;
+  color: #555;
+}
