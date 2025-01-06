@@ -8,6 +8,7 @@ const CourseDetails = () => {
     const [openDropdown, setOpenDropdown] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);  // State to manage current page of reviews
     const [courseDetails, setCourseDetails] = useState([]);
+    const [review, setReview ] = useState([]);
     const reviewsPerPage = 3;
 
     
@@ -57,6 +58,24 @@ const CourseDetails = () => {
         }
         fetchData();
     }, [id]);
+
+
+    useEffect(() => {
+        async function fetchData() {
+          try {
+            const response = await apiClass.getReviews(id);
+            console.log("CourseSection :: useEffect :: response ye card k liye review aa gaye hai ", response);
+            setReview(response.review);    
+          } catch (error) {
+            console.log("CourseSection :: useEffect :: error", error);
+          }
+        }
+        fetchData();
+    }
+    , [id]);
+
+
+
 
 
     const tabContent = {
@@ -248,7 +267,7 @@ const CourseDetails = () => {
             </div>
           </div>
           <div className={styles.commentSection}>
-            {currentReviews.map((review, index) => (
+            {review.map((review, index) => (
               <div key={index} className={styles.comment}>
                 <div className={styles.commentHeader}>
                   <img
@@ -258,14 +277,14 @@ const CourseDetails = () => {
                   />
                   <div className={styles.names}>
                     <h4 className={styles.commentName}>{review.name}</h4>
-                    <p className={styles.commentDate}>{review.date}</p>
+                    <p className={styles.commentDate}>{new Date(review.updatedAt).toLocaleDateString()}</p>
                   </div>
                 </div>
                 <p className={styles.commentText}>{review.comment}</p>
-                <div className={styles.reply}>
-                  <img src="/reply.png" alt="Reply" />
+                {/* <div className={styles.reply}>
+                  <img src="/reply.png" alt="Reply" /> 
                   <button className={styles.replyButton}>Reply</button>
-                </div>
+                </div> */}
               </div>
             ))}
           </div>

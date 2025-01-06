@@ -233,7 +233,7 @@ export class AuthService {
     async getUserCourses(){
         try {
             const response =  await axios.get(`/api/mylearnings/users/getCourseDetails`, {withCredentials: true});
-            // console.log("data dikha ooo mekooo",response)
+            console.log("data dikha ooo mekooo",response)
             return response.data.data;
         } catch (error) {
             // console.log("AuthService :: getMyCourses :: error", error);
@@ -272,9 +272,20 @@ export class AuthService {
     }
 
 
-    async getNextPrevLecture(lectureId, chapterId){
+    // async getNextPrevLecture(lectureId, chapterId){
+    //     try{
+    //         const response = await axios.post(`/api/lectures/getNextPreLecture`, {lectureId, chapterId}, {withCredentials: true});
+    //         return response.data.data;
+    //     }
+    //     catch(error){
+    //         // console.log("AuthService :: getNextPrevLecture :: error", error);
+    //         throw error;
+    //     }
+    // }
+
+    async getNextLecture(lectureId){
         try{
-            const response = await axios.post(`/api/lectures/getNextPreLecture`, {lectureId, chapterId}, {withCredentials: true});
+            const response = await axios.post(`/api/lectures/getNextLecture`, {lectureId}, {withCredentials: true});
             return response.data.data;
         }
         catch(error){
@@ -283,6 +294,28 @@ export class AuthService {
         }
     }
 
+    async getPrevLecture(lectureId){
+        try{
+            const response = await axios.post(`/api/lectures/getPreLecture`, {lectureId}, {withCredentials: true});
+            return response.data.data;
+        }
+        catch(error){
+            // console.log("AuthService :: getNextPrevLecture :: error", error);
+            throw error;
+        }
+    }
+
+
+    async getLectureDetails(lectureId){
+        try {
+            const response =  await axios.post(`/api/lectures/getLectureDetails`, {lectureId}, {withCredentials: true});
+            return response.data.data;
+
+        } catch (error) {
+            // console.log("AuthService :: getLectureDetails :: error", error);
+            throw error;
+        }
+    }
 
     async isCoursePurchase(courseId){
         try {
@@ -308,6 +341,18 @@ export class AuthService {
         }
         catch(error){
             // console.log("AuthService :: getUser :: error", error);
+            throw error;
+        }
+    }
+
+
+    async getReviews(id){
+        try {
+            const response =  await axios.get(`/api/reviews/getReviewById/${id}`);
+            // console.log(response.data.data)
+            return response.data.data
+        } catch (error) {
+            // console.log("AuthService :: getReviews :: error", error);
             throw error;
         }
     }

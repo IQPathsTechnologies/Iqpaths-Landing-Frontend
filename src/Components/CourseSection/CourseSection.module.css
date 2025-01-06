@@ -98,7 +98,7 @@
 .rating {
     display: flex;
     flex-direction: row;
-    padding-top: 30px;
+    /* padding-top: 30px; */
     width: fit-content;
     /* border: 2px solid red; */
 }
@@ -139,6 +139,13 @@
     padding: 20px;
     gap: 18px;
     border: 1px solid #454555;
+    background-color: #f9f9f9;
+}
+
+.courseLearning:hover{
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1) , -10px -10px 10px white ;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.01);
 }
 
 .whatHeading {
@@ -156,10 +163,23 @@
     margin-top: 20px;
 }
 
-.info{
+.points{
     display: flex;
     flex-direction: row;
     gap: 10px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #454555;
+
+}
+
+.points:hover{
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1) , -10px -10px 10px white ;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.05);
+    background-color: #0047B2;
+    color: white;
 }
 
 .info1 {

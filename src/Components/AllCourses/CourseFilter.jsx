@@ -18,19 +18,15 @@ const CourseFilter = ({ onCategoryChange, onFilterChange }) => {
     },
     {
       name: "Instructors",
-      subcategories: ["Maya Banjay", "Trishna Panse"],
+      subcategories: ["Sanket Gupta"],
     },
     {
       name: "Price",
-      subcategories: ["All", "Free", "Paid"],
+      subcategories: ["1000 - 2000", "2000 - 3000", "3000 - 4000", "4000 - 5000"],
     },
     {
       name: "Review",
       subcategories: ["★★★★★", "★★★★☆", "★★★☆☆", "★★☆☆☆", "★☆☆☆☆"],
-    },
-    {
-      name: "Level",
-      subcategories: ["All levels", "Beginner", "Intermediate", "Expert"],
     },
   ];
 
@@ -41,7 +37,7 @@ const CourseFilter = ({ onCategoryChange, onFilterChange }) => {
     "PYTHON",
     "UI/UX",
     "PRODUCT MANAGEMENT",
-    "BRANDING DESIGN",
+    "MANAGEMENT",
     "WEB DEVELOPMENT",
   ];
 
@@ -81,6 +77,7 @@ const CourseFilter = ({ onCategoryChange, onFilterChange }) => {
         }
         updatedFilters[categoryName].push(subcategory);
       }
+      console.log(updatedFilters);
       return updatedFilters;
     });
   };

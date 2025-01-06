@@ -11,14 +11,9 @@ import { AuthService } from '../../axios/User';
 
 
 const CourseSection = ({
-  description = "Learn DS with Python, master data analysis with Python, and explore more courses to gain essential skills.",
   students = "156 Students",
   lessons = "20 Lessons",
-  quizzes = "3 Quizzes",
   hoursLeft = "5 hours left at this price!",
-  hours = "54.5 hours on-demand video",
-  download = "Downloadable Resources",
-  access = "Access on mobile and TV",
 }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isRazorPayPopupVisible, setIsRazorPayPopupVisible] = useState(false);
@@ -31,6 +26,7 @@ const CourseSection = ({
   const [whishlist, setWhishlist] = useState(false);
   const [isPurchased, setIsPurchased] = useState([]);
   const [couponDiscountedPrice, setCouponDiscountedPrice] = useState(null);
+  const [couponCode, setCouponCode] = useState(null);
 
 
   const { title, id } = useParams();
@@ -63,7 +59,9 @@ const CourseSection = ({
 
   //razorpay
   const handlePurchase = useCallback(async () => {
-    const response = await createOrder(courseId, coupon);
+    console.log("coupon code ye lagega re bawa", couponCode);
+    const response = await createOrder(courseId,  couponCode);
+
     const { token, currency, key, name, description } = response;
     const { amount, id } = response.razorpayOrder;
     const order_id = id;
@@ -176,6 +174,11 @@ const CourseSection = ({
       alert("Please enter a valid coupon.");
     }
   };
+  
+  const handleAppliedCoupon = () => {
+    setCouponCode(coupon);
+  };
+    
 
   const handleCancelCoupon = () => {
     setCoupon("");
@@ -207,7 +210,7 @@ const CourseSection = ({
               <span onClick={handleGoBack} style={{ cursor: "pointer"}}>All Programs </span>&gt; {courseDetails.subject}
               </p>
               <h6 className={styles.title}> {courseDetails.title} </h6>
-              <p className={styles.description}> {description} </p>
+              <p className={styles.description}> {courseDetails.detailDescription} </p>
 
               <div className={styles.extraInfo}>
                 <div className={styles.info}>
@@ -228,12 +231,12 @@ const CourseSection = ({
                 </div>
                 <div className={styles.info}>
                   <img src="/lessons.png" alt="Lessons" />
-                  <p> {lessons} </p>
+                  <p> {courseDetails.totalLecture} lectures </p>
                 </div>
-                <div className={styles.info}>
+                {/* <div className={styles.info}>
                   <img src="/quizzes.png" alt="Quizzes" />
                   <p> {quizzes} </p>
-                </div>
+                </div> */}
               </div>
 
               <div className={styles.rating}>
@@ -272,9 +275,11 @@ const CourseSection = ({
             </div>
             <div className={styles.courseInfo}>
               {courseDetails.whatYouWilLearn?.map((item, index) => (
-                <p key={index} className={styles.info}>
-                  &#8226; {item}
+                <>
+                <p key={index} className={styles.points}>
+                  {item}
                 </p>
+                </>
               ))}
             </div>
           </div>
@@ -361,7 +366,8 @@ const CourseSection = ({
                   onChange={(e) => setCoupon(e.target.value)}
                   disabled={isApplied}
                 />
-                <button  className={isApplied ? styles.applied : styles.apply}  type="submit" disabled={isApplied}>
+                {/* {console.log("coupon code applied ye vala", coupon)} */}
+                <button  className={isApplied ? styles.applied : styles.apply}  type="submit" disabled={isApplied} onClick={handleAppliedCoupon}>
                 {isApplied ? "Applied" : "Apply"}
                 </button>
               </form>

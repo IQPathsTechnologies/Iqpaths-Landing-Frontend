@@ -50,6 +50,44 @@ const Lecture = () => {
     // console.log("lecture is  line number 52", lecture);
     // console.log("chapter selectionid is line number 53 ", ChapterSectionId);
   }
+
+
+  const nextLecture = async (lectureId) => {
+    try{
+      const nextLectureId = await apiClass.getNextLecture(lectureId);
+      console.log("next lecture is", nextLectureId);
+
+      if(nextLectureId !== "end of lectures"){
+        const response = await apiClass.getLectureDetails(nextLectureId);
+        // console.log("next lecture details is", response);
+        setSelectedLecture(response.currentLecture);
+      }
+
+    } catch (error) {
+      console.error("Error fetching next/prev lectures:", error);
+    }
+  }
+
+  const PrevLecture = async (lectureId) => {
+    try{
+      const prevLectureId = await apiClass.getPrevLecture(lectureId);
+      console.log("prev lecture is", prevLectureId);
+
+      if(prevLectureId !== "no prev lec"){
+        const response = await apiClass.getLectureDetails(prevLectureId);
+        // console.log("prev lecture details is", response);
+        setSelectedLecture(response.currentLecture);
+      }
+      else{
+        return;
+      }
+
+    } catch (error) {
+      console.error("Error fetching next/prev lectures:", error);
+    }
+  }
+
+
   const nextPrevLecture = async (chapterId, lectureId, flag) => {
     try{
       const response = await apiClass.getNextPrevLecture(chapterId, lectureId);
@@ -63,6 +101,8 @@ const Lecture = () => {
       console.error("Error fetching next/prev lectures:", error);
     }
   }
+
+
   const handleLectureSelectionInHeader = (lectureDetails)=>{
     setSelectedLecture(lectureDetails);
   }
@@ -71,6 +111,8 @@ const Lecture = () => {
       {/* Header */}
       <LectureHeader 
         navigation= {nextPrevLecture}
+        nextLecture = {nextLecture}
+        PrevLecture = {PrevLecture}
         selectedChapter={selectedChapter}
         selectedLecture={selectedLecture}
         getNextPreviousDetails ={handleLectureSelectionInHeader}
