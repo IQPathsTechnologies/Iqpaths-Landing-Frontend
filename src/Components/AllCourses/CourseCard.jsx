@@ -39,24 +39,26 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
             return course.subject?.toLowerCase().includes(filter.toLowerCase());
           }
   
-          if (filterCategory === 'description') {
+          if (filterCategory === 'Instructors') {
             // Check if any description includes the filter value
-            return Array.isArray(course.description) &&
-              course.description.some((desc) => desc.toLowerCase().includes(filter.toLowerCase()));
+            // console.log(course?.instructor?.name.toLowerCase())
+            return course?.instructor?.name.toLowerCase().includes(filter.toLowerCase());
           }
   
-          if (filterCategory === 'review') {
+          if (filterCategory === 'Review') {
             // Handle review as a number match
-            return course.review === parseInt(filter.replace('★', '').trim());
+            // console.log("review ite hai", parseInt(filter.replace('★', '').trim());
+            console.log((filter.match(/★/g) || []).length);
+            return course.review === (filter.match(/★/g) || []).length;
           }
   
-          if (filterCategory === 'price') {
-            // Check if the price matches (realPrice or discountedPrice)
-            return (
-              course.realPrice?.toString() === filter ||
-              course.discountedPrice?.toString() === filter
-            );
-          }
+            if (filterCategory === 'Price') {
+            // Check if the price falls within the specified range
+            const price = course.discountedPrice || course.realPrice;
+            const [min, max] = filter.split(' - ').map(Number);
+            console.log(min, max)
+            return price >= min && price <= max;
+            }
   
           // Default case for other fields (e.g., strings or arrays)
           const courseValue = course[filterCategory];
