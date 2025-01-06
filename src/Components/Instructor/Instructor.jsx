@@ -48,15 +48,15 @@ const Instructor = () => {
 
       {/* Right Section */}
       <div className={styles.rightSection}>
-        <h3 className={styles.instructorName}>{instructorDetails.name}</h3>
-        <p className={styles.instructorTitle}>{instructorDetails.designation}</p>
+        <h3 className={styles.instructorName}>{instructorDetails?.name}</h3>
+        <p className={styles.instructorTitle}>{instructorDetails?.designation}</p>
         <p className={styles.instructorDescription}>
-          {instructorDetails.description}
+          {instructorDetails?.description}
         </p>
         <div className={styles.imageWrapper}>
           <img
-            src={instructorDetails.profilePhoto}
-            alt={instructorDetails.name}
+            src={instructorDetails?.profilePhoto}
+            alt={instructorDetails?.name}
             className={styles.instructorImage}
           />
         </div>
