@@ -105,6 +105,17 @@ export class AuthService {
     }
 
 
+    async getUserDetails(){
+        try {
+            const response =  await axios.get("/api/user/getUserDetails", {withCredentials: true});
+            return response.data.data;
+        } catch (error) {
+            // console.log("AuthService :: getUserDetails :: error", error);
+            throw error;
+        }
+    }
+
+
     async createMentor({name, email, description, linkedIn, profilePhoto, coverPhoto}){
         try {
             return await axios.post("/api/mentor/createMentor", {name, email, description, linkedIn, profilePhoto, coverPhoto}, {withCredentials: true});

@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './ProfilePage.module.css';
+import { AuthService } from '../../axios/User';
+
 
 const ProfilePage = () => {
   const [activeSection, setActiveSection] = useState('Profile');
   const [isEditing, setIsEditing] = useState(false); // Track editing state
+  const [userDetails, setUserDetails] = useState();
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+
+
+  const apiClass = new AuthService();
+
   const [formData, setFormData] = useState({
     firstName: 'Hricha',
     lastName: 'Sharma',
@@ -44,6 +53,20 @@ const ProfilePage = () => {
       reader.readAsDataURL(file);
     }
   };
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      try {
+        const response = await apiClass.getUserDetails();
+        console.log('ProfilePage :: fetchUserDetails :: response', response);
+        setUserDetails(response.user);
+      } catch (error) {
+        console.error("ProfilePage :: fetchUserDetails", error);
+      }
+    };
+    fetchUserDetails();
+  }, []);
+
 
   const renderContent = () => {
     switch (activeSection) {
