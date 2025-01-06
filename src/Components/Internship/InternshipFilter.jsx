@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import styles from "./PlacementFilter.module.css";
+import styles from "./InternshipFilter.module.css";
 
-const PlacementFilter = ({ onCategoryChange, onFilterChange }) => {
-  const title = "Explore Placement Pathways";
+const InternshipFilter = ({ onCategoryChange, onFilterChange }) => {
+  const title = "Explore Internship Opportunities";
   const categories = [
     {
       name: "Course Category",
@@ -171,4 +171,4 @@ const PlacementFilter = ({ onCategoryChange, onFilterChange }) => {
   );
 };
 
-export default PlacementFilter;
+export default InternshipFilter;
