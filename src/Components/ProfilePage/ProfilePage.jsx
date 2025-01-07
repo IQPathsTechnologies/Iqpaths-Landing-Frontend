@@ -6,22 +6,35 @@ import { AuthService } from '../../axios/User';
 const ProfilePage = () => {
   const [activeSection, setActiveSection] = useState('Profile');
   const [isEditing, setIsEditing] = useState(false); // Track editing state
-  const [userDetails, setUserDetails] = useState();
-  // const [firstName, setFirstName] = useState();
-  // const [lastName, setLastName] = useState();
-
+  const [userDetails, setUserDetails] = useState(); // Store user details
+  const [formData, setFormData] = useState({}); // Store form data
 
   const apiClass = new AuthService();
 
-  const [formData, setFormData] = useState({
-    name: 'Hricha Sharma',
-    mobileNumber: '1234567890',
-    bio: 'Passionate developer with expertise in web development.',
-    language: 'en-US',
-    email: 'sharmahricha6@gmail.com',
-    password: '',
-    confirmPassword: '',
-  });
+  // const [formData, setFormData] = useState({
+  //   name: userDetails?.name,
+  //   mobileNumber: '1234567890',
+  //   bio: 'Passionate developer with expertise in web development.',
+  //   language: 'en-US',
+  //   email: 'sharmahricha6@gmail.com',
+  //   password: '',
+  //   confirmPassword: '',
+  // });
+
+  useEffect(() => {
+    if (userDetails) {
+      setFormData({
+        name: userDetails.name,
+        mobileNumber: userDetails.mobileNo || '',
+        bio: userDetails.bio || 'Passionate developer with expertise in web development.',
+        language: userDetails.language || 'en-US',
+        email: userDetails.email,
+        password: '',
+        confirmPassword: '',
+      });
+    }
+  }, [userDetails]);
+
 
   const [selectedImage, setSelectedImage] = useState(null); // For photo section
   const [uploadImage, setUploadImage] = useState(null); // For photo section
@@ -88,7 +101,13 @@ const ProfilePage = () => {
 
   const handleProfileDetailsUpdate = async () => {
     try {
-      const response = await apiClass.updateProfileDetails(formData);
+
+      console.log("form data in profile update",formData);
+      const response = await apiClass.updateUserDetails(formData);
+      if(response.status == 201){
+        const user = response.data.data;
+        setUserDetails(user);
+      }
 
       console.log('ProfilePage :: handleProfileDetailsUpdate :: response', response);
     } catch (error) {
@@ -104,6 +123,16 @@ const ProfilePage = () => {
       console.log('ProfilePage :: passwordUpdate :: response', response);
     } catch (error) {
       console.error("ProfilePage :: passwordUpdate", error);
+    }
+  };
+
+
+  const handleDeleteAccount = async () => {
+    try {
+      const response = await apiClass.deleteUser();
+      console.log('ProfilePage :: handleDeleteAccount :: response', response);
+    } catch (error) {
+      console.error("ProfilePage :: handleDeleteAccount", error);
     }
   };
 
@@ -173,7 +202,7 @@ const ProfilePage = () => {
                   <button
                     type="button"
                     className={styles.buttonPrimary}
-                    onClick={() => setIsEditing(false)}
+                    onClick={() => {setIsEditing(false); handleProfileDetailsUpdate()}}
                   >
                     Save Changes
                   </button>
@@ -319,7 +348,7 @@ const ProfilePage = () => {
             <button
                     type="button"
                     className={styles.buttonPrimary}
-                    onClick={handleEditClick}
+                    onClick={handleDeleteAccount}
                   >
                     Close Account 
                   </button>

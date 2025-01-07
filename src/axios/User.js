@@ -77,9 +77,9 @@ export class AuthService {
         }
     }
 
-    async updateUserDetails({email, name, mobileNo}){
+    async updateUserDetails({email, name, mobileNo, bio}){
         try {
-            return await axios.put("/api/user/updateDetails", {name, email, mobileNo}, {withCredentials: true});
+            return await axios.post("/api/user/updateDetails", {name, email, mobileNo, bio}, {withCredentials: true});
         } catch (error) {
             // console.log("AuthService :: updateUser :: error", error);
             throw error;
@@ -88,7 +88,7 @@ export class AuthService {
 
     async changePassword({oldPassword, newPassword}){
         try {
-            return await axios.put("/api/user/updatePassword", {oldPassword, newPassword}, {withCredentials: true});
+            return await axios.post("/api/user/updatePassword", {oldPassword, newPassword}, {withCredentials: true});
         } catch (error) {
             // console.log("AuthService :: changePassword :: error", error);
             throw error;
@@ -118,7 +118,7 @@ export class AuthService {
             throw error;
         }
     }
-    
+
 
 
     async getUserDetails(){
