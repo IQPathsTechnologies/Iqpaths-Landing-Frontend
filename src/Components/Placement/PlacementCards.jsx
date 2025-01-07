@@ -15,7 +15,8 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
     async function fetchData() {
       try {
         const response = await apiClass.getCourses();
-        // console.log("AllCourseCard :: useEffect :: response", response);
+        const responseplacement = await apiClass.getInternshipCourses();
+        console.log("resopnse of palcement",responseplacement)
         setCourses(response);
 
       } catch (error) {
