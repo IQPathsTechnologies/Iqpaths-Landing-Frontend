@@ -13,12 +13,12 @@ const NewsletterSection = () => {
   const apiClass = new AuthService();  
   useEffect(() => {
     const getnewsletterdetails = async function(){
-      const response = await apiClass.getNewsLetterDetails();
-      if(response.data.status === 200 ){
-        if(response.data.newsLetterStatus){
-          setnewsLetterStatus(true)
-        };
-      }
+      const response = await apiClass.CheckNewsLetterStatus();
+      // console.log("response",response)
+      if(response.newsLetterStatus.newsletterSubscribe){
+        setnewsLetterStatus(true)
+      };
+      
     }
     getnewsletterdetails();
   }, [])

@@ -95,9 +95,9 @@ export class AuthService {
         }
     }
 
-    async updateProfilePhoto({profilePicture}){
+    async updateProfilePhoto(profilePhoto){
         try {
-            return await axios.put("/api/user/updateProfilePhoto", {profilePicture}, {withCredentials: true});
+            return await axios.post("/api/user/updateProfilePhoto", {profilePhoto}, {withCredentials: true});
         } catch (error) {
             // console.log("AuthService :: updateProfilePicture :: error", error);
             throw error;
@@ -375,6 +375,30 @@ export class AuthService {
             return response
 
         } catch (error) {
+            throw error;
+        }
+    }
+
+
+    async getInternshipCourses(){
+        try {
+            const response =  await axios.get("/api/internships/getInternships");
+            // console.log(response.data.data)
+            return response.data.data
+        } catch (error) {
+            // console.log("AuthService :: getInternshipCourses :: error", error);
+            throw error;
+        }
+    }
+
+
+    async getPlacementCourses(){
+        try {
+            const response =  await axios.get("/api/placementPreparation/getPlacementPrepration");
+            // console.log(response.data.data)
+            return response.data.data
+        } catch (error) {
+            // console.log("AuthService :: getPlacementCourses :: error", error);
             throw error;
         }
     }

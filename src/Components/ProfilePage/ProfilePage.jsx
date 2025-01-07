@@ -40,6 +40,20 @@ const ProfilePage = () => {
     setFormData({ ...formData, password: '', confirmPassword: '' }); // Reset passwords on cancel
   };
 
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      try {
+        const response = await apiClass.getUserDetails();
+        console.log('ProfilePage :: fetchUserDetails :: response', response);
+        setUserDetails(response.user);
+      } catch (error) {
+        console.error("ProfilePage :: fetchUserDetails", error);
+      }
+    };
+    fetchUserDetails();
+  }, []);
+  
   const handleInputChange = (e) => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
@@ -54,18 +68,20 @@ const ProfilePage = () => {
     }
   };
 
-  useEffect(() => {
-    const fetchUserDetails = async () => {
-      try {
-        const response = await apiClass.getUserDetails();
-        console.log('ProfilePage :: fetchUserDetails :: response', response);
-        setUserDetails(response.user);
-      } catch (error) {
-        console.error("ProfilePage :: fetchUserDetails", error);
-      }
-    };
-    fetchUserDetails();
-  }, []);
+
+
+  const handlePhotoUpdate = async () => {
+    const formData = new FormData();
+    formData.append('profilePhoto', selectedImage);
+    console.log("form data me ye hia ")
+    try {
+      const response = await apiClass.updateProfilePhoto(formData);
+      console.log('ProfilePage :: handlePhotoUpdate :: response', response);
+    } catch (error) {
+      console.error("ProfilePage :: handlePhotoUpdate", error);
+    }
+  };
+
 
 
   const renderContent = () => {
@@ -201,7 +217,7 @@ const ProfilePage = () => {
                 <label htmlFor="uploadImage" className={styles.uploadButton}>
                   Upload image
                 </label>
-                <button type="button" className={styles.saveButton}>
+                <button type="button" className={styles.saveButton} onClick={handlePhotoUpdate}>
                   Save
                 </button>
               </div>
@@ -219,7 +235,7 @@ const ProfilePage = () => {
               <div className={styles.formGroup}>
                 <label className={styles.label}>Email:</label>
                 <p className={styles.emailText}>
-                  Your email address is <span>{formData.email}</span>
+                  Your email address is <span>{userDetails?.email}</span>
                 </p>
               </div>
               <div className={styles.formGroup}>
@@ -317,7 +333,7 @@ const ProfilePage = () => {
               className={styles.profileImage}
             />
           </div>
-          <div className={styles.profileName}>Hricha Sharma</div>
+          <div className={styles.profileName}>{userDetails?.name}</div>
         </div>
         {sections.map((section) =>
           section.link ? (
