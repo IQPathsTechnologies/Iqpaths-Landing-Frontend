@@ -4,15 +4,16 @@ import styles from './SearchTab.module.css';
 import {AllTypeOfSearch} from '../../axios/Search';
 import { CoursesContext } from '../../context/coursesContext';
 
-const SearchTab = () => {
+const SearchTab = ({flag}) => {
   const searchClass = new AllTypeOfSearch();
   const{setCourses}=useContext(CoursesContext);
   
   const dataWhichNeedToBeSearched = useRef(""); 
   const handleWhatweWantToSearch =async()=>{
-    const response = await searchClass.search(dataWhichNeedToBeSearched.current.value);
-    console.log(response.data.data.courses);
-    setCourses(response.data.data.courses);
+    const response = await searchClass.search(dataWhichNeedToBeSearched.current, flag);
+    console.log("search ka data",response.data.data.items);
+    console.log("search ka pura data",response);
+    setCourses(response.data.data.items);
   }
   return (
     <div className={styles.overlay}>

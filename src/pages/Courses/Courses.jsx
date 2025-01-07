@@ -11,7 +11,7 @@ const Courses = () => {
     return (
         <div>
             <HeroSection />
-            <SearchTab />
+            <SearchTab flag = "courses" />
             <Cards />
             {/* <CourseFilter /> */}
             {/* <CourseCard /> */}

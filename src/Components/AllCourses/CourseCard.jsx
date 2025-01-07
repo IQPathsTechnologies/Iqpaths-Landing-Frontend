@@ -82,15 +82,15 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
   // Filter courses based on the active category and selectedFilters
   const filteredCourses =
     activeCategory === "ALL PROGRAM"
-      ? courses.filter(applyFilters)
-      : courses.filter((course) => (course.subject).toUpperCase() === activeCategory && applyFilters(course));
+      ? courses?.filter(applyFilters)
+      : courses?.filter((course) => (course.subject).toUpperCase() === activeCategory && applyFilters(course));
 
 
   return (
     <div className={styles.cardsContainer}>
-      {filteredCourses.length > 0 ? (
+      {filteredCourses?.length > 0 ? (
         
-        filteredCourses.map((course, index) => (
+        filteredCourses?.map((course, index) => (
           <Link to={`/course/${course.title}/${course._id}`} key={index} className={styles.link}>
           <div key={index} className={styles.card}>
             {/* Card Image */}

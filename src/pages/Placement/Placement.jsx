@@ -16,7 +16,7 @@ const Placed = () => {
     return (
         <div>
             <PlacementHero />
-            <SearchTab />
+            <SearchTab flag = "placement"/>
             <Placement />
             <AdSection />
             <NewsletterSection />

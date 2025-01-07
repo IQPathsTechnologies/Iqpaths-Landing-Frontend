@@ -16,7 +16,7 @@ const Intern = () => {
     return (
         <div>
             <InternshipHero />
-            <SearchTab />
+            <SearchTab flag = "internship" />
             <Internship />
             <AdSection />
             <NewsletterSection />

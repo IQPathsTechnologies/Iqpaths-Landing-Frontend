@@ -53,7 +53,7 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
       {filteredCourses?.length > 0 ? (
         
         filteredCourses.map((course, index) => (
-          <Link to={`/course/${course.title}/${course._id}`} key={index} className={styles.link}>
+          // <Link to={`/course/${course.title}/${course._id}`} key={index} className={styles.link}>
           <div key={index} className={styles.card}>
             {/* Card Image */}
             <img src={course.coverPhoto} alt={course.title} className={styles.cardImage} />
@@ -122,9 +122,9 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
 
 
             {/* Action Button */}
-            <button className={styles.learnNowButton}>Learn Now</button>
+            <button className={styles.learnNowButton}>Currently not available</button>
           </div>
-          </Link>
+          // </Link>
         ))
 
       ) : (
