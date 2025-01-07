@@ -368,4 +368,15 @@ export class AuthService {
         }
     }
 
+
+    async contactUsFormSubmit(data){
+        try {
+            const response =  await axios.post("/api/contactUs/bookAppointment", data, {withCredentials: true});
+            return response
+
+        } catch (error) {
+            throw error;
+        }
+    }
+
 }

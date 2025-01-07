@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import SignUpPopup from "./SignUpPopup";
 import styles from "./CourseSection.module.css";
 import CourseDetails from "./CourseDetails";
@@ -21,21 +21,19 @@ const CourseSection = ({
   const [razorpayOptions, setRazorpayOptions] = useState(null); 
   const [courseDetails, setCourseDetails] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [coupon, setCoupon] = useState("");
   const [isApplied, setIsApplied] = useState(false);
   const [whishlist, setWhishlist] = useState(false);
   const [isPurchased, setIsPurchased] = useState([]);
   const [couponDiscountedPrice, setCouponDiscountedPrice] = useState(null);
-  const [couponCode, setCouponCode] = useState(null);
+  const [coupon, setCoupon] = useState("");
+  // const [couponCode, setCouponCode] = useState(null);
+  const couponCode = useRef("");
 
 
   const { title, id } = useParams();
-  // console.log(title, id);
   const courseId = id;
   
-  //const { user  } = useContext(UserContext);
   const apiClass = new AuthService();
-  // console.log("user id ye hai yaah pe line 50 me", userId);
   const navigate = useNavigate();
 
 
@@ -60,7 +58,7 @@ const CourseSection = ({
   //razorpay
   const handlePurchase = useCallback(async () => {
     console.log("coupon code ye lagega re bawa", couponCode);
-    const response = await createOrder(courseId,  couponCode);
+    const response = await createOrder(courseId,  couponCode.current);
 
     const { token, currency, key, name, description } = response;
     const { amount, id } = response.razorpayOrder;
@@ -165,9 +163,10 @@ const CourseSection = ({
 
   const handleApplyCoupon = async () => {
 
-    if (coupon.trim() !== "") {
-      const couponResponse = await apiClass.useCoupon({ couponCode: coupon, courseId: id });
-      // console.log("CourseSection :: handleApplyCoupon :: couponResponse", couponResponse.data.data.course.price);
+    if (couponCode.current.trim() !== "") {
+      console.log("CourseSection :: handleApplyCoupon :: couponCode", couponCode.current);
+      const couponResponse = await apiClass.useCoupon({couponCode:  couponCode.current, courseId: id });
+      console.log("CourseSection :: handleApplyCoupon :: couponResponse", couponResponse);
       setCouponDiscountedPrice(couponResponse.data.data.course.price);
       setIsApplied(true);
     } else {
@@ -175,14 +174,18 @@ const CourseSection = ({
     }
   };
   
-  const handleAppliedCoupon = () => {
-    setCouponCode(coupon);
-  };
     
 
+  const handleCouponInputChanges = (e) => {
+    console.log("coupon ki value", e.target.value);
+    couponCode.current = e.target.value;
+    setCoupon(e.target.value);
+  };
+  
   const handleCancelCoupon = () => {
-    setCoupon("");
+    couponCode.current = "";
     setIsApplied(false);
+    setCoupon("");
     setCouponDiscountedPrice(null);
   };
   
@@ -352,27 +355,25 @@ const CourseSection = ({
               </div>
             </div>
             <div className={styles.coupon}>
-              {/* <div className={styles.gift}>
-                <p className={styles.p1}> SHARE </p>
-                <p> GIFT </p>
-                <p> APPLY COUPON </p>
-              </div> */}
               <form onSubmit={(e) => { e.preventDefault(); handleApplyCoupon()}}>
                 <input
                   type="text"
                   placeholder="Enter coupon"
                   className={styles.coupons}
+                  // ref={couponCode}
+                  // value={couponCode.current}
+                  // onChange={(e) => setCoupon(e.target.value)
                   value={coupon}
-                  onChange={(e) => setCoupon(e.target.value)}
+                  onChange={handleCouponInputChanges}
                   disabled={isApplied}
                 />
                 {/* {console.log("coupon code applied ye vala", coupon)} */}
-                <button  className={isApplied ? styles.applied : styles.apply}  type="submit" disabled={isApplied} onClick={handleAppliedCoupon}>
+                <button  className={isApplied ? styles.applied : styles.apply}  type="submit" disabled={isApplied}>
                 {isApplied ? "Applied" : "Apply"}
                 </button>
               </form>
               <div className={styles.displayCoupon} style={{ display: isApplied ? "flex" : "none" }}>
-                <div className={styles.couponDisplaying}> {coupon} </div>
+                <div className={styles.couponDisplaying}> {couponCode.current} </div>
                 <div className={styles.cancelCoupon} onClick={handleCancelCoupon}>X</div>
               </div>
             </div>

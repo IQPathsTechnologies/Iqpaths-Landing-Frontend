@@ -1,17 +1,36 @@
-import React from "react";
+import React, {useState} from "react";
 import { useForm } from "react-hook-form";
 import styles from "./ContactUs.module.css";
+import { AuthService } from "../../axios/User";
+
 
 const ContactUs = () => {
+
+  const [bookingResponse, setBookingResponse] = useState(null);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+
+
+    const apiClass = new AuthService();
+
+  const handleContactUsSubmit = async (data) => {
+    const resposne = await apiClass.contactUsFormSubmit(data);
+    if(resposne.status === 201){
+      setBookingResponse("Appointment Booked Successfully");
+    }
+
+    // setBookingResponse(resposne.);
+    console.log("Response:", resposne);
+  };
+
+
   const onSubmit = (data) => {
-    console.log("Form Data:", data);
-    // Handle form submission (e.g., API call)
+      console.log("Form Data:", data);
+      handleContactUsSubmit(data);
   };
 
   return (
@@ -88,6 +107,10 @@ const ContactUs = () => {
           ></textarea>
           {errors.message && (
             <span className={styles.error}>{errors.message.message}</span>
+          )}
+
+          {bookingResponse && (
+            <span className={styles.success}>{bookingResponse}</span>
           )}
 
           <button type="submit" className={styles.button}>
