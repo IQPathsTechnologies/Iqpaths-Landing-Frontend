@@ -8,7 +8,7 @@ export class AllTypeOfSearch{
             const searchData = await axios.get(`/api/search?keyword=${dataToSearch}`);
             return searchData;
         }
-        catch(err){
+        catch(error){
             throw error;
         }
 

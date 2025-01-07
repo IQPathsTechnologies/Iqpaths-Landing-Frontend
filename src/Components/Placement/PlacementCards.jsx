@@ -14,11 +14,10 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await apiClass.getCourses();
-        const responseplacement = await apiClass.getInternshipCourses();
-        console.log("resopnse of palcement",responseplacement)
-        setCourses(response);
-
+        // const response = await apiClass.getCourses();
+        const responseplacement = await apiClass.getPlacementCourses();
+        console.log("resopnse of palcement",responseplacement.placementPreparation)
+        setCourses(responseplacement.placementPreparation);
       } catch (error) {
         console.log("CourseCard :: useEffect :: error", error);
       }
@@ -45,19 +44,19 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
   // Filter courses based on the active category and selectedFilters
   const filteredCourses =
     activeCategory === "ALL PROGRAM"
-      ? courses.filter(applyFilters)
-      : courses.filter((course) => course.category === activeCategory && applyFilters(course));
+      ? courses?.filter(applyFilters)
+      : courses?.filter((course) => course.category === activeCategory && applyFilters(course));
 
 
   return (
     <div className={styles.cardsContainer}>
-      {filteredCourses.length > 0 ? (
+      {filteredCourses?.length > 0 ? (
         
         filteredCourses.map((course, index) => (
           <Link to={`/course/${course.title}/${course._id}`} key={index} className={styles.link}>
           <div key={index} className={styles.card}>
             {/* Card Image */}
-            <img src={course.thumbnail} alt={course.title} className={styles.cardImage} />
+            <img src={course.coverPhoto} alt={course.title} className={styles.cardImage} />
 
             {/* Card Content */}
             <div className={styles.cardContent}>
@@ -68,13 +67,13 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
                   <span className={styles.badge}>Start Learning</span>
                 </div>
                 <div className={styles.ranking}>
-                  {[...Array(course.review || 0)].map((_, i) => (
+                  {[...Array(course.review || 5)].map((_, i) => (
                     <img src="/starFilled.svg" alt="rating" className={styles.stars} key={i}/>
                   ))}
                   {[...Array(5 - course.review || 0)].map((_, i) => (
                     <img src="/starEmpty.svg" alt="rating" className={styles.stars} key={i} />
                   ))}
-                  <span className={styles.rating}>{(course.review).toFixed(1)} Rating</span>
+                  <span className={styles.rating}>{(5).toFixed(1)} Rating</span>
                 </div>
               </div>
 

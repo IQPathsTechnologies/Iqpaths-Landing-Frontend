@@ -7,6 +7,7 @@ import { CoursesContext } from '../../context/coursesContext';
 const SearchTab = () => {
   const searchClass = new AllTypeOfSearch();
   const{setCourses}=useContext(CoursesContext);
+  
   const dataWhichNeedToBeSearched = useRef(""); 
   const handleWhatweWantToSearch =async()=>{
     const response = await searchClass.search(dataWhichNeedToBeSearched.current.value);

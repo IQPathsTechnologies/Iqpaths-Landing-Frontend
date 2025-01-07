@@ -15,9 +15,10 @@ const InternshipCards = ({ activeCategory, selectedFilters }) => {
     async function fetchData() {
       try {
         const response = await apiClass.getCourses();
+        console.log("AllCourseCard :: useEffect :: response", response);
         const responseInternship = await apiClass.getInternshipCourses();
-        console.log("resopnse of internship",responseInternship);
-        setCourses(response);
+        console.log("resopnse of internship",responseInternship.internships);
+        setCourses(responseInternship.internships);
 
       } catch (error) {
         console.log("CourseCard :: useEffect :: error", error);
@@ -54,10 +55,10 @@ const InternshipCards = ({ activeCategory, selectedFilters }) => {
       {filteredCourses.length > 0 ? (
         
         filteredCourses.map((course, index) => (
-          <Link to={`/course/${course.title}/${course._id}`} key={index} className={styles.link}>
+          // <Link to={`/course/${course.title}/${course._id}`} key={index} className={styles.link}>
           <div key={index} className={styles.card}>
             {/* Card Image */}
-            <img src={course.thumbnail} alt={course.title} className={styles.cardImage} />
+            <img src={course.coverPhoto} alt={course.title} className={styles.cardImage} />
 
             {/* Card Content */}
             <div className={styles.cardContent}>
@@ -68,13 +69,13 @@ const InternshipCards = ({ activeCategory, selectedFilters }) => {
                   <span className={styles.badge}>Start Learning</span>
                 </div>
                 <div className={styles.ranking}>
-                  {[...Array(course.review || 0)].map((_, i) => (
+                  {[...Array(course.review || 5)].map((_, i) => (
                     <img src="/starFilled.svg" alt="rating" className={styles.stars} key={i}/>
                   ))}
                   {[...Array(5 - course.review || 0)].map((_, i) => (
                     <img src="/starEmpty.svg" alt="rating" className={styles.stars} key={i} />
                   ))}
-                  <span className={styles.rating}>{(course.review).toFixed(1)} Rating</span>
+                  <span className={styles.rating}>{(5).toFixed(1)} Rating</span>
                 </div>
               </div>
 
@@ -123,9 +124,9 @@ const InternshipCards = ({ activeCategory, selectedFilters }) => {
 
 
             {/* Action Button */}
-            <button className={styles.learnNowButton}>Learn Now</button>
+            <button className={styles.learnNowButton}>Currently not available</button>
           </div>
-          </Link>
+          // </Link>
         ))
 
       ) : (
