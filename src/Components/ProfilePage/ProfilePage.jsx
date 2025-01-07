@@ -19,6 +19,7 @@ const ProfilePage = () => {
     bio: 'Passionate developer with expertise in web development.',
     language: 'en-US',
     email: 'sharmahricha6@gmail.com',
+    oldPassword: '',
     password: '',
     confirmPassword: '',
   });
@@ -207,6 +208,18 @@ const ProfilePage = () => {
                 <p className={styles.emailText}>
                   Your email address is <span>{formData.email}</span>
                 </p>
+              </div>
+              <div className={styles.formGroup}>
+                <label className={styles.label} htmlFor="oldPassword">Enter old password:</label>
+                <input
+                  className={styles.input}
+                  type="password"
+                  id="oldPassword"
+                  placeholder="Enter old password"
+                  value={formData.oldPassword}
+                  disabled={!isEditing}
+                  onChange={handleInputChange}
+                />
               </div>
               <div className={styles.formGroup}>
                 <label className={styles.label} htmlFor="password">Enter new password:</label>
