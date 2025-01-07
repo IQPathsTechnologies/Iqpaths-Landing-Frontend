@@ -7,7 +7,7 @@ const Course = () => {
     return (
         <div>
             <ContactUs />
-            <Location />
+            {/* <Location /> */}
             <NewsletterSection />
         </div>
     );

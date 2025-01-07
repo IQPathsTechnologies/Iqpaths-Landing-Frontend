@@ -45,6 +45,7 @@ const ContinuousVideo = () => {
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [courses, setCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [noCourses, setNoCourses] = useState(false);
 
 
   // const { user } = useContext(UserContext);
@@ -58,7 +59,8 @@ const ContinuousVideo = () => {
         console.log('ContinuousVideo :: fetchData :: response', response);
 
       } catch (error) {
-        console.error("Error fetching lessons", error);
+        setNoCourses(true);
+        return
       }
     };
     fetchData();
@@ -114,8 +116,6 @@ const ContinuousVideo = () => {
                 </div>
               </div>
             ))
-
-
           ) :   
             courses.map((lesson) => (
               <div key={lesson.id} className={styles.card}>

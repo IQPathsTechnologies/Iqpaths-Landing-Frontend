@@ -7,7 +7,7 @@ const Course = () => {
     return (
         <div>
             <ContinuousVideo />
-            <SimilarCourses />
+            {/* <SimilarCourses /> */}
             <NewsletterSection />
         </div>
     );

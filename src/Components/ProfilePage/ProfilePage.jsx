@@ -7,29 +7,30 @@ const ProfilePage = () => {
   const [activeSection, setActiveSection] = useState('Profile');
   const [isEditing, setIsEditing] = useState(false); // Track editing state
   const [userDetails, setUserDetails] = useState(); // Store user details
-  const [formData, setFormData] = useState({}); // Store form data
+  // const [formData, setFormData] = useState({}); // Store form data
 
   const apiClass = new AuthService();
 
-  // const [formData, setFormData] = useState({
-  //   name: userDetails?.name,
-  //   mobileNumber: '1234567890',
-  //   bio: 'Passionate developer with expertise in web development.',
-  //   language: 'en-US',
-  //   email: 'sharmahricha6@gmail.com',
-  //   password: '',
-  //   confirmPassword: '',
-  // });
+  const [formData, setFormData] = useState({
+    name: userDetails?.name,
+    mobileNumber: '',
+    bio: '',
+    language: 'en-US',
+    email: '',
+    newPassword: '',
+    oldPassword: '',
+    confirmPassword: '',
+  });
 
   useEffect(() => {
     if (userDetails) {
       setFormData({
         name: userDetails.name,
         mobileNumber: userDetails.mobileNo || '',
-        bio: userDetails.bio || 'Passionate developer with expertise in web development.',
+        bio: userDetails.bio || '',
         language: userDetails.language || 'en-US',
         email: userDetails.email,
-        password: '',
+        newPassword: '',
         oldPassword: '',
         confirmPassword: '',
       });
@@ -70,6 +71,8 @@ const ProfilePage = () => {
   
   const handleInputChange = (e) => {
     const { id, value } = e.target;
+    // console.log("id",id);
+    // console.log("value",value);
     setFormData({ ...formData, [id]: value });
   };
 
@@ -120,8 +123,15 @@ const ProfilePage = () => {
   const passwordUpdate = async () => {
     try {
       console.log("form data in password update",formData);
+      if(formData.newPassword !== formData.confirmPassword){
+        alert("New password and confirm password should be same");
+        return;
+      }
       const response = await apiClass.changePassword(formData);
       console.log('ProfilePage :: passwordUpdate :: response', response);
+      formData.oldPassword = '';
+      formData.newPassword = '';
+      formData.confirmPassword = '';
     } catch (error) {
       console.error("ProfilePage :: passwordUpdate", error);
     }
@@ -177,7 +187,7 @@ const ProfilePage = () => {
                 <textarea
                   className={styles.textarea}
                   id="bio"
-                  value={userDetails?.bio}
+                  value={formData?.bio}
                   placeholder="Tell more about yourself"
                   disabled={!isEditing}
                   onChange={handleInputChange}
@@ -193,9 +203,9 @@ const ProfilePage = () => {
                   onChange={handleInputChange}
                 >
                   <option value="en-US">English (US)</option>
-                  <option value="en-GB">English (UK)</option>
+                  {/* <option value="en-GB">English (UK)</option>
                   <option value="fr">French</option>
-                  <option value="es">Spanish</option>
+                  <option value="es">Spanish</option> */}
                 </select>
               </div>
               {isEditing ? (
@@ -294,13 +304,13 @@ const ProfilePage = () => {
                 />
               </div>
               <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="password">Enter new password:</label>
+                <label className={styles.label} htmlFor="newPassword">Enter new password:</label>
                 <input
                   className={styles.input}
                   type="password"
-                  id="password"
+                  id="newPassword"
                   placeholder="Enter new password"
-                  value={formData.password}
+                  value={formData.newPassword}
                   disabled={!isEditing}
                   onChange={handleInputChange}
                 />
@@ -348,7 +358,7 @@ const ProfilePage = () => {
             </form>
           </div>
         );
-        case 'Close account':
+      case 'Close account':
         return (
           <div className={styles.content}>
             <h2 className={styles.heading}>Close account</h2>
