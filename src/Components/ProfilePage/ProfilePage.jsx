@@ -7,16 +7,15 @@ const ProfilePage = () => {
   const [activeSection, setActiveSection] = useState('Profile');
   const [isEditing, setIsEditing] = useState(false); // Track editing state
   const [userDetails, setUserDetails] = useState();
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
+  // const [firstName, setFirstName] = useState();
+  // const [lastName, setLastName] = useState();
 
 
   const apiClass = new AuthService();
 
   const [formData, setFormData] = useState({
-    firstName: 'Hricha',
-    lastName: 'Sharma',
-    headline: 'Software Developer',
+    name: 'Hricha Sharma',
+    mobileNumber: '1234567890',
     bio: 'Passionate developer with expertise in web development.',
     language: 'en-US',
     email: 'sharmahricha6@gmail.com',
@@ -93,39 +92,26 @@ const ProfilePage = () => {
             <p className={styles.description}>Add information about yourself</p>
             <form className={styles.form}>
               <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="firstName">First Name:</label>
+                <label className={styles.label} htmlFor="name">Name:</label>
                 <input
                   className={styles.input}
                   type="text"
-                  id="firstName"
-                  value={formData.firstName}
-                  placeholder="First Name"
-                  disabled={!isEditing}
+                  id="name"
+                  value={formData.name}
+                  placeholder="Enter you full name"
+                  disabled={true}
                   onChange={handleInputChange}
                 />
               </div>
               <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="lastName">Last Name:</label>
+                <label className={styles.label} htmlFor="mobileNumber">Mobile Number:</label>
                 <input
                   className={styles.input}
-                  type="text"
-                  id="lastName"
-                  value={formData.lastName}
-                  placeholder="Last Name"
-                  disabled={!isEditing}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="headline">Headline:</label>
-                <input
-                  className={styles.input}
-                  type="text"
-                  id="headline"
-                  value={formData.headline}
-                  placeholder="Add a professional headline"
-                  maxLength={60}
-                  disabled={!isEditing}
+                  type="tel"
+                  id="mobileNumber"
+                  value={formData.mobileNumber}
+                  placeholder="Enter you mobile number"
+                  disabled={true}
                   onChange={handleInputChange}
                 />
               </div>
@@ -285,7 +271,7 @@ const ProfilePage = () => {
                     type="button"
                     className={styles.buttonPrimary}
                     onClick={handleEditClick}
-                  >
+                  > 
                     Edit
                   </button>
                 </div>
