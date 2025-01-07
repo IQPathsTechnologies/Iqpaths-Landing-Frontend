@@ -30,6 +30,7 @@ const ProfilePage = () => {
         language: userDetails.language || 'en-US',
         email: userDetails.email,
         password: '',
+        oldPassword: '',
         confirmPassword: '',
       });
     }
@@ -279,6 +280,18 @@ const ProfilePage = () => {
                 <p className={styles.emailText}>
                   Your email address is <span>{userDetails?.email}</span>
                 </p>
+              </div>
+              <div className={styles.formGroup}>
+                <label className={styles.label} htmlFor="oldPassword">Enter old password:</label>
+                <input
+                  className={styles.input}
+                  type="password"
+                  id="oldPassword"
+                  placeholder="Enter old password"
+                  value={formData.oldPassword}
+                  disabled={!isEditing}
+                  onChange={handleInputChange}
+                />
               </div>
               <div className={styles.formGroup}>
                 <label className={styles.label} htmlFor="password">Enter new password:</label>
