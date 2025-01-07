@@ -97,12 +97,28 @@ export class AuthService {
 
     async updateProfilePhoto(profilePhoto){
         try {
-            return await axios.post("/api/user/updateProfilePhoto", {profilePhoto}, {withCredentials: true});
+            console.log("profilePhoto user file me aya",profilePhoto);
+            const formData = new FormData();
+            formData.append("profilePhoto", profilePhoto);
+            console.log("profilePhoto user file me aya form data",formData);
+
+            return await axios.post("/api/user/updateProfilePhoto", formData, { headers: {"Content-Type": "multipart/form-data"}, withCredentials: true});
         } catch (error) {
             // console.log("AuthService :: updateProfilePicture :: error", error);
             throw error;
         }
     }
+
+
+    async deleteUser(){
+        try {
+            return await axios.delete("/api/user/delete", {withCredentials: true});
+        } catch (error) {
+            // console.log("AuthService :: deleteUser :: error", error);
+            throw error;
+        }
+    }
+    
 
 
     async getUserDetails(){

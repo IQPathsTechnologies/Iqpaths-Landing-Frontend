@@ -24,6 +24,7 @@ const ProfilePage = () => {
   });
 
   const [selectedImage, setSelectedImage] = useState(null); // For photo section
+  const [uploadImage, setUploadImage] = useState(null); // For photo section
 
   const sections = [
     { name: 'View public profile', link: '/my-learnings' },
@@ -61,6 +62,7 @@ const ProfilePage = () => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
+      setUploadImage(file);
       const reader = new FileReader();
       reader.onload = () => setSelectedImage(reader.result);
       reader.readAsDataURL(file);
@@ -70,16 +72,41 @@ const ProfilePage = () => {
 
 
   const handlePhotoUpdate = async () => {
-    const formData = new FormData();
-    formData.append('profilePhoto', selectedImage);
-    console.log("form data me ye hia ")
     try {
-      const response = await apiClass.updateProfilePhoto(formData);
+      const response = await apiClass.updateProfilePhoto(uploadImage);
+
+      if(response.status == 201){
+        const user = response.data.data;
+        setUserDetails(user);
+      }
       console.log('ProfilePage :: handlePhotoUpdate :: response', response);
     } catch (error) {
       console.error("ProfilePage :: handlePhotoUpdate", error);
     }
   };
+
+
+  const handleProfileDetailsUpdate = async () => {
+    try {
+      const response = await apiClass.updateProfileDetails(formData);
+
+      console.log('ProfilePage :: handleProfileDetailsUpdate :: response', response);
+    } catch (error) {
+      console.error("ProfilePage :: handleProfileDetailsUpdate", error);
+    }
+  };
+
+
+  const passwordUpdate = async () => {
+    try {
+      console.log("form data in password update",formData);
+      const response = await apiClass.changePassword(formData);
+      console.log('ProfilePage :: passwordUpdate :: response', response);
+    } catch (error) {
+      console.error("ProfilePage :: passwordUpdate", error);
+    }
+  };
+
 
 
 
@@ -97,7 +124,7 @@ const ProfilePage = () => {
                   className={styles.input}
                   type="text"
                   id="name"
-                  value={formData.name}
+                  value={userDetails?.name}
                   placeholder="Enter you full name"
                   disabled={true}
                   onChange={handleInputChange}
@@ -109,7 +136,7 @@ const ProfilePage = () => {
                   className={styles.input}
                   type="tel"
                   id="mobileNumber"
-                  value={formData.mobileNumber}
+                  value={userDetails?.mobileNo}
                   placeholder="Enter you mobile number"
                   disabled={true}
                   onChange={handleInputChange}
@@ -120,7 +147,7 @@ const ProfilePage = () => {
                 <textarea
                   className={styles.textarea}
                   id="bio"
-                  value={formData.bio}
+                  value={userDetails?.bio}
                   placeholder="Tell more about yourself"
                   disabled={!isEditing}
                   onChange={handleInputChange}
@@ -253,7 +280,7 @@ const ProfilePage = () => {
                   <button
                     type="button"
                     className={styles.buttonPrimary}
-                    onClick={() => setIsEditing(false)}
+                    onClick={() => {setIsEditing(false); passwordUpdate()}}
                   >
                     Save Changes
                   </button>
@@ -314,7 +341,8 @@ const ProfilePage = () => {
         <div className={styles.profileInfo}>
           <div className={styles.profilePhoto}>
             <img
-              src="https://via.placeholder.com/80"
+              // src="https://via.placeholder.com/80/d8d3de?text=User"
+              src={userDetails?.profilePhoto ? userDetails.profilePhoto : `https://via.placeholder.com/80/d8d3de?text=User`}
               alt="Profile"
               className={styles.profileImage}
             />
