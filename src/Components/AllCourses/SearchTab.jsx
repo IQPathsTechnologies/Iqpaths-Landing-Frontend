@@ -10,7 +10,8 @@ const SearchTab = ({flag}) => {
   
   const dataWhichNeedToBeSearched = useRef(""); 
   const handleWhatweWantToSearch =async()=>{
-    const response = await searchClass.search(dataWhichNeedToBeSearched.current, flag);
+    // console.log("data jo search kiya ", dataWhichNeedToBeSearched.current.value);
+    const response = await searchClass.search(dataWhichNeedToBeSearched.current?.value, flag);
     console.log("search ka data",response.data.data.items);
     console.log("search ka pura data",response);
     setCourses(response.data.data.items);

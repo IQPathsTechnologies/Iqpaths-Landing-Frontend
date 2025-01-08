@@ -96,7 +96,7 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
                   ))}
                   <li className={styles.point}>
                       <span className={styles.priceDetail}>
-                        <span className={`${styles.originalPrice} ${course.discountedPrice ? styles.strike : ""}`}>Rs. {course.realPrice}</span>{" "}
+                        {/* <span className={`${styles.originalPrice} ${course.discountedPrice ? styles.strike : ""}`}>Rs. {course.realPrice}</span>{" "} */}
                         <span className={styles.discountedPrice}>Rs. {course.price}</span>
                       </span>
                   </li>
@@ -122,7 +122,7 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
 
 
             {/* Action Button */}
-            <button className={styles.learnNowButton}>Currently not available</button>
+            <button className={styles.learnNowButton}>Comming soon!!!</button>
           </div>
           // </Link>
         ))

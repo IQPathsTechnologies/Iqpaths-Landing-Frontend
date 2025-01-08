@@ -84,7 +84,7 @@ const Roadmap = () => {
     <div className={styles.container}>
       {/* <h2 className={styles.heading}>Roadmap to Join Us</h2> */}
       <div className={styles.timeline}>
-        {Roadmap?.map((step, index) => (
+        {roadmapSteps?.map((step, index) => (
           <div key={step.id} className={styles.stepContainer}>
             <div
               className={`${styles.stepContent} ${

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback, useRef, useContext } from "react";
 import SignUpPopup from "./SignUpPopup";
 import styles from "./CourseSection.module.css";
 import CourseDetails from "./CourseDetails";
@@ -6,6 +6,7 @@ import { getRazorPay, loadRazorPay } from "../../utility/Razorpay/Razorpay";
 import { verifyPayment, createOrder } from "../../utility/Razorpay/RazorpayApi";
 import { useParams, useNavigate } from "react-router-dom";
 import { AuthService } from '../../axios/User';
+import { UserContext } from "../../context/userContext";
 
 
 
@@ -29,7 +30,7 @@ const CourseSection = ({
   // const [couponCode, setCouponCode] = useState(null);
   const couponCode = useRef("");
 
-
+ const {isLoggedin} = useContext(UserContext);
   const { title, id } = useParams();
   const courseId = id;
   
@@ -114,17 +115,24 @@ const CourseSection = ({
 
   const handleOpenPopup = () => {
 
-    //login popup
+    // login popup
     // setIsPopupVisible(true); 
     // document.body.style.overflow = "hidden"; 
 
-    //razor pay 
-    if(!isPurchased){
-      handlePurchase();
-    }
-    else{
-      alert("You have already purchased this course.");
-    }
+
+    // if(!isLoggedin){
+    //   alert("Please login to buy the course.");
+    // }
+    // else{
+      //razor pay 
+      if(!isPurchased){
+        handlePurchase();
+      }
+      else{
+        alert("You have already purchased this course.");
+      }
+    // }
+
 
   };
 
@@ -297,7 +305,7 @@ const CourseSection = ({
               <img src={courseDetails.thumbnail} alt="Preview" />
             </div>
             <div className={styles.coursePricing}>
-              <p className={styles.price}> Rs.{couponDiscountedPrice ? couponDiscountedPrice : courseDetails.price} </p>
+              <p className={styles.price}> Rs.{couponDiscountedPrice ? Math.floor(couponDiscountedPrice) : courseDetails.price} </p>
               <p className={styles.discount}>
                 {" "}
                 {(
@@ -333,7 +341,7 @@ const CourseSection = ({
                 </div>
               </div>
               <button className={styles.buy} onClick={handleOpenPopup}>
-                {isPurchased ? (<p> Purchased </p>) : (<p> Buy Now </p>)}
+                {(isPurchased ? (<p> Purchased </p>) : (<p> Buy Now </p>)) }
               </button>
               {/* <p className={styles.moneyBack}>
                 <p> 30 Day Money Back Guarantee </p>

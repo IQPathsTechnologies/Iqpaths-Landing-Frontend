@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './HeroSection.module.css';
 // import heroImage from './assets/heroImage.jpg'; 
 
 const HeroSection = () => {
   const overlayText = 'Learn something new everyday.'; 
   const overlayText2 = 'Become professionals and ready to join the world.';
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
  
   return (
     <div className={styles.heroSection}>

@@ -81,6 +81,7 @@ const InternshipCards = ({ activeCategory, selectedFilters }) => {
 
               {/* Title */}
               <h3 className={styles.title}>{course.title}</h3>
+              {/* <h4 className={styles.requirements}>Requirements</h4> */}
 
               {/* Details */}
               <div className={styles.details}>
@@ -96,12 +97,12 @@ const InternshipCards = ({ activeCategory, selectedFilters }) => {
                       
                     </li>
                   ))}
-                  <li className={styles.point}>
+                  {/* <li className={styles.point}>
                       <span className={styles.priceDetail}>
                         <span className={`${styles.originalPrice} ${course.discountedPrice ? styles.strike : ""}`}>Rs. {course.realPrice}</span>{" "}
                         <span className={styles.discountedPrice}>Rs. {course.price}</span>
                       </span>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
@@ -124,7 +125,7 @@ const InternshipCards = ({ activeCategory, selectedFilters }) => {
 
 
             {/* Action Button */}
-            <button className={styles.learnNowButton}>Currently not available</button>
+            <button className={styles.learnNowButton}>contact mail: hr@iqpaths.com</button>
           </div>
           // </Link>
         ))

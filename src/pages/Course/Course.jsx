@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import styles from './Course.module.css';
 import CourseSection from '../../Components/CourseSection/CourseSection'
 import CourseDetails from '../../Components/CourseSection/CourseDetails'
@@ -9,6 +9,9 @@ import SimilarCourses from '../../Components/SimilarCourses/SimilarCourses'
 import { UserContext } from '../../context/userContext';
 
 const Course = () => {
+
+
+    
 
     const { userId } = useContext(UserContext);
 

@@ -115,8 +115,25 @@
     font-weight: 600;
     color: #07152F;
     margin-top: 20px;
+    /* border: 2px solid red; */
+    /* margin-bottom: 0; */
     /* height: 80px; */
 }
+
+.requirements {
+    font-style: "Manrope", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    /* margin-top: 0;
+    margin-bottom: 30px; */
+    margin:  0px auto 30px 20px;
+    /* text-align: center; */
+
+    /* color: #737373; */
+    /* margin-top: 10px; */
+    /* border: 2px solid red; */
+}
+
 
 /* Details list */
 .detailsss {

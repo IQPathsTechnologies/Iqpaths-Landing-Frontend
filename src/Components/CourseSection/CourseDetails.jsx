@@ -81,9 +81,9 @@ const CourseDetails = () => {
     const tabContent = {
       Overview: (
         <div className={styles.overview}>
-          <p>{courseDetails.description}</p>
-          <p>{courseDetails.description}</p>
-          <p>{courseDetails.description}</p>
+          <p>{courseDetails.overview}</p>
+          {/* <p>{courseDetails.description}</p>
+          <p>{courseDetails.description}</p> */}
         </div>
       ),
       Curriculum: (

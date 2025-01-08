@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./InternshipFilter.module.css";
 
 const InternshipFilter = ({ onCategoryChange, onFilterChange }) => {
- const title = "Discover Course & Bootcamp";
+ const title = "Discover Available Internships";
    const categories = [
      {
        name: "Course Category",

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    /* height: 280vh; */
+    /* height: 350vh; */
     /* height: 225vh;
     min-height: 230vh;
     max-height: 280vh; */
@@ -50,10 +50,11 @@
 }
 
 .title {
-    margin-top: -5px;
+    margin-top: -25px;
     margin-left: -10px;
     font-style: "Lexend", sans-serif;
     font-weight: 700;
+    width: 1000px;
     font-size: 58px;
     padding-bottom: 10px;
     color: white;
