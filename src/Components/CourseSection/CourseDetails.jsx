@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef , useEffect } from 'react';
 import { AuthService } from '../../axios/User';
 import { useParams } from "react-router-dom";
 import styles from './CourseDetails.module.css'; 
+import VideoPop from './VideoPop';
 
 const CourseDetails = () => {
     const [activeTab, setActiveTab] = useState("Overview");
@@ -9,6 +10,10 @@ const CourseDetails = () => {
     const [currentPage, setCurrentPage] = useState(1);  // State to manage current page of reviews
     const [courseDetails, setCourseDetails] = useState([]);
     const [review, setReview ] = useState([]);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const popupRef = useRef(null);
+    const [popupContent, setPopupContent] = useState('');
+
     const reviewsPerPage = 3;
 
     
@@ -74,8 +79,32 @@ const CourseDetails = () => {
     }
     , [id]);
 
+    // const handleLectureClick = (lectureTitle) => {
+    //   setPopupContent(`You selected: ${lectureTitle}`);
+    //   setPopupVisible(true);
 
+    //   setTimeout(() => {
+    //     setPopupVisible(false);
+    //   }, 60000); 
+    // };
 
+    const handlePopupClose = (e) => {
+      if (popupRef.current && !popupRef.current.contains(e.target)) {
+        setIsPopupOpen(false);
+      }
+    };
+
+    useEffect(() => {
+      document.addEventListener("click", handlePopupClose);
+
+      return () => {
+        document.removeEventListener("click", handlePopupClose);
+      };
+    }, []);
+
+    const handleLectureClick = (lessonId) => {
+      setIsPopupOpen(true);
+    };
 
 
     const tabContent = {
@@ -97,9 +126,7 @@ const CourseDetails = () => {
             <div key={index} className={styles.section}>
               <div
                 className={styles.sectionHeader}
-                onClick={() =>
-                  setOpenDropdown(openDropdown === index ? null : index)
-                }
+                onClick={() => setOpenDropdown(openDropdown === index ? null : index)}
               >
                 <span>{section.name}</span>
                 <span>
@@ -113,40 +140,48 @@ const CourseDetails = () => {
                   )}
                 </span>
               </div>
-              {openDropdown === index && (
-                <div className={styles.sectionContent}>
-                  {section?.lectures?.map((lesson, idx) => (
-                    <div key={idx} className={styles.lesson}>
-                      <div className={styles.lessons}>
-                        <img src="/lesson.png" alt="Lesson" />
-                        <span className={styles.name}>
-                          {lesson.title}
-                        </span>
-                      </div>
-                      <div className={styles.button}>
-                        <button className={styles.previewButton}>
-                          {lesson.preview ? "Preview" : "Locked"}
-                        </button>
-                        <span className={styles.lessonTime}>{lesson.duration} hour</span>
-                        {lesson.preview && (
-                          <span className={styles.lessonCheck}>
-                            <img src="/tick.png" alt="Tick" />
-                          </span>
-                        )}
-                        {lesson.locked && (
-                          <span className={styles.lessonLock}>
-                            <img src="/lock.png" alt="Lock" />
-                          </span>
-                        )}
-                      </div>
+            {openDropdown === index && (
+              <div className={styles.sectionContent}>
+                {section?.lectures?.map((lesson, idx) => (
+                  <div key={idx} className={styles.lesson} onClick={() => handleLectureClick(lesson.id)}>
+                    <div className={styles.lessons}>
+                      <img src="/lesson.png" alt="Lesson" />
+                      <span className={styles.name}>{lesson.title}</span>
                     </div>
-                  ))}
-                </div>
-              )}
+                    <div className={styles.button}>
+                      <button className={styles.previewButton}>
+                        {lesson.preview ? "Preview" : "Locked"}
+                      </button>
+                      <span className={styles.lessonTime}>{lesson.duration} hour</span>
+                      {lesson.preview && (
+                        <span className={styles.lessonCheck}>
+                          <img src="/tick.png" alt="Tick" />
+                        </span>
+                      )}
+                      {lesson.locked && (
+                        <span className={styles.lessonLock}>
+                          <img src="/lock.png" alt="Lock" />
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ))}
             </div>
-          ))}
+          )}
         </div>
-      ),
+      ))}
+
+      {isPopupOpen && (
+        <div className={styles.popup} ref={popupRef}>
+          <div className={styles.popupContent}>
+            <p>Lesson Details</p>
+            {/* Add content related to the selected lesson */}
+            <button onClick={() => setIsPopupOpen(false)}>Close</button>
+          </div>
+        </div>
+      )}
+        </div>
+      ),      
       Instructor: (
         <div className={styles.instructor}>
           <div className={styles.instructorHeader}>
@@ -330,6 +365,8 @@ const CourseDetails = () => {
                     ))}
                 </div>
                 <div className={styles.tabContent}>{tabContent[activeTab]}</div>
+
+                {/* {isPopupVisible && <VideoPop content={popupContent} />} */}
             </div>
         </>
     );
