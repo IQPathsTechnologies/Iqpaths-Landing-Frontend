@@ -3,20 +3,23 @@ import styles from './MentorPopup.module.css';
 import { Link } from 'react-router-dom';
 
 const MentorPopup = ({ image, onClose, details }) => {
-  // Disable background scrolling when popup is open
+  details = {
+    ...details,
+    linkedin: details.linkedin || 'https://www.linkedin.com/in/default-profile', 
+  };
+
   useEffect(() => {
     if (image) {
-      document.body.style.overflow = 'hidden'; // Disable scrolling
+      document.body.style.overflow = 'hidden'; 
     } else {
-      document.body.style.overflow = 'auto'; // Enable scrolling
+      document.body.style.overflow = 'auto'; 
     }
 
     return () => {
-      document.body.style.overflow = 'auto'; // Clean up on unmount
+      document.body.style.overflow = 'auto'; 
     };
   }, [image]);
 
-  // Close popup if clicking outside the content
   const handleOverlayClick = (e) => {
     if (e.target.classList.contains(styles.overlay)) {
       onClose();
@@ -37,21 +40,15 @@ const MentorPopup = ({ image, onClose, details }) => {
           </div>
           <div className={styles.textContainer}>
             <h2>{details.name}</h2>
-            <p>
-              {details.description}
-            </p>
+            <p>{details.description}</p>
             <div className={styles.icons}>
+              {details.linkedin && (
                 <div className={styles.icon}>
-                    <img src="/twitterLogo.svg" alt="Twitter" />
+                  <a href={details.linkedin} target="_blank" rel="noopener noreferrer">
+                    <img src="/linkedinLogo.svg" alt="LinkedIn" />
+                  </a>
                 </div>
-                <div className={styles.icon}>
-                    <Link to={details.linkedin}>
-                    <img src="/linkedinLogo.svg" alt="Linked in" />
-                    </Link>
-                </div>
-                <div className={styles.icon}>
-                    <img src="/instagramLogo.svg" alt="Instagram" />
-                </div>
+              )}
             </div>
           </div>
         </div>
