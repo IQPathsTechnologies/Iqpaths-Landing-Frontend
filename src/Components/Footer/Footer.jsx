@@ -10,7 +10,7 @@ const Footer = () => {
                 <div className={styles.footerLeft}>
                     <div className={styles.footerLogo}>
                         <img
-                        src="src/assets/logoIcon.svg" 
+                        src="/logoIcon.svg" 
                         alt="Paths Logo"
                         className={styles.logoImage}
                         />
@@ -20,7 +20,7 @@ const Footer = () => {
                     <div className={styles.socialmediaLogoContainer}> 
                         <a href="https://www.youtube.com/@IQPaths" target="_blank" rel="noopener noreferrer">
                              <img
-                            src="src/assets/youtubeLogo.svg" 
+                            src="/youtubeLogo.svg" 
                             alt="youtube Logo"
                             className={styles.youtubeLogo}
                             />
