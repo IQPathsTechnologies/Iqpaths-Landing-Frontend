@@ -118,9 +118,7 @@ const CourseDetails = () => {
       Curriculum: (
         <div className={styles.curriculum}>
           <p>
-            LearnPress is a comprehensive WordPress LMS Plugin for WordPress.
-            This is one of the best WordPress LMS Plugins which can be used to
-            easily create & sell courses online.
+          Unlock the power of data with our comprehensive Machine Learning course, featuring a well-structured curriculum that blends theoretical foundations with hands-on experience to equip you with the skills needed to build cutting-edge models and advance your career in AI and data science.
           </p>
           {courseDetails?.chapters?.map((section, index) => (
             <div key={index} className={styles.section}>
