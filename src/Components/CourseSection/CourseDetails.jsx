@@ -13,7 +13,7 @@ const CourseDetails = () => {
 
     
     const { title, id } = useParams();
-    // console.log(title, id); 
+    // console.log(title, id);  
 
 
 
