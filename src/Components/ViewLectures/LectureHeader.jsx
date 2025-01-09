@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import styles from "./lectureHeader.module.css";
+import styles from "./LectureHeader.module.css";
 import { AuthService } from "../../axios/User";
 import { use } from "react";
 
