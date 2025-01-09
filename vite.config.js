@@ -5,12 +5,13 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': {
-        target: 'https://iqpath-landing-backend.onrender.com', 
-        // target: 'http://localhost:8000', 
-        changeOrigin: true,
-        secure: false,
-      },
+      // '/api': {
+      //   target: 'https://iqpath-landing-backend.onrender.com', 
+      //   // target: 'http://localhost:8000', 
+      //   changeOrigin: true,
+      //   secure: false,
+      // },
+      '/api': "https://iqpath-landing-backend.onrender.com"
     },
   },
 });
