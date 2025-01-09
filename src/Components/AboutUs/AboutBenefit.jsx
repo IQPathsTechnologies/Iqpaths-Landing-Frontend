@@ -38,7 +38,7 @@ const AboutBenefit = () => {
       bgColor: "#ffc107", // Yellow
     },
     {
-      image: "public/price.jpg", // Replace with the path to your image
+      image: "/money.svg", // Replace with the path to your image
       title: "Affordable Price",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting.",

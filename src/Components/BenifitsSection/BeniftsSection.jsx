@@ -4,22 +4,22 @@ import QueryCard from "./QueryCard";
 
 const content = [
   {
-    title: "1-on-1 lessons in more than 150 languages",
-    shortDescription: "Our platform offers features to guide you in your journey.",
+    title: "Comprehensive Learning Programs",
+    shortDescription: " Access advanced courses in machine learning,",
     longDescription:
-      "Our platform is loaded with features that will help you in every step of your journey, offering personalized lessons and more."
+      " Access advanced courses in machine learning, data analysis, and software development, tailored to industry demands and enriched with live projects and expert mentorship."
   },
   {
-    title: "Personalized learning plans",
-    shortDescription: "Get a tailored learning plan for your needs.",
+    title: "Hands-On Industry Experience",
+    shortDescription: " Gain practical exposure through internships",
     longDescription:
-      "Get a customized learning plan tailored to your needs and goals, ensuring that your progress is optimized."
+      "Gain practical exposure through internships with top companies, enhancing your real-world skills and competitive edge."
   },
   {
-    title: "Access to expert tutors",
-    shortDescription: "Learn from experienced tutors.",
+    title: "Personalized Career Support",
+    shortDescription: " Benefit from mock interviews,",
     longDescription:
-      "Learn from the best with access to experienced tutors who can provide you with personalized guidance and expertise."
+      "Benefit from mock interviews, professional development coaching, and personalized placement services to secure your dream job. "
   }
 ];
 
@@ -70,7 +70,7 @@ function BeniftsSection() {
             What Will You <span className={styles.blue}>Get</span>?
           </h1>
           <p>
-            Our platform is loaded with features that will help you in every step of your journey.
+            Unlock hands-on experience, expert guidance, exclusive internships, and career-boosting opportunities. Elevate your skills and knowledge with IQPaths—your success partner!
           </p>
         </div>
         <div className={styles.queryContainer}>
