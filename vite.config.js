@@ -6,7 +6,8 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8000', // Replace with your API server's base URL
+        target: 'https://iqpath-landing-backend.onrender.com', 
+        // target: 'http://localhost:8000', 
         changeOrigin: true,
         secure: false,
       },

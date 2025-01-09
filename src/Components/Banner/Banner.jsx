@@ -4,9 +4,9 @@ import ButtonCarousel from '../../utility/ButtonCarousel/ButtonCarousel';
 import { AuthService } from '../../axios/User';
 
 const imagesTemp = [
-    'src/assets/Banner/1.png',
-    'src/assets/Banner/1.png',
-    'src/assets/Banner/1.png',
+    '/Banner/1.png',
+    '/Banner/1.png',
+    '/Banner/1.png',
 ];
 
 const apiClass = new AuthService();
