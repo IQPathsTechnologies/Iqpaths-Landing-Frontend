@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./testimonials.module.css";
+import styles from "./Testimonials.module.css";
 import { AuthService } from "../../axios/User";
 
 const apiClass = new AuthService();
