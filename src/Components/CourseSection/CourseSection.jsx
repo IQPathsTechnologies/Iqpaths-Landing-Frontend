@@ -24,7 +24,7 @@ const CourseSection = ({
   const [loading, setLoading] = useState(true);
   const [isApplied, setIsApplied] = useState(false);
   const [whishlist, setWhishlist] = useState(false);
-  const [isPurchased, setIsPurchased] = useState([]);
+  const [isPurchased, setIsPurchased] = useState(null);
   const [couponDiscountedPrice, setCouponDiscountedPrice] = useState(null);
   const [coupon, setCoupon] = useState("");
   // const [couponCode, setCouponCode] = useState(null);
@@ -43,11 +43,11 @@ const CourseSection = ({
     const fetchData = async function () {
       try {
           const response = await apiClass.isCoursePurchase(courseId);
-          // console.log("CourseSection me response aa raha", response);
+          console.log("CourseSection me response aa raha", response);
           setIsPurchased(response.data.data.isPurchased);
-          // console.log(response.data.data.isPurchased)
+          console.log(response.data.data.isPurchased)
       } catch (error) {
-        console.log("CourseSection me user ni aa raha", error);
+        console.log("CourseSection me isCoursePurchased ka reponse", error);
       }
     }
     fetchData();
@@ -75,7 +75,7 @@ const CourseSection = ({
   }, [razorpayOptions]);
   
   const handlePayNow = useCallback(async () => {
-    loadRazorPay();
+     loadRazorPay();
     setIsRazorPayPopupVisible(true);
     const rzp = getRazorPay({
       ...razorpayOptions,
@@ -157,7 +157,7 @@ const CourseSection = ({
     async function fetchData() {
       try {
         const response = await apiClass.getCourseDetails(id);
-        console.log("CourseSection :: useEffect :: response", response);
+        // console.log("CourseSection :: useEffect :: response", response);
         setCourseDetails(response.details);
         setLoading(false);
 

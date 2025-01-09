@@ -60,6 +60,7 @@ const Roadmap = () => {
   useEffect(() => {
     const fetchData = async function () {
       try {
+        console.log("courseId", courseId);
           const response = await apiClass.getRoadmap(courseId);
             const updatedRoadmap = [
             ...response.data.roadmaps,
@@ -70,10 +71,10 @@ const Roadmap = () => {
               icon: '🤝',
             },
             ];
-            // console.log("CourseSection me user aa raha", updatedRoadmap);
+            console.log("roadmap me data aa raha", updatedRoadmap);
             setRoadmap(updatedRoadmap);
       } catch (error) {
-        console.log("CourseSection me user ni aa raha", error);
+        console.log("coundt Fetch roadmap", error);
       }
     }
     fetchData();

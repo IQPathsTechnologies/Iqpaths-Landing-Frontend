@@ -83,7 +83,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
   const filteredCourses =
     activeCategory === "ALL PROGRAM"
       ? courses?.filter(applyFilters)
-      : courses?.filter((course) => (course.subject).toUpperCase() === activeCategory && applyFilters(course));
+      : courses?.filter((course) => (course.subject)?.toUpperCase() === activeCategory && applyFilters(course));
 
 
   return (

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./AboutHero.module.css";
+import { Link } from "react-router-dom";
 
 const slides = [
   {
@@ -48,9 +49,9 @@ const AboutHero = () => {
         <h1>{slides[currentSlide].title}</h1>
         <p>{slides[currentSlide].description}</p>
         <button className={styles.exploreButton}> 
-          <a href="/courses" className={styles.button}>
+          <Link to="/courses" className={styles.button}>
             {slides[currentSlide].buttonText}
-          </a>
+          </Link>
         </button>
       </div>
       <div className={styles.controls}>
