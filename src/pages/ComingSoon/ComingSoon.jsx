@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
-import styles from './ComingSoon.module.css';
+import styles from 'src/pages/ComingSoon/comingSoon.module.css'
 import { useNavigate } from 'react-router-dom';
+
 
 const ComingSoonPage = () => {
     const navigate = useNavigate();
