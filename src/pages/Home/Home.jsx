@@ -6,6 +6,7 @@ import Banner from '../../Components/Banner/Banner';
 import Mentor from '../../Components/Mentors/Mentor';
 //import Collaborator from '../../Components/Collaborator/Collaborator';
 import Testimonials from '../../Components/Testimonials/Testimonials';
+import NewsletterSection from '../../Components/AllCourses/NewsletterSection'
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
             <Mentor />
             {/* <Collaborator /> */}
             <Testimonials />
+            <NewsletterSection />
         </div>
     );
 };

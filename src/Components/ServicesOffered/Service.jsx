@@ -79,7 +79,7 @@ const Service = () => {
         <div className={styles.container}>
             <div className={styles.heading}>
                 <h1>Services Offered</h1>
-                <p>We  provide data-driven learning solutions, advanced software development training, and personalized placement services, empowering individuals to thrive in their careers.</p>
+                <p>We specialize in delivering comprehensive, data-driven learning solutions, advanced software development training, and tailored placement services, all designed to empower individuals with the skills, knowledge, and opportunities they need to excel in their careers and achieve their professional aspirations.</p>
             </div>
             <div className={styles.cardContainer}>
                 {content.map((data, key) => (

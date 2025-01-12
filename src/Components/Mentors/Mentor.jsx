@@ -55,7 +55,7 @@ function Mentor() {
       <div className={styles.content}>
         <h1>Our Mentors</h1>
         <p>
-        Learn from industry leaders with 10+ years of experience, professors, and experts who excel in their fields at IQPaths  and are dedicated to your success!
+        At IQPaths, gain unparalleled learning opportunities from industry leaders with over a decade of experience, distinguished professors, and field experts who are deeply committed to sharing their expertise, guiding your growth, and ensuring your success in achieving your professional goals.
         </p>
       </div>
       <div className={styles.carousel}>
