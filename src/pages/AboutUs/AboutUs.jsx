@@ -11,7 +11,7 @@ const About = () => {
             <EducationSection />
             <AboutBenefit />
             <NewsletterSection />
-        </div>
+        </div> 
     );
 };
 

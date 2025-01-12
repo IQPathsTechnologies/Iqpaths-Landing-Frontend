@@ -34,7 +34,7 @@ const AboutHero = () => {
 
   const handleNext = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
+  }; 
 
   const handlePrev = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
