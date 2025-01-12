@@ -1,42 +1,156 @@
+/* Base Styles */
 .heroSection {
-    position: relative;
-    width: 100%;
-    height: 550px; 
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 550px; 
+  overflow: hidden;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.textOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.textOverlay h1 {
+  font-family: "Lexend", sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  max-width: 80%;
+}
+
+.textOverlay h6 {
+  margin-top: -20px;
+  font-family: "Lexend", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/* Responsive Styles */
+
+/* 1440px and above */
+@media (min-width: 1440px) {
+  .heroSection {
+    height: 600px;
   }
-  
-  .heroImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+  .textOverlay h1 {
+    font-size: 60px;
+    max-width: 100%;
+  }
+
+  .textOverlay h6 {
+    font-size: 24px;
+    /* border: 2px solid red; */
+  }
+}
+
+/* 1024px to 1439px */
+@media (max-width: 1439px) and (min-width: 1024px) {
+  .heroSection {
+    height: 550px;
+  }
+
+  .textOverlay h1 {
+    font-size: 48px;
+    max-width: 100%;
+  }
+
+  .textOverlay h6 {
+    font-size: 20px;
+  }
+}
+
+/* 768px to 1023px */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .heroSection {
+    height: 450px;
   }
   
   .textOverlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    /* background-color: rgba(0, 0, 0, 0.5); */
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 24px; /* Adjust text size */
+    padding: 10px 15px;
+  }
+
+  .textOverlay h1 {
+    font-size: 40px;
+    max-width: 100%;
+  }
+
+  .textOverlay h6 {
+    font-size: 18px;
+  }
+}
+
+/* 425px to 767px */
+@media (max-width: 767px) and (min-width: 425px) {
+  .heroSection {
+    height: 400px;
   }
   
+  .textOverlay {
+    padding: 8px 12px;
+  }
+
   .textOverlay h1 {
-    width: 780px;
-    font-style: "Lexend", sans-serif;
-    font-weight: 700;
-    font-size: 48px;
-    /* border: 2px solid red; */
+    font-size: 32px;
+    max-width: 80%;
   }
   
   .textOverlay h6 {
-    margin-top: -20px;
-    font-style: "Lexend", sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-    /* border: 2px solid red; */
+    font-size: 16px;
+    margin-left: -30px;
+  }
+}
+
+/* 375px to 424px */
+@media (max-width: 424px) and (min-width: 375px) {
+  .heroSection {
+    height: 350px;
   }
   
+  .textOverlay {
+    padding: 6px 10px;
+  }
+  
+  .textOverlay h1 {
+    font-size: 28px;
+    max-width: 85%;
+  }
+  
+  .textOverlay h6 {
+    font-size: 14px;
+    margin-left: -30px;
+  }
+}
+
+/* Up to 374px (e.g., 320px - small phones) */
+@media (max-width: 374px) {
+  .heroSection {
+    height: 320px;
+  }
+  
+  .textOverlay {
+    padding: 5px 8px;
+  }
+
+  .textOverlay h1 {
+    font-size: 24px;
+    max-width: 90%;
+  }
+  
+  .textOverlay h6 {
+    font-size: 12px;
+    margin-left: -30px;
+  }
+}

@@ -7,7 +7,7 @@
     margin-top: 35px;
 }
 
-.link{
+.link {
     text-decoration: none;
 }
 
@@ -36,42 +36,32 @@
 
 /* Card content container */
 .cardContent {
-    /* height: 200px; */
     padding: 15px;
     text-align: left;
-    /* border: 2px solid red; */
 }
 
 /* Badge styling */
 .learning {
     display: flex;
-    /* margin-top: 4px;
-    margin-left: 0px; */
 }
 
 .learning img {
     width: 20px;
     height: 20px;
     margin-right: 4px;
-    /* border: 2px solid red; */
 }
 
 .badge {
     display: flex;
     align-items: center;
-    margin-top: 0px;
-    font-style: "Lexend", sans-serif;
+    font-family: "Lexend", sans-serif;
     font-weight: 500;
     font-size: 14px;
 }
 
-.badgeContainer{
+.badgeContainer {
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
-    /* margin-top: 10px; */
-    /* border: 2px solid red; */
-
 }
 
 .ranking {
@@ -79,57 +69,45 @@
     justify-content: center;
     align-items: center;
     height: 20px;
-    
 }
 
-.ranking img{
+.ranking img {
     width: 15px;
     height: 15px;
-    /* margin-right: 5px; */
-    /* border: 2px solid red; */
-    margin: auto 0px;
-    padding: auto 0px;
 }
 
 .stars {
     width: 62px;
     height: 14px;
     margin-right: 5px;
-    /* border: 2px solid red; */
 }
 
 .rating {
-    font-style: "Lexend", sans-serif;
+    font-family: "Lexend", sans-serif;
     font-weight: 500;
     font-size: 14px;
     color: #6A6B6C;
-    align-items: center;
-    margin: auto 5px auto 5px;
-
+    margin: auto 5px;
 }
 
 /* Title styling */
 .title {
-    font-style: "Lexend", sans-serif;
+    font-family: "Lexend", sans-serif;
     font-size: 30px;
     font-weight: 600;
     color: #07152F;
     margin-top: 20px;
-    /* margin-left: 20px; */
-    /* height: 80px; */
 }
 
 /* Details list */
 .detailsss {
     margin-left: 20px;
-    /* border: 2px solid red; */
 }
 
 .details {
     list-style: none;
     padding: 0;
     margin-left: 20px;
-    /* margin: 10px 0; */
 }
 
 .details li {
@@ -140,10 +118,8 @@
 }
 
 .pointsList {
-    /* list-style: none; */
     padding: 0;
     margin-top: -20px;
-    /* border: 2px solid red; */
 }
 
 .point {
@@ -153,14 +129,14 @@
 }
 
 .primaryDetail {
-    font-style: "Manrope", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 550;
     font-size: 16px;
     color: #737373;
 }
 
 .secondaryDetail {
-    font-style: "Manrope", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 550;
     font-size: 16px;
     color: #737373;
@@ -179,19 +155,19 @@
 }
 
 .originalPrice {
-    font-style: "Manrope", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 550;
     font-size: 16px;
     color: #737373;
     margin-right: 5px;
 }
 
-.strike{
+.strike {
     text-decoration: line-through;
 }
 
 .discountedPrice {
-    font-style: "Manrope", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 550;
     font-size: 16px;
     color: #0047B2;
@@ -209,7 +185,7 @@
     color: #0047B2;
     border-radius: 16px;
     border: 2px solid #0047B2;
-    font-style: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 20px;
     font-weight: 600;
     margin-top: -10px;
@@ -224,6 +200,59 @@
     color: white;
 }
 
-.link{
-    text-decoration: none;
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .card {
+        width: 300px;
+    }
+
+    .title {
+        font-size: 26px;
+    }
+
+    .learnNowButton {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 280px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .badge {
+        font-size: 12px;
+    }
+
+    .learnNowButton {
+        font-size: 16px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        margin-left: 20px;
+        width: 90%;
+        /* border: 2px solid red; */
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .details li, .point {
+        font-size: 12px;
+    }
+
+    .learnNowButton {
+        font-size: 14px;
+        height: 45px;
+        margin-left: 38px;
+        width: 80%;
+    }
 }

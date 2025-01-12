@@ -13,8 +13,6 @@ const Courses = () => {
             <HeroSection />
             <SearchTab flag = "courses" />
             <Cards />
-            {/* <CourseFilter /> */}
-            {/* <CourseCard /> */}
             <AdSection />
             <NewsletterSection />
         </div>

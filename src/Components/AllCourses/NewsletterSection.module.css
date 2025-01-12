@@ -1,76 +1,142 @@
 .newsletterSection {
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 80px;
-    background: linear-gradient(90deg, #0047B2, #063A88);
-    color: white;
-    padding: 20px 30px;
-    border-radius: 40px 40px 0 0; /* Rounded corners only at the top */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  height: auto; /* Adjust for responsive behavior */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 80px;
+  background: linear-gradient(90deg, #0047B2, #063A88);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 40px 40px 0 0; /* Rounded corners only at the top */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.textContainer {
+  margin-left: 20px;
+  flex: 1; /* Allow the container to take up available space */
+  margin-bottom: 10px;
+}
+
+.title {
+  font-style: "Lexend", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: -5px;
+}
+
+.description {
+  font-style: "Manrope", sans-serif;
+  font-weight: 300;
+  font-size: 19px;
+  color: #FAFAFA;
+  margin-top: 5px;
+  line-height: 1.5; /* Improve readability */
+}
+
+.subscribeButton {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  width: 110px;
+  height: 35px;
+  font-style: "Lexend", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  margin-right: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.subscribeButton:hover {
+  background-color: #0350cb;
+  color: white;
+}
+
+.subscribed {
+  background-color: #0350cb;
+  color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .newsletterSection {
+      flex-direction: column; /* Stack items vertically */
+      align-items: center;
+      text-align: center;
+      padding: 20px;
   }
-  
+
   .textContainer {
-    margin-left: 20px;
-    /* max-width: 70%; */
+      margin: 0 0 15px 0; /* Adjust margin for better alignment */
   }
-  
+
   .title {
-    font-style: "Lexend", sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: -15px;
+      font-size: 28px;
   }
-  
+
   .description {
-    font-style: "Manrope", sans-serif;
-    font-weight: 300;
-    font-size: 19px;
-    color: #FAFAFA;
+      font-size: 17px;
   }
-  
+
   .subscribeButton {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    width: 110px;
-    height: 35px;
-    font-style: "Lexend", sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    border-radius: 12px;
-    margin-right: 20px;
-    padding: 8px 15px;
-    cursor: pointer;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, color 0.3s ease;
-
-/*     
-    width: 130px;
-    height: 52px;
-    border: none;
-    border-radius: 12px;
-    margin-right: 20px;
-    padding: 10px 20px;
-    padding-left: 15px;
-    text-align: center;
-    cursor: pointer;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, color 0.3s ease; */
-    /* border: 2px solid red; */
+      width: 120px;
+      height: 40px;
+      font-size: 15px;
+      /* border: 2px solid red; */
   }
-  
-  .subscribeButton:hover {
-    background-color: #0350cb;
-    color: white;
+}
+
+@media (max-width: 768px) {
+  .newsletterSection {
+      padding: 15px;
   }
 
-  .subscribed {
-    background-color: #0350cb;
-    color: white;
+  .title {
+      font-size: 24px;
   }
-  
+
+  .description {
+      font-size: 16px;
+      margin-top: 15px;
+  }
+
+  .subscribeButton {
+      width: 100px;
+      height: 35px;
+      font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsletterSection {
+      padding: 10px;
+    }
+    
+    .textContainer {
+      margin-left: 0; /* Center align on small screens */
+    }
+    
+    .title {
+      font-size: 20px;
+      margin-bottom: 10px;
+  }
+
+  .description {
+      font-size: 14px;
+  }
+
+  .subscribeButton {
+      width: 100px;
+      height: 30px;
+      font-size: 13px;
+      padding: 5px 10px;
+  }
+}

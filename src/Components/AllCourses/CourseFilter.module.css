@@ -14,11 +14,12 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 /* Title styling */
 .title {
-  font-style: "Lexend", sans-serif;
+  font-family: "Lexend", sans-serif;
   font-weight: 700;
   font-size: 55px;
   color: #0047B2;
@@ -40,7 +41,7 @@
 }
 
 .filterButton p {
-  font-style: "Lexend", sans-serif;
+  font-family: "Lexend", sans-serif;
   font-weight: 700;
   font-size: 14px;
   color: white;
@@ -50,13 +51,11 @@
   background-color: #023c94;
 }
 
-.filterButton p:hover {
-  color: white;
-}
+
 
 /* Category tabs container */
 .categoryTabs {
-  height: 50px;
+  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -67,6 +66,7 @@
   padding: 10px 20px;
   overflow-x: auto;
   scrollbar-width: none;
+  gap: 10px; /* Space between tabs */
 }
 
 .categoryTabs::-webkit-scrollbar {
@@ -85,7 +85,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   gap: 10px;
-  font-style: "Lexend", sans-serif;
+  font-family: "Lexend", sans-serif;
   font-weight: 550;
   font-size: 13px;
 }
@@ -106,7 +106,6 @@
 /* Filter Dropdown */
 .filterDropdown {
   position: absolute;
-  /* top: 80px; */
   right: 20px;
   background-color: #ffffff;
   border: 1px solid #ddd;
@@ -114,8 +113,6 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   width: 320px;
-  margin-top: -100px;
-  margin-right: 39px;
   z-index: 10;
   text-align: left;
 }
@@ -129,7 +126,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-style: "Lexend", sans-serif;
+  font-family: "Lexend", sans-serif;
   font-weight: bold;
   font-size: 16px;
   color: #0047B2;
@@ -143,14 +140,6 @@
   transition: transform 0.3s ease;
 }
 
-.arrow::before {
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 8px;
-}
-
-/* Rotate arrow when open */
 .arrow.open {
   transform: rotate(180deg);
 }
@@ -185,7 +174,7 @@
   color: white;
   border: none;
   border-radius: 6px;
-  font-style: "Lexend", sans-serif;
+  font-family: "Lexend", sans-serif;
   font-weight: bold;
   font-size: 14px;
   text-align: center;
@@ -195,5 +184,79 @@
 
 .applyFiltersButton:hover {
   background-color: #013e9a;
-  /* border: 2px solid red; */
+}
+
+@media (max-width: 768px) {
+  .title {
+    margin-top: 10%;
+    font-size: 35px;
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .filterButton {
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filterButton {
+    margin-top: 10px;
+    display: flex;
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+@media (max-width: 768px) {
+  .categoryTabs {
+    gap: 5px;
+    padding: 10px;
+  }
+}
+@media (max-width: 1440px) {
+  .filterDropdown {
+    margin-top: -80px;
+    margin-right: 100px;
+    /* border: 2px solid red; */
+  }
+}
+
+@media (max-width: 1440px) {
+  .filterDropdown {
+    margin-top: -100px;
+    margin-right: 36px;
+    /* border: 2px solid red; */
+  }
+}
+
+@media (max-width: 768px) {
+  .filterDropdown {
+    margin-top: -90px;
+    margin-right: 25px;
+    width: 260px;
+    right: 10px;
+    padding: 15px;
+    /* border: 2px solid red; */
+  }
+}
+
+@media (max-width: 480px) {
+  .filterDropdown {
+    margin-top: -90px;
+    width: 200px;
+    padding: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .applyFiltersButton {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .applyFiltersButton {
+    font-size: 12px;
+    padding: 8px;
+  }
 }

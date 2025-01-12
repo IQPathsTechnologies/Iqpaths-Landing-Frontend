@@ -8,7 +8,7 @@ const NewsletterSection = () => {
     description:
       "Know about insights and interview tips of IQPath early from the rest...",
     buttonText: "SUBSCRIBE",
-  };
+  }; 
   const [newsLetterStatus, setnewsLetterStatus] = useState(false);
   const apiClass = new AuthService();  
   useEffect(() => {
