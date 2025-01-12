@@ -14,11 +14,9 @@
 .popup {
     background: #275FB5;
     padding: 20px;
-    /* border-radius: 8px; */
     color: #fff;
     width: 740px;
     height: 400px;
-    /* max-width: 90%; */
     position: relative;
 }
 
@@ -41,36 +39,25 @@
     gap: 16px;
 }
 
-
-
 .image {
     width: 360px;
     height: 360px;
     margin-top: 20px;
     margin-bottom: 20px;
-    /* border-radius: 4px; */
 }
 
 .textContainer {
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
     flex-direction: column;
-    /* gap: 10px; */
-    /* border: 2px solid red; */
-
 }
 
 .textContainer h2 {
     margin-top: 42px;
     font-style: "Poppins", sans-serif;
     font-weight: 600;
-    /* width: 100%; */
     font-size: 34px;
     margin: 0;
     color: white;
-    /* border: 2px solid blue; */
-    /* margin: 0 0 10px; */
 }
 
 .textContainer p {
@@ -81,7 +68,6 @@
     font-weight: 350;
     font-size: 18px;
     color: #E0E0E0;
-    /* margin: 0 0 10px; */
 }
 
 .icons {
@@ -100,16 +86,50 @@
     font-size: 18px;
     text-decoration: none;
     border: 1px solid white;
-    /* border: 2px solid red; */
 }
 
-/* .icons a {
-    width: 20px;
-    height: 20px;
-    color: #fff;
-    margin-right: 10px;
-    font-size: 18px;
-    text-decoration: none;
-    border: 2px solid red;
-  } */
-  
+/* Media Queries for Mobile View */
+@media (max-width: 768px) {
+    .popup {
+        width: 90%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imageContainer{
+        display: flex;
+        justify-content: center;
+    }
+
+    .image {
+        width: 80%;
+        height: auto;
+        margin: 10px 0;
+    }
+
+    .textContainer h2 {
+        font-size: 28px;
+        margin-top: 20px;
+    }
+
+    .textContainer p {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .icons {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .icon {
+        margin-right: 5px;
+    }
+}

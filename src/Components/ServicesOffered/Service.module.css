@@ -1,22 +1,21 @@
 .container {
-    /* border: 2px solid green; */
     padding: 30px;
+    /* background-color: greenyellow; */
 }
 
-.heading{
+.heading {
     margin-bottom: 20px;
     padding: 0px 50px;
-    /* border: 2px solid blue; */
     line-height: 0.9;
 }
 
-.heading h1{
+.heading h1 {
     font-size: 3.4rem;
     font-weight: 600;
     color: #0047B2;
 }
 
-.heading p{
+.heading p {
     color: #6C757D;
     line-height: 1.5;
 }
@@ -26,12 +25,59 @@
     grid-template-columns: repeat(3, auto);
     gap: 60px;
     justify-content: space-around;
-    padding: 20px 80px 20px 40px;
-    /* border: 2px solid red; */
+    padding: 20px 40px;
+    /* border: 2px solid blue; */
 }
 
-.card{
+.card {
     animation: appear 5s linear;
 }
 
+/* @media (max-width: 768px) {
+    .heading {
+        padding: 0px 20px;
+    }
 
+    .heading h1 {
+        font-size: 2.5rem;
+    }
+
+    .cardContainer {
+        grid-template-columns: repeat(2, auto);
+        gap: 40px;
+        padding: 20px 40px;
+    }
+} */
+
+@media (max-width: 480px) {
+
+    .container {
+        padding: 20px;
+        /* border: 2px solid red; */
+        /* overflow-x: hidden; */
+    }
+        
+    .cardContainer{
+        display: flex;
+        flex-direction: column;
+        /* gap: 20px; */
+        padding: 0px;
+        /* border: 2px solid blue; */
+    }
+
+
+    .heading {
+        padding: 0px 10px;
+
+    }
+
+    .heading h1 {
+        font-size: 2rem;
+    }
+
+    .cardContainer {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px 20px;
+    }
+}

@@ -1,4 +1,4 @@
-.content{
+.content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,14 +8,14 @@
     /* border: 2px solid blue; */
 }
 
-.content h1{
+.content h1 {
     font-size: 3rem;
     color: #0047B2;
     /* margin-bottom: 20px; */
     /* border: 2px solid red; */
 }
 
-.content p{
+.content p {
     font-size: 1rem;
     font-weight: 500;
     color: #454555;
@@ -25,7 +25,7 @@
     /* border: 2px solid red; */
 }
 
-.buttonContainer{
+.buttonContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +33,7 @@
     /* border: 2px solid red; */
 }
 
-.button{
+.button {
     padding: 12px 26px;
     margin: 0 10px;
     border: 2px solid #0047B2;
@@ -45,8 +45,29 @@
     cursor: pointer;
 }
 
-.button:hover{
+.button:hover {
     background-color: white;
     color: #0047B2;
 }
 
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .content {
+        padding: 20px;
+    }
+
+    .content h1 {
+        font-size: 2rem;
+    }
+
+    .content p {
+        font-size: 0.875rem;
+        margin: 0 20px;
+        text-align: justify;
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: 0.875rem;
+    }
+}
