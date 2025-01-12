@@ -18,28 +18,28 @@ const Footer = () => {
                     <p className= {styles.footerDescription}> IQPaths Technologies: Bridging the gap between skills and opportunities. Empowering individuals with innovative learning solutions, expert training, and personalized career guidance. Your partner in building a future-ready career.</p>
 
                     <div className={styles.socialmediaLogoContainer}> 
-                        <a href="https://www.youtube.com/@IQPaths" target="_blank" rel="noopener noreferrer">
+                        <Link to="https://www.youtube.com/@IQPaths" target="_blank" rel="noopener noreferrer">
                              <img
                             src="/youtubeLogo.svg" 
                             alt="youtube Logo"
                             className={styles.youtubeLogo}
                             />
-                        </a> 
-                        <a href="https://www.linkedin.com/company/iqpaths/" target="_blank" rel="noopener noreferrer">
+                        </Link> 
+                        <Link to="https://www.linkedin.com/company/iqpaths/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/linkedinLogo.svg" 
                                 alt="Linkedin Logo"
                                 className={styles.socialmediaLogo}
                             /> 
-                        </a> 
+                        </Link> 
                         
-                        <a href="https://www.instagram.com/iqpaths/" target="_blank" rel="noopener noreferrer">
+                        <Link to="https://www.instagram.com/iqpaths/" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/instagramLogo.svg" 
                                 alt="instagram Logo"
                                 className={styles.socialmediaLogo}
                             />
-                        </a>                        
+                        </Link>                        
                     </div>
                 </div>
 

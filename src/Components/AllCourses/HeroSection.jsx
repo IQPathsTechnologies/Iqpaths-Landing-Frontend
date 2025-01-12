@@ -13,7 +13,7 @@ const HeroSection = () => {
  
   return (
     <div className={styles.heroSection}>
-      <img src="public\courses.webp" alt="Hero" className={styles.heroImage} />
+      <img src="/courses.webp" alt="Hero" className={styles.heroImage} />
       <div className={styles.textOverlay}>
         <h1>{overlayText}</h1>
         <h6>{overlayText2}</h6>

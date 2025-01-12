@@ -83,11 +83,11 @@ table{
     text-decoration: underline;
 }
 .footerDivider {
-    border: none;            /* Remove default browser styling */
-    border-top: 1px solid #ccc; /* Add a thin solid line */
+    border: none;            
+    border-top: 1px solid #ccc; 
     margin-bottom: 50px;
     margin-top: -40px;
-    width: 100%;             /* Ensure it spans the entire width */
+    width: 100%;         
 }
 
 .copyright {
@@ -96,4 +96,53 @@ table{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+@media (max-width: 720px) {
+    .footerContainer {
+        flex-direction: column;
+        margin: 3% 5%; 
+    }
+
+    .footerText {
+        font-size: 20px;
+        margin: 5px 0;
+    }
+
+    .footerDescription {
+        font-size: 12px; 
+        width: 100%; 
+    }
+
+    .logoImage {
+        width: 50%;
+    }
+
+    .socialmediaLogoContainer {
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
+
+    td {
+        font-size: 10px; 
+        padding: 5px; 
+    }
+
+    table {
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    .footerDivider {
+        border: none;            
+        border-top: 1px solid #ccc; 
+        margin-bottom: 35px;
+        margin-top: -10px;
+        width: 100%;  
+    }
+
+    .copyright {
+        font-size: 10px; 
+    }
 }

@@ -1,13 +1,31 @@
-.carousel{
+.carousel {
     display: flex;
     justify-content: center;
     padding: 0px 40px;
 }
 
-
-.carouselImage{
+.carouselImage {
     width: 100%;
-    /* height: 200px; */
     object-fit: cover;
     border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        padding: 0px 20px;
+    }
+
+    .carouselImage {
+        border-radius: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel {
+        padding: 0px 10px;
+    }
+
+    .carouselImage {
+        border-radius: 3px;
+    }
 }
