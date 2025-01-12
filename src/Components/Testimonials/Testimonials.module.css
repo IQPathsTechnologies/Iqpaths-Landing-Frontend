@@ -4,6 +4,9 @@
     align-items: center;
     gap: 50px;
     padding: 20px 50px;
+    /* margin-top: 60px;
+    margin-bottom: 60px; */
+    margin: 60px auto;
 }
 
 .content {
@@ -86,7 +89,7 @@
 
 .description {
     min-height: 150px; /* Adjust based on expected content */
-    font-size: 1.25rem;
+    font-size: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,12 +124,17 @@
 .profileInfo h2 {
     font-size: 0.9rem;
     font-weight: 700;
+    width: 100%;
     color: #454555;
     margin: 10px 0 5px;
+    justify-content: start;
+    /* border: 2px solid red; */
 }
 
 .profileInfo p {
     font-size: 0.8rem;
+    padding: 0px 10px;
+    /* border: 2px solid red; */
     color: #454555;
 }
 

@@ -46,8 +46,8 @@ function Testimonial() {
         <img src="/invertedComma.svg" alt="" />
         <h1>What our students have to say</h1>
         <p>
-          Our students are our biggest fans. Here's what they have to say about
-          us.
+         More than 3000 users have been helped by Iqpaths Course. Here's what they have to say about us.
+          
         </p>
       </div>
       <div className={styles.testimonialcards}>
@@ -67,7 +67,7 @@ function Testimonial() {
               ))}
             </div>
           </div>
-          <div className={styles.description}>{message || "No message available"}</div>
+          <div className={styles.description}>" {message || "No message available"} "</div>
           <div className={styles.profileContainerFooter}>
             <div className={styles.profileContainer}>
               <div className={styles.profile}>

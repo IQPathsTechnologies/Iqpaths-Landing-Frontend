@@ -5,19 +5,19 @@ import QueryCard from "./QueryCard";
 const content = [
   {
     title: "Comprehensive Learning Programs",
-    shortDescription: " Access advanced courses in machine learning,",
+    shortDescription: " Access advanced courses in machine learning, , data",
     longDescription:
       " Access advanced courses in machine learning, data analysis, and software development, tailored to industry demands and enriched with live projects and expert mentorship."
   },
   {
     title: "Hands-On Industry Experience",
-    shortDescription: " Gain practical exposure through internships",
+    shortDescription: " Gain practical exposure through internships with top",
     longDescription:
       "Gain practical exposure through internships with top companies, enhancing your real-world skills and competitive edge."
   },
   {
     title: "Personalized Career Support",
-    shortDescription: " Benefit from mock interviews,",
+    shortDescription: " Benefit from mock interviews, professional development",
     longDescription:
       "Benefit from mock interviews, professional development coaching, and personalized placement services to secure your dream job. "
   }

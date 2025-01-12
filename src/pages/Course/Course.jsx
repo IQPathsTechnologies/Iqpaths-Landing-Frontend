@@ -7,6 +7,8 @@ import Certificate from '../../Components/Certificate/Certificate'
 import Instructor from '../../Components/Instructor/Instructor'
 import SimilarCourses from '../../Components/SimilarCourses/SimilarCourses'
 import { UserContext } from '../../context/userContext';
+import NewsletterSection from '../../Components/AllCourses/NewsletterSection'
+
 
 const Course = () => {
 
@@ -30,6 +32,7 @@ const Course = () => {
             <Certificate />
             <Instructor />
             {/* <SimilarCourses /> */}
+            <NewsletterSection />
         </div>
     );
 };
