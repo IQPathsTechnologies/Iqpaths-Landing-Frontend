@@ -11,7 +11,7 @@ const lessons = [
     instructor: "Lina",
     progress: 5,
     totalLessons: 7,
-    image: "/learning.png",
+    image: "/learning.png", 
   },
   {
     id: 2,
