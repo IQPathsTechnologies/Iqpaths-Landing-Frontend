@@ -26,6 +26,10 @@
   margin-bottom: -5px;
 }
 
+.titleMobile{
+  display: none;
+}
+
 .description {
   font-style: "Manrope", sans-serif;
   font-weight: 300;
@@ -68,25 +72,34 @@
 /* Responsive Styles */
 @media (max-width: 1024px) {
   .newsletterSection {
-      flex-direction: column; /* Stack items vertically */
-      align-items: center;
-      text-align: center;
-      padding: 20px;
+      /* flex-direction: column;  */
+      /* align-items: center; */
+      /* text-align: center; */
+      padding: auto 20px;
+      /* border: 2px solid red; */
+    }
+    
+    .textContainer {
+    /* border: 2px solid red; */
+    margin: 0 0 15px 0; 
   }
-
-  .textContainer {
-      margin: 0 0 15px 0; /* Adjust margin for better alignment */
-  }
-
+  
   .title {
-      font-size: 28px;
+    /* border: 2px solid red; */
+    font-size: 28px;
   }
 
+  /* .titleMobile{
+    display: none;
+  } */
+  
   .description {
-      font-size: 17px;
+    /* border: 2px solid red; */
+    font-size: 17px;
   }
-
+  
   .subscribeButton {
+    /* border: 2px solid red; */
       width: 120px;
       height: 40px;
       font-size: 15px;
@@ -96,11 +109,17 @@
 
 @media (max-width: 768px) {
   .newsletterSection {
-      padding: 15px;
+      padding: 15px 10px;
   }
 
   .title {
       font-size: 24px;
+      display: none;
+  }
+
+  .titleMobile{
+    display: block;
+    font-size: 22px;
   }
 
   .description {
@@ -117,26 +136,48 @@
 
 @media (max-width: 480px) {
   .newsletterSection {
-      padding: 10px;
+      /* padding: 20px 10px; */
+      align-items: center;
+      /* text-align: center; */
+      justify-content: space-between;
+      padding: auto 20px;
     }
     
     .textContainer {
       margin-left: 0; /* Center align on small screens */
+      padding: 0 ;
+      /* border: 2px solid red; */
     }
     
     .title {
       font-size: 20px;
-      margin-bottom: 10px;
-  }
+      margin: 0px;
+      display: none;
+      /* border: 2px solid red; */
+    }
 
-  .description {
+    .titleMobile{
+      display: block;
+      font-size: 18px;
+      margin: 0px;
+      padding: 0px 10px;
+    }
+
+    
+    .description {
+      margin: 0px;
+      /* display: none; */
       font-size: 14px;
-  }
-
-  .subscribeButton {
+      /* border: 2px solid red; */
+      text-align: start;
+      padding: 0px 10px;
+    }
+    
+    .subscribeButton {
       width: 100px;
       height: 30px;
       font-size: 13px;
       padding: 5px 10px;
+      margin: 0px 5px;
   }
 }
