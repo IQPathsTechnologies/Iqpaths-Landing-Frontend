@@ -3,7 +3,7 @@ import styles from "./CourseCard.module.css";
 import { Link } from "react-router-dom";
 import { AuthService } from '../../axios/User';
 import { CoursesContext } from "../../context/coursesContext";
-
+ 
 
 const apiClass = new AuthService();
 

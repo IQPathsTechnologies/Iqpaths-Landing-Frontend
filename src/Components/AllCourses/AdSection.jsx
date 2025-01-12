@@ -10,7 +10,7 @@ const AdSection = () => {
     imageAlt: "Woman giving thumbs up with a laptop",
     imageUrl:
       "/banner.png", // Replace this URL with the actual image link
-  };
+  }; 
 
   return (
     <div className={styles.adSection}>

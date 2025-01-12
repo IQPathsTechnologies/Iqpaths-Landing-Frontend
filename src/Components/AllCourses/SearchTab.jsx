@@ -2,7 +2,7 @@ import React, { useContext, useRef } from 'react';
 import styles from './SearchTab.module.css';
 // import { FaSearch } from 'react-icons/fa'; 
 import {AllTypeOfSearch} from '../../axios/Search';
-import { CoursesContext } from '../../context/coursesContext';
+import { CoursesContext } from '../../context/coursesContext'; 
 
 const SearchTab = ({flag}) => {
   const searchClass = new AllTypeOfSearch();

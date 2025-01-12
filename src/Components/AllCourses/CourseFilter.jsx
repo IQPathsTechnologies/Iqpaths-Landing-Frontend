@@ -17,7 +17,7 @@ const CourseFilter = ({ onCategoryChange, onFilterChange }) => {
       ],
     },
     {
-      name: "Instructors",
+      name: "Instructors", 
       subcategories: ["Sanket Gupta"],
     },
     {
