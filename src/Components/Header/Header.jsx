@@ -142,7 +142,7 @@ const Header = () => {
                 <img src="./HamburgerClose.svg" alt="" />
               </li>
               {navItems.map((tab) => (
-                <li key={tab.name} className={styles.navItemSideBar}>
+                <li key={tab.name} className={styles.navItemSideBar} onClick={closeSideBar}>
                   <NavLink
                     to={tab.link}
                     className={({ isActive }) =>
