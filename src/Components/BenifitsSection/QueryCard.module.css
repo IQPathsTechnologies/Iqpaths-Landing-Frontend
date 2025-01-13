@@ -7,7 +7,7 @@
     transition: box-shadow 0.3s ease-in-out;
     cursor: pointer;
     border: 1px solid rgb(141, 141, 238);
-    width: 570px;
+    width: 560px;
     transition: transition 0.3s ease-in-out;
     animation: appearFromRight ease-out forwards;
     animation-timeline: view();
@@ -28,22 +28,25 @@
 }
 
 .content {
-    padding: 0px 20px;
+    /* padding: 0px 20px; */
 }
 
 .content .title {
     font-size: 1.2rem;
     font-weight: 700;
     color: #454555;
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: -10px;
 }
 
 .content .description {
     font-size: 1rem;
     font-weight: 500;
     color: #767587;
+    margin-top: 15px;
     margin-bottom: 5px;
     line-height: 1.5;
+    /* border: 2px solid red; */
 }
 
 .content .readMore {

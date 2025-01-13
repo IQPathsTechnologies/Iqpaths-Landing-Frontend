@@ -11,7 +11,7 @@
     width: 100%;
     padding: 20px 0;
     position: relative;
-    display: inline-block;
+    display: inline-block; 
     z-index: 1;
 }
 
@@ -93,6 +93,7 @@
     flex-direction: column;
     gap: 20px;
     padding: 0px 20px;
+    /* border: 2px solid red; */
 }
 
 @keyframes appearFromLeft {
