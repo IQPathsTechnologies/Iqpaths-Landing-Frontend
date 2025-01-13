@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const slides = [
   {
     id: 1,
-    title: "Learn Skills From Our Top Instructors",
+    title: "Learn Skills From Our Top Instructors.",
     description:
       "Discover a world of knowledge and expertise as you embark on your learning journey with us. Our platform offers you the opportunity to learn from the best in the field, with top-tier instructors who are passionate about sharing their skills and insights.",
     buttonText: "Explore Courses",
