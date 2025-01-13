@@ -11,7 +11,7 @@ const LoginSignup = () => {
   const [errorMessageLogin, setErrorMessageLogin] = useState("");
   const [errorMessageSignup, setErrorMessageSignup] = useState("");
   const navigate = useNavigate();
-  const location = useLocation();
+  const location = useLocation(); 
 
   const type =
     location.state?.type ||
