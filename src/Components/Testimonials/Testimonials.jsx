@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./Testimonials.module.css";
 import { AuthService } from "../../axios/User";
 
-const apiClass = new AuthService();
+const apiClass = new AuthService(); 
 
 function Testimonial() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -83,10 +83,10 @@ function Testimonial() {
             </div>
             <div className={styles.buttons}>
               <div className={styles.btn} onClick={handlePrev}>
-                {`<`}
+                <img src="\Arrow--Right.png" alt="Right" />
               </div>
               <div className={styles.btn} onClick={handleNext}>
-                {`>`}
+                <img src="public\Arrow--Left.png" alt="Left" />
               </div>
             </div>
           </div>
