@@ -18,15 +18,15 @@
 }
 
 .content h1 {
-    width: 600px;
-    font-style: "Lexend", sans-serif;
+    width: 100%;
+    font-family: "Lexend", sans-serif;
     font-size: 48px;
     margin-bottom: 1rem;
     font-weight: 800;
 }
 
 .content p {
-    font-style: "Lexend", sans-serif;
+    font-family: "Lexend", sans-serif;
     font-weight: 500;
     font-size: 20px;
     margin-bottom: 1.5rem;
@@ -38,10 +38,6 @@
     background: #0047B2;
     color: white;
     border: none;
-    /* padding: 0.75rem 1.5rem; */
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
     font-size: 1rem;
     cursor: pointer;
     border-radius: 6px;
@@ -58,14 +54,12 @@
     top: 50%;
     width: 100%;
     display: flex;
-    gap: 720px;
-    justify-content: space-evenly;
+    justify-content: space-between;
     transform: translateY(-50%);
     z-index: 3;
 }
 
 .arrowButton {
-    /* background: rgba(0, 0, 0, 0.5); */
     background: none;
     color: white;
     border: none;
@@ -95,8 +89,7 @@
 
 .indicator.active {
     background: #007bff;
-    /* border: 2px solid red; */
-  }
+}
 
 /* Responsive Styles */
 
@@ -117,13 +110,9 @@
     }
     .content h1 {
         font-size: 36px;
-        margin-left: -50px;
     }
     .content p {
         font-size: 16px;
-    }
-    .controls {
-        gap: 500px;
     }
 }
 
@@ -143,9 +132,6 @@
         height: 36px;
         font-size: 0.9rem;
     }
-    .controls {
-        gap: 500px;
-    }
 }
 
 /* 425px and Below */
@@ -157,21 +143,19 @@
         max-width: 320px;
     }
     .content h1 {
-        width: 110%;
-        margin-left: -5%;
         font-size: 28px;
     }
     .content p {
-    font-size: 12px;
-}
-.exploreButton {
-    width: 140px;
-    height: 32px;
-    font-size: 0.8rem;
-}
-.controls {
-    gap: 330px;
-}
+        font-size: 12px;
+    }
+    .exploreButton {
+        width: 140px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+    .controls {
+        justify-content: space-around;
+    }
 }
 
 /* 375px and Below */
@@ -191,7 +175,7 @@
         font-size: 0.75rem;
     }
     .controls {
-        gap: 300px;
+        justify-content: space-around;
     }
 }
 
@@ -204,8 +188,6 @@
         font-size: 20px;
     }
     .content p {
-        width: 270px;
-        margin-left: 20px;
         font-size: 10px;
     }
     .exploreButton {
@@ -214,8 +196,6 @@
         font-size: 0.7rem;
     }
     .controls {
-        margin-left: -20px;
-        gap: 260px;
-        /* border: 2px solid red; */
+        justify-content: space-around;
     }
 }

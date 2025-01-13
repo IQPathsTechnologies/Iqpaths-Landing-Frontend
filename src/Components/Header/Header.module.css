@@ -1,3 +1,6 @@
+
+
+
 .header {
   height: 90px;
   display: flex;
@@ -7,6 +10,20 @@
   background-color: #fff;
   border-bottom: 1px solid #ccc;
   overflow-x: hidden;
+}
+
+.sidebar{
+  position: fixed;
+  top: 0;
+  right: 0;
+  /* height: 100%; */
+  width: 250px;
+  z-index: 999;
+  background-color: white;
+  box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  
 }
 
 .logo {
@@ -29,9 +46,20 @@
 .navList {
   display: flex;
   list-style: none;
+  align-items: center;
   padding: 0;
   /* border: 2px solid blue; */
+  /* flex-direction: row-reverse; */
   
+}
+
+.navListSideBar{
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  /* align-items: center; */
+  padding: 0;
+  /* border: 2px solid blue; */
 }
 
 .navItem {
@@ -42,6 +70,46 @@
   color: #28353D;
   font-weight: 550;
   transition: color 0.3s;
+  /* display: none */
+}
+
+.hamburgerMenu{
+  display: none;
+}
+
+
+.navItemSideBar{
+  padding: 20px 40px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 18px;
+  color: #28353D;
+  font-weight: 550;
+  transition: color 0.3s;
+  /* border: 2px solid #007bff; */
+}
+
+.navItemSideBar:hover {
+  background-color: #F6F6F6;
+}
+
+.navItemClose{
+  /* padding: 20px 0; */
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: auto;
+  margin-top: 20px;
+  margin-right: 25px;
+  font-size: 18px;
+  color: #28353D;
+  font-weight: 550;
+  transition: color 0.3s;
+  /* margin-left: 20px; */
+  /* border: 2px solid #007bff; */
+}
+
+.navItem img{
+  /* border: 2px solid blue; */
 }
 
 .link{
@@ -72,6 +140,7 @@
   /* transform: rotate(20deg); */
   transform: skewX(-30deg);
   /* border: 2px solid blue; */
+  /* display: none; */
 }
 
 .darkBlue{
@@ -106,4 +175,52 @@
   color: #28353D;
   background-color: #FBFBFB ;
   border: 2px solid #007bff;
+}
+
+.btnSideBar{
+  padding: 10px 30px;
+  border: none;
+  margin: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  /* align-items: center; */
+  background-color: #0047B2 ;
+  /* border: 2px solid #007bff; */
+  /* border: 2px solid #007bff; */
+}
+
+.loginBtn{
+  background-color: #FB9C46 ;
+  margin-bottom: 40px;
+}
+
+
+@media (max-width: 480px){
+
+  .hamburgerMenu{
+    display: block;
+    padding: 0 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 18px;
+    color: #28353D;
+    font-weight: 550;
+    transition: color 0.3s;
+    /* border: 2px solid #007bff; */
+  }
+
+  .navList{
+    flex-direction: row-reverse;
+  }
+
+  .navItem{
+    display: none;
+  }
+
+  .lightBlue{
+    display: none;
+  }
 }
