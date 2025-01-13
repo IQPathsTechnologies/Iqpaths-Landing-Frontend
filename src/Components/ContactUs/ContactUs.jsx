@@ -19,7 +19,7 @@ const ContactUs = () => {
 
   const handleContactUsSubmit = async (data) => {
     const resposne = await apiClass.contactUsFormSubmit(data);
-    if(resposne.status === 201){
+    if(resposne.status === 201){ 
       setBookingResponse("Appointment Booked Successfully");
     }
 
