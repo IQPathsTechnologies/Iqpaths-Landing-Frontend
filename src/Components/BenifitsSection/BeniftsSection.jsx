@@ -3,7 +3,7 @@ import styles from "./BeniftsSection.module.css";
 import QueryCard from "./QueryCard";
 
 const content = [
-  {
+  { 
     title: "Comprehensive Learning Programs",
     shortDescription: " Access advanced courses in machine learning, , data",
     longDescription:

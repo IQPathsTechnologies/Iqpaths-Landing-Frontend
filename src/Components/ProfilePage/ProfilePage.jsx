@@ -245,7 +245,7 @@ const ProfilePage = () => {
             <h2 className={styles.heading}>Photo</h2>
             <p className={styles.description}>
               Add a nice photo of yourself for your profile.
-            </p>
+            </p> 
             <div className={styles.photoSection}>
               <div className={styles.imagePreview}>
                 {selectedImage ? (

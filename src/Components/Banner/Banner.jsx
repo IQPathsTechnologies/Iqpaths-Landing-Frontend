@@ -2,7 +2,7 @@ import React,{ useState, useEffect} from 'react';
 import styles from './Banner.module.css';
 import ButtonCarousel from '../../utility/ButtonCarousel/ButtonCarousel';
 import { AuthService } from '../../axios/User';
-
+ 
 const imagesTemp = [
     '/Banner/1.png',
     '/Banner/1.png',

@@ -4,7 +4,7 @@ import styles from './HeroSection.module.css';
 
 function HeroSection() {
   return (
-    <div className={styles.container}>
+    <div className={styles.container}> 
         <div className={styles.left}>
             <div className={styles.content}>
               <h1>Where Intelligence Meets Opportunity</h1>

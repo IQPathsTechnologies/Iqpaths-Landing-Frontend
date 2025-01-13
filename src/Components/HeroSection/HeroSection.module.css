@@ -67,12 +67,14 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    padding: 0px 50px;
+    padding: 0px 30px;
+    gap: 30px;
+    /* border: 2px solid red; */
 }
 
 .statsSection{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     flex-direction: column;
     padding: 0px 30px 0px 0px;
 }
@@ -99,6 +101,7 @@
 
 .statsSection .red{
     color: #FE753F;
+    /* border: 2px solid red; */
 }
 
 /* Media Queries for Mobile View */

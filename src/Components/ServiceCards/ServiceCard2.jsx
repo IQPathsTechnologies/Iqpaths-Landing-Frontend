@@ -8,7 +8,7 @@ function ServiceCard({ data }) {
 
     return (
         <Link to={`/${title}`} className={styles.link}>
-        <div className={`${styles.card} ${styles[`card${index % 3}`]} ${styles[`card${index % 6}`]}`}>
+        <div className={`${styles.card} ${styles[`card${index % 3}`]} ${styles[`card${index % 6}`]}`}> 
             <img src={coverPhoto} alt={title}  className={styles.logo} />
             
 

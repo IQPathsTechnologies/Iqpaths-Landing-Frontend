@@ -122,7 +122,6 @@
   color: #003399;
   margin-left: -12px;
   margin-bottom: 1.5rem;
-  /* border: 2px solid red; */
 }
 
 .summaryDetails p,
@@ -178,4 +177,86 @@
 .emptyCart p {
   font-size: 16px;
   color: #555;
+}
+
+/* Responsive Styles */
+@media (max-width: 1440px) {
+  .cartContainer {
+    padding: 1.5rem;
+  }
+  .header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cartContent {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 768px) {
+  .cartContent {
+    flex-direction: column;
+  }
+  .cartCard {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .removeButton {
+    margin-top: -60px;
+    align-self: flex-end;
+  }
+  .cartSummary {
+    width: 40%;
+    margin-left: 26%;
+  }
+}
+
+@media (max-width: 426px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+  .breadcrumb {
+    font-size: 14px;
+  }
+  .cartCard {
+    padding: 1rem;
+  }
+  .cartSummary {
+    width: 200px;
+    height: 180px;
+    margin-left: 50px;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 376px) {
+  .cartContainer {
+    padding: 1rem;
+  }
+  .cartCard {
+    padding: 0.8rem;
+  }
+  .removeButton {
+    margin-top: -40px;
+    width: 100px;
+    font-size: 12px;
+    padding-top: -20px;
+    padding-bottom: -20px;
+  }
+}
+
+@media (max-width: 320px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+  .breadcrumb {
+    font-size: 13px;
+  }
+  .cartSummary {
+    padding: 1rem;
+    /* border: 2px solid red; */
+  }
 }

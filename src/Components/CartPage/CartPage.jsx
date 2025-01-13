@@ -5,7 +5,7 @@ const CartPage = () => {
   const [cartItems, setCartItems] = useState([
     { id: 1, name: "Python for Beginners", price: 650 },
     { id: 2, name: "Machine Learning Basics", price: 550 },
-  ]);
+  ]); 
 
   const handleRemoveItem = (id) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));

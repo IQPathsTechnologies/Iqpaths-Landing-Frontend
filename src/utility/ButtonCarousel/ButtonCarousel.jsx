@@ -38,10 +38,10 @@ function ButtonCarousel({ children, autoslide = false, autoslideTime = 3000 }) {
             </div>
             <div className={styles.buttonContainer}>
                 <button onClick={prevSlide} className={styles.button}>
-                    {`<`}
+                    <img src="\leftArrow.png" alt="leftArrow" />
                 </button>
                 <button onClick={nextSlide} className={styles.button}>
-                    {`>`}
+                    <img src="\rightArroww.png" alt="rightArrow" />
                 </button>
             </div>
         </div>
