@@ -26,11 +26,11 @@
     gap: 60px;
     justify-content: space-around;
     padding: 20px 40px;
-    /* border: 2px solid blue; */
 }
 
 .card {
     animation: appear 5s linear;
+    border: 2px solid red;
 }
 
 /* @media (max-width: 768px) {
