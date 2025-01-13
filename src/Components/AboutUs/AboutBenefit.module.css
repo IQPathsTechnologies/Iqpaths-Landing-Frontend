@@ -1,50 +1,53 @@
+/* Container Styles */
 .container {
   padding: 3rem 2rem;
-  /* background-color: #f8f9fa; */
   text-align: center;
   font-family: Arial, sans-serif;
   margin-top: 60px;
   display: flex;
   flex-direction: column;
-  text-align: center;
 }
 
-.headingContainer{
+/* Heading Container */
+.headingContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;  
-  /* border: 2px solid black; */
+  text-align: center;
 }
 
+/* Heading Styles */
 .heading {
   color: #07222C;
-  font-style: "Karma", sans-serif;
+  font-family: "Karma", sans-serif;
   font-size: 60px;
   font-weight: 700;
   text-align: center;
 }
 
+/* Paragraph Styles */
 .para {
   color: #565A5B;
   width: 600px;
-  /* margin-left: 340px; */
+  margin: 0 auto;
   margin-top: -10px;
-  font-style: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 22px;
   margin-bottom: 2rem;
   line-height: 1.5;
 }
 
+/* Benefits Grid */
 .benefitsGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /* gap: 1.5rem; */
+  gap: 1.5rem;
   justify-items: center;
 }
 
+/* Card Styles */
 .card {
   width: 210px;
   height: 220px;
@@ -61,46 +64,43 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Icon Wrapper */
 .iconWrapper {
-  width: 25px;
-  height: 25px;
+  width: 50px;
+  height: 50px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   background-color: #e9ecef;
-  border-radius: 15px;
+  border-radius: 50%;
   padding: 16px;
   margin-bottom: 1rem;
-  /* padding-bottom: -10px; */
-  /* padding-top: 10px; */
-  /* border: 2px solid green; */
 }
 
 .icon {
-  margin-left: -8px;
-  /* margin-top: -20px; */
-  margin-bottom: 50px;
   font-size: 30px;
   color: #007bff;
 }
 
+/* Card Head Styles */
 .cardHead {
   color: #07222C;
-  font-style: "Lexend", sans-serif;
+  font-family: "Lexend", sans-serif;
   font-weight: 600;
   font-size: 20px;
-  /* margin-bottom: 0.5rem; */
   text-align: left;
   margin-top: 30px;
 }
 
+/* Card Paragraph Styles */
 .cardPara {
   text-align: left;
   color: #565A5B;
-  font-style: "Manrope", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 1.5;
 }
 
+/* Image Wrapper */
 .imageWrapper {
   width: 38px;
   height: 40px;
@@ -110,5 +110,105 @@
   width: 23px;
   height: 23px;
   margin-top: 8px;
-  /* border: 2px solid red; */
+}
+
+/* Responsive Styles */
+
+/* 1440px and Below */
+@media (max-width: 1440px) {
+  .para {
+      width: 500px;
+      font-size: 20px;
   }
+  .heading {
+      font-size: 50px;
+      margin-left: -8px;
+      /* border: 2px solid red; */
+  }
+}
+
+/* 1024px and Below */
+@media (max-width: 1024px) {
+  .benefitsGrid {
+      grid-template-columns: repeat(3, 1fr);
+  }
+  .para {
+      width: 450px;
+      font-size: 18px;
+  }
+  .heading {
+    font-size: 42px;
+    margin-left: -8px;
+  }
+}
+
+/* 768px and Below */
+@media (max-width: 768px) {
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card {
+      width: 180px;
+      height: 220px;
+  }
+  .para {
+      width: 400px;
+      font-size: 16px;
+  }
+  .heading {
+    font-size: 36px;
+    margin-top: -40px;
+    margin-left: -12px;
+  }
+}
+
+/* 425px and Below */
+@media (max-width: 426px) {
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
+  .para {
+    width: 90%;
+    font-size: 14px;
+  }
+  .heading {
+    font-size: 32px;
+    width: 400px;
+    margin-left: -15px;
+    margin-top: -50px;
+  }
+}
+
+/* 375px and Below */
+@media (max-width: 376px) {
+  .para {
+      font-size: 13px;
+    }
+    .heading {
+      font-size: 28px;
+      width: 300px;
+      margin-top: -70px;
+      margin-left: -15px;
+  }
+}
+
+/* 320px and Below */
+@media (max-width: 320px) {
+  .para {
+      font-size: 12px;
+    }
+    .heading {
+      font-size: 24px;
+      margin-top: -80px;
+      width: 300px;
+      margin-left: -5px;
+    }
+    .card {
+      padding: 1rem;
+      height: 180px;
+  }
+}

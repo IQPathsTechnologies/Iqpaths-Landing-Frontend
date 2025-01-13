@@ -1,22 +1,22 @@
+/* Container Styles */
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2rem 3rem;
     margin-top: 60px;
-    /* background-color: #f8f9fa; */
     font-family: Arial, sans-serif;
 }
 
+/* Content Styles */
 .content {
     max-width: 38%;
     margin-left: 55px;
 }
 
 .content h5 {
-    /* margin-top: 0px; */
     color: #19213D;
-    font-style: "Lexend", sans-serif;
+    font-family: "Lexend", sans-serif;
     font-weight: 400;
     font-size: 24px;
     margin-bottom: 0.5rem;
@@ -24,19 +24,17 @@
 
 .content h1 {
     color: #19213D;
-    font-style: "Lexend", sans-serif;
+    font-family: "Lexend", sans-serif;
     font-weight: 800;
     font-size: 48px;
     line-height: 60px;
-    margin-top: 0px;
+    margin-top: 0;
     margin-left: -5px;
-    /* margin-bottom: 1.5rem; */
-    /* font-weight: bold; */
 }
 
 .content p {
     color: #19213D;
-    font-style: "Lexend", sans-serif;
+    font-family: "Lexend", sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -45,6 +43,7 @@
     margin-left: -2px;
 }
 
+/* Explore Button Styles */
 .exploreButton {
     background-color: #0047B2;
     color: white;
@@ -67,6 +66,7 @@
     color: white;
 }
 
+/* Images Styles */
 .images {
     width: 640px;
     height: 520px;
@@ -74,4 +74,158 @@
     flex-direction: column;
     align-items: flex-end;
     position: relative;
+}
+
+/* Responsive Styles */
+
+/* 1440px and Below */
+@media (max-width: 1440px) {
+    .content h1 {
+        font-size: 42px;
+        line-height: 52px;
+    }
+    .content h5 {
+        font-size: 22px;
+    }
+    .images {
+        width: 600px;
+        height: 500px;
+    }
+}
+
+/* 1024px and Below */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    .content {
+        max-width: 90%;
+        margin: 0;
+    }
+    .content h1 {
+        font-size: 36px;
+        line-height: 46px;
+        margin-bottom: 40px;
+    }
+    .content h5 {
+        font-size: 20px;
+    }
+    .content p {
+        font-size: 14px;
+    }
+    .exploreButton {
+        font-size: 14px;
+        padding: 0.5rem 1rem;
+    }
+    .images {
+        width: 520px;
+        height: 450px;
+        margin-left: 100px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        /* border: 2px solid red; */
+    }
+}
+
+/* 768px and Below */
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 32px;
+        line-height: 40px;
+        margin-bottom: 40px;
+    }
+    .content h5 {
+        font-size: 18px;
+    }
+    .content p {
+        font-size: 13px;
+    }
+    .exploreButton {
+        font-size: 13px;
+        padding: 0.5rem 1rem;
+    }
+    .images {
+        width: 450px;
+        height: 300px;
+        display: none;
+    }
+}
+
+/* 425px and Below */
+@media (max-width: 426px) {
+    .container {
+        margin-top: 30px;
+    }
+    .content h1 {
+        font-size: 28px;
+        line-height: 36px;
+        margin-bottom: 35px;
+    }
+    .content h5 {
+        font-size: 16px;
+    }
+    .content p {
+        font-size: 12px;
+    }
+    .exploreButton {
+        font-size: 12px;
+        padding: 0.4rem 0.8rem;
+    }
+    .images {
+        width: 350px;
+        height: 300px;
+        display: none;
+    }
+}
+
+/* 375px and Below */
+@media (max-width: 376px) {
+    .content h1 {
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 35px;
+    }
+    .content h5 {
+        font-size: 14px;
+    }
+    .content p {
+        font-size: 11px;
+    }
+    .exploreButton {
+        font-size: 11px;
+        padding: 0.4rem 0.8rem;
+    }
+    .images {
+        /* width: 300px; */
+        /* height: 280px; */
+        display: none;
+    }
+}
+
+/* 320px and Below */
+@media (max-width: 320px) {
+    .content h1 {
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 30px;
+    }
+    .content h5 {
+        font-size: 12px;
+    }
+    .content p {
+        font-size: 10px;
+    }
+    .exploreButton {
+        font-size: 10px;
+        padding: 0.3rem 0.7rem;
+    }
+    .images {
+        display: none;
+        /* width: 100px; */
+        /* height: 100px; */
+        /* margin-left: 300px; */
+    }
 }

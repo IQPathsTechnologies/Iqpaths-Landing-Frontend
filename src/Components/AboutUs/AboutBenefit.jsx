@@ -28,7 +28,7 @@ const AboutBenefit = () => {
       title: "24/7 Mentor",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting.",
-      bgColor: "#28a745", // Green
+      bgColor: "#28a745", // Green 
     },
     {
       image: "/desktop.png", // Replace with the path to your image

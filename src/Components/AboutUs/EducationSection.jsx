@@ -10,7 +10,7 @@ const EducationSection = () => {
           Online education platform that fits <br />
           for everyone
         </h1>
-        <p>
+        <p> 
           Welcome to an inclusive online education platform that caters to
           learners of all backgrounds, levels, and aspirations. Our platform is
           designed to be accessible, flexible, and adaptable, making it the
