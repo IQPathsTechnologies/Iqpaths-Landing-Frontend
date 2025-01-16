@@ -52,8 +52,8 @@
     color: #555;
     line-height: 1.5;
     height: 450px;
-    /* min-height: 100px; */
-    /* max-height: 449px; */
+    min-height: 100px;
+    max-height: 449px;
     background-color: #F5F5F5;
     overflow-x: hidden;
     overflow-y: auto;
@@ -611,7 +611,7 @@
 }
 
 .tabli {
-    padding: 1rem 3rem;
+    padding: 0.6rem 3rem;
     width: 100%;
     list-style: none;
     background: #FFFFFF;

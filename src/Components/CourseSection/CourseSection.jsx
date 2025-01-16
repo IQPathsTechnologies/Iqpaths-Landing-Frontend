@@ -116,14 +116,14 @@ const CourseSection = ({
   const handleOpenPopup = () => {
 
     // login popup
-    // setIsPopupVisible(true); 
-    // document.body.style.overflow = "hidden"; 
+    setIsPopupVisible(true); 
+    document.body.style.overflow = "hidden"; 
 
 
-    // if(!isLoggedin){
+    if(!isLoggedin){
     //   alert("Please login to buy the course.");
-    // }
-    // else{
+    }
+    else{
       //razor pay 
       if(!isPurchased){
         handlePurchase();
@@ -131,7 +131,7 @@ const CourseSection = ({
       else{
         alert("You have already purchased this course.");
       }
-    // }
+    }
 
 
   };
