@@ -9,7 +9,7 @@ const imagesTemp = [
     '/Banner/1.png',
 ];
 
-const apiClass = new AuthService();
+const apiClass = new AuthService(); 
 
 const Banner = () => {
     const [images, setImages] = useState([]);

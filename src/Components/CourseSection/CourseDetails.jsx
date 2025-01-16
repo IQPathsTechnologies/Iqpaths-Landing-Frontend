@@ -148,9 +148,9 @@ const CourseDetails = () => {
                     </div>
                     <div className={styles.button}>
                       <button className={styles.previewButton}>
-                        {lesson.preview ? "Preview" : "Locked"}
+                        {lesson.preview ? "Preview" : "LIVE"}
                       </button>
-                      <span className={styles.lessonTime}>{lesson.duration} hour</span>
+                      <span className={styles.lessonTime}>{lesson.duration} lecture</span>
                       {lesson.preview && (
                         <span className={styles.lessonCheck}>
                           <img src="/tick.png" alt="Tick" />

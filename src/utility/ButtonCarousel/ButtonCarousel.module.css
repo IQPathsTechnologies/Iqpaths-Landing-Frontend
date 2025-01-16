@@ -38,7 +38,6 @@
     /* border: 2px solid #f8f8f880; */
     background: none;
     border: none;
-    /* border: 2px solid red; */
 }
 
 .button:hover {
@@ -46,13 +45,25 @@
 }
 
 /* Responsive styles for mobile view */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) and (min-width: 320px) {
     .button {
-        font-size: 0.8rem;
-        padding: 8px 14px;
+        width: 50px;
+        height: 50px;
+        margin-left: -10px;
+        margin-bottom: -210px;
+        /* font-size: 0rem; */
+        /* padding: 0px 0px; */
     }
-
+    
     .buttonContainer {
         padding: 5px;
     }
 }
+
+/* @media (max-width: 425px) {
+    .button {
+        display: block;
+        margin-bottom: 300px;
+        border: 2px solid red;
+    }
+} */

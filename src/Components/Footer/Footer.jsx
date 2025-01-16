@@ -71,7 +71,7 @@ const Footer = () => {
             </div>     
         </footer>
         <hr className={styles.footerDivider} />
-        <p className={styles.copyright}>Copiright © 2024 IQpaths - All Rights Reserverd</p>
+        <p className={styles.copyright}>Copyright © 2025 IQpaths - All Rights Reserved</p>
         </div>
     );
 };
