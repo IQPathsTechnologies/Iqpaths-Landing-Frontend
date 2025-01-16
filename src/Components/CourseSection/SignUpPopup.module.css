@@ -197,3 +197,13 @@
     }
   }
   
+  @media only screen and (max-width: 600px) {
+  .rightSection{
+    display: none;
+  }
+  .popup{
+    width: 95%;
+    height: auto;
+  }
+
+  }
