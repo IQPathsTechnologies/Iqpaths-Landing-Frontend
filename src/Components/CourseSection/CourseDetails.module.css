@@ -51,9 +51,9 @@
     font-size: 16px;
     color: #555;
     line-height: 1.5;
-    height: 362px;
-    min-height: 100px;
-    max-height: 449px;
+    height: 450px;
+    /* min-height: 100px; */
+    /* max-height: 449px; */
     background-color: #F5F5F5;
     overflow-x: hidden;
     overflow-y: auto;
