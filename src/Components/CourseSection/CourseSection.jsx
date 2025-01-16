@@ -224,7 +224,7 @@ const CourseSection = ({
                   <p>
                     {" "}
                     {courseDetails.duration}{" "}
-                    {courseDetails.duration == 1 ? "week" : "weeks"}{" "}
+                    {courseDetails.duration == 1}
                   </p>
                 </div>
                 <div className={styles.info}>

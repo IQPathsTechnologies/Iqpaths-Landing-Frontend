@@ -42,7 +42,7 @@ function ButtonCarousel({ children, autoslide = false, autoslideTime = 3000 }) {
                 </button>
                 <button onClick={nextSlide} className={styles.button}>
                     <img src="\rightArroww.png" alt="rightArrow" />
-                </button>
+                </button> 
             </div>
         </div>
     );
