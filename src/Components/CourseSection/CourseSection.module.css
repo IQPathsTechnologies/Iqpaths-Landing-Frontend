@@ -889,6 +889,7 @@
         justify-content: space-between;
         width: 80%;
         gap: 15px;
+        /* border: 2px solid red; */
     }
 
     .whishlist {
@@ -913,12 +914,6 @@
         border: none;
     }
 
-    .buyDetails {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
     .cart p {
         font-style: "Lexend", sans-serif;
         font-weight: 500;
@@ -940,6 +935,13 @@
         /* padding-top: 15px; */
         /* border: 2px solid red; */
         /* margin-right: 80px; */
+    }
+
+    .buyDetails {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
 
     .buy {

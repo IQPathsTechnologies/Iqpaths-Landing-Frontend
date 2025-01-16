@@ -30,7 +30,7 @@ const CourseSection = ({
   // const [couponCode, setCouponCode] = useState(null);
   const couponCode = useRef("");
 
-  const { isLoggedin } = useContext(UserContext);
+  const { isLoggedIn } = useContext(UserContext);
   const { title, id } = useParams();
   const courseId = id;
 
@@ -114,27 +114,19 @@ const CourseSection = ({
   };
 
   const handleOpenPopup = () => {
-
-    // login popup
-    setIsPopupVisible(true); 
-    document.body.style.overflow = "hidden"; 
-
-
-    if(!isLoggedin){
-      // alert("Please login to buy the course.");
+    if (!isLoggedIn) {
+        setIsPopupVisible(true); 
+        document.body.style.overflow = "hidden"; 
+        // alert("Please login to buy the course.");
+    } else {
+        //razor pay 
+        if (!isPurchased) {
+            handlePurchase();
+        } else {
+            alert("You have already purchased this course.");
+        }
     }
-    else{
-    // razor pay 
-    if (!isPurchased) {
-      handlePurchase();
-    }
-    else {
-      alert("You have already purchased this course.");
-    }
-    }
-
-
-  };
+};
 
   const handleClosePopup = () => {
     setIsPopupVisible(false); // Hide the pop-up
