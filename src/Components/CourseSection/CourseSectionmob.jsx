@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef, useContext } from "react";
 import SignUpPopup from "./SignUpPopup";
 import styles from "./CourseSection.module.css";
-import CourseDetails from "./CourseDetails";
+import CourseDetailsmob from "./CourseDetailsmob";
 import { getRazorPay, loadRazorPay } from "../../utility/Razorpay/Razorpay";
 import { verifyPayment, createOrder } from "../../utility/Razorpay/RazorpayApi";
 import { useParams, useNavigate } from "react-router-dom";
@@ -19,7 +19,7 @@ const CourseSection = ({
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isRazorPayPopupVisible, setIsRazorPayPopupVisible] = useState(false);
   const [orderToken, setOrderToken] = useState(null);
-  const [razorpayOptions, setRazorpayOptions] = useState(null); 
+  const [razorpayOptions, setRazorpayOptions] = useState(null);
   const [courseDetails, setCourseDetails] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isApplied, setIsApplied] = useState(false);
@@ -30,10 +30,10 @@ const CourseSection = ({
   // const [couponCode, setCouponCode] = useState(null);
   const couponCode = useRef("");
 
- const {isLoggedin} = useContext(UserContext);
+  const { isLoggedin } = useContext(UserContext);
   const { title, id } = useParams();
   const courseId = id;
-  
+
   const apiClass = new AuthService();
   const navigate = useNavigate();
 
@@ -42,40 +42,40 @@ const CourseSection = ({
   useEffect(() => {
     const fetchData = async function () {
       try {
-          const response = await apiClass.isCoursePurchase(courseId);
-          console.log("CourseSection me response aa raha", response);
-          setIsPurchased(response.data.data.isPurchased);
-          console.log(response.data.data.isPurchased)
+        const response = await apiClass.isCoursePurchase(courseId);
+        console.log("CourseSection me response aa raha", response);
+        setIsPurchased(response.data.data.isPurchased);
+        console.log(response.data.data.isPurchased)
       } catch (error) {
         console.log("CourseSection me isCoursePurchased ka reponse", error);
       }
     }
     fetchData();
   }, []);
-  
+
 
 
 
   //razorpay
   const handlePurchase = useCallback(async () => {
     console.log("coupon code ye lagega re bawa", couponCode);
-    const response = await createOrder(courseId,  couponCode.current);
+    const response = await createOrder(courseId, couponCode.current);
 
     const { token, currency, key, name, description } = response;
     const { amount, id } = response.razorpayOrder;
     const order_id = id;
     setOrderToken(token);
-    setRazorpayOptions({ order_id, amount, currency,  key, name, description });
+    setRazorpayOptions({ order_id, amount, currency, key, name, description });
   }, [courseId]);
 
   useEffect(() => {
-    if(razorpayOptions){
+    if (razorpayOptions) {
       handlePayNow();
     }
   }, [razorpayOptions]);
-  
+
   const handlePayNow = useCallback(async () => {
-     loadRazorPay();
+    loadRazorPay();
     setIsRazorPayPopupVisible(true);
     const rzp = getRazorPay({
       ...razorpayOptions,
@@ -87,7 +87,7 @@ const CourseSection = ({
         razorpay_payment_id,
         razorpay_signature,
       }) => {
-         verifyPayment({
+        verifyPayment({
           token: orderToken,
           razorpay_order_id,
           razorpay_payment_id,
@@ -100,7 +100,7 @@ const CourseSection = ({
       console.log("Payment successful");
       setIsPurchased(true);
     });
-    
+
 
     rzp.on("payment.failed", () => {
       console.log("Payment failed");
@@ -110,7 +110,7 @@ const CourseSection = ({
   }, [orderToken, razorpayOptions, courseId]);
 
   const handleGoBack = () => {
-    navigate(-1); 
+    navigate(-1);
   };
 
   const handleOpenPopup = () => {
@@ -124,13 +124,13 @@ const CourseSection = ({
       // alert("Please login to buy the course.");
     }
     else{
-      // razor pay 
-      if(!isPurchased){
-        handlePurchase();
-      }
-      else{
-        alert("You have already purchased this course.");
-      }
+    // razor pay 
+    if (!isPurchased) {
+      handlePurchase();
+    }
+    else {
+      alert("You have already purchased this course.");
+    }
     }
 
 
@@ -149,7 +149,7 @@ const CourseSection = ({
   }, []);
 
 
-  
+
 
   //get content 
   useEffect(() => {
@@ -173,7 +173,7 @@ const CourseSection = ({
 
     if (couponCode.current.trim() !== "") {
       console.log("CourseSection :: handleApplyCoupon :: couponCode", couponCode.current);
-      const couponResponse = await apiClass.useCoupon({couponCode:  couponCode.current, courseId: id });
+      const couponResponse = await apiClass.useCoupon({ couponCode: couponCode.current, courseId: id });
       console.log("CourseSection :: handleApplyCoupon :: couponResponse", couponResponse);
       setCouponDiscountedPrice(couponResponse.data.data.course.price);
       setIsApplied(true);
@@ -181,22 +181,22 @@ const CourseSection = ({
       alert("Please enter a valid coupon.");
     }
   };
-  
-    
+
+
 
   const handleCouponInputChanges = (e) => {
     console.log("coupon ki value", e.target.value);
     couponCode.current = e.target.value;
     setCoupon(e.target.value);
   };
-  
+
   const handleCancelCoupon = () => {
     couponCode.current = "";
     setIsApplied(false);
     setCoupon("");
     setCouponDiscountedPrice(null);
   };
-  
+
 
   const addToWhishlist = async () => {
     try {
@@ -212,14 +212,44 @@ const CourseSection = ({
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.containermob}>
         {/* Left Section */}
         <div className={styles.leftSection}>
           <div className={styles.courseHeading}>
             <div className={styles.courseDetails}>
               <p className={styles.heading}>
-              <span onClick={handleGoBack} style={{ cursor: "pointer"}}>All Programs </span>&gt; {courseDetails.subject}
+                <span onClick={handleGoBack} style={{ cursor: "pointer" }}>All Programs </span>&gt; {courseDetails.subject}
               </p>
+              <div className={styles.coursePreview}>
+                <img src={courseDetails.thumbnail} alt="Preview" />
+              </div>
+              <div className={styles.rating}>
+                {loading ? (
+                  <p>Loading...</p> // Show a loader or placeholder while fetching data
+                ) : (
+                  <>
+                    <p>{courseDetails.review}</p>
+                    {[...Array(courseDetails.review || 0)].map((_, i) => (
+                      <img
+                        key={i}
+                        src="/starFilled.svg"
+                        alt="rating"
+                        className={styles.star}
+                      />
+                    ))}
+                    {[...Array(5 - (courseDetails.review || 0))].map(
+                      (_, index) => (
+                        <img
+                          key={index}
+                          src="/starEmpty.svg"
+                          alt="rating"
+                          className={styles.star}
+                        />
+                      )
+                    )}
+                  </>
+                )}
+              </div>
               <h6 className={styles.title}> {courseDetails.title} </h6>
               <p className={styles.description}> {courseDetails.detailDescription} </p>
 
@@ -249,34 +279,88 @@ const CourseSection = ({
                   <p> {quizzes} </p>
                 </div> */}
               </div>
-
-              <div className={styles.rating}>
-                {loading ? (
-                  <p>Loading...</p> // Show a loader or placeholder while fetching data
-                ) : (
-                  <>
-                    <p>{courseDetails.review}</p>
-                    {[...Array(courseDetails.review || 0)].map((_, i) => (
-                      <img
-                        key={i}
-                        src="/starFilled.svg"
-                        alt="rating"
-                        className={styles.star}
-                      />
-                    ))}
-                    {[...Array(5 - (courseDetails.review || 0))].map(
-                      (_, index) => (
-                        <img
-                          key={index}
-                          src="/starEmpty.svg"
-                          alt="rating"
-                          className={styles.star}
-                        />
-                      )
-                    )}
-                  </>
-                )}
+              <div className={styles.coursePricing}>
+                <p className={styles.price}> Rs.{couponDiscountedPrice ? Math.floor(couponDiscountedPrice) : courseDetails.price} </p>
+                <p className={styles.discount}>
+                  {" "}
+                  {(
+                    ((courseDetails.realPrice - courseDetails.discountedPrice) /
+                      courseDetails.realPrice) *
+                    100
+                  ).toFixed(0)}
+                  {" %off "}
+                </p>
               </div>
+              <div className={styles.timeLeft}>
+                <img src="/alarm.png" alt="Alarm" />
+                <p> {hoursLeft} </p>
+              </div>
+              <div className={styles.buyDetails}>
+                <div className={styles.details}>
+                  <button className={styles.cart} onClick={handleOpenPopup}>
+                    <p> Add to cart </p>
+                  </button>
+
+                  <div className={styles.whishlist} onClick={addToWhishlist}>
+
+                    {whishlist ? (
+                      <img src="/heartFilled.svg" alt="Wishlist" />
+                    ) : (
+                      <img src="/heartEmpty.svg" alt="Wishlist" />
+                    )
+                    }
+
+                    {/* <img src="/heartEmpty.svg" alt="Wishlist" />
+                  <img src="/heartFilled.svg" alt="Wishlist" /> */}
+                    {/* <p> Wishlist </p> */}
+                  </div>
+                </div>
+                <button className={styles.buy} onClick={handleOpenPopup}>
+                  {(isPurchased ? (<p> Purchased </p>) : (<p> Buy Now </p>))}
+                </button>
+                {/* <p className={styles.moneyBack}>
+                <p> 30 Day Money Back Guarantee </p>
+              </p> */}
+              </div>
+              <div className={styles.courseInclude}>
+                <p className={styles.includes}> This course includes: </p>
+                <div className={styles.content}>
+                  <img src="/camera.png" alt="Camera" />
+                  <p> Interactive live sessions</p>
+                </div>
+                <div className={styles.content}>
+                  <img src="/download.png" alt="Download" />
+                  <p> Hands on Projects and Assignments </p>
+                </div>
+                <div className={styles.content}>
+                  <img src="/access.png" alt="Access" />
+                  <p> Personalized feedback</p>
+                </div>
+              </div>
+              <div className={styles.coupon}>
+                <form onSubmit={(e) => { e.preventDefault(); handleApplyCoupon() }}>
+                  <input
+                    type="text"
+                    placeholder="Enter coupon"
+                    className={styles.coupons}
+                    // ref={couponCode}
+                    // value={couponCode.current}
+                    // onChange={(e) => setCoupon(e.target.value)
+                    value={coupon}
+                    onChange={handleCouponInputChanges}
+                    disabled={isApplied}
+                  />
+                  {/* {console.log("coupon code applied ye vala", coupon)} */}
+                  <button className={isApplied ? styles.applied : styles.apply} type="submit" disabled={isApplied}>
+                    {isApplied ? "Applied" : "Apply"}
+                  </button>
+                </form>
+                <div className={styles.displayCoupon} style={{ display: isApplied ? "flex" : "none" }}>
+                  <div className={styles.couponDisplaying}> {couponCode.current} </div>
+                  <div className={styles.cancelCoupon} onClick={handleCancelCoupon}>X</div>
+                </div>
+              </div>
+
             </div>
           </div>
 
@@ -287,106 +371,17 @@ const CourseSection = ({
             <div className={styles.courseInfo}>
               {courseDetails.whatYouWilLearn?.map((item, index) => (
                 <>
-                <p key={index} className={styles.points}>
-                  {item}
-                </p>
+                  <p key={index} className={styles.points}>
+                    {item}
+                  </p>
                 </>
               ))}
             </div>
           </div>
 
-          <CourseDetails />
+          <CourseDetailsmob />
         </div>
 
-        {/* Right Section */}
-        <div className={styles.rightSectionWrapper}>
-          <div className={styles.rightSection}>
-            <div className={styles.coursePreview}>
-              <img src={courseDetails.thumbnail} alt="Preview" />
-            </div>
-            <div className={styles.coursePricing}>
-              <p className={styles.price}> Rs.{couponDiscountedPrice ? Math.floor(couponDiscountedPrice) : courseDetails.price} </p>
-              <p className={styles.discount}>
-                {" "}
-                {(
-                  ((courseDetails.realPrice - courseDetails.discountedPrice) /
-                    courseDetails.realPrice) *
-                  100
-                ).toFixed(0)}
-                {" %off "}
-              </p>
-            </div>
-            <div className={styles.timeLeft}>
-              <img src="/alarm.png" alt="Alarm" />
-              <p> {hoursLeft} </p>
-            </div>
-            <div className={styles.buyDetails}>
-              <div className={styles.details}>
-                <button className={styles.cart} onClick={handleOpenPopup}>
-                  <p> Add to cart </p>
-                </button>
-
-                <div className={styles.whishlist} onClick={addToWhishlist}>
-
-                  {whishlist ? (
-                    <img src="/heartFilled.svg" alt="Wishlist" />
-                  ) : (
-                    <img src="/heartEmpty.svg" alt="Wishlist" />
-                  )  
-                  }
-
-                  {/* <img src="/heartEmpty.svg" alt="Wishlist" />
-                  <img src="/heartFilled.svg" alt="Wishlist" /> */}
-                  {/* <p> Wishlist </p> */}
-                </div>
-              </div>
-              <button className={styles.buy} onClick={handleOpenPopup}>
-                {(isPurchased ? (<p> Purchased </p>) : (<p> Buy Now </p>)) }
-              </button>
-              {/* <p className={styles.moneyBack}>
-                <p> 30 Day Money Back Guarantee </p>
-              </p> */}
-            </div>
-            <div className={styles.courseInclude}>
-              <p className={styles.includes}> This course includes: </p>
-              <div className={styles.content}>
-                <img src="/camera.png" alt="Camera" />
-                <p> Interactive live sessions</p>
-              </div>
-              <div className={styles.content}>
-                <img src="/download.png" alt="Download" />
-                <p> Hands on Projects and Assignments </p>
-              </div>
-              <div className={styles.content}>
-                <img src="/access.png" alt="Access" />
-                <p> Personalized feedback</p>
-              </div>
-            </div>
-            <div className={styles.coupon}>
-              <form onSubmit={(e) => { e.preventDefault(); handleApplyCoupon()}}>
-                <input
-                  type="text"
-                  placeholder="Enter coupon"
-                  className={styles.coupons}
-                  // ref={couponCode}
-                  // value={couponCode.current}
-                  // onChange={(e) => setCoupon(e.target.value)
-                  value={coupon}
-                  onChange={handleCouponInputChanges}
-                  disabled={isApplied}
-                />
-                {/* {console.log("coupon code applied ye vala", coupon)} */}
-                <button  className={isApplied ? styles.applied : styles.apply}  type="submit" disabled={isApplied}>
-                {isApplied ? "Applied" : "Apply"}
-                </button>
-              </form>
-              <div className={styles.displayCoupon} style={{ display: isApplied ? "flex" : "none" }}>
-                <div className={styles.couponDisplaying}> {couponCode.current} </div>
-                <div className={styles.cancelCoupon} onClick={handleCancelCoupon}>X</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* SignUp Popup */}

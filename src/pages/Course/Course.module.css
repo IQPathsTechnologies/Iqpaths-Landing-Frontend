@@ -16,3 +16,15 @@
     /* padding-top: 200px; */
     /* border: 2px solid green; */
 }
+@media only screen and (min-width: 1550px) {
+
+  main{
+    width: 1500px;
+    margin: auto;
+  }
+
+  }
+@media only screen and (max-width: 600px) {
+  
+
+  }
