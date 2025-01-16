@@ -36,8 +36,8 @@ const CourseFilter = ({ onCategoryChange, onFilterChange }) => {
     "MACHINE LEARNING",
     "PYTHON",
     "UI/UX",
-    "PRODUCT MANAGEMENT",
-    "MANAGEMENT",
+    "FRONTEND DEVELOPMENT",
+    "BACKEND DEVELPOMENT",
     "WEB DEVELOPMENT",
   ];
 
