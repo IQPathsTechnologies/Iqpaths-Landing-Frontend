@@ -1,4 +1,18 @@
+
 .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: auto;
+    /* height: 225vh;
+    min-height: 230vh;
+    max-height: 280vh; */
+    /* height: clamp(255vh, 270vh, 280vh); */
+    border-top: 1px solid #0047B2;
+    /* border: 2px solid red; */
+}
+
+.containermob {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -9,10 +23,11 @@
     /* height: clamp(255vh, 270vh, 280vh); */
     border-top: 1px solid #0047B2;
     /* border: 2px solid red; */
+    display: none;
 }
 
 .leftSection {
-    position: absolute;
+    position: relative;
     width: 100%;
     /* flex: 1; */
     /* margin-right: 20px; */
@@ -21,6 +36,7 @@
 
 .courseHeading {
     height: 450px;
+    width: 130%;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -73,7 +89,7 @@
 }
 
 .extraInfo {
-    display: flex; 
+    display: flex;
     flex-direction: row;
 }
 
@@ -123,7 +139,7 @@
 
 
 
-.star{
+.star {
     display: flex;
     flex-direction: row;
     /* padding-top: 10px; */
@@ -143,8 +159,8 @@
     background-color: #f9f9f9;
 }
 
-.courseLearning:hover{
-    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1) , -10px -10px 10px white ;
+.courseLearning:hover {
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1), -10px -10px 10px white;
     transition: all 0.2s ease-in-out;
     transform: scale(1.01);
 }
@@ -157,14 +173,14 @@
     color: black;
 }
 
-.courseInfo{
+.courseInfo {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     margin-top: 20px;
 }
 
-.points{
+.points {
     display: flex;
     flex-direction: row;
     gap: 5px;
@@ -175,8 +191,8 @@
 
 }
 
-.points:hover{
-    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1) , -10px -10px 10px white ;
+.points:hover {
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1), -10px -10px 10px white;
     transition: all 0.2s ease-in-out;
     transform: scale(1.05);
     background-color: #0047B2;
@@ -221,9 +237,9 @@
     margin-left: auto;
     margin-right: 100px;
     margin-top: 120px;
-    top: 20px; 
+    top: 20px;
     /* border: 2px solid red; */
-    
+
 }
 
 .rightSection {
@@ -231,7 +247,7 @@
     height: 680px;
     position: absolute;
     /* margin-top: 150px; */
-     /* right: 30px; */
+    /* right: 30px; */
     /* top: 200px;  */
     display: flex;
     flex-direction: column;
@@ -317,7 +333,7 @@
     /* border: 2px solid red; */
 }
 
-.whishlist{
+.whishlist {
     /* border: 2px solid black; */
     border-radius: 8px;
     display: flex;
@@ -488,10 +504,14 @@
     font-size: 15px;
     text-align: center;
     border-radius: 8px;
-    background-color: green; /* Indicates success */
-    border: 1px solid green; /* Matches the background */
-    cursor: not-allowed; /* To indicate that it’s non-clickable */
-    opacity: 0.8; /* Slightly muted to differentiate from active state */
+    background-color: green;
+    /* Indicates success */
+    border: 1px solid green;
+    /* Matches the background */
+    cursor: not-allowed;
+    /* To indicate that it’s non-clickable */
+    opacity: 0.8;
+    /* Slightly muted to differentiate from active state */
 }
 
 .displayCoupon {
@@ -517,7 +537,7 @@
     border: 2px dotted black;
 }
 
-.cancelCoupon{
+.cancelCoupon {
     width: 20px;
     height: 20px;
     font-size: 24px;
@@ -526,4 +546,564 @@
     justify-content: center;
     align-items: center;
     border-radius: 2px;
+}
+
+@media only screen and (max-width: 700px) {
+    .container {
+        display: none;
+    }
+
+    .containermob {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    *{
+        /* margin: 0; */
+        box-sizing: border-box;
+      }
+    .containermob {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: auto;
+        border-top: 1px solid #0047B2;
+        /* border: 2px solid red; */
+    }
+
+    .leftSection {
+        position: relative;
+        width: 100%;
+        /* flex: 1; */
+        /* margin-right: 20px; */
+        /* border: 2px solid black; */
+    }
+
+    .courseHeading {
+        height: auto;
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 15px 25px;
+        /* background-color: #967c7c; */
+        background-color: #ffffff;
+        position: relative;
+    }
+
+    .courseDetails {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        position: relative;
+        margin-left: 0px;
+    }
+
+    .heading {
+        width: 100%;
+        height: 45px;
+        margin: 5px 0px;
+        font-style: "Lexend", sans-serif;
+        font-weight: 500;
+        font-size: 21.5px;
+        color: black;
+    }
+
+    .title {
+        margin: 0 0 12px 0px;
+        font-style: "Lexend", sans-serif;
+        font-weight: 700;
+        width: 100%;
+        font-size: 23px;
+        padding-bottom: 0px;
+        color: black;
+    }
+
+    .description {
+        width: 100%;
+        margin-top: 00px;
+        font-style: "Manrope", sans-serif;
+        font-weight: 200;
+        font-size: 15px;
+        text-align: left;
+        color: black;
+
+    }
+
+    .extraInfo {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+    }
+
+    .info {
+        display: flex;
+        gap: 0.3rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .info p {
+        margin-left: 5px;
+        margin-right: 0px;
+        margin-top: 0px;
+        font-weight: 200;
+        margin-bottom: 0px;
+        font-weight: 400;
+        font-size: 16px;
+        color: #818181;
+        font-style: "Jost", sans-serif;
+    }
+
+    .info img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .rating {
+        display: flex;
+        flex-direction: row;
+        /* padding-top: 30px; */
+        width: fit-content;
+        /* border: 2px solid red; */
+    }
+
+    .rating p {
+        /* margin-top: 0px; */
+        /* margin-right: 10px; */
+        font-weight: 550;
+        font-size: 15px;
+        padding: 0 5px;
+        color: #F1C40F;
+        /* border: 2px solid red; */
+    }
+
+    .review {
+        display: flex;
+        flex-direction: row;
+        padding-top: 10px;
+        /* border: 2px solid red; */
+    }
+
+
+
+    .star {
+        display: flex;
+        flex-direction: row;
+        /* padding-top: 10px; */
+        padding: 0 5px;
+        /* border: 2px solid red; */
+    }
+
+    .courseLearning {
+        width: 90%;
+        margin: 50px auto;
+        border-radius: 12px;
+        padding: 0;
+        gap: 18px;
+        border: 1px solid #454555;
+        background-color: #f9f9f9;
+    }
+
+    .courseLearning:hover {
+        box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1), -10px -10px 10px white;
+        transition: all 0.2s ease-in-out;
+        transform: scale(1.01);
+    }
+
+    .whatHeading {
+        margin-left: 10px;
+        font-style: "Lexend", sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        color: black;
+    }
+
+    .courseInfo {
+        /* display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 20px; */
+
+        display: flex;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        margin-top: 0px;
+        flex-direction: column;
+    }
+
+    .points {
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        margin: 0;
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 12px;
+        border: none;
+
+    }
+
+    .points:hover {
+        box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1), -10px -10px 10px white;
+        transition: all 0.2s ease-in-out;
+        transform: scale(1.01);
+        background-color: #0047B2;
+        color: white;
+    }
+
+    .info1 {
+        width: 300px;
+        height: 84px;
+        margin-bottom: 15px;
+        font-style: "Manrope", sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        /* border: 2px solid red; */
+    }
+
+    .info2 {
+        width: 300px;
+        height: 84px;
+        margin-top: -105px;
+        margin-left: 53%;
+        font-style: "Manrope", sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+    }
+
+    .info3 {
+        width: 300px;
+        height: 84px;
+        font-style: "Manrope", sans-serif;
+        margin-top: 25px;
+        font-weight: 400;
+        font-size: 18px;
+    }
+
+    .rightSectionWrapper {
+        /* flex: 0 0 300px; */
+        position: absolute;
+        width: 100%;
+        height: 680px;
+        /* right: 0;  */
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 85 px;
+        top: 0;
+        /* border: 2px solid red; */
+        display: none;
+    }
+
+    .rightSection {
+        width: 100%;
+        height: 680px;
+        position: absolute;
+        /* margin-top: 150px; */
+        /* right: 30px; */
+        /* top: 200px;  */
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border: none;
+    }
+
+    .coursePreview {
+        position: relative;
+        display: inline-block;
+        /* margin-top: -100px; */
+    }
+
+    .coursePreview img {
+        display: block;
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        object-position: top;
+
+        /* height: auto; */
+    }
+
+    .coursePricing {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .price {
+        width: 116px;
+        height: 50px;
+        font-size: 40px;
+        font-weight: 800;
+        margin-left: 0px;
+        margin-top: 20px;
+        /* border: 2px solid red; */
+    }
+
+    .discount {
+        width: 90px;
+        height: 30px;
+        margin-top: 30px;
+        margin-left: 50px;
+        display: flex;
+        font-size: 20px;
+        padding: 0px 2px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 12px;
+        background-color: #F0C932;
+    }
+
+    .timeLeft {
+        display: flex;
+        flex-direction: row;
+        margin-top: -30px;
+        margin-left: 0px;
+    }
+
+    .timeLeft img {
+        width: 12px;
+        height: 12px;
+        margin-right: 5px;
+    }
+
+    .timeLeft p {
+        margin-top: -2px;
+        font-style: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 12px;
+        color: #AA3030;
+    }
+
+
+
+
+    .details {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        gap: 15px;
+        /* border: 2px solid red; */
+    }
+
+    .whishlist {
+        /* border: 2px solid black; */
+        border-radius: 8px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        /* padding: 4px; */
+
+    }
+
+    .cart {
+        width: 67%;
+        height: 41px;
+        border-radius: 8px;
+        /* margin-top: 8px; */
+        margin-left: 0;
+        /* margin: 15px 15px; */
+        background-color: #0047B2;
+        border: none;
+    }
+
+    .cart p {
+        font-style: "Lexend", sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        color: white;
+        text-align: center;
+    }
+
+    /* .wishlist {
+        width: 44px;
+        height: 44px;
+        margin-top: 0px;
+    } */
+
+    .wishlist {
+        width: 42px;
+        height: 42px;
+        margin-top: 6px;
+        /* padding-top: 15px; */
+        /* border: 2px solid red; */
+        /* margin-right: 80px; */
+    }
+
+    .buy {
+        width: 80%;
+        height: 46px;
+        margin: 12px 0%;
+        /* margin-left: 14px; */
+        border-radius: 8px;
+        background-color: white;
+        border: 1.5px solid black;
+    }
+
+    .buy p {
+        font-style: "Lexend", sans-serif;
+        font-weight: 550;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .buy:hover {
+        background-color: #0047B2;
+        color: white;
+    }
+
+    .moneyBack {
+        width: 170px;
+        height: 9px;
+    }
+
+    .moneyBack p {
+        width: 200px;
+        margin-left: 68px;
+        margin-top: -5px;
+        font-style: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 12px;
+        color: #818181;
+        /* border: 2px solid red; */
+    }
+
+
+
+
+    .includes {
+        margin-left: 14px;
+        font-style: "Manrope", sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        /* border: 2px solid red; */
+    }
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 0px;
+    }
+
+    .content img {
+        width: 10px;
+        height: 10px;
+        margin-top: -5px;
+        margin-left: 30px;
+        margin-right: 8px;
+    }
+
+    .content p {
+        margin-top: -8px;
+        font-style: "Manrope", sans-serif;
+        font-weight: 300;
+        font-size: 15px;
+    }
+
+    .gift {
+        display: flex;
+        /* gap: 20px;   */
+    }
+
+    .gift p {
+        font-style: "Lexend", sans-serif;
+        font-weight: 800;
+        font-size: 12px;
+    }
+
+    .p1 {
+        margin-left: 50px;
+    }
+
+    .coupons {
+        width: 54%;
+        height: 40px;
+        margin-top: 10px;
+        margin-left: 2px;
+        margin-right: 10px;
+        border-radius: 8px;
+        text-align: center;
+        border: 1px solid black;
+    }
+
+    .coupons::placeholder {
+        font-style: "Lexend", sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        text-align: center;
+        color: #979797;
+    }
+
+    .apply {
+        width: 90px;
+        height: 43px;
+        color: white;
+        font-style: "Lexend", sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 8px;
+        background-color: black;
+        border: 1px solid black;
+    }
+
+    .applied {
+        width: 90px;
+        height: 43px;
+        color: white;
+        font-style: "Lexend", sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 8px;
+        background-color: green;
+        /* Indicates success */
+        border: 1px solid green;
+        /* Matches the background */
+        cursor: not-allowed;
+        /* To indicate that it’s non-clickable */
+        opacity: 0.8;
+        /* Slightly muted to differentiate from active state */
+    }
+
+    .displayCoupon {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 10px;
+        margin-left: 20px;
+        gap: 30px;
+        /* border: 2px solid red; */
+    }
+
+
+    .couponDisplaying {
+        font-style: "Lexend", sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        width: 175px;
+        height: 20px;
+        text-align: center;
+        padding: 5px 10px;
+        color: #0047B2;
+        border: 2px dotted black;
+    }
+
+    .cancelCoupon {
+        width: 20px;
+        height: 20px;
+        font-size: 24px;
+        border: 2px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 2px;
+    }
+
 }
