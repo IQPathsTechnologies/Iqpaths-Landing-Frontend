@@ -132,7 +132,8 @@ const ContinuousVideo = () => {
                       ></div>
                     </div>
                     <span className={styles.progressText}>
-                      Lesson {lesson.progress} of {lesson.totalLessons}
+                      {/* Lesson {lesson.progress} of {lesson.totalLessons} */}
+                      LIVE 
                     </span>
                   </div>
                 </Link>

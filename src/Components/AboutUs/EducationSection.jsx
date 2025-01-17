@@ -18,7 +18,7 @@ const EducationSection = () => {
           experience.
         </p>
         <button className={styles.exploreButton}>
-          <a href="/home" className={styles.button}>
+          <a href="/" className={styles.button}>
             Explore more about us &#8594;
           </a>
         </button>
