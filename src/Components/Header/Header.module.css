@@ -1,15 +1,13 @@
-
-
-
 .header {
   height: 90px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0px 0px 0px 30px; 
-  background-color: #fff;
+  background-color: #edf9ff;
   border-bottom: 1px solid #ccc;
   overflow-x: hidden;
+  /* border: 2px solid red; */
 }
 
 .sidebar{

@@ -5,7 +5,7 @@ import SignUpPopup from "../CourseSection/SignUpPopup";
 import { UserContext } from '../../context/userContext';
 import { AuthService } from '../../axios/User';
 
-const Header = () => {
+const Header = () => { 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [popupType, setPopupType] = useState("");
   const [isSideBarVisible, setIsSideBarVisible] = useState(false);

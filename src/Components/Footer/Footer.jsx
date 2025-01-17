@@ -60,10 +60,10 @@ const Footer = () => {
                             <td><Link to="*">Cookies usage policy</Link></td>
                             <td><Link to="*">Mentors</Link></td>
                             <td><Link to="/privacy">Privacy policy</Link></td>
-                        </tr>
+                        </tr> 
                         <tr>
                             <td><Link to="/about-us">About Us</Link></td>
-                            <td><Link to="/cancellation">Shipping policy </Link></td>
+                            <td><Link to="/cancellation">Return & refund policy </Link></td>
                         </tr>  
                         
                     </table>
