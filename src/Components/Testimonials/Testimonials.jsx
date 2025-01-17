@@ -46,7 +46,7 @@ function Testimonial() {
         <img src="/invertedComma.svg" alt="" />
         <h1>What our students have to say</h1>
         <p>
-         More than 3000 users have been helped by Iqpaths Course. Here's what they have to say about us.
+         More than 3000 users have been helped by Iqpaths. Here's what they have to say about us.
           
         </p>
       </div>
@@ -83,10 +83,10 @@ function Testimonial() {
             </div>
             <div className={styles.buttons}>
               <div className={styles.btn} onClick={handlePrev}>
-                <img src="\Arrow--Right.png" alt="Right" />
+                <img src="/Arrow--Right.png" alt="Right" />
               </div>
               <div className={styles.btn} onClick={handleNext}>
-                <img src="public\Arrow--Left.png" alt="Left" />
+                <img src="/Arrow--Left.png" alt="Left" />
               </div>
             </div>
           </div>

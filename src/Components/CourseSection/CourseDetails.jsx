@@ -128,7 +128,7 @@ const CourseDetails = () => {
               >
                 <span>{section.name}</span>
                 <span>
-                  {section.lectures.length} Lessons | {section.duration}
+                  {section.lectures.length} Lessons
                 </span>
                 <span className={styles.arrowIcon}>
                   {openDropdown === index ? (
