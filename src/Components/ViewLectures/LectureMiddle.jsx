@@ -77,19 +77,19 @@ const LectureMiddle = ({ selectedLecture }) => {
         </div>
         <div className={styles.lecFooter}>
         <div className={styles.like}>
-            <img src="like.png" alt="Like" />
+            <img src="/like.png" alt="Like" />
             <p> Like </p>
         </div>
         <div className={styles.dislike}>
-            <img src="dislike.png" alt="Dislike" />
+            <img src="/dislike.png" alt="Dislike" />
             <p> Dislike </p>
         </div>
         <div className={styles.issue}>
-            <img src="issue.png" alt="Issue" />
+            <img src="/issue.png" alt="Issue" />
             <p> Report an issue </p>
         </div>
         <div className={styles.share}>
-            <img src="share.png" alt="Share" />
+            <img src="/share.png" alt="Share" />
             <p> Share </p>
         </div>
         </div>

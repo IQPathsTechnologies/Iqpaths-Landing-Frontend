@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./CartPage.module.css";
 
 const CartPage = () => {
@@ -66,10 +67,12 @@ const CartPage = () => {
           </div>
         </div>
       ) : (
-        <div className={styles.emptyCart}>
-          <h2>Your Cart is Empty</h2>
-          <p>Add some courses to see them here!</p>
-        </div>
+        <Link to="/courses" className={styles.emptyCartLink}> 
+          <div className={styles.emptyCart}>
+            <h2>Your Cart is Empty</h2>
+            <p>Add some courses to see them here!</p>
+          </div>
+        </Link>
       )}
     </div>
   );

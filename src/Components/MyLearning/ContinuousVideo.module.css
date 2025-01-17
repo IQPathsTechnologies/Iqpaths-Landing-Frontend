@@ -160,8 +160,9 @@ h2 {
         margin-left: 75%;
     }
     .navigationButtons {
-        margin-bottom: -80px;
+        margin-bottom: -60px;
         margin-right: 80px;
+        /* border: 2px solid red; */
         /* border: 2px solid red; */
     }
 }
@@ -217,7 +218,7 @@ h2 {
     }
     .navigationButtons {
         margin-bottom: -90px;
-        margin-right: 80px;
+        margin-right: 100px;
     }
 }
 
@@ -264,7 +265,7 @@ h2 {
         height: 330px;
     }
     .navigationButtons {
-        margin-bottom: -65px;
+        margin-bottom: -40px;
         margin-right: 60px;
     }
     .progressText {
@@ -275,7 +276,6 @@ h2 {
 @media (max-width: 320px) {
     .section {
         height: 570px;
-        /* border: 2px solid red; */
     }
     h2 {
         font-size: 20px;
@@ -289,7 +289,7 @@ h2 {
         height: 180px;
     }
     .navigationButtons {
-        margin-bottom: -45px;
+        margin-bottom: -40px;
         margin-right: 60px;
     }
     .progressText {

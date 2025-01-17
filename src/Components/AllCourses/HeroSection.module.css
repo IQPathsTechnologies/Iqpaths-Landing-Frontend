@@ -127,11 +127,13 @@
   .textOverlay h1 {
     font-size: 28px;
     max-width: 85%;
+    margin-left: 10px;
   }
   
   .textOverlay h6 {
     font-size: 14px;
-    margin-left: -30px;
+    /* margin-left: -30px; */
+    /* border: 2px solid red; */
   }
 }
 

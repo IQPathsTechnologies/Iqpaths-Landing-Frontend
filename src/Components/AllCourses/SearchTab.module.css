@@ -100,13 +100,12 @@
 @media (max-width: 1439px) and (min-width: 1024px) {
   .searchBar {
     width: 800px;
-    /* border: 2px solid red; */
   }
-
+  
   .searchInput {
     font-size: 15px;
   }
-
+  
   .searchButton {
     font-size: 15px;
   }
@@ -117,12 +116,12 @@
   .searchBar {
     width: 600px;
   }
-
+  
   .searchInput {
     font-size: 14px;
     padding: 10px 12px 10px 35px;
   }
-
+  
   .searchButton {
     padding: 10px 18px;
     font-size: 14px;
@@ -132,17 +131,22 @@
 /* 425px to 767px */
 @media (max-width: 767px) and (min-width: 425px) {
   .searchBar {
-    width: 90%;
+    width: 140%;
+    margin-left: -45px;
   }
-
+  
   .searchInput {
     font-size: 14px;
+    width: 90%;
     /* padding: 8px 10px 8px 30px; */
+    /* border: 2px solid red; */
   }
-
+  
   .searchButton {
+    width: 40%;
     padding: 8px 15px;
     font-size: 13px;
+    /* margin-left: -20px; */
   }
 }
 
