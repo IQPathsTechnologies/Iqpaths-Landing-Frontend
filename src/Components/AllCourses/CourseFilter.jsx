@@ -7,13 +7,14 @@ const CourseFilter = ({ onCategoryChange, onFilterChange }) => {
     {
       name: "Course Category",
       subcategories: [
-        "Web Design",
-        "Management",
-        "Marketing",
+        "All program",
+        "Data Science",
+        "Machine Learning",
         "Python",
         "UI/UX",
-        "Machine Learning",
-        "Database Management",
+        "Frontend Development",
+        "Backend Development",
+        "Web Development",
       ],
     },
     {

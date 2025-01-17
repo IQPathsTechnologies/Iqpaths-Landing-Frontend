@@ -47,23 +47,19 @@ const Footer = () => {
                     <table>
                         <tr>
                             <td><Link to="/">Home</Link></td>
-                            <td><Link to="/courses">Courses</Link></td>
+                            <td><Link to="/courses">About Us</Link></td>
                             <td><Link to="/contact-us"> Contact Us</Link></td>
                             
                         </tr>
                         <tr>
-                            <td><Link to="/my-learnings">My learnings</Link></td>
+                            <td><Link to="/my-learnings">Courses</Link></td>
                             <td><Link to="/terms">Terms and conditions</Link></td>
                             <td><Link to="*">info@iqpaths.com</Link></td>  
                         </tr>
                         <tr>
-                            <td><Link to="*">Cookies usage policy</Link></td>
-                            <td><Link to="*">Mentors</Link></td>
-                            <td><Link to="/privacy">Privacy policy</Link></td>
-                        </tr> 
-                        <tr>
-                            <td><Link to="/about-us">About Us</Link></td>
+                            <td><Link to="/about-us">My learnings</Link></td>
                             <td><Link to="/cancellation">Return & refund policy </Link></td>
+                            <td><Link to="/privacy">Privacy policy</Link></td>
                         </tr>  
                         
                     </table>

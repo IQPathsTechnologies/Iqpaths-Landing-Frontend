@@ -16,7 +16,7 @@ function Testimonial() {
         // console.log("Testimonial :: getTestimonials :: response", response);
       } catch (error) {
         console.log("Testimonial :: getTestimonials :: error", error);
-      }
+      } 
     };
     getTestimonials();
   }, []);
@@ -86,7 +86,7 @@ function Testimonial() {
                 <img src="\Arrow--Right.png" alt="Right" />
               </div>
               <div className={styles.btn} onClick={handleNext}>
-                <img src="public\Arrow--Left.png" alt="Left" />
+                <img src="\Arrow--Left.png" alt="Left" />
               </div>
             </div>
           </div>
