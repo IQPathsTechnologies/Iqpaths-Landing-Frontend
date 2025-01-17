@@ -157,10 +157,14 @@ const Header = () => {
           </nav>
           {isLoggedIn ? (
             <div>
-              <NavLink to="/profile" className={styles.link}>
+              <NavLink to="/profile" className={styles.link} onClick={closeSideBar}>
                 <div className={styles.btnSideBar}>Profile</div>
               </NavLink>
-              <div className={styles.btnSideBar} onClick={handleLogout}>
+              <div className={styles.btnSideBar} onClick=
+              {() => {
+                handleLogout();
+                closeSideBar();
+              }}>
                 Logout
               </div>
             </div>
@@ -169,12 +173,14 @@ const Header = () => {
               <NavLink
                 to={{ pathname: "/signup", state: { type: "signup" } }}
                 className={styles.link}
+                onClick={closeSideBar}
               >
                 <div className={styles.btnSideBar}>Sign Up</div>
               </NavLink>
               <NavLink
                 to={{ pathname: "/login", state: { type: "login" } }}
                 className={styles.link}
+                onClick={closeSideBar}
               >
                 <div className={`${styles.btnSideBar} ${styles.loginBtn}`}>
                   Login
