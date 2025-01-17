@@ -128,7 +128,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                   )
                   }
                   
-                  <span className={styles.rating}>{(course?.review).toFixed(1)} Rating</span>
+                  <span className={styles.rating}>{(course?.review)?.toFixed(1)} Rating</span>
                 </div>
               </div>
 

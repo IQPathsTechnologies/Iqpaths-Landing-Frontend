@@ -13,7 +13,7 @@ const PlacementHero = () => {
 
   return (
     <div className={styles.heroSection}>
-      <img src="public\placement.jpeg" alt="Hero" className={styles.heroImage} />
+      <img src="/placement.jpeg" alt="Hero" className={styles.heroImage} />
       <div className={styles.textOverlay}>
         <h1>{overlayText}</h1>
         <h6>{overlayText2}</h6>

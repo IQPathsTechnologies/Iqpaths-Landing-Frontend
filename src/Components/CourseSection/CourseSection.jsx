@@ -12,7 +12,7 @@ import { UserContext } from "../../context/userContext";
 
 
 const CourseSection = ({
-  students = "156 Students",
+  students = "100+ Students",
   lessons = "20 Lessons",
   hoursLeft = "5 hours left at this price!",
 }) => {
@@ -181,7 +181,7 @@ const CourseSection = ({
 
   const handleCouponInputChanges = (e) => {
     console.log("coupon ki value", e.target.value);
-    couponCode.current = e.target.value;
+    // couponCode.current = e.target.value;
     setCoupon(e.target.value);
   };
   
