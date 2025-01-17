@@ -13,7 +13,7 @@ const CourseFilter = ({ onCategoryChange, onFilterChange }) => {
         "Python",
         "UI/UX",
         "Frontend Development",
-        "Backend Development",
+        "BACKEND DEVELPOMENT",
         "Web Development",
       ],
     },

@@ -47,6 +47,7 @@ const LectureMiddle = ({ selectedLecture }) => {
           autoPlay
           loop
           controls
+          controlsList="nodownload"
           src={selectedLecture.video}
           // muted
         >

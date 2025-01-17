@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './ProfilePage.module.css';
 import { AuthService } from '../../axios/User';
+import { useNavigate } from 'react-router-dom';
 
 
 const ProfilePage = () => {
@@ -8,6 +9,7 @@ const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false); // Track editing state
   const [userDetails, setUserDetails] = useState(); // Store user details
   // const [formData, setFormData] = useState({}); // Store form data
+  const navigate = useNavigate();
 
   const apiClass = new AuthService();
 
@@ -142,6 +144,10 @@ const ProfilePage = () => {
     try {
       const response = await apiClass.deleteUser();
       console.log('ProfilePage :: handleDeleteAccount :: response', response);
+
+      if(response.status == 200){
+        navigate('/logout');
+      }
     } catch (error) {
       console.error("ProfilePage :: handleDeleteAccount", error);
     }
