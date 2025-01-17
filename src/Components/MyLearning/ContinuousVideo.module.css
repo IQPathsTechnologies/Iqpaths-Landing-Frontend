@@ -133,7 +133,7 @@ h2 {
 .progressText {
     margin-left: 80%;
     font-size: 12px;
-    color: #6b6b6b;
+    color: #0066cc;
     margin-bottom: -40px;
     /* border: 2px solid green; */
 }
@@ -157,12 +157,11 @@ h2 {
         width: 99%;
     }
     .progressText {
-        margin-left: 75%;
+        margin-left: 85%;
     }
     .navigationButtons {
         margin-bottom: -60px;
         margin-right: 80px;
-        /* border: 2px solid red; */
         /* border: 2px solid red; */
     }
 }
@@ -189,7 +188,7 @@ h2 {
         margin-right: 70px;
     }
     .progressText {
-        margin-left: 68%;
+        margin-left: 82%;
     }
 }
 
@@ -214,7 +213,7 @@ h2 {
         height: 240px;
     }
     .progressText {
-        margin-left: 65%;
+        margin-left: 83%;
     }
     .navigationButtons {
         margin-bottom: -90px;
@@ -248,7 +247,7 @@ h2 {
         margin-right: 30px;
     }
     .progressText {
-        margin-left: 60%;
+        margin-left: 80%;
     }
 }
 
@@ -269,7 +268,7 @@ h2 {
         margin-right: 60px;
     }
     .progressText {
-        margin-left: 55%;
+        margin-left: 80%;
     }
 }
 
@@ -293,6 +292,7 @@ h2 {
         margin-right: 60px;
     }
     .progressText {
-        margin-left: 50%;
+        margin-left: 80%;
+        /* border: 2px solid red; */
     }
 }
