@@ -81,6 +81,12 @@
   height: 19px;
   margin-right: 8px;
   font-size: 14px;
+  /* border: 2px solid red; */
+}
+
+.searchBar p{
+  font-size: 16px;
+  margin-right: 10px;
 }
 
 /* Responsive Styles */
@@ -132,24 +138,36 @@
 /* 425px to 767px */
 @media (max-width: 767px) and (min-width: 425px) {
   .searchBar {
-    width: 90%;
+    width: 320px;
   }
 
   .searchInput {
     font-size: 14px;
-    /* padding: 8px 10px 8px 30px; */
+    padding: 8px 10px 8px 30px;
   }
 
   .searchButton {
     padding: 8px 15px;
     font-size: 13px;
+    margin-right: 5px;
+    
+  }
+
+  .searchButton img {
+    width: 16px;
+    height: 16px;
+    margin-right: 0px;
+    font-size: 14px;
+  }
+  .searchButton span{
+    display: none;
   }
 }
 
 /* 375px to 424px */
 @media (max-width: 424px) and (min-width: 375px) {
   .searchBar {
-    width: 60%;
+    width: 90%;
     flex-direction: column;
     height: auto;
   }
@@ -170,12 +188,22 @@
     padding: 10px;
     font-size: 13px;
   }
+  
+  .searchButton img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    font-size: 14px;
+  }
+  .searchButton span{
+    display: none;
+  }
 }
 
 /* Up to 374px (e.g., 320px - small phones) */
 @media (max-width: 374px) {
   .searchBar {
-    width: 60%;
+    width: 90%;
     flex-direction: column;
     height: auto;
   }
@@ -195,5 +223,17 @@
     width: 70%;
     padding: 10px;
     font-size: 12px;
+  }
+
+  .searchButton img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    font-size: 14px;
+  }
+
+  .searchButton span{
+    display: none;
+    background-color: green;
   }
 }

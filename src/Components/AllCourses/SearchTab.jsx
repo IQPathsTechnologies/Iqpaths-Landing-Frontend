@@ -16,29 +16,36 @@ const SearchTab = ({flag}) => {
     console.log("search ka pura data",response);
     setCourses(response.data.data.items);
   }
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleWhatweWantToSearch();
+    }
+  };
+
   return (
     <div className={styles.overlay}>
-    <div className={styles.searchBarWrapper}>
-      <div className={styles.searchBar}>
-        <div className={styles.inputWrapper}>
+      <div className={styles.searchBarWrapper}>
+        <div className={styles.searchBar}>
+          <div className={styles.inputWrapper}>
             <img
-                src="/searchGrey.png" 
-                alt="Search"
-                 className={styles.inputIcon}
-            /> 
-            <input
-                type="text"
-                className={styles.searchInput}
-                placeholder="Lessons Name"
-                ref={dataWhichNeedToBeSearched}
+              src="/searchGrey.png"
+              alt="Search"
+              className={styles.inputIcon}
             />
+            <input
+              type="text"
+              className={styles.searchInput}
+              placeholder="Lessons Name"
+              ref={dataWhichNeedToBeSearched}
+              onKeyDown={handleKeyPress}
+            />
+          </div>
+          <button className={styles.searchButton} onClick={handleWhatweWantToSearch}>
+            <img src="/Search.png" alt="Search" />
+            <span>SEARCH</span>
+          </button>
         </div>
-        <button className={styles.searchButton} onClick={handleWhatweWantToSearch}>
-          <img src="/Search.png" alt="Search" />
-          SEARCH
-        </button>
       </div>
-    </div>
     </div>
   );
 };

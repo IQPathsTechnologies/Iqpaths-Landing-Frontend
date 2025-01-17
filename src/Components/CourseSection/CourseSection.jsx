@@ -10,7 +10,6 @@ import { UserContext } from "../../context/userContext";
 
 
 
-
 const CourseSection = ({
   students = "100+ Students",
   lessons = "20 Lessons",
@@ -73,9 +72,13 @@ const CourseSection = ({
       handlePayNow();
     }
   }, [razorpayOptions]);
+
+  useEffect(() => {
+    loadRazorPay();
+  }, [courseId]);
   
   const handlePayNow = useCallback(async () => {
-     loadRazorPay();
+     
     setIsRazorPayPopupVisible(true);
     const rzp = getRazorPay({
       ...razorpayOptions,
@@ -117,9 +120,8 @@ const CourseSection = ({
 
   const handleOpenPopup = () => {
     if (!isLoggedIn) {
-        setIsPopupVisible(true); 
-        document.body.style.overflow = "hidden"; 
-        // alert("Please login to buy the course.");
+        navigate("/login");
+        alert("Please login to buy the course.");
     } else {
         //razor pay 
         if (!isPurchased) {
@@ -180,8 +182,8 @@ const CourseSection = ({
     
 
   const handleCouponInputChanges = (e) => {
-    console.log("coupon ki value", e.target.value);
-    // couponCode.current = e.target.value;
+    // console.log("coupon ki value", e.target.value);
+    couponCode.current = e.target.value;
     setCoupon(e.target.value);
   };
   

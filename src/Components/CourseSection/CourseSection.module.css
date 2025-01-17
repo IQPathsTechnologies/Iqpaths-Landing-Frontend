@@ -385,6 +385,7 @@
     border-radius: 8px;
     background-color: white;
     border: 1.5px solid black;
+    transition: all 0.2s ease-in-out;
 }
 
 .buy p {
@@ -397,6 +398,11 @@
 .buy:hover {
     background-color: #0047B2;
     color: white;
+}
+
+.but:active{
+    transform: scale(0.95);
+
 }
 
 .moneyBack {

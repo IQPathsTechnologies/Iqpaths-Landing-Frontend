@@ -10,8 +10,10 @@ const LoginSignup = () => {
   const { setIsLoggedIn } = useContext(UserContext);
   const [errorMessageLogin, setErrorMessageLogin] = useState("");
   const [errorMessageSignup, setErrorMessageSignup] = useState("");
+  const [passwordVisibleLogin, setPasswordVisibleLogin] = useState(false);
+  const [passwordVisibleSignup, setPasswordVisibleSignup] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation(); 
+  const location = useLocation();
 
   const type =
     location.state?.type ||
@@ -24,8 +26,8 @@ const LoginSignup = () => {
   useEffect(() => {
     // Check for the error query parameter in the URL
     const queryParams = new URLSearchParams(location.search);
-    const error = queryParams.get('error');
-    if (error === 'userAlreadyExists') {
+    const error = queryParams.get("error");
+    if (error === "userAlreadyExists") {
       setErrorMessageSignup("Error: User already logged in with this email.");
     }
   }, [location.search]);
@@ -42,7 +44,7 @@ const LoginSignup = () => {
     register: registerSignup,
     handleSubmit: handleSignupSubmit,
     formState: { errors: signupErrors },
-    reset:signupreset
+    reset: signupreset,
   } = useForm();
 
   const onSubmitLogin = async (data) => {
@@ -51,7 +53,7 @@ const LoginSignup = () => {
       const response = await axios.post("/api/user/login", data);
       if (response.status === 200) {
         console.log("Login successful!");
-        console.log(response.data.data);        
+        console.log(response.data.data);
         setIsLoggedIn(true);
         navigate("/home");
       }
@@ -99,6 +101,15 @@ const LoginSignup = () => {
     // console.log(redirectUrl);
     window.location.href = `http://localhost:8000/api/user/auth/google?state=${redirectUrl}`;
   };
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisibleLogin(!passwordVisibleLogin);
+  };
+
+  const togglePasswordVisibilitySignup = () => {
+    setPasswordVisibleSignup(!passwordVisibleSignup);
+  }
+
 
   return (
     <div>
@@ -148,7 +159,9 @@ const LoginSignup = () => {
                     type="email"
                     name="email"
                     placeholder="Enter your email"
-                    {...registerLogin("email", { required: "Email is required" })}
+                    {...registerLogin("email", {
+                      required: "Email is required",
+                    })}
                   />
                   {loginErrors.email && (
                     <p className={styles.errorMessageLogin}>
@@ -158,14 +171,29 @@ const LoginSignup = () => {
                 </div>
                 <div className={styles.formField}>
                   <label>Password</label>
-                  <input
-                    type="password"
-                    name="password"
-                    placeholder="Enter your Password"
-                    {...registerLogin("password", {
-                      required: "Password is required",
-                    })}
-                  />
+                  <div className={styles.passwordInputContainer}>
+                    <input
+                      type={passwordVisibleLogin ? "text" : "password"}
+                      name="password"
+                      placeholder="Enter your Password"
+                      {...registerLogin("password", {
+                        required: "Password is required",
+                      })}
+                    />
+                    <button
+                      type="button"
+                      className={styles.eyeIcon}
+                      onClick={togglePasswordVisibility}
+                    >
+                      
+                      {
+                      passwordVisibleLogin ? 
+                       <img src="/hide.svg"></img>
+                       :
+                       <img src="/show.svg"></img>
+                       }
+                    </button>
+                  </div>
                   {loginErrors.password && (
                     <p className={styles.errorMessageLogin}>
                       {loginErrors.password.message}
@@ -177,9 +205,9 @@ const LoginSignup = () => {
                     {errorMessageLogin}
                   </p>
                 )}
-                <div className={styles.formOptions}>
+                {/* <div className={styles.formOptions}>
                   <a href="#">Forgot Password?</a>
-                </div>
+                </div> */}
                 <button className={styles.formButton} type="submit">
                   Login
                 </button>
@@ -205,7 +233,9 @@ const LoginSignup = () => {
                     type="email"
                     name="email"
                     placeholder="Enter your Email Address"
-                    {...registerSignup("email", { required: "Email is required" })}
+                    {...registerSignup("email", {
+                      required: "Email is required",
+                    })}
                   />
                   {signupErrors.email && (
                     <p className={styles.errorMessageSignup}>
@@ -219,7 +249,9 @@ const LoginSignup = () => {
                     type="text"
                     name="name"
                     placeholder="Enter your User Name"
-                    {...registerSignup("name", { required: "Name is required" })}
+                    {...registerSignup("name", {
+                      required: "Name is required",
+                    })}
                   />
                   {signupErrors.name && (
                     <p className={styles.errorMessageSignup}>
@@ -245,14 +277,28 @@ const LoginSignup = () => {
                 </div>
                 <div className={styles.formField}>
                   <label>Password</label>
-                  <input
-                    type="password"
-                    name="password"
-                    placeholder="Enter your Password"
-                    {...registerSignup("password", {
-                      required: "Password is required",
-                    })}
-                  />
+                  <div className={styles.passwordInputContainer}>
+                    <input
+                      type={passwordVisibleSignup ? "text" : "password"}
+                      name="password"
+                      placeholder="Enter your Password"
+                      {...registerSignup("password", {
+                        required: "Password is required",
+                      })}
+                    />
+
+                    <button
+                      type="button"
+                      className={styles.eyeIcon}
+                      onClick={togglePasswordVisibilitySignup}
+                    >
+                      {passwordVisibleSignup ? 
+                      <img src="/hide.svg"></img>
+                      :
+                      <img src="/show.svg"></img>
+                      }
+                    </button>
+                  </div>
                   {signupErrors.password && (
                     <p className={styles.errorMessageSignup}>
                       {signupErrors.password.message}

@@ -128,9 +128,7 @@
     border-radius: 50px;
     background-color: #0047B2;
     color: white;
-    /* margin-left: 150px; */
-    margin-top: 50px;
-    margin: 10px auto;
+    margin: 30px auto 10px auto;
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
@@ -194,6 +192,24 @@ input[type="number"]::-webkit-inner-spin-button {
     flex-direction: column;
     align-items: center;
 }
+
+
+.passwordInputContainer {
+    position: relative;
+  }
+  
+  
+  .eyeIcon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    /* font-size: 1.5rem; */
+    cursor: pointer;
+  }
+  
 
 /* Media Queries */
 

@@ -55,7 +55,7 @@ const CourseDetails = () => {
         async function fetchData() {
           try {
             const response = await apiClass.getCourseDetails(id);
-            // console.log("CourseSection :: useEffect :: response ye card k liye", response);
+            console.log("CourseSection :: useEffect :: response ye card k liye", response);
             setCourseDetails(response.details);    
           } catch (error) {
             console.log("CourseSection :: useEffect :: error", error);
@@ -190,11 +190,10 @@ const CourseDetails = () => {
               className={styles.instructorLogo}
             />
             <div className={styles.instructorInfo}>
-              {/* <h3>{courseDetails?.instructor?.name}</h3> */}
+              <h3>{courseDetails?.instructor?.name}</h3>
               <p>
-                LearnPress is a comprehensive WordPress LMS Plugin for
-                WordPress. This is one of the best WordPress LMS Plugins which
-                can be used to easily create & sell courses online.
+              
+              {courseDetails?.instructor?.description}
               </p>
               <div className={styles.instructorStats}>
                 <span>
@@ -203,7 +202,7 @@ const CourseDetails = () => {
                     alt="Students Icon"
                     className={styles.icon}
                   />
-                  156 Students
+                  100+ Students Taught
                 </span>
                 <span>
                   <img
@@ -218,10 +217,10 @@ const CourseDetails = () => {
           </div>
           <div className={styles.instructorDescription}>
           <p>
-            Our instructor at IQPaths is a seasoned professional with extensive experience in the field. With a passion for teaching and a deep understanding of the subject matter, they have successfully guided numerous students towards achieving their learning goals. Their engaging teaching style, combined with practical insights and real-world examples, ensures that students not only grasp theoretical concepts but also learn how to apply them effectively.
+            Our instructor at IQPaths is a seasoned professional with extensive experience in the field. With a passion for teaching and a deep understanding of the subject matter, they have successfully guided numerous students towards achieving their learning goals. Their engaging teaching style, combined with practical insights and real-world examples, which ensures that students not only grasp theoretical concepts but also learn how to apply them effectively.
           </p>
           </div>
-          <div className={styles.socialMedia}>
+          {/* <div className={styles.socialMedia}>
             <span>Follow:</span>
             <a href="#" className={styles.socialIcon}>
               <img src="/facebookIcon.png" alt="Facebook" />
@@ -238,7 +237,7 @@ const CourseDetails = () => {
             <a href="#" className={styles.socialIcon}>
               <img src="/youtubeIcon.png" alt="YouTube" />
             </a>
-          </div>
+          </div> */}
         </div>
       ),
       FAQs: (
