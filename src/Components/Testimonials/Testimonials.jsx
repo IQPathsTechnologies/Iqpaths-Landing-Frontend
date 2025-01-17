@@ -16,7 +16,7 @@ function Testimonial() {
         // console.log("Testimonial :: getTestimonials :: response", response);
       } catch (error) {
         console.log("Testimonial :: getTestimonials :: error", error);
-      }
+      } 
     };
     getTestimonials();
   }, []);

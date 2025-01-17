@@ -18,6 +18,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 10px 20px;
   border-radius: 5px;
   text-align: center;
@@ -126,11 +127,13 @@
   .textOverlay h1 {
     font-size: 28px;
     max-width: 85%;
+    margin-left: 10px;
   }
   
   .textOverlay h6 {
     font-size: 14px;
-    margin-left: -30px;
+    /* margin-left: -30px; */
+    /* border: 2px solid red; */
   }
 }
 
@@ -144,7 +147,7 @@
     padding: 5px 8px;
   }
 
-  .textOverlay h1 {
+  .textOverlay h1 { 
     font-size: 24px;
     max-width: 90%;
   }

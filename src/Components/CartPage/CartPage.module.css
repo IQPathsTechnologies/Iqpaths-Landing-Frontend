@@ -157,6 +157,18 @@
 }
 
 /* Empty Cart Styles */
+.emptyCartLink {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.emptyCartLink:hover {
+  transform: scale(1.05); /* Slightly increases the size */
+  color: #007bff; /* Changes the text color */
+}
+
 .emptyCart {
   text-align: center;
   background: white;

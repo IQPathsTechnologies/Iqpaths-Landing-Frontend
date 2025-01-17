@@ -60,6 +60,7 @@ const Footer = () => {
                             <td><Link to="/contact-us"> Contact Us</Link></td>
                             <td><Link to="/privacy">Privacy policy</Link></td>
                             <td><Link to="/cancellation">Return & refund policy </Link></td>
+                            <td><Link to="/privacy">Privacy policy</Link></td>
                         </tr>  
                         
                     </table>

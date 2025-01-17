@@ -7,10 +7,10 @@ const slides = [
     id: 1,
     title: "Learn Skills From Our Top Instructors.",
     description:
-      "Discover a world of knowledge and expertise as you embark on your learning journey with us. Our platform offers you the opportunity to learn from the best in the field, with top-tier instructors who are passionate about sharing their skills and insights.",
+      "Embark on a journey of growth and discovery with our platform, where top instructors share their expertise and insights to help you learn and excel in your field.",
     buttonText: "Explore Courses",
     image: "./Slider.jpg", // Replace with your actual image link
-  },
+  }, 
   {
     id: 2,
     title: "Enhance Your Career with Online Learning",
@@ -23,7 +23,7 @@ const slides = [
     id: 3,
     title: "Achieve Your Goals with Expert Guidance",
     description:
-      "Our instructors are here to guide you every step of the way. Unlock your potential and achieve your personal and professional goals.",
+      "Our dedicated instructors are here to guide and support you every step of the way. Unlock your true potential, gain valuable skills, and achieve your personal and professional goals with confidence.",
     buttonText: "Learn More",
     image: "./Slider.jpg", // Replace with your actual image link
   },
