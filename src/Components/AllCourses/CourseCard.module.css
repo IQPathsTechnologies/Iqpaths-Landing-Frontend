@@ -30,8 +30,9 @@
 /* Card image */
 .cardImage {
     width: 100%;
-    height: 200px;
+    height: 210px;
     object-fit: cover;
+    object-position: top;
 }
 
 /* Card content container */
