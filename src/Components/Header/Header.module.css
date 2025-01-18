@@ -215,24 +215,22 @@
 }
 
 .naLogout img {
-  width: 30px;
-  height: 30px;
-  margin-top: -4px;
-  margin-left: -3px;
+
+  width: 80%;
+  height: auto;
+  /* margin-top: -4px; */
+  /* margin-left: -3px; */
   /* border: 2px solid red; */
+  object-fit: cover;
+  transform: translateX(2px);
+  /* border: 2px solid blue; */
 }
 
 /* .nacircle img {
   border: 2px solid red;
   } */
   
-  .svg {
-    width: 24px;
-    height: 24px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-  }
+
   
   .profilephoto {
     display: flex;

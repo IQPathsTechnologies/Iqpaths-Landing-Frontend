@@ -154,9 +154,7 @@ const Header = () => {
                 <NavLink to="/logout" className={styles.link}>
 
                   <div className={`${styles.nacircle} ${styles.naLogout}`}>
-                    <div className={styles.svg}>
                       <img src="/logout.png" alt="Logout" />
-                    </div>
                   </div>
                 </NavLink>
 
