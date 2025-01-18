@@ -3,6 +3,7 @@ import styles from './ButtonCarousel.module.css';
 
 function ButtonCarousel({ children, autoslide = false, autoslideTime = 3000 }) {
     const [currentIndex, setCurrentIndex] = useState(0);
+    // console.log('ButtonCarousel :: children', children);
 
     const prevSlide = () => {
         setCurrentIndex((prevIndex) =>
@@ -21,8 +22,10 @@ function ButtonCarousel({ children, autoslide = false, autoslideTime = 3000 }) {
 
         const interval = setInterval(nextSlide , autoslideTime);
 
+
         return () => clearInterval(interval);
-    }, []);
+
+    }, [autoslide, autoslideTime]);
 
     return (
         <div className={styles.container}>
@@ -38,10 +41,10 @@ function ButtonCarousel({ children, autoslide = false, autoslideTime = 3000 }) {
             </div>
             <div className={styles.buttonContainer}>
                 <button onClick={prevSlide} className={styles.button}>
-                    <img src="\leftArrow.png" alt="leftArrow" />
+                    <img src="/leftArrow.png" alt="leftArrow" />
                 </button>
                 <button onClick={nextSlide} className={styles.button}>
-                    <img src="\rightArroww.png" alt="rightArrow" />
+                    <img src="/rightArroww.png" alt="rightArrow" />
                 </button> 
             </div>
         </div>

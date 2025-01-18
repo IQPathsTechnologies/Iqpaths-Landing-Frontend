@@ -141,6 +141,35 @@ h2 {
 }
 
 /* Media Queries for responsiveness */
+
+@media screen and (max-width: 1920px) and (min-width: 1441px) {
+    .section {
+        height: 680px;
+    }
+    h2 {
+        font-size: 44px;
+        margin-left: 60px;
+    }
+    .carousel {
+        margin-left: 60px;
+    }
+    .card {
+        width: 380px;
+    }
+    .image {
+        width: 99%;
+    }
+    .progressText {
+        margin-left: 85%;
+    }
+    .navigationButtons {
+        margin-bottom: -100px;
+        margin-right: 80px;
+    }
+}
+
+
+
 @media (max-width: 1440px) {
     .section {
         height: 620px;
