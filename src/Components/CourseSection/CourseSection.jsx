@@ -10,7 +10,6 @@ import { UserContext } from "../../context/userContext";
 import { notifyWarning, notifyError } from "../../utility/Tostify/Tosts";
 
 
-
 const CourseSection = ({
   students = "100+ Students",
   lessons = "20 Lessons",
@@ -28,6 +27,8 @@ const CourseSection = ({
   const [couponDiscountedPrice, setCouponDiscountedPrice] = useState(null);
   const [coupon, setCoupon] = useState("");
   // const [couponCode, setCouponCode] = useState(null);
+  const [buttonText, setButtonText] = useState("Buy Now");
+  
   const couponCode = useRef("");
 
  const {isLoggedIn} = useContext(UserContext);
@@ -100,15 +101,24 @@ const CourseSection = ({
       }
     });
 
-    rzp.on("payment.success", () => {
-      console.log("Payment successful");
+    rzp.on("payment.success", (response) => {
+      console.log("Payment successful:", response);
+    
+      // Update state to reflect the purchase
       setIsPurchased(true);
+      setButtonText("Purchased");
+    
+      // Optionally, you can display a success message to the user
+      alert("Payment was successful! Thank you for your purchase.");
     });
     
-
-    rzp.on("payment.failed", () => {
-      console.log("Payment failed");
+    rzp.on("payment.failed", (response) => {
+      console.error("Payment failed:", response);
+    
+      // Optionally, display an error message to the user
+      alert("Payment failed. Please try again or contact support.");
     });
+    
 
     rzp.open();
   }, [orderToken, razorpayOptions, courseId]);
@@ -339,7 +349,7 @@ const CourseSection = ({
                 </div>
               </div>
               <button className={styles.buy} onClick={handleOpenPopup}>
-                {(isPurchased ? (<p> Purchased </p>) : (<p> Buy Now </p>)) }
+                {(isPurchased ? (<p> Purchased </p>) : (<p > {buttonText} </p>)) }
               </button>
               {/* <p className={styles.moneyBack}>
                 <p> 30 Day Money Back Guarantee </p>

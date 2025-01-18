@@ -45,15 +45,17 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    width: 100%; 
+    height: auto; 
+    box-sizing: border-box; 
 }
 
-.courseImage {
-    width: 100%;
-    /* margin-top: -20px; */
-    /* margin-left: -40px; */
-    /* max-width: 600px; */
+.videoSection iframe {
+    width: 100%; 
+    aspect-ratio: 16 / 9;
     border-radius: 12px;
 }
+
 
 .videoControls {
     display: flex;
@@ -174,4 +176,7 @@
     justify-content: center;
     align-items: center;
   }
-  
+  .lactureisnot{
+    width: 30rem;
+     margin: auto;
+  }

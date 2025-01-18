@@ -70,7 +70,7 @@ const router = createBrowserRouter([
         element: <MyLearning />
       },
       {
-        path: '/view-Lectures/:courseId',
+        path: '/view-Lectures/:title',
         element: <ViewLectures />,
         loader:IsuserLogedinAndValid
       },
@@ -111,10 +111,6 @@ const router = createBrowserRouter([
         path:'/logout',
         element:<Logout/>
       },
-      // {
-      //   path: '/placement',
-      //   element: <Placement />
-      // },
       {
         path: '/internship',
         element: <Internship />
@@ -135,14 +131,6 @@ const router = createBrowserRouter([
         path: 'Industry Projects',
         element: <ComingSoon />
       },
-      // {
-      //   path: '/login',
-      //   element: <SignUpPopup />
-      // },
-      // {
-      //   path: '/singup',
-      //   element: <SignUpPopup />
-      // }
     ],
   },
 ]);
