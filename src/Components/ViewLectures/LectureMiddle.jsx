@@ -29,7 +29,7 @@ const LectureMiddle = ({ selectedLecture }) => {
       <div className={styles.titleSection}>
         <h1 className={styles.title}>{selectedLecture.title}</h1>
         <p className={styles.subtitle}>
-          By Dr. Aaryan Singhal • {selectedLecture.duration} 
+          By Mr. Sanket Gupta • {selectedLecture.duration} 
         </p>
       </div>
 
@@ -52,7 +52,7 @@ const LectureMiddle = ({ selectedLecture }) => {
           // muted
         >
           {/* <source src="/BenifitsVideo.mp4" type="video/mp4" /> */}
-          {console.log("selectedLecture.video", selectedLecture.video)}
+          {/* {console.log("selectedLecture.video", selectedLecture.video)} */}
           Your browser does not support the video tag.
         </video>
         

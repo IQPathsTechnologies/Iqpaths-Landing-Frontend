@@ -78,7 +78,7 @@ const CourseFilter = ({ onCategoryChange, onFilterChange }) => {
         }
         updatedFilters[categoryName].push(subcategory);
       }
-      console.log(updatedFilters);
+      // console.log(updatedFilters);
       return updatedFilters;
     });
   };

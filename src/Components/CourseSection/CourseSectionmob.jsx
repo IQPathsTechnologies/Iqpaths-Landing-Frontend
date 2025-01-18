@@ -59,7 +59,7 @@ const CourseSection = ({
 
   //razorpay
   const handlePurchase = useCallback(async () => {
-    console.log("coupon code ye lagega re bawa", couponCode);
+    // console.log("coupon code ye lagega re bawa", couponCode);
     const response = await createOrder(courseId, couponCode.current);
 
     const { token, currency, key, name, description } = response;
@@ -177,7 +177,7 @@ const CourseSection = ({
 
 
   const handleCouponInputChanges = (e) => {
-    console.log("coupon ki value", e.target.value);
+    // console.log("coupon ki value", e.target.value);
     couponCode.current = e.target.value;
     setCoupon(e.target.value);
   };

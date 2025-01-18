@@ -12,8 +12,8 @@ const SearchTab = ({flag}) => {
   const handleWhatweWantToSearch =async()=>{
     // console.log("data jo search kiya ", dataWhichNeedToBeSearched.current.value);
     const response = await searchClass.search(dataWhichNeedToBeSearched.current?.value, flag);
-    console.log("search ka data",response.data.data.items);
-    console.log("search ka pura data",response);
+    // console.log("search ka data",response.data.data.items);
+    // console.log("search ka pura data",response);
     setCourses(response.data.data.items);
   }
   const handleKeyPress = (event) => {
