@@ -209,6 +209,10 @@
 
 }
 
+/* .nacircle img {
+  border: 2px solid red;
+} */
+
 .svg {
   width: 24px;
   height: 24px;
@@ -221,6 +225,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  object-fit: cover;
   align-items: center;
   /* padding: 5px; */
   gap: 10px;

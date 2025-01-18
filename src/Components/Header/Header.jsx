@@ -9,6 +9,7 @@ const Header = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [popupType, setPopupType] = useState("");
   const [isSideBarVisible, setIsSideBarVisible] = useState(false);
+  const [userDetails, setUserDetails] = useState({});
 
   const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
 
@@ -29,6 +30,20 @@ const Header = () => {
   const handleLogout = async () => {
     navigate('/logout');
   };
+
+
+  useEffect(() => {
+      const fetchUserDetails = async () => {
+        try {
+          const response = await apiClass.getUserDetails();
+          console.log('ProfilePage :: fetchUserDetails :: response', response);
+          setUserDetails(response.user);
+        } catch (error) {
+          console.error("ProfilePage :: fetchUserDetails", error);
+        }
+      };
+      fetchUserDetails();
+    }, []);
 
 
 
@@ -116,7 +131,7 @@ const Header = () => {
                   <div className={styles.nacircle}>
                     <img
                       id="profileImage"
-                      src=""
+                      src={userDetails?.profilePhoto ? userDetails.profilePhoto : `https://via.placeholder.com/80/d8d3de?text=User`}
                       alt="Profile"
                       className={styles.profilephoto}
                       onClick={toggleDropdown}
