@@ -209,9 +209,16 @@
   
 }
 
-.naProfile {
+.naLogout {
   margin-left: 20px;
   margin-right: 55px;
+}
+
+.naLogout img {
+  width: 30px;
+  height: 30px;
+  margin-top: -4px;
+  margin-left: -3px;
   /* border: 2px solid red; */
 }
 
