@@ -24,6 +24,7 @@ import Logout from './Components/LogOut/Logout';
 import Placement from './pages/Placement/Placement';
 import ComingSoon from './pages/ComingSoon/ComingSoon';
 import Internship from './pages/Internship/Internship';
+import { ToastContainer } from 'react-toastify';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -154,5 +155,10 @@ createRoot(document.getElementById('root')).render(
     <RouterProvider router = {router} />
   </UserProvider>
   </CoursesProvider>
+
+  <ToastContainer 
+      className="customToastContainer"
+      toastClassName="customToast"
+    />
   </>
 );

@@ -4,6 +4,7 @@ import styles from "./loginSignup.module.css";
 import axios from "axios";
 import { UserContext } from "../../context/userContext";
 import { useLocation, useNavigate } from "react-router-dom";
+import { notifySuccess } from "../../utility/Tostify/Tosts";
 
 const LoginSignup = () => {
   const [activeForm, setActiveForm] = useState("login");
@@ -21,7 +22,9 @@ const LoginSignup = () => {
 
   useEffect(() => {
     setActiveForm(type);
+    window.scrollTo(0, 0);
   }, [type]);
+
 
   useEffect(() => {
     // Check for the error query parameter in the URL
@@ -56,6 +59,7 @@ const LoginSignup = () => {
         console.log(response.data.data);
         setIsLoggedIn(true);
         navigate("/home");
+        notifySuccess("Login Successful");
       }
     } catch (error) {
       const match = error.response.data.match(/<pre>(.*?)<br>/);
@@ -74,6 +78,7 @@ const LoginSignup = () => {
       const response = await axios.post("/api/user/register", data);
       if (response.status === 201) {
         console.log("Signup successful!");
+        notifySuccess("Signup Successful");
         signupreset();
         setActiveForm("login");
         navigate("/login");

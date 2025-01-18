@@ -177,7 +177,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
 
 
             {/* Action Button */}
-            <button className={styles.learnNowButton}>Learn Now</button>
+            <button className={styles.learnNowButton}>{course?.status == "coming soon" ? "coming soon" : "Learn More"}</button>
           </div>
           </Link>
         ))

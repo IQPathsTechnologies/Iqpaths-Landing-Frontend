@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import styles from "./NewsletterSection.module.css";
 import { AuthService } from '../../axios/User';
+import { notifyWarning } from '../../utility/Tostify/Tosts';
 
 const NewsletterSection = () => {
   const data = {
@@ -31,7 +32,7 @@ const NewsletterSection = () => {
   
     } catch (error) {
       console.error("Error subscribing to newsletter:", error);
-      alert("please login first");
+      notifyWarning("Please login to subscribe newsletter");
     }
   }
 
