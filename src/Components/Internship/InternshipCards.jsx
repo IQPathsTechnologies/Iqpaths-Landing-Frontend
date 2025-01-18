@@ -131,7 +131,9 @@ const InternshipCards = ({ activeCategory, selectedFilters }) => {
         ))
 
       ) : (
-        <p className={styles.noCourses}>No courses available for this category.</p>
+        <p className={styles.noCourses}>
+          <img src="/noInternship.png" alt="No Internship" />
+        </p>
       )}
     </div>
   );

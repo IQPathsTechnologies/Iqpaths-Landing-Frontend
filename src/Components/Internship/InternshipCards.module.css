@@ -243,3 +243,8 @@
 .link{
     text-decoration: none;
 }
+
+.noCourses {
+    margin-top: -80px;
+    /* border: 2px solid red; */
+}
