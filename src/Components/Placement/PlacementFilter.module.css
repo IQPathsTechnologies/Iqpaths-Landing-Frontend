@@ -197,4 +197,80 @@
     background-color: #013e9a;
     /* border: 2px solid red; */
   }
+
+  @media (max-width: 768px) {
+    .title {
+      margin-top: 10%;
+      font-size: 35px;
+      text-align: center;
+    }
+  }
+  @media (max-width: 768px) {
+    .filterButton {
+      margin-top: 70px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .filterButton {
+      margin-top: 10px;
+      display: flex;
+      font-size: 12px;
+      padding: 8px;
+    }
+  }
+  @media (max-width: 768px) {
+    .categoryTabs {
+      gap: 5px;
+      padding: 10px;
+    }
+  }
+  @media (max-width: 1440px) {
+    .filterDropdown {
+      margin-top: -80px;
+      margin-right: 100px;
+      /* border: 2px solid red; */
+    }
+  }
+  
+  @media (max-width: 1440px) {
+    .filterDropdown {
+      margin-top: -100px;
+      margin-right: 36px;
+      /* border: 2px solid red; */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .filterDropdown {
+      margin-top: -90px;
+      margin-right: 25px;
+      width: 260px;
+      right: 10px;
+      padding: 15px;
+      /* border: 2px solid red; */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .filterDropdown {
+      margin-top: -90px;
+      width: 200px;
+      padding: 10px;
+    }
+  }
+  @media (max-width: 768px) {
+    .applyFiltersButton {
+      font-size: 13px;
+      padding: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .applyFiltersButton {
+      font-size: 12px;
+      padding: 8px;
+    }
+  }
+  
   

@@ -48,19 +48,20 @@ const Footer = () => {
                         <tr>
                             <td><Link to="/">Home</Link></td>
                             <td><Link to="/about-us">About Us</Link></td>
-                            <td><a href="mailto:info@iqpaths.com?subject=Hello IQpaths Team&body=I want to get in touch">info@iqpaths.com</a></td>  
+                            <td><Link to="/contact-us"> Contact Us</Link></td>
+                            
                             
                         </tr>
                         <tr>
                             <td><Link to="/courses">Courses</Link></td>
-                            <td><Link to="/my-learnings">My learnings</Link></td>
                             <td><Link to="/terms">Terms and conditions</Link></td>
+                            <td><a href="mailto:info@iqpaths.com?subject=Hello IQpaths Team&body=I want to get in touch">info@iqpaths.com</a></td>  
                         </tr>
                         <tr>
-                            <td><Link to="/contact-us"> Contact Us</Link></td>
+                            <td><Link to="/my-learnings">My learnings</Link></td>
+                            
                             <td><Link to="/privacy">Privacy policy</Link></td>
                             <td><Link to="/cancellation">Return & refund policy </Link></td>
-                            <td><Link to="/privacy">Privacy policy</Link></td>
                         </tr>  
                         
                     </table>
