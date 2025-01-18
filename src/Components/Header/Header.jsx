@@ -128,7 +128,7 @@ const Header = () => {
                   </div>
                 </NavLink>
                 <NavLink>
-                  <div className={styles.nacircle}>
+                  <div className={`${styles.nacircle} ${styles.naProfile}`}>
                     <img
                       id="profileImage"
                       src={userDetails?.profilePhoto ? userDetails.profilePhoto : `https://via.placeholder.com/80/d8d3de?text=User`}
