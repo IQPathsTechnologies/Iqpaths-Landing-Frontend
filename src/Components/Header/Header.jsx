@@ -116,7 +116,7 @@ const Header = () => {
           <div className={styles.darkBlue}>
             {isLoggedIn ? (
               <div className={styles.authButtons}>
-                <NavLink to="/cart" className={styles.link}>
+                {/* <NavLink to="/cart" className={styles.link}>
 
                   <div className={styles.nacircle}>
                     <div className={styles.svg}>
@@ -126,8 +126,8 @@ const Header = () => {
 
                     </div>
                   </div>
-                </NavLink>
-                <NavLink>
+                </NavLink> */}
+                <NavLink to="/profile">
                   <div className={`${styles.nacircle} ${styles.naProfile}`}>
                     <img
                       id="profileImage"
@@ -137,7 +137,7 @@ const Header = () => {
                       onClick={toggleDropdown}
                     />
 
-                    {isDropdownVisible && (
+                    {/* {isDropdownVisible && (
                       <div id="dropdownMenu" className={styles.dropdownMenu}>
                         <ul className={styles.dropdownMenuul}>
                           <NavLink to="/profile" className={styles.link}>
@@ -148,7 +148,15 @@ const Header = () => {
                           </NavLink>
                         </ul>
                       </div>
-                    )}
+                    )} */}
+                  </div>
+                </NavLink>
+                <NavLink to="/logout" className={styles.link}>
+
+                  <div className={`${styles.nacircle} ${styles.naLogout}`}>
+                    <div className={styles.svg}>
+                      <img src="/logout.png" alt="Logout" />
+                    </div>
                   </div>
                 </NavLink>
 
