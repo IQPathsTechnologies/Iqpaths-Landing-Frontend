@@ -3,7 +3,7 @@ import InternshipFilter from "./InternshipFilter";
 import InternshipCard from "./InternshipCards";
 
 const InternshipPage = () => {
-  const [activeCategory, setActiveCategory] = useState("ALL PROGRAM");
+  const [activeCategory, setActiveCategory] = useState("ALL DOMAINS"); 
   const [selectedFilters, setSelectedFilters] = useState({});
 
   const handleCategoryChange = (category) => {

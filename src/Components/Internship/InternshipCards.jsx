@@ -45,7 +45,7 @@ const InternshipCards = ({ activeCategory, selectedFilters }) => {
 
   // Filter courses based on the active category and selectedFilters
   const filteredCourses =
-    activeCategory === "ALL PROGRAM"
+    activeCategory === "ALL DOMAINS"
       ? courses.filter(applyFilters)
       : courses.filter((course) => course.category === activeCategory && applyFilters(course));
 
