@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './ProfilePage.module.css';
 import { AuthService } from '../../axios/User';
 import { useNavigate } from 'react-router-dom';
+import { notifyWarning } from '../../utility/Tostify/Tosts';
 
 
 const ProfilePage = () => {
@@ -126,7 +127,7 @@ const ProfilePage = () => {
     try {
       console.log("form data in password update",formData);
       if(formData.newPassword !== formData.confirmPassword){
-        alert("New password and confirm password should be same");
+        notifyWarning("New password and confirm password should be same");
         return;
       }
       const response = await apiClass.changePassword(formData);
