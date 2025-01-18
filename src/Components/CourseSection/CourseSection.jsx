@@ -62,11 +62,13 @@ const CourseSection = ({
     // console.log("coupon code ye lagega re bawa", couponCode);
     const response = await createOrder(courseId,  couponCode.current);
 
-    const { token, currency, key, name, description } = response;
+    const { token, currency, key, name, description, mobileNo } = response;
+    const newMobileNo = "+91" + mobileNo;
+
     const { amount, id } = response.razorpayOrder;
     const order_id = id;
     setOrderToken(token);
-    setRazorpayOptions({ order_id, amount, currency,  key, name, description });
+    setRazorpayOptions({ order_id, amount, currency,  key, name, description, newMobileNo });
   }, [courseId]);
 
   useEffect(() => {
@@ -84,7 +86,7 @@ const CourseSection = ({
     setIsRazorPayPopupVisible(true);
     const rzp = getRazorPay({
       ...razorpayOptions,
-      prefill: {},
+      prefill: { mobile: razorpayOptions.newMobileNo }, 
       notes: {},
       theme: { color: "#0047B2" },
       handler: async ({
@@ -104,12 +106,10 @@ const CourseSection = ({
     rzp.on("payment.success", (response) => {
       console.log("Payment successful:", response);
     
-      // Update state to reflect the purchase
+      console.log("payment success ka response.....................................................................", response);
       setIsPurchased(true);
       setButtonText("Purchased");
     
-      // Optionally, you can display a success message to the user
-      alert("Payment was successful! Thank you for your purchase.");
     });
     
     rzp.on("payment.failed", (response) => {

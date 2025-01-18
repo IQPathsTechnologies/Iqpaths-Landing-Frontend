@@ -3,10 +3,15 @@ import styles from "./LectureMiddle.module.css";
 
 const LectureMiddle = ({ selectedLecture }) => {
 
-  if (!selectedLecture) {
+  if(!selectedLecture){
+    return <img src="/lactureisnot.jpeg" className={styles.lactureisnot} alt="lecture coming soon.." /> ;
+  }
+
+  if (!selectedLecture?.video) {
     // return <p>Please select a lecture to start playing.</p>;
     return <img src="/lactureisnot.jpeg" className={styles.lactureisnot} alt="lecture coming soon.." /> ;
   }
+
 
   const transcriptData = [
     {

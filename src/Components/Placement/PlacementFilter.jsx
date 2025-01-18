@@ -8,7 +8,7 @@ const PlacementFilter = ({ onCategoryChange, onFilterChange }) => {
       name: "Course Category",
       subcategories: [
         "All Domains",
-        "Data Structure",
+        "Data Structures",
         "Aptitude & Quant",
         "Mock Interview",
         "LinkedIn Optimization",
@@ -36,7 +36,7 @@ const PlacementFilter = ({ onCategoryChange, onFilterChange }) => {
 
   const categoryTabs = [
     "ALL DOMAINS",
-    "DATA STRUCTURE",
+    "DATA STRUCTURES",
     "APTITUDE & QUANT",
     "MOCK INTERVIEW",
     "LINKEDIN OPTIMIZATION",
