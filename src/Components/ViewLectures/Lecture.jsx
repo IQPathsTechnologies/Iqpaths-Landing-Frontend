@@ -90,19 +90,19 @@ const Lecture = () => {
   }
 
 
-  const nextPrevLecture = async (chapterId, lectureId, flag) => {
-    try{
-      const response = await apiClass.getNextPrevLecture(chapterId, lectureId);
-      if(flag === 'next'){
-        setSelectedLecture(response.details.nextLecture);
-      }
-      else if(flag == 'prev'){
-        setSelectedLecture(response.details.prevLecture);
-      }
-    } catch (error) {
-      console.error("Error fetching next/prev lectures:", error);
-    }
-  }
+  // const nextPrevLecture = async (chapterId, lectureId, flag) => {
+  //   try{
+  //     const response = await apiClass.getNextPrevLecture(chapterId, lectureId);
+  //     if(flag === 'next'){
+  //       setSelectedLecture(response.details.nextLecture);
+  //     }
+  //     else if(flag == 'prev'){
+  //       setSelectedLecture(response.details.prevLecture);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching next/prev lectures:", error);
+  //   }
+  // }
 
 
   const handleLectureSelectionInHeader = (lectureDetails)=>{
@@ -112,7 +112,6 @@ const Lecture = () => {
     <div className={styles.appContainer}>
       {/* Header */}
       <LectureHeader 
-        navigation= {nextPrevLecture}
         nextLecture = {nextLecture}
         PrevLecture = {PrevLecture}
         selectedChapter={selectedChapter}
