@@ -91,7 +91,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
       {filteredCourses?.length > 0 ? (
         
         filteredCourses?.map((course, index) => (
-          <Link to={`/course/${course.title}/${course._id}`} key={index} className={styles.link}>
+          <Link to={course?.status == "coming soon" ?  "#" : `/course/${course.title}/${course._id}`} key={index} className={styles.link}>
           <div key={index} className={styles.card}>
             {/* Card Image */}
             <img src={course.thumbnail} alt={course.title} className={styles.cardImage} />
