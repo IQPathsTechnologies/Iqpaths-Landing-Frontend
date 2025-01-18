@@ -8,7 +8,7 @@ import { CoursesContext } from "../../context/coursesContext";
 const apiClass = new AuthService();
 
 
-// Props: courses and selectedFilters
+// Props: courses and selectedFilters 
 const PlacementCards = ({ activeCategory, selectedFilters }) => {
   const {courses,setCourses}= useContext(CoursesContext)
   useEffect(() => {
@@ -43,7 +43,7 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
 
   // Filter courses based on the active category and selectedFilters
   const filteredCourses =
-    activeCategory === "ALL PROGRAM"
+    activeCategory === "ALL DOMAINS"
       ? courses?.filter(applyFilters)
       : courses?.filter((course) => course.category === activeCategory && applyFilters(course));
 
@@ -128,7 +128,9 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
         ))
 
       ) : (
-        <p className={styles.noCourses}>No courses available for this category.</p>
+        <p className={styles.noCourses}>
+          <img src="/noPlacement.png" alt="No Placement" />
+        </p>
       )}
     </div>
   );

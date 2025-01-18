@@ -177,13 +177,15 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
 
 
             {/* Action Button */}
-            <button className={styles.learnNowButton}>Learn Now</button>
+            <button className={styles.learnNowButton}>{course?.status == "coming soon" ? "coming soon" : "Learn More"}</button>
           </div>
           </Link>
         ))
 
       ) : (
-        <p className={styles.noCourses}>No courses available for this category.</p>
+        <p className={styles.noCourses}>
+          <img src="/noCourse.png" alt="No Course" />
+        </p>
       )}
     </div>
   );

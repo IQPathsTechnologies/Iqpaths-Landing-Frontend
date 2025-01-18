@@ -24,6 +24,7 @@ import Logout from './Components/LogOut/Logout';
 import Placement from './pages/Placement/Placement';
 import ComingSoon from './pages/ComingSoon/ComingSoon';
 import Internship from './pages/Internship/Internship';
+import { ToastContainer } from 'react-toastify';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -69,7 +70,7 @@ const router = createBrowserRouter([
         element: <MyLearning />
       },
       {
-        path: '/view-Lectures/:courseId',
+        path: '/view-Lectures/:title',
         element: <ViewLectures />,
         loader:IsuserLogedinAndValid
       },
@@ -110,10 +111,6 @@ const router = createBrowserRouter([
         path:'/logout',
         element:<Logout/>
       },
-      // {
-      //   path: '/placement',
-      //   element: <Placement />
-      // },
       {
         path: '/internship',
         element: <Internship />
@@ -134,14 +131,6 @@ const router = createBrowserRouter([
         path: 'Industry Projects',
         element: <ComingSoon />
       },
-      // {
-      //   path: '/login',
-      //   element: <SignUpPopup />
-      // },
-      // {
-      //   path: '/singup',
-      //   element: <SignUpPopup />
-      // }
     ],
   },
 ]);
@@ -154,5 +143,10 @@ createRoot(document.getElementById('root')).render(
     <RouterProvider router = {router} />
   </UserProvider>
   </CoursesProvider>
+
+  <ToastContainer 
+      className="customToastContainer"
+      toastClassName="customToast"
+    />
   </>
 );

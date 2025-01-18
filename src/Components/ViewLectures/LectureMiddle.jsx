@@ -29,20 +29,15 @@ const LectureMiddle = ({ selectedLecture }) => {
       {/* Title and Subtitle */}
       <div className={styles.titleSection}>
         <h1 className={styles.title}>{selectedLecture.title}</h1>
-        <p className={styles.subtitle}>
-          By Dr. Aaryan Singhal • {selectedLecture.duration} 
-        </p>
+        {/* <p className={styles.subtitle}>
+          By Dr. Aaryan Singhal  
+        </p> */}
       </div>
 
       {/* Video Section */}
       <div className={styles.videoSection}>
-        {/* <img
-          src="lecture.png" 
-          alt="Course Thumbnail"
-          className={styles.courseImage}
-        /> */}
 
-        <video
+        <iframe
           className={styles.courseImage}
           // onClick={handleVideoClick}
           autoPlay
@@ -50,12 +45,16 @@ const LectureMiddle = ({ selectedLecture }) => {
           controls
           controlsList="nodownload"
           src={selectedLecture.video}
+          width="100%" 
+          height="100%" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen
           // muted
         >
-          {/* <source src="/BenifitsVideo.mp4" type="video/mp4" /> */}
           {console.log("selectedLecture.video", selectedLecture.video)}
-          Your browser does not support the video tag.
-        </video>
+        </iframe>
         
         {/* <div className={styles.videoControls}>
           <button className={styles.playButton}>▶</button>

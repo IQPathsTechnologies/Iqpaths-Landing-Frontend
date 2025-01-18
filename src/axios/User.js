@@ -1,4 +1,5 @@
 import axios from "axios";
+import { notifyError } from "../utility/Tostify/Tosts"
 
 export class AuthService {
 
@@ -252,7 +253,7 @@ export class AuthService {
             return await axios.post("/api/coupon/useCoupon", {couponCode, courseId}, {withCredentials: true});
         } catch (error) {
             // console.log("AuthService :: useCoupon :: error", error);
-            alert("Please enter a valid coupon.");
+            notifyError("Please enter a valid coupon.");
             throw error;
         }
     }

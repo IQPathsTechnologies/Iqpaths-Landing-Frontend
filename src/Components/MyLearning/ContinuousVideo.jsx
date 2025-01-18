@@ -108,8 +108,9 @@ const ContinuousVideo = () => {
             courses.map((lesson) => (
               <div key={lesson.id} className={styles.card}>
                 <Link
-                  to={`/view-lectures/${lesson.courseId}`}
+                  to={`/view-lectures/${lesson.title}`}
                   className={styles.link}
+                  state={{ courseId: lesson.courseId }}
                 >
                   <img
                     src={lesson.thumbnail}

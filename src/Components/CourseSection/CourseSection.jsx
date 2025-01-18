@@ -7,6 +7,7 @@ import { verifyPayment, createOrder } from "../../utility/Razorpay/RazorpayApi";
 import { useParams, useNavigate } from "react-router-dom";
 import { AuthService } from '../../axios/User';
 import { UserContext } from "../../context/userContext";
+import { notifyWarning, notifyError } from "../../utility/Tostify/Tosts";
 
 
 const CourseSection = ({
@@ -131,13 +132,13 @@ const CourseSection = ({
   const handleOpenPopup = () => {
     if (!isLoggedIn) {
         navigate("/login");
-        alert("Please login to buy the course.");
+        notifyWarning("Please login to buy the course.");
     } else {
         //razor pay 
         if (!isPurchased) {
             handlePurchase();
         } else {
-            alert("You have already purchased this course.");
+            notifyError("You have already purchased this course.");
         }
     }
 };
@@ -185,7 +186,7 @@ const CourseSection = ({
       setCouponDiscountedPrice(couponResponse.data.data.course.price);
       setIsApplied(true);
     } else {
-      alert("Please enter a valid coupon.");
+      notifyError("Please enter a valid coupon.");
     }
   };
   

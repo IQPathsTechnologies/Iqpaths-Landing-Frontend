@@ -24,7 +24,6 @@ const ComingSoonPage = () => {
                 </p>
                 <button
                     className={styles.notifyButton}   onClick={goBack}
-                    // onClick={() => alert('Thanks! We’ll notify you soon.')}
                 >
                     Go Back 
                 </button>

@@ -7,13 +7,14 @@ const InternshipFilter = ({ onCategoryChange, onFilterChange }) => {
      {
        name: "Course Category",
        subcategories: [
-         "Web Design",
-         "Management",
-         "Marketing",
-         "Python",
-         "UI/UX",
+         "All Domains",
+         "Data Science",
          "Machine Learning",
-         "Database Management",
+         "Full Stack Development",
+         "UI/UX",
+         "Frontend Development",
+         "Backend Development",
+        //  "Artificial Intelligence",
        ],
      },
      {
@@ -31,17 +32,17 @@ const InternshipFilter = ({ onCategoryChange, onFilterChange }) => {
    ];
  
    const categoryTabs = [
-     "ALL PROGRAM",
+     "ALL DOMAINS",
      "DATA SCIENCE",
      "MACHINE LEARNING",
-     "PYTHON",
+     "FULL STACK DEVELOPMENT",
      "UI/UX",
-     "PRODUCT MANAGEMENT",
-     "MANAGEMENT",
-     "WEB DEVELOPMENT",
+     "FRONTEND DEVELOPMENT",
+     "BACKEND DEVELOPMENT",
+    //  "ARTIFICIAL INTELLIGENCE",
    ];
  
-   const [activeCategory, setActiveCategory] = useState("ALL PROGRAM");
+   const [activeCategory, setActiveCategory] = useState("ALL DOMAINS");
    const [isFilterDropdownOpen, setIsFilterDropdownOpen] = useState(false);
    const [expandedCategories, setExpandedCategories] = useState({});
    const [selectedFilters, setSelectedFilters] = useState({});

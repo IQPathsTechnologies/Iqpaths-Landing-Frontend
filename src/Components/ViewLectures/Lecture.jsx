@@ -5,7 +5,7 @@ import LectureRight from "./LectureRight";
 import LectureMiddle from "./LectureMiddle";
 import styles from "./Lecture.module.css";
 import { AuthService } from '../../axios/User';
-import { useParams } from "react-router-dom";
+import { useParams, useLocation  } from "react-router-dom";
 import { set } from "react-hook-form";
 
 const Lecture = () => {
@@ -17,8 +17,10 @@ const Lecture = () => {
   const apiClass = new AuthService();
 
 
-  const { courseId } = useParams();
-  // const courseId = "677676a2cedfbdb0b89e4636"; 
+  const location = useLocation();
+  const { courseId } = location.state;
+  // const { courseId } = useParams();
+
 
   useEffect(() => {
     const fetchChapters = async () => {
