@@ -42,6 +42,14 @@
     padding-left: 30px;
     padding-top: 50px;
     background-color: #0047B2;
+    /* background: rgb(0,71,171);
+    background: linear-gradient(159deg, rgba(0,71,171,1) 0%, rgba(28,169,201,1) 100%); */
+    background: rgb(0,0,128);
+    background: linear-gradient(159deg, rgba(0,0,128,1) 0%, rgba(0,191,255,1) 100%);
+    /* background: rgb(65,105,225);
+    background: linear-gradient(159deg, rgba(65,105,225,1) 0%, rgba(137,207,240,1) 100%); */
+    /* background: rgb(0, 71, 178);
+    background: linear-gradient(159deg, rgba(0, 71, 178, 1) 0%, rgba(237, 249, 255, 1) 100%); */
     position: relative;
 }
 
