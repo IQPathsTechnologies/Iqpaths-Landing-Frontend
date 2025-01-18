@@ -13,7 +13,13 @@ const createOrder = async (courseId, couponCode) => {
 
 const verifyPayment = async (paymentDetails) => {
     const { data } = await axios.post('/api/payment/verifyPayment', paymentDetails, {withCredentials: true});
-    if (data.status === "success") successCallback();
+    console.log(data);
+    if (data.success === true) 
+        return true ;
+    else
+    {
+        return false ;
+    }
   };
 
 
