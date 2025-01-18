@@ -35,19 +35,56 @@ const InternshipCards = ({ activeCategory, selectedFilters }) => {
   const applyFilters = (course) => {
     for (const [filterCategory, filterValues] of Object.entries(selectedFilters)) {
       if (filterValues.length > 0) {
-        if (!filterValues.some((filter) => course[filterCategory]?.includes(filter))) {
-          return false; // If any filter doesn't match, exclude the course
+        const matchesFilter = filterValues.some((filter) => {
+          if (filterCategory === 'Course Category') {
+            // Match filter values with the 'subject' field in the course
+            return course.subject?.toLowerCase().includes(filter.toLowerCase());
+          }
+  
+          if (filterCategory === 'Instructors') {
+            // Check if any description includes the filter value
+            // console.log(course?.instructor?.name.toLowerCase())
+            return course?.instructor?.name.toLowerCase().includes(filter.toLowerCase());
+          }
+  
+          if (filterCategory === 'Review') {
+            // Handle review as a number match
+            // console.log("review ite hai", parseInt(filter.replace('★', '').trim());
+            console.log((filter.match(/★/g) || []).length);
+            return course.review === (filter.match(/★/g) || []).length;
+          }
+  
+            if (filterCategory === 'Price') {
+            // Check if the price falls within the specified range
+            const price = course.discountedPrice || course.realPrice;
+            const [min, max] = filter.split(' - ').map(Number);
+            console.log(min, max)
+            return price >= min && price <= max;
+            }
+  
+          // Default case for other fields (e.g., strings or arrays)
+          const courseValue = course[filterCategory];
+          if (Array.isArray(courseValue)) {
+            return courseValue.includes(filter);
+          }
+  
+          return courseValue?.toString().toLowerCase().includes(filter.toLowerCase());
+        });
+  
+        if (!matchesFilter) {
+          return false; // Exclude the course if any filter doesn't match
         }
       }
     }
-    return true; // If all filters match, include the course
+    return true; // Include the course if all filters match
   };
+  
 
   // Filter courses based on the active category and selectedFilters
   const filteredCourses =
     activeCategory === "ALL DOMAINS"
       ? courses.filter(applyFilters)
-      : courses.filter((course) => course.category === activeCategory && applyFilters(course));
+      : courses?.filter((course) => (course.subject)?.toUpperCase() === activeCategory && applyFilters(course));
 
 
   return (
@@ -97,30 +134,10 @@ const InternshipCards = ({ activeCategory, selectedFilters }) => {
                       
                     </li>
                   ))}
-                  {/* <li className={styles.point}>
-                      <span className={styles.priceDetail}>
-                        <span className={`${styles.originalPrice} ${course.discountedPrice ? styles.strike : ""}`}>Rs. {course.realPrice}</span>{" "}
-                        <span className={styles.discountedPrice}>Rs. {course.price}</span>
-                      </span>
-                  </li> */}
+  
                 </ul>
               </div>
             </div>
-
-            {/* <div className={styles.details}>
-                <ul className={styles.pointsList}>
-                  {course.details.map((detail, i) => (
-                  
-                  ))}
-                  <li className={styles.point}>
-                  <span className={styles.priceDetail}>
-                    <span className={styles.originalPrice}>{course.details[2].original}</span>{" "}
-                    <span className={styles.discountedPrice}>{course.details[2].discounted}</span>
-                  </span>
-                  </li>
-                </ul>
-                </div>
-              </div> */}
 
 
 
