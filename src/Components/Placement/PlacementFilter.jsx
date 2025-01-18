@@ -45,7 +45,7 @@ const PlacementFilter = ({ onCategoryChange, onFilterChange }) => {
     // "WEB DEVELOPMENT",
   ];
 
-  const [activeCategory, setActiveCategory] = useState("ALL PROGRAM");
+  const [activeCategory, setActiveCategory] = useState("ALL DOMAINS");
   const [isFilterDropdownOpen, setIsFilterDropdownOpen] = useState(false);
   const [expandedCategories, setExpandedCategories] = useState({});
   const [selectedFilters, setSelectedFilters] = useState({});
