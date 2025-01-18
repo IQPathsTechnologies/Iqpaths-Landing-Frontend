@@ -8,13 +8,13 @@ const InternshipFilter = ({ onCategoryChange, onFilterChange }) => {
        name: "Course Category",
        subcategories: [
          "All Domains",
-         "DAta Science",
+         "Data Science",
          "Machine Learning",
          "Full Stack Development",
          "UI/UX",
          "Frontend Development",
          "Backend Development",
-         "Artificial Intelligence",
+        //  "Artificial Intelligence",
        ],
      },
      {
@@ -39,7 +39,7 @@ const InternshipFilter = ({ onCategoryChange, onFilterChange }) => {
      "UI/UX",
      "FRONTEND DEVELOPMENT",
      "BACKEND DEVELOPMENT",
-     "ARTIFICIAL INTELLIGENCE",
+    //  "ARTIFICIAL INTELLIGENCE",
    ];
  
    const [activeCategory, setActiveCategory] = useState("ALL PROGRAM");

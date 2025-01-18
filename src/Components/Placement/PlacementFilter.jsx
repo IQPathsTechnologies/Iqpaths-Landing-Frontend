@@ -7,13 +7,13 @@ const PlacementFilter = ({ onCategoryChange, onFilterChange }) => {
     {
       name: "Course Category",
       subcategories: [
-        "Web Design",
-        "Management",
-        "Marketing",
-        "Python",
-        "UI/UX",
-        "Machine Learning",
-        "Database Management",
+        "All Domains",
+        "Data Structure",
+        "Aptitude & Quant",
+        "Mock Interview",
+        "LinkedIn Optimization",
+        "Resume Building",
+        "HR Round Strategies",
       ],
     },
     {
@@ -35,14 +35,14 @@ const PlacementFilter = ({ onCategoryChange, onFilterChange }) => {
   ];
 
   const categoryTabs = [
-    "ALL PROGRAM",
-    "DATA SCIENCE",
-    "MACHINE LEARNING",
-    "PYTHON",
-    "UI/UX",
-    "PRODUCT MANAGEMENT",
-    "BRANDING DESIGN",
-    "WEB DEVELOPMENT",
+    "ALL DOMAINS",
+    "DATA STRUCTURE",
+    "APTITUDE & QUANT",
+    "MOCK INTERVIEW",
+    "LINKEDIN OPTIMIZATION",
+    "RESUME BUILDING",
+    "HR ROUND STRATEGIES",
+    // "WEB DEVELOPMENT",
   ];
 
   const [activeCategory, setActiveCategory] = useState("ALL PROGRAM");
