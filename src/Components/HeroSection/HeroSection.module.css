@@ -162,10 +162,11 @@
     .statsSection {
         padding: 10px 0;
         text-align: center;
+        height: 6rem;
     }
 
     .statsSection h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .statsSection div {

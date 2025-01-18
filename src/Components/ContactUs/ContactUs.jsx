@@ -24,12 +24,12 @@ const ContactUs = () => {
     }
 
     // setBookingResponse(resposne.);
-    console.log("Response:", resposne);
+    // console.log("Response:", resposne);
   };
 
 
   const onSubmit = (data) => {
-      console.log("Form Data:", data);
+      // console.log("Form Data:", data);
       handleContactUsSubmit(data);
   };
 

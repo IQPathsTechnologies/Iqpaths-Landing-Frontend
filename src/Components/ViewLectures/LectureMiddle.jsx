@@ -4,7 +4,8 @@ import styles from "./LectureMiddle.module.css";
 const LectureMiddle = ({ selectedLecture }) => {
 
   if (!selectedLecture) {
-    return <p>Please select a lecture to start playing.</p>;
+    // return <p>Please select a lecture to start playing.</p>;
+    return <img src="/lactureisnot.jpeg" className={styles.lactureisnot} alt="lecture coming soon.." /> ;
   }
 
   const transcriptData = [
@@ -63,7 +64,6 @@ const LectureMiddle = ({ selectedLecture }) => {
           </div>
         </div> */}
       </div>
-
       {/* Transcript Section */}
       <div className={styles.transcriptSection}>
         <h2 className={styles.transcriptTitle}>Full Transcript</h2>
