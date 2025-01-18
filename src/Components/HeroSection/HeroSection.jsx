@@ -34,7 +34,7 @@ function HeroSection() {
             </div>
         </div>
         <div className={styles.right}>
-            <img src="/heroSectionImage.png" alt="" />
+            <img src="/LandingHero.png" alt="" />
         </div>
     </div>
   )
