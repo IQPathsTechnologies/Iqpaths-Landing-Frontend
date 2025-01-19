@@ -26,7 +26,7 @@ const Lecture = () => {
     const fetchChapters = async () => {
       try {
         const response = await apiClass.getPurchasedCourseDetails(courseId);
-        console.log(response.details.chapters);
+        // console.log(response.details.chapters);
         setChapters(response.details.chapters);
       } catch (error) {
         console.error("Error fetching chapters:", error);
@@ -57,7 +57,7 @@ const Lecture = () => {
   const nextLecture = async (lectureId) => {
     try{
       const nextLectureId = await apiClass.getNextLecture(lectureId);
-      console.log("next lecture is", nextLectureId);
+      // console.log("next lecture is", nextLectureId);
 
       if(nextLectureId !== "end of lectures"){
         const response = await apiClass.getLectureDetails(nextLectureId);
@@ -73,7 +73,7 @@ const Lecture = () => {
   const PrevLecture = async (lectureId) => {
     try{
       const prevLectureId = await apiClass.getPrevLecture(lectureId);
-      console.log("prev lecture is", prevLectureId);
+      // console.log("prev lecture is", prevLectureId);
 
       if(prevLectureId !== "no prev lec"){
         const response = await apiClass.getLectureDetails(prevLectureId);

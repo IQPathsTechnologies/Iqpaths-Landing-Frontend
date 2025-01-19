@@ -63,7 +63,7 @@ const ProfilePage = () => {
     const fetchUserDetails = async () => {
       try {
         const response = await apiClass.getUserDetails();
-        console.log('ProfilePage :: fetchUserDetails :: response', response);
+        // console.log('ProfilePage :: fetchUserDetails :: response', response);
         setUserDetails(response.user);
       } catch (error) {
         console.error("ProfilePage :: fetchUserDetails", error);
@@ -99,7 +99,7 @@ const ProfilePage = () => {
         const user = response.data.data;
         setUserDetails(user);
       }
-      console.log('ProfilePage :: handlePhotoUpdate :: response', response);
+      // console.log('ProfilePage :: handlePhotoUpdate :: response', response);
     } catch (error) {
       console.error("ProfilePage :: handlePhotoUpdate", error);
     }
@@ -109,14 +109,14 @@ const ProfilePage = () => {
   const handleProfileDetailsUpdate = async () => {
     try {
 
-      console.log("form data in profile update",formData);
+      // console.log("form data in profile update",formData);
       const response = await apiClass.updateUserDetails(formData);
       if(response.status == 201){
         const user = response.data.data;
         setUserDetails(user);
       }
 
-      console.log('ProfilePage :: handleProfileDetailsUpdate :: response', response);
+      // console.log('ProfilePage :: handleProfileDetailsUpdate :: response', response);
     } catch (error) {
       console.error("ProfilePage :: handleProfileDetailsUpdate", error);
     }
@@ -125,13 +125,13 @@ const ProfilePage = () => {
 
   const passwordUpdate = async () => {
     try {
-      console.log("form data in password update",formData);
+      // console.log("form data in password update",formData);
       if(formData.newPassword !== formData.confirmPassword){
         notifyWarning("New password and confirm password should be same");
         return;
       }
       const response = await apiClass.changePassword(formData);
-      console.log('ProfilePage :: passwordUpdate :: response', response);
+      // console.log('ProfilePage :: passwordUpdate :: response', response);
       formData.oldPassword = '';
       formData.newPassword = '';
       formData.confirmPassword = '';
@@ -144,7 +144,7 @@ const ProfilePage = () => {
   const handleDeleteAccount = async () => {
     try {
       const response = await apiClass.deleteUser();
-      console.log('ProfilePage :: handleDeleteAccount :: response', response);
+      // console.log('ProfilePage :: handleDeleteAccount :: response', response);
 
       if(response.status == 200){
         navigate('/logout');

@@ -89,77 +89,125 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
   return (
     <div className={styles.cardsContainer}>
       {filteredCourses?.length > 0 ? (
-        
-        filteredCourses?.map((course, index) => (
-          <Link to={course?.status == "coming soon" ?  "#" : `/course/${course.title}/${course._id}`} key={index} className={styles.link}>
-          <div key={index} className={styles.card}>
-            {/* Card Image */}
-            <img src={course.thumbnail} alt={course.title} className={styles.cardImage} />
+    [...filteredCourses]
+      .sort((a, b) => {
+        // Move "coming soon" courses to the end
+        if (a.status.toLowerCase() === "coming soon" && b.status.toLowerCase() !== "coming soon") return 1;
+        if (a.status.toLowerCase() !== "coming soon" && b.status.toLowerCase() === "coming soon") return -1;
+        return 0;
+      })
+          ?.map((course, index) => (
+            <Link
+              to={
+                course?.status == "coming soon"
+                  ? "#"
+                  : `/course/${course.title}/${course._id}`
+              }
+              key={index}
+              className={styles.link}
+            >
+              <div key={index} className={styles.card}>
+                {/* Card Image */}
+                <img
+                  src={course.thumbnail}
+                  alt={course.title}
+                  className={styles.cardImage}
+                />
 
-            {/* Card Content */}
-            <div className={styles.cardContent}>
-              {/* Badge */}
-              <div className={styles.badgeContainer}>
-                <div className={styles.learning}>
-                  <img src="/play.png" alt="" />
-                  <span className={styles.badge}>Start Learning</span>
-                </div>
-                <div className={styles.ranking}>
-                  {course.review ? 
-                  (
-                    <>
-                      {[...Array(Math.ceil(course?.review) || 0)].map((_, i) => (
-                        <img src="/starFilled.svg" alt="rating" className={styles.stars} key={i}/>
-                      ))}
-                      {[...Array(5 - (Math.ceil(course?.review) || 0))].map((_, i) => (
-                        <img src="/starEmpty.svg" alt="rating" className={styles.stars} key={i} />
-                      ))}
-                    </>
-                  )
-                  :
-                  (
-                    <>
-                      {[...Array(5)].map((_, i) => (
-                        <img src="/starEmpty.svg" alt="rating" className={styles.stars} key={i} />
-                      ))}
-                    
-                    </>
+                {/* Card Content */}
+                <div className={styles.cardContent}>
+                  {/* Badge */}
+                  <div className={styles.badgeContainer}>
+                    <div className={styles.learning}>
+                      <img src="/play.png" alt="" />
+                      <span className={styles.badge}>Start Learning</span>
+                    </div>
+                    <div className={styles.ranking}>
+                      {course.review ? (
+                        <>
+                          {[...Array(Math.ceil(course?.review) || 0)].map(
+                            (_, i) => (
+                              <img
+                                src="/starFilled.svg"
+                                alt="rating"
+                                className={styles.stars}
+                                key={i}
+                              />
+                            )
+                          )}
+                          {[...Array(5 - (Math.ceil(course?.review) || 0))].map(
+                            (_, i) => (
+                              <img
+                                src="/starEmpty.svg"
+                                alt="rating"
+                                className={styles.stars}
+                                key={i}
+                              />
+                            )
+                          )}
+                        </>
+                      ) : (
+                        <>
+                          {[...Array(5)].map((_, i) => (
+                            <img
+                              src="/starEmpty.svg"
+                              alt="rating"
+                              className={styles.stars}
+                              key={i}
+                            />
+                          ))}
+                        </>
+                      )}
 
-                  )
-                  }
-                  
-                  <span className={styles.rating}>{(course?.review)?.toFixed(1)} Rating</span>
-                </div>
-              </div>
-
-              {/* Title */}
-              <h3 className={styles.title}>{course.title}</h3>
-
-              {/* Details */}
-              <div className={styles.details}>
-                <ul className={styles.pointsList}>
-                  {course.description.map((detail, i) => (
-                    <li key={i} className={styles.point}>
-                      {<span className={styles.primaryDetail}>{detail}</span>}
-
-                      <span className={styles.priceDetail}>
-                        <span className={styles.originalPrice}>{detail.realPrice}</span>{" "}
-                        <span className={styles.discountedPrice}>{detail.price}</span>
+                      <span className={styles.rating}>
+                        {course?.review?.toFixed(1)} Rating
                       </span>
-                      
-                    </li>
-                  ))}
-                  <li className={styles.point}>
-                      <span className={styles.priceDetail}>
-                        <span className={`${styles.originalPrice} ${course.discountedPrice ? styles.strike : ""}`}>Rs. {course.realPrice}</span>{" "}
-                        <span className={styles.discountedPrice}>Rs. {course.price}</span>
-                      </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+                    </div>
+                  </div>
 
-            {/* <div className={styles.details}>
+                  {/* Title */}
+                  <h3 className={styles.title}>{course.title}</h3>
+
+                  {/* Details */}
+                  <div className={styles.details}>
+                    <ul className={styles.pointsList}>
+                      {course.description.map((detail, i) => (
+                        <li key={i} className={styles.point}>
+                          {
+                            <span className={styles.primaryDetail}>
+                              {detail}
+                            </span>
+                          }
+
+                          <span className={styles.priceDetail}>
+                            <span className={styles.originalPrice}>
+                              {detail.realPrice}
+                            </span>{" "}
+                            <span className={styles.discountedPrice}>
+                              {detail.price}
+                            </span>
+                          </span>
+                        </li>
+                      ))}
+                      <li className={styles.point}>
+                        <span className={styles.priceDetail}>
+                          <span
+                            className={`${styles.originalPrice} ${
+                              course.discountedPrice ? styles.strike : ""
+                            }`}
+                          >
+                            Rs. {course.realPrice}
+                          </span>{" "}
+                          <span className={styles.discountedPrice}>
+                            Rs. {course.price}
+                          </span>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* <div className={styles.details}>
                 <ul className={styles.pointsList}>
                   {course.details.map((detail, i) => (
                   
@@ -174,14 +222,15 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                 </div>
               </div> */}
 
-
-
-            {/* Action Button */}
-            <button className={styles.learnNowButton}>{course?.status == "coming soon" ? "coming soon" : "Learn More"}</button>
-          </div>
-          </Link>
-        ))
-
+                {/* Action Button */}
+                <button className={styles.learnNowButton}>
+                  {course?.status == "coming soon"
+                    ? "coming soon"
+                    : "Learn More"}
+                </button>
+              </div>
+            </Link>
+          ))
       ) : (
         <p className={styles.noCourses}>
           <img src="/noCourse.png" alt="No Course" />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, lazy } from 'react';
 import { NavLink, redirect, useNavigate } from 'react-router-dom';
 import styles from './Header.module.css';
 import SignUpPopup from "../CourseSection/SignUpPopup";
@@ -36,7 +36,7 @@ const Header = () => {
       const fetchUserDetails = async () => {
         try {
           const response = await apiClass.getUserDetails();
-          console.log('ProfilePage :: fetchUserDetails :: response', response);
+          // console.log('ProfilePage :: fetchUserDetails :: response', response);
           setUserDetails(response.user);
         } catch (error) {
           console.error("ProfilePage :: fetchUserDetails", error);
@@ -131,12 +131,14 @@ const Header = () => {
                   <div className={`${styles.nacircle} ${styles.naProfile}`}>
                     <img
                       id="profileImage"
-                      src={userDetails?.profilePhoto ? userDetails.profilePhoto : `https://via.placeholder.com/80/d8d3de?text=User`}
+                      src={userDetails?.profilePhoto ? userDetails.profilePhoto : `/dummyProfilePhoto.jpg`}
                       alt="Profile"
                       className={styles.profilephoto}
                       onClick={toggleDropdown}
+                      loading="lazy"
                     />
 
+                  </div>
                     {/* {isDropdownVisible && (
                       <div id="dropdownMenu" className={styles.dropdownMenu}>
                         <ul className={styles.dropdownMenuul}>
@@ -149,7 +151,6 @@ const Header = () => {
                         </ul>
                       </div>
                     )} */}
-                  </div>
                 </NavLink>
                 <NavLink to="/logout" className={styles.link}>
 

@@ -55,8 +55,8 @@ const LoginSignup = () => {
     try {
       const response = await axios.post("/api/user/login", data);
       if (response.status === 200) {
-        console.log("Login successful!");
-        console.log(response.data.data);
+        // console.log("Login successful!");
+        // console.log(response.data.data);
         setIsLoggedIn(true);
         navigate("/home");
         notifySuccess("Login Successful");
@@ -77,7 +77,7 @@ const LoginSignup = () => {
     try {
       const response = await axios.post("/api/user/register", data);
       if (response.status === 201) {
-        console.log("Signup successful!");
+        // console.log("Signup successful!");
         notifySuccess("Signup Successful");
         signupreset();
         setActiveForm("login");

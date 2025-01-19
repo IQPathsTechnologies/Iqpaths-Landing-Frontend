@@ -62,7 +62,7 @@ const Service = () => {
         try {
             const services =  await apiClass.getServices();
             if(services.data){
-                console.log("Service :: getServices :: services", services.data.data);
+                // console.log("Service :: getServices :: services", services.data.data);
                 setContent(services.data.data);
             }
         } catch (error) {

@@ -16,7 +16,7 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
       try {
         // const response = await apiClass.getCourses();
         const responseplacement = await apiClass.getPlacementCourses();
-        console.log("resopnse of palcement",responseplacement.placementPreparation)
+        // console.log("resopnse of palcement",responseplacement.placementPreparation)
         setCourses(responseplacement.placementPreparation);
       } catch (error) {
         console.log("CourseCard :: useEffect :: error", error);
@@ -48,7 +48,7 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
           if (filterCategory === 'Review') {
             // Handle review as a number match
             // console.log("review ite hai", parseInt(filter.replace('★', '').trim());
-            console.log((filter.match(/★/g) || []).length);
+            // console.log((filter.match(/★/g) || []).length);
             return course.review === (filter.match(/★/g) || []).length;
           }
   
@@ -56,7 +56,7 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
             // Check if the price falls within the specified range
             const price = course.discountedPrice || course.realPrice;
             const [min, max] = filter.split(' - ').map(Number);
-            console.log(min, max)
+            // console.log(min, max)
             return price >= min && price <= max;
             }
   

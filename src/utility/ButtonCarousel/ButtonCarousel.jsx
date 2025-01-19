@@ -1,29 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import styles from './ButtonCarousel.module.css';
+import { set } from 'react-hook-form';
 
 function ButtonCarousel({ children, autoslide = false, autoslideTime = 3000 }) {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [slideCount, setSlideCount] = useState(0);
+    // console.log('ButtonCarousel :: autoslide', autoslide);
     // console.log('ButtonCarousel :: children', children);
+    // console.log("current index",currentIndex)
 
     const prevSlide = () => {
         setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? React.Children.count(children) - 1 : prevIndex - 1
+            prevIndex == 0 ? slideCount - 1 : prevIndex - 1
         );
     };
 
     const nextSlide = () => {
+        // console.log("total slide count",React.Children.count(children))
         setCurrentIndex((prevIndex) =>
-            prevIndex === React.Children.count(children) - 1 ? 0 : prevIndex + 1
+            prevIndex >= React.Children.count(children) - 1 ? 0 : prevIndex + 1
         );
     };
 
     useEffect(() => {
-        if(!autoslide) return;
-
-        const interval = setInterval(nextSlide , autoslideTime);
-
-
-        return () => clearInterval(interval);
+        setTimeout(() => {
+            if(!autoslide) return;
+    
+            const interval = setInterval(nextSlide , autoslideTime);
+    
+            setSlideCount(React.Children.count(children));
+    
+            return () => clearInterval(interval);
+            
+        }, 1000);
 
     }, [autoslide, autoslideTime]);
 
