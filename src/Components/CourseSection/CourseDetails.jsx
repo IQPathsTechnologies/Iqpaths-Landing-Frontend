@@ -277,10 +277,11 @@ const CourseDetails = () => {
           <div className={styles.comments}> Comments </div>
           <div className={styles.ratingSection}>
             <div className={styles.averageRating}>
-              <span className={styles.ratingScore}>4.0</span>
+              <span className={styles.ratingScore}>5.0</span>
               <div className={styles.count}>
-                <div className={styles.stars}>★★★★☆</div>
-                <p className={styles.ratingCount}>based on 146,951 ratings</p>
+              {/* ☆ */}
+                <div className={styles.stars}>★★★★★</div>
+                <p className={styles.ratingCount}>based on 1,500+ ratings</p>
               </div>
             </div>
             <div className={styles.ratingBreakdown}>
