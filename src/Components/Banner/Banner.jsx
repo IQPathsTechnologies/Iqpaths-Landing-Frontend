@@ -31,7 +31,7 @@ const Banner = () => {
     , []);
 
     return (
-        console.log('Banner :: images', images),
+        // console.log('Banner :: images', images),
         <div className={styles.carousel}>
             <ButtonCarousel autoslide={true}>
                 {images.map((image, index) =>{

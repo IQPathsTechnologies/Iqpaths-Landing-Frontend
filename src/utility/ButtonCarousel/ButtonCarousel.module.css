@@ -24,6 +24,7 @@
     align-items: center;
     padding: 10px;
     pointer-events: none;
+    /* border: 2px solid blue; */
 }
 
 .button {
@@ -47,16 +48,22 @@
 /* Responsive styles for mobile view */
 @media screen and (max-width: 768px) and (min-width: 320px) {
     .button {
-        width: 50px;
-        height: 50px;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        /*
         margin-left: -10px;
-        margin-bottom: -210px;
+        margin-bottom: -210px; */
         /* font-size: 0rem; */
         /* padding: 0px 0px; */
     }
+    .button img{
+        width: 30px;
+        height: 30px;
+    }
     
     .buttonContainer {
-        padding: 5px;
+        padding: 0px;
     }
 }
 

@@ -21,15 +21,15 @@ function HeroSection() {
             <div className={styles.stats}>
               <div className={styles.statsSection}>
                 <h1 className={styles.yellow}>30+</h1>
-                <div>Courses to choose from</div>
+                <span >Courses Offered</span>
               </div>
               <div className={styles.statsSection}>
                 <h1 className={styles.blue}>3000+</h1>
-                <div>students Trained</div>
+                <span>students Trained</span>
               </div>
               <div className={styles.statsSection}>
                 <h1 className={styles.red}>10+</h1>
-                <div>Professional Trainers</div>
+                <span>Professional Trainers</span>
               </div>
             </div>
         </div>

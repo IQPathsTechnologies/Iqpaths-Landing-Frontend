@@ -18,6 +18,8 @@
 
     .carouselImage {
         border-radius: 5px;
+        object-fit: contain;
+        height: 300px;
     }
 }
 

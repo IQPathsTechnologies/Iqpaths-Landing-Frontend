@@ -15,7 +15,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
     async function fetchData() {
       try {
         const response = await apiClass.getCourses();
-        console.log("AllCourseCard :: useEffect :: response", response);
+        // console.log("AllCourseCard :: useEffect :: response", response);
         setCourses(response);
 
       } catch (error) {

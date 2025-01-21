@@ -50,7 +50,7 @@ export class AuthService {
         try {
             const response =  await axios.post("/api/user/login", {email, password});
             // this.setUser(response.data.data);
-            console.log(response);
+            // console.log(response);
             return response.data.data;
              
          } catch (error) {
@@ -98,10 +98,10 @@ export class AuthService {
 
     async updateProfilePhoto(profilePhoto){
         try {
-            console.log("profilePhoto user file me aya",profilePhoto);
+            // console.log("profilePhoto user file me aya",profilePhoto);
             const formData = new FormData();
             formData.append("profilePhoto", profilePhoto);
-            console.log("profilePhoto user file me aya form data",formData);
+            // console.log("profilePhoto user file me aya form data",formData);
 
             return await axios.post("/api/user/updateProfilePhoto", formData, { headers: {"Content-Type": "multipart/form-data"}, withCredentials: true});
         } catch (error) {
@@ -261,7 +261,7 @@ export class AuthService {
     async getUserCourses(){
         try {
             const response =  await axios.get(`/api/mylearnings/users/getCourseDetails`, {withCredentials: true});
-            console.log("data dikha ooo mekooo",response)
+            // console.log("data dikha ooo mekooo",response)
             return response.data.data;
         } catch (error) {
             // console.log("AuthService :: getMyCourses :: error", error);
