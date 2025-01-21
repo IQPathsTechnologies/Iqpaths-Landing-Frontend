@@ -15,9 +15,10 @@
 }
 
 .right img{
-    width: 35rem;
+    width: 34rem;
     height: 90%;
     margin-top: 40px;
+    object-fit: cover;
     /* border: 2px solid red; */
 }
 
