@@ -55,7 +55,7 @@ const CourseDetails = () => {
         async function fetchData() {
           try {
             const response = await apiClass.getCourseDetails(id);
-            console.log("CourseSection :: useEffect :: response ye card k liye", response);
+            // console.log("CourseSection :: useEffect :: response ye card k liye", response);
             setCourseDetails(response.details);    
           } catch (error) {
             console.log("CourseSection :: useEffect :: error", error);
@@ -69,7 +69,7 @@ const CourseDetails = () => {
         async function fetchData() {
           try {
             const response = await apiClass.getReviews(id);
-            console.log("CourseSection :: useEffect :: response ye card k liye review aa gaye hai ", response);
+            // console.log("CourseSection :: useEffect :: response ye card k liye review aa gaye hai ", response);
             setReview(response.review);    
           } catch (error) {
             console.log("CourseSection :: useEffect :: error", error);
@@ -277,10 +277,11 @@ const CourseDetails = () => {
           <div className={styles.comments}> Comments </div>
           <div className={styles.ratingSection}>
             <div className={styles.averageRating}>
-              <span className={styles.ratingScore}>4.0</span>
+              <span className={styles.ratingScore}>5.0</span>
               <div className={styles.count}>
-                <div className={styles.stars}>★★★★☆</div>
-                <p className={styles.ratingCount}>based on 146,951 ratings</p>
+              {/* ☆ */}
+                <div className={styles.stars}>★★★★★</div>
+                <p className={styles.ratingCount}>based on 1,500+ ratings</p>
               </div>
             </div>
             <div className={styles.ratingBreakdown}>

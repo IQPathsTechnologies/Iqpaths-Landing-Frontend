@@ -11,6 +11,10 @@
     text-decoration: none;
 }
 
+.link:active {
+    color: #551A8B;
+}
+
 /* Individual card styling */
 .card {
     width: 350px;

@@ -15,9 +15,9 @@ const InternshipCards = ({ activeCategory, selectedFilters }) => {
     async function fetchData() {
       try {
         const response = await apiClass.getCourses();
-        console.log("AllCourseCard :: useEffect :: response", response);
+        // console.log("AllCourseCard :: useEffect :: response", response);
         const responseInternship = await apiClass.getInternshipCourses();
-        console.log("resopnse of internship",responseInternship.internships);
+        // console.log("resopnse of internship",responseInternship.internships);
         setCourses(responseInternship.internships);
 
       } catch (error) {
@@ -50,7 +50,7 @@ const InternshipCards = ({ activeCategory, selectedFilters }) => {
           if (filterCategory === 'Review') {
             // Handle review as a number match
             // console.log("review ite hai", parseInt(filter.replace('★', '').trim());
-            console.log((filter.match(/★/g) || []).length);
+            // console.log((filter.match(/★/g) || []).length);
             return course.review === (filter.match(/★/g) || []).length;
           }
   
@@ -58,7 +58,7 @@ const InternshipCards = ({ activeCategory, selectedFilters }) => {
             // Check if the price falls within the specified range
             const price = course.discountedPrice || course.realPrice;
             const [min, max] = filter.split(' - ').map(Number);
-            console.log(min, max)
+            // console.log(min, max)
             return price >= min && price <= max;
             }
   

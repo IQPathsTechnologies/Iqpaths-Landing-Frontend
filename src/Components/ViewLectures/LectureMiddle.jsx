@@ -58,7 +58,7 @@ const LectureMiddle = ({ selectedLecture }) => {
           allowfullscreen
           // muted
         >
-          {console.log("selectedLecture.video", selectedLecture.video)}
+          {/* {console.log("selectedLecture.video", selectedLecture.video)} */}
         </iframe>
         
         {/* <div className={styles.videoControls}>

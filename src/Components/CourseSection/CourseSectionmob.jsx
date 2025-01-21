@@ -44,9 +44,9 @@ const CourseSection = ({
     const fetchData = async function () {
       try {
         const response = await apiClass.isCoursePurchase(courseId);
-        console.log("CourseSection me response aa raha", response);
+        // console.log("CourseSection me response aa raha", response);
         setIsPurchased(response.data.data.isPurchased);
-        console.log(response.data.data.isPurchased)
+        // console.log(response.data.data.isPurchased)
       } catch (error) {
         console.log("CourseSection me isCoursePurchased ka reponse", error);
       }
@@ -98,7 +98,7 @@ const CourseSection = ({
     });
 
     rzp.on("payment.success", () => {
-      console.log("Payment successful");
+      // console.log("Payment successful");
       setIsPurchased(true);
     });
 
@@ -164,9 +164,9 @@ const CourseSection = ({
   const handleApplyCoupon = async () => {
 
     if (couponCode.current.trim() !== "") {
-      console.log("CourseSection :: handleApplyCoupon :: couponCode", couponCode.current);
+      // console.log("CourseSection :: handleApplyCoupon :: couponCode", couponCode.current);
       const couponResponse = await apiClass.useCoupon({ couponCode: couponCode.current, courseId: id });
-      console.log("CourseSection :: handleApplyCoupon :: couponResponse", couponResponse);
+      // console.log("CourseSection :: handleApplyCoupon :: couponResponse", couponResponse);
       setCouponDiscountedPrice(couponResponse.data.data.course.price);
       setIsApplied(true);
     } else {
@@ -193,7 +193,7 @@ const CourseSection = ({
   const addToWhishlist = async () => {
     try {
       const response = await apiClass.addToWishlist(courseId);
-      console.log("CourseSection :: addToWhishlist :: response", response);
+      // console.log("CourseSection :: addToWhishlist :: response", response);
       setWhishlist(true);
     } catch (error) {
       console.log("CourseSection :: addToWhishlist :: error", error);

@@ -13,7 +13,8 @@ const getRazorPay = (razorOpts) => {
     // if (!window.Razorpay) {
     //     throw new Error("RazorPay SDK is not loaded yet.");
     // }
-    return new window.Razorpay(razorOpts);
+    const rzp = new Razorpay(razorOpts);
+    return rzp;
 };
 
-export { loadRazorPay, getRazorPay };
+export { loadRazorPay ,getRazorPay};
