@@ -7,7 +7,8 @@ export default defineConfig({
     proxy: {
       '/api': {
         // target: 'https://iqpath-landing-backend.onrender.com', 
-        target: 'http://localhost:8000', 
+        // target: 'http://latestbackend.iqpaths.com', 
+        target: 'https://quiz.iqpaths.com/', 
         changeOrigin: true,
         secure: false,
       },
