@@ -102,7 +102,13 @@ const ContinuousVideo = () => {
             ))
           ) : 
           noCourses ? (
-            <div> you havent bought any courses</div>
+            <div className={styles.card}>
+              <div className={styles.image}></div>
+              <h3 className={styles.title}>No courses found</h3>
+              <div className={styles.details}>
+                <span className={styles.instructor}>Please buy a course</span>
+              </div>
+            </div>
           ) :
           (
             courses.map((lesson) => (
