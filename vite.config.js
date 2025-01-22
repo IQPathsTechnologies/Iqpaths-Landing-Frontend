@@ -16,3 +16,8 @@ export default defineConfig({
     },
   },
 });
+
+
+
+// ye vercel.json ka 
+// "destination": "https://iqpath-landing-backend.onrender.com/api/:path*"
