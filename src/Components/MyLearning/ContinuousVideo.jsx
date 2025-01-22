@@ -4,6 +4,8 @@ import { AuthService } from "../../axios/User";
 import { Link } from "react-router-dom";
 import NotLogedIn from "../../UI/NotLogedIn";
 import { UserContext } from "../../context/userContext";
+import Notbought from "../../utility/notbought/notbought.jsx";
+
 
 const ContinuousVideo = () => {
   const carouselRef = useRef(null);
@@ -21,6 +23,7 @@ const ContinuousVideo = () => {
       try {
         const response = await apiClass.getUserCourses();
         setCourses(response.course || []);
+        setNoCourses(response.course.length === 0);
         setIsLoading(false);
       } catch (error) {
         setNoCourses(true);
@@ -98,7 +101,11 @@ const ContinuousVideo = () => {
                 </div>
               </div>
             ))
-          ) : (
+          ) : 
+          noCourses ? (
+            <Notbought />
+          ) :
+          (
             courses.map((lesson) => (
               <div key={lesson.id} className={styles.card}>
                 <Link
