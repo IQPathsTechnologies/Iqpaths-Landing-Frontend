@@ -22,7 +22,7 @@ const ContinuousVideo = () => {
       try {
         const response = await apiClass.getUserCourses();
         setCourses(response.course || []);
-        setNoCourses(response.course.length === 0);
+        // setNoCourses(response.course.length === 0);
         setIsLoading(false);
       } catch (error) {
         setNoCourses(true);
