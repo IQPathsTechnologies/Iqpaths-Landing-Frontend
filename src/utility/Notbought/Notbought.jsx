@@ -1,6 +1,6 @@
 import React from 'react'
 import {  useNavigate } from 'react-router-dom';
-import styles from './notbought.module.css'
+import styles from './Notbought.module.css'
 
 
 export default function Notbought() {
