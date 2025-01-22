@@ -182,8 +182,8 @@ const CourseSection = ({
     
 
   const handleCouponInputChanges = (e) => {
-    console.log("coupon ki value", e.target.value);
-    // couponCode.current = e.target.value;
+    // console.log("coupon ki value", e.target.value);
+    couponCode.current = e.target.value;
     setCoupon(e.target.value);
   };
   

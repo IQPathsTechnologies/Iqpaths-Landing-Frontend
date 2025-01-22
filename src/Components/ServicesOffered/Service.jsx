@@ -82,17 +82,27 @@ const Service = () => {
     }, []);
     // console.log(content);
     return (
-        <div className={styles.container}>
-            <div className={styles.heading}>
-                <h1>Services Offered</h1>
-                <p>We specialize in delivering comprehensive, data-driven learning solutions, advanced software development training, and tailored placement services, all designed to empower individuals with the skills, knowledge, and opportunities they need to excel in their careers and achieve their professional aspirations.</p>
-            </div>
-            <div className={styles.cardContainer}>
-                {content?.map((data, key) => (
-                    <ServiceCard2 key={key} data={data} className = {styles.card} />
-                ))}
-            </div>
+      <div className={styles.container}>
+        <div className={styles.heading}>
+          <h1>Services Offered</h1>
+          <p>
+            We specialize in delivering comprehensive, data-driven learning
+            solutions, advanced software development training, and tailored
+            placement services, all designed to empower individuals with the
+            skills, knowledge, and opportunities they need to excel in their
+            careers and achieve their professional aspirations.
+          </p>
         </div>
+        <div className={styles.cardContainer}>
+          {console.log(content)}
+          {Array.isArray(content) &&
+            [...content]
+              .sort((a, b) => (a.index ?? Infinity) - (b.index ?? Infinity))
+              .map((data, key) => (
+                <ServiceCard2 key={key} data={data} className={styles.card} />
+              ))}
+        </div>
+      </div>
     );
 };
 
