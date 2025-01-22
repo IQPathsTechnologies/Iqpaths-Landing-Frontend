@@ -3,6 +3,7 @@ import styles from "./ContinuousVideo.module.css";
 import { AuthService } from "../../axios/User";
 import { Link } from "react-router-dom";
 import NotLogedIn from "../../UI/NotLogedIn";
+import NoCourseAvailable from "../NoCourseAvailable/NoCourseAvailable";
 import { UserContext } from "../../context/userContext";
 
 
@@ -101,16 +102,10 @@ const ContinuousVideo = () => {
               </div>
             ))
           ) : 
-          // noCourses ? (
-          //   <div className={styles.card}>
-          //     <div className={styles.image}></div>
-          //     <h3 className={styles.title}>No courses found</h3>
-          //     <div className={styles.details}>
-          //       <span className={styles.instructor}>Please buy a course</span>
-          //     </div>
-          //   </div>
-          // ) :
-          // (
+          noCourses ? (
+            <NoCourseAvailable />
+          ) :
+          (
             courses?.map((lesson) => (
               <div key={lesson.id} className={styles.card}>
                 <Link
@@ -143,7 +138,7 @@ const ContinuousVideo = () => {
                 </Link>
               </div>
             ))
-          // )
+          )
           }
         </div>
         {isLoggedIn && courses.length > 0 && (
