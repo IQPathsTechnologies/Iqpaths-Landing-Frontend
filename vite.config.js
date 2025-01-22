@@ -6,9 +6,9 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        // target: 'https://iqpath-landing-backend.onrender.com', 
+        target: 'https://iqpath-landing-backend.onrender.com', 
         // target: 'http://latestbackend.iqpaths.com', 
-        target: 'https://quiz.iqpaths.com', 
+        // target: 'https://quiz.iqpaths.com', 
         changeOrigin: true,
         secure: false,
       },
@@ -21,3 +21,7 @@ export default defineConfig({
 
 // ye vercel.json ka 
 // "destination": "https://iqpath-landing-backend.onrender.com/api/:path*"
+
+
+//ye verce.jscon me main vala bacckend hai 
+  // "destination": "https://quiz.iqpaths.com/api/:path*"
