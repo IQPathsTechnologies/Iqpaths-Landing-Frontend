@@ -63,13 +63,13 @@ const LoginSignup = () => {
         notifySuccess("Login Successful");
       }
     } catch (error) {
-      // console.log(error);
+      console.log(error);
       // console.log(error.response);
-      console.log(error.message);
+      console.log(error?.response?.data?.message);
       // const match = error?.response.data;
-      if (error.message) {
+      if (error?.response?.data?.message) {
         // const errorMessage = match[1].replace(/&#39;/g, "'");
-        setErrorMessageLogin(error.message);
+        setErrorMessageLogin(error?.response?.data?.message);
       } else {
         console.log("Error message not found");
       }
@@ -89,7 +89,7 @@ const LoginSignup = () => {
       }
     } catch (error) {
       // const match = error.response.data.match(/<pre>(.*?)<br>/);
-      if (error.message) {
+      if (error?.response?.data?.message) {
         // const errorMessage = match[1].replace(/&#39;/g, "'");
         // if (
         //   errorMessage &&
@@ -97,7 +97,7 @@ const LoginSignup = () => {
         // ) {
         //   setErrorMessageSignup("Error: User already exists with this email.");
         // } else {
-          setErrorMessageSignup(errorMessage);
+          setErrorMessageSignup(error?.response?.data?.message);
         // }
       } else {
         console.log("Error message not found");

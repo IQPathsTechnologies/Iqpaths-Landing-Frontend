@@ -61,10 +61,16 @@ const Service = () => {
     const getServices = async () => {
         try {
             const services =  await apiClass.getServices();
-            if(services.data){
+            if (services.data) {
                 // console.log("Service :: getServices :: services", services.data.data);
-                setContent(services.data.data);
-            }
+                const sortedServices = services.data.data.sort((a, b) => {
+                    const indexA = a.index !== undefined ? Number(a.index) : Infinity; // Default to Infinity if no index
+                    const indexB = b.index !== undefined ? Number(b.index) : Infinity; // Default to Infinity if no index
+                    return indexA - indexB;
+                });
+                // console.log("Service :: getServices :: sortedServices", sortedServices);
+                setContent(sortedServices);
+            }            
         } catch (error) {
             console.log("Service :: getServices :: error", error);
             throw error;

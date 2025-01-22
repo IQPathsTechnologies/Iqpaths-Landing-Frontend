@@ -59,7 +59,7 @@ const CourseSection = ({
 
   //razorpay
   const handlePurchase = useCallback(async () => {
-    // console.log("coupon code ye lagega re bawa", couponCode);
+    // console.log("coupon code ye lagega re bawa", couponCode.current);
     const response = await createOrder(courseId,  couponCode.current);
 
     const { token, currency, key, name, description, mobileNo } = response;
@@ -172,7 +172,7 @@ const CourseSection = ({
       // console.log("CourseSection :: handleApplyCoupon :: couponCode", couponCode.current);
       const couponResponse = await apiClass.useCoupon({couponCode:  couponCode.current, courseId: id });
       // console.log("CourseSection :: handleApplyCoupon :: couponResponse", couponResponse);
-      setCouponDiscountedPrice(couponResponse.data.data.course.price);
+      setCouponDiscountedPrice(couponResponse?.data?.data?.course?.price);
       setIsApplied(true);
     } else {
       notifyError("Please enter a valid coupon.");
@@ -182,8 +182,8 @@ const CourseSection = ({
     
 
   const handleCouponInputChanges = (e) => {
-    // console.log("coupon ki value", e.target.value);
-    couponCode.current = e.target.value;
+    console.log("coupon ki value", e.target.value);
+    // couponCode.current = e.target.value;
     setCoupon(e.target.value);
   };
   
@@ -302,7 +302,8 @@ const CourseSection = ({
               <img src={courseDetails.thumbnail} alt="Preview" />
             </div>
             <div className={styles.coursePricing}>
-              <p className={styles.price}> Rs.{couponDiscountedPrice ? Math.floor(couponDiscountedPrice) : courseDetails.price} </p>
+              {/* {console.log("couponDiscountedPrice", couponDiscountedPrice)} */}
+              <p className={styles.price}> Rs.{couponDiscountedPrice!=null ? Math.floor(couponDiscountedPrice) : courseDetails.price} </p>
               <p className={styles.discount}>
                 {" "}
                 {(

@@ -148,9 +148,12 @@
 
 .errorMessageLogin {
     color: red;
+
 }
 
 .errorMessageSignup {
+    width: 80%;
+    /* border: 2px solid blue; */
     color: red;
 }
 input[type="number"]::-webkit-outer-spin-button,
