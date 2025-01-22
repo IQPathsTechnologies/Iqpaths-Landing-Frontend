@@ -8,7 +8,7 @@ export default defineConfig({
       '/api': {
         // target: 'https://iqpath-landing-backend.onrender.com', 
         // target: 'http://latestbackend.iqpaths.com', 
-        target: 'https://quiz.iqpaths.com/', 
+        target: 'https://quiz.iqpaths.com', 
         changeOrigin: true,
         secure: false,
       },
