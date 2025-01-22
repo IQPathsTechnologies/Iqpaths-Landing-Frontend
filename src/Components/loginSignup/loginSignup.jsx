@@ -55,12 +55,12 @@ const LoginSignup = () => {
     try {
       const response = await axios.post("/api/user/login", data);
       console.log(response)
-      if (response.data.data.status === 200) {
+      if (response.status === 200) {
         // console.log("Login successful!");
         // console.log(response.data.data);
         setIsLoggedIn(true);
-        navigate("/home");
         notifySuccess("Login Successful");
+        navigate("/home");
       }
     } catch (error) {
       console.log(error);

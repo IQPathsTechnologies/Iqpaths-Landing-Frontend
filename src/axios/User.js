@@ -51,7 +51,7 @@ export class AuthService {
             const response =  await axios.post("/api/user/login", {email, password});
             // this.setUser(response.data.data);
             // console.log(response);
-            return response;
+            return response.data.data;
              
          } catch (error) {
              console.log("AuthService :: login :: error", error.message);
