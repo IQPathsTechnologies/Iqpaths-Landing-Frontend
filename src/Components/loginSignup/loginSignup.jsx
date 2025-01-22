@@ -54,7 +54,8 @@ const LoginSignup = () => {
     setErrorMessageLogin("");
     try {
       const response = await axios.post("/api/user/login", data);
-      if (response.status === 200) {
+      console.log(response)
+      if (response.data.data.status === 200) {
         // console.log("Login successful!");
         // console.log(response.data.data);
         setIsLoggedIn(true);
@@ -62,10 +63,13 @@ const LoginSignup = () => {
         notifySuccess("Login Successful");
       }
     } catch (error) {
-      const match = error.response.data.match(/<pre>(.*?)<br>/);
-      if (match && match[1]) {
-        const errorMessage = match[1].replace(/&#39;/g, "'");
-        setErrorMessageLogin(errorMessage);
+      // console.log(error);
+      // console.log(error.response);
+      console.log(error.message);
+      // const match = error?.response.data;
+      if (error.message) {
+        // const errorMessage = match[1].replace(/&#39;/g, "'");
+        setErrorMessageLogin(error.message);
       } else {
         console.log("Error message not found");
       }
@@ -84,17 +88,17 @@ const LoginSignup = () => {
         navigate("/login");
       }
     } catch (error) {
-      const match = error.response.data.match(/<pre>(.*?)<br>/);
-      if (match && match[1]) {
-        const errorMessage = match[1].replace(/&#39;/g, "'");
-        if (
-          errorMessage &&
-          errorMessage.includes("E11000 duplicate key error collection")
-        ) {
-          setErrorMessageSignup("Error: User already exists with this email.");
-        } else {
+      // const match = error.response.data.match(/<pre>(.*?)<br>/);
+      if (error.message) {
+        // const errorMessage = match[1].replace(/&#39;/g, "'");
+        // if (
+        //   errorMessage &&
+        //   errorMessage.includes("E11000 duplicate key error collection")
+        // ) {
+        //   setErrorMessageSignup("Error: User already exists with this email.");
+        // } else {
           setErrorMessageSignup(errorMessage);
-        }
+        // }
       } else {
         console.log("Error message not found");
       }
