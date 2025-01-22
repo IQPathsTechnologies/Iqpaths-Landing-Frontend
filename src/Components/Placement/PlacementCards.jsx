@@ -36,13 +36,13 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
         const matchesFilter = filterValues.some((filter) => {
           if (filterCategory === 'Course Category') {
             // Match filter values with the 'subject' field in the course
-            return course.subject?.toLowerCase().includes(filter.toLowerCase());
+            return course.subject?.toLowerCase().includes(filter?.toLowerCase());
           }
   
           if (filterCategory === 'Instructors') {
             // Check if any description includes the filter value
             // console.log(course?.instructor?.name.toLowerCase())
-            return course?.instructor?.name.toLowerCase().includes(filter.toLowerCase());
+            return course?.instructor?.name?.toLowerCase().includes(filter?.toLowerCase());
           }
   
           if (filterCategory === 'Review') {
@@ -55,7 +55,7 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
             if (filterCategory === 'Price') {
             // Check if the price falls within the specified range
             const price = course.discountedPrice || course.realPrice;
-            const [min, max] = filter.split(' - ').map(Number);
+            const [min, max] = filter.split(' - ')?.map(Number);
             // console.log(min, max)
             return price >= min && price <= max;
             }
@@ -66,7 +66,7 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
             return courseValue.includes(filter);
           }
   
-          return courseValue?.toString().toLowerCase().includes(filter.toLowerCase());
+          return courseValue?.toString()?.toLowerCase().includes(filter?.toLowerCase());
         });
   
         if (!matchesFilter) {
@@ -88,7 +88,7 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
     <div className={styles.cardsContainer}>
       {filteredCourses?.length > 0 ? (
         
-        filteredCourses.map((course, index) => (
+        filteredCourses?.map((course, index) => (
           // <Link to={`/course/${course.title}/${course._id}`} key={index} className={styles.link}>
           <div key={index} className={styles.card}>
             {/* Card Image */}
@@ -103,13 +103,13 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
                   <span className={styles.badge}>Start Learning</span>
                 </div>
                 <div className={styles.ranking}>
-                  {[...Array(course.review || 5)].map((_, i) => (
+                  {[...Array(course.review || 5)]?.map((_, i) => (
                     <img src="/starFilled.svg" alt="rating" className={styles.stars} key={i}/>
                   ))}
-                  {[...Array(5 - course.review || 0)].map((_, i) => (
+                  {[...Array(5 - course.review || 0)]?.map((_, i) => (
                     <img src="/starEmpty.svg" alt="rating" className={styles.stars} key={i} />
                   ))}
-                  <span className={styles.rating}>{(5).toFixed(1)} Rating</span>
+                  <span className={styles.rating}>{(5)?.toFixed(1)} Rating</span>
                 </div>
               </div>
 
@@ -119,7 +119,7 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
               {/* Details */}
               <div className={styles.details}>
                 <ul className={styles.pointsList}>
-                  {course.description.map((detail, i) => (
+                  {course.description?.map((detail, i) => (
                     <li key={i} className={styles.point}>
                       {<span className={styles.primaryDetail}>{detail}</span>}
 

@@ -91,7 +91,7 @@ const Header = () => {
         </div>
         <nav className={styles.navbar}>
           <ul className={styles.navList}>
-            {navItems.map((tab) => (
+            {navItems?.map((tab) => (
               <li key={tab.name} className={styles.navItem}>
                 <NavLink
                   to={tab.link}
@@ -192,7 +192,7 @@ const Header = () => {
               <li className={styles.navItemClose} onClick={closeSideBar}>
                 <img src="./HamburgerClose.svg" alt="" />
               </li>
-              {navItems.map((tab) => (
+              {navItems?.map((tab) => (
                 <li key={tab.name} className={styles.navItemSideBar} onClick={closeSideBar}>
                   <NavLink
                     to={tab.link}
@@ -211,7 +211,7 @@ const Header = () => {
               <NavLink to="/profile" className={styles.link} onClick={closeSideBar}>
                 <div className={styles.btnSideBar}>Profile</div>
               </NavLink>
-              <div className={styles.btnSideBar} onClick=
+              <div className={`${styles.btnSideBar} ${styles.loginBtn}`} onClick=
                 {() => {
                   handleLogout();
                   closeSideBar();

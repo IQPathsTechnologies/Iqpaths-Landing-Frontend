@@ -105,7 +105,7 @@ const CourseFilter = ({ onCategoryChange, onFilterChange }) => {
 
       {/* Category Tabs Section */}
       <div className={styles.categoryTabs}>
-        {categoryTabs.map((tab, index) => (
+        {categoryTabs?.map((tab, index) => (
           <button
             key={index}
             className={`${styles.tab} ${
@@ -121,7 +121,7 @@ const CourseFilter = ({ onCategoryChange, onFilterChange }) => {
       {/* Filter Dropdown */}
       {isFilterDropdownOpen && (
         <div className={styles.filterDropdown}>
-          {categories.map((category, index) => (
+          {categories?.map((category, index) => (
             <div key={index} className={styles.category}>
               <div
                 className={styles.categoryHeader}

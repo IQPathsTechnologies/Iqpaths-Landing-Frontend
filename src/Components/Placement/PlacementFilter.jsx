@@ -107,7 +107,7 @@ const PlacementFilter = ({ onCategoryChange, onFilterChange }) => {
 
       {/* Category Tabs Section */}
       <div className={styles.categoryTabs}>
-        {categoryTabs.map((tab, index) => (
+        {categoryTabs?.map((tab, index) => (
           <button
             key={index}
             className={`${styles.tab} ${
@@ -123,7 +123,7 @@ const PlacementFilter = ({ onCategoryChange, onFilterChange }) => {
       {/* Filter Dropdown */}
       {isFilterDropdownOpen && (
         <div className={styles.filterDropdown}>
-          {categories.map((category, index) => (
+          {categories?.map((category, index) => (
             <div key={index} className={styles.category}>
               <div
                 className={styles.categoryHeader}
@@ -138,7 +138,7 @@ const PlacementFilter = ({ onCategoryChange, onFilterChange }) => {
               </div>
               {expandedCategories[category.name] && (
                 <ul className={`${styles.subcategories} ${styles.open}`}>
-                  {category.subcategories.map((subcategory, subIndex) => (
+                  {category.subcategories?.map((subcategory, subIndex) => (
                     <li key={subIndex} className={styles.subcategory}>
                       <label>
                         <input

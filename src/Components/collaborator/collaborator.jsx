@@ -22,7 +22,7 @@ function collaborator() {
     const getCollaboratorImages = async () => {
       try {
         const response = await apiClass.getCollaborators();
-        const logos = response.map((collaborator) => collaborator.logo);
+        const logos = response?.map((collaborator) => collaborator.logo);
         // console.log('Collaborator :: getCollaboratorImages :: response', logos);
         setImages(logos);
       }

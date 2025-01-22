@@ -51,7 +51,7 @@ const Certificate = () => {
         {/* <button className={styles.benefitsss}>Benefits</button> */}
         <h2 className={styles.benefitsTitle}>{benefits.title}</h2>
         <ul className={styles.benefitsList}>
-          {benefits.points.map((point, index) => (
+          {benefits.points?.map((point, index) => (
             <li key={index} className={styles.benefitItem}>
               <img src={point.icon} alt="Benefit Icon" className={styles.benefitIcon} />
               <p className={styles.benefitText}>{point.text}</p>

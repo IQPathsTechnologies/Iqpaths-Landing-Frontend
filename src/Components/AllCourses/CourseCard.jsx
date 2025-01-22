@@ -55,7 +55,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
             if (filterCategory === 'Price') {
             // Check if the price falls within the specified range
             const price = course.discountedPrice || course.realPrice;
-            const [min, max] = filter.split(' - ').map(Number);
+            const [min, max] = filter.split(' - ')?.map(Number);
             // console.log(min, max)
             return price >= min && price <= max;
             }
@@ -125,7 +125,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                     <div className={styles.ranking}>
                       {course.review ? (
                         <>
-                          {[...Array(Math.ceil(course?.review) || 0)].map(
+                          {[...Array(Math.ceil(course?.review) || 0)]?.map(
                             (_, i) => (
                               <img
                                 src="/starFilled.svg"
@@ -135,7 +135,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                               />
                             )
                           )}
-                          {[...Array(5 - (Math.ceil(course?.review) || 0))].map(
+                          {[...Array(5 - (Math.ceil(course?.review) || 0))]?.map(
                             (_, i) => (
                               <img
                                 src="/starEmpty.svg"
@@ -148,7 +148,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                         </>
                       ) : (
                         <>
-                          {[...Array(5)].map((_, i) => (
+                          {[...Array(5)]?.map((_, i) => (
                             <img
                               src="/starEmpty.svg"
                               alt="rating"
@@ -171,7 +171,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                   {/* Details */}
                   <div className={styles.details}>
                     <ul className={styles.pointsList}>
-                      {course.description.map((detail, i) => (
+                      {course.description?.map((detail, i) => (
                         <li key={i} className={styles.point}>
                           {
                             <span className={styles.primaryDetail}>

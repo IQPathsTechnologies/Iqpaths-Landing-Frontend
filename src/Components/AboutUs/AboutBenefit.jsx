@@ -56,7 +56,7 @@ const AboutBenefit = () => {
         </p>
       </div>
       <div className={styles.benefitsGrid}>
-        {benefits.map((benefit, index) => (
+        {benefits?.map((benefit, index) => (
           <BenefitCard
             key={index}
             image={benefit.image}

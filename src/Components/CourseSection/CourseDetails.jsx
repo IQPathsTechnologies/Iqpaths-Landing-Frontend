@@ -285,7 +285,7 @@ const CourseDetails = () => {
               </div>
             </div>
             <div className={styles.ratingBreakdown}>
-              {overallRating.map((rating, index) => (
+              {overallRating?.map((rating, index) => (
                 <div key={index} className={styles.ratingBarRow}>
                   <span>{rating.stars} ★</span>
                   <div className={styles.ratingBar}>
@@ -300,7 +300,7 @@ const CourseDetails = () => {
             </div>
           </div>
           <div className={styles.commentSection}>
-            {review.map((review, index) => (
+            {review?.map((review, index) => (
               <div key={index} className={styles.comment}>
                 <div className={styles.commentHeader}>
                   <img
@@ -352,7 +352,7 @@ const CourseDetails = () => {
         <>
             <div className={styles.tabsContainer}>
                 <div className={styles.tabs}>
-                    {Object.keys(tabContent).map((tab) => (
+                    {Object.keys(tabContent)?.map((tab) => (
                         <button
                             key={tab}
                             className={`${styles.tabButton} ${activeTab === tab ? styles.active : ""}`}

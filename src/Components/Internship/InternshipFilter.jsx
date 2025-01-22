@@ -121,7 +121,7 @@ const InternshipFilter = ({ onCategoryChange, onFilterChange }) => {
        {/* Filter Dropdown */}
        {isFilterDropdownOpen && (
          <div className={styles.filterDropdown}>
-           {categories.map((category, index) => (
+           {categories?.map((category, index) => (
              <div key={index} className={styles.category}>
                <div
                  className={styles.categoryHeader}

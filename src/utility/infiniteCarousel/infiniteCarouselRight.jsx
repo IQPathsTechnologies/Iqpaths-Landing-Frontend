@@ -44,7 +44,7 @@ const RightCarousel = ({ images, speed = 20, onImageClick }) => {
         }}
       >
         {/* Render images and their duplicate */}
-        {[...images, ...images].map((src, index) => (
+        {[...images, ...images]?.map((src, index) => (
           <img
             key={index}
             src={src}

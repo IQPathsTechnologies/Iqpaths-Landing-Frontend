@@ -253,7 +253,7 @@ const CourseSection = ({
                 ) : (
                   <>
                     <p>{courseDetails.review}</p>
-                    {[...Array(courseDetails.review || 0)].map((_, i) => (
+                    {[...Array(courseDetails.review || 0)]?.map((_, i) => (
                       <img
                         key={i}
                         src="/starFilled.svg"
@@ -261,7 +261,7 @@ const CourseSection = ({
                         className={styles.star}
                       />
                     ))}
-                    {[...Array(5 - (courseDetails.review || 0))].map(
+                    {[...Array(5 - (courseDetails.review || 0))]?.map(
                       (_, index) => (
                         <img
                           key={index}

@@ -73,7 +73,7 @@ const ContinuousVideo = () => {
           {!isLoggedIn ? (
             <NotLogedIn />
           ) : isLoading ? (
-            Array.from({ length: 4 }).map((_, index) => (
+            Array.from({ length: 4 })?.map((_, index) => (
               <div key={index} className={styles.card}>
                 <div
                   className={styles.image}
@@ -111,7 +111,7 @@ const ContinuousVideo = () => {
           //   </div>
           // ) :
           // (
-            courses.map((lesson) => (
+            courses?.map((lesson) => (
               <div key={lesson.id} className={styles.card}>
                 <Link
                   to={`/view-lectures/${lesson.title}`}
