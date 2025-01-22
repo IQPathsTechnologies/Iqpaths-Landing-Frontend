@@ -252,7 +252,7 @@ export class AuthService {
         try {
             return await axios.post("/api/coupon/useCoupon", {couponCode, courseId}, {withCredentials: true});
         } catch (error) {
-            // console.log("AuthService :: useCoupon :: error", error);
+            console.log("AuthService :: useCoupon :: error", error);
             notifyError("Please enter a valid coupon.");
             throw error;
         }
