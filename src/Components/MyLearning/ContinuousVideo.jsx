@@ -102,16 +102,6 @@ const ContinuousVideo = () => {
             ))
           ) : 
           noCourses ? (
-            // <Notbought />
-            // <div className={styles.notlogedin}>
-            //   <div className={styles.container}>
-            //       <div className={styles.message}>
-            //           <h1>Enroll in Course to view</h1>
-            //           <p>explore our courses here!!</p>
-            //           <Link to="/courses" className={styles.loginButton}>View Courses</Link>
-            //       </div>
-            //   </div>
-            //   </div>
             <div> you havent bought any courses</div>
           ) :
           (
