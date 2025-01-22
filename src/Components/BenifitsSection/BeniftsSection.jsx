@@ -74,7 +74,7 @@ function BeniftsSection() {
           </p>
         </div>
         <div className={styles.queryContainer}>
-          {content.map((item, index) => (
+          {content?.map((item, index) => (
             <QueryCard
               key={index}
               title={item.title}

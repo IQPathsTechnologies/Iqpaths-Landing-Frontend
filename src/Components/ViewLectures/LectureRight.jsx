@@ -40,7 +40,7 @@ const LectureRight = ({ isVisible, toggleVisibility }) => {
           <div className={styles.section}>
             <h2 className={styles.sectionTitle}>Notes</h2>
             <ul className={styles.list}>
-              {sectionData.notes.map((note) => (
+              {sectionData.notes?.map((note) => (
                 <li key={note.id} className={styles.listItem}>
                   <span className={styles.noteContent}>{note.content}</span>
                   <span className={styles.timeline}>({note.timeline})</span>
@@ -53,7 +53,7 @@ const LectureRight = ({ isVisible, toggleVisibility }) => {
           <div className={styles.section}>
             <h2 className={styles.sectionTitle}>Downloads</h2>
             <ul className={styles.list}>
-              {sectionData.downloads.map((download) => (
+              {sectionData.downloads?.map((download) => (
                 <li key={download.id} className={styles.listItem}>
                   <img src="/files.png" alt="files" />
                   <a href={download.link} download className={styles.downloadLink}>
@@ -68,7 +68,7 @@ const LectureRight = ({ isVisible, toggleVisibility }) => {
           <div className={styles.section}>
             <h2 className={styles.sectionTitle}>Discussions</h2>
             <ul className={styles.list}>
-              {sectionData.discussions.map((discussion) => (
+              {sectionData.discussions?.map((discussion) => (
                 <li key={discussion.id} className={styles.listItem}>
                   <strong className={styles.user}>{discussion.user}: </strong>
                   <span className={styles.comment}>{discussion.comment}</span>

@@ -63,7 +63,7 @@ const AboutHero = () => {
         </button>
       </div>
       <div className={styles.indicators}>
-        {slides.map((_, index) => (
+        {slides?.map((_, index) => (
           <span
             key={index}
             className={`${styles.indicator} ${

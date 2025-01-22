@@ -73,7 +73,7 @@ const LectureMiddle = ({ selectedLecture }) => {
       <div className={styles.transcriptSection}>
         <h2 className={styles.transcriptTitle}>Full Transcript</h2>
         <div className={styles.transcriptContainer}>
-          {transcriptData.map((entry, index) => (
+          {transcriptData?.map((entry, index) => (
             <div key={index} className={styles.transcriptEntry}>
               <span className={styles.timestamp}>{entry.time}</span>
               <p className={styles.text}>{entry.text}</p>

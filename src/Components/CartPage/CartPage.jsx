@@ -27,7 +27,7 @@ const CartPage = () => {
       {cartItems.length > 0 ? (
         <div className={styles.cartContent}>
           <div className={styles.cartItems}>
-            {cartItems.map((item) => (
+            {cartItems?.map((item) => (
               <div className={styles.cartCard} key={item.id}>
                 <div className={styles.cardContent}>
                   <h3>{item.name}</h3>

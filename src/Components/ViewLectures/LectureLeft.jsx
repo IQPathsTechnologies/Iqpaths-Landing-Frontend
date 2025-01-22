@@ -200,7 +200,7 @@ const LectureLeft = ({
 
       {/* Dynamic Sections */}
       <div className={styles.sectionContainer}>
-        {chapters.map((section, index) => (
+        {chapters?.map((section, index) => (
           <div key={index} className={styles.section}>
             {/* Section Title and Toggle Arrow */}
             <div
@@ -223,7 +223,7 @@ const LectureLeft = ({
             {expandedSections[index] && (
               <ul className={styles.sectionItems}>
                 {section?.lectures?.length > 0 ? (
-                  section.lectures.map((item) => {
+                  section.lectures?.map((item) => {
                     return (
                       <li
                         key={item.id}

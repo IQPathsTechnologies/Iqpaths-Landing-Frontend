@@ -34,7 +34,7 @@ const Banner = () => {
         <div className={styles.carousel}>
             {images.length > 0 ? (
                 <ButtonCarousel autoslide={true}>
-                    {images.map((image, index) => (
+                    {images?.map((image, index) => (
                         <img src={image} alt="carousel" className={styles.carouselImage} key={index} />
                     ))}
                 </ButtonCarousel>

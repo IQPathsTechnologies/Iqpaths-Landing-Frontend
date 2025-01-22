@@ -36,13 +36,13 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
         const matchesFilter = filterValues.some((filter) => {
           if (filterCategory === 'Course Category') {
             // Match filter values with the 'subject' field in the course
-            return course.subject?.toLowerCase().includes(filter.toLowerCase());
+            return course.subject?.toLowerCase().includes(filter?.toLowerCase());
           }
   
           if (filterCategory === 'Instructors') {
             // Check if any description includes the filter value
             // console.log(course?.instructor?.name.toLowerCase())
-            return course?.instructor?.name.toLowerCase().includes(filter.toLowerCase());
+            return course?.instructor?.name?.toLowerCase().includes(filter?.toLowerCase());
           }
   
           if (filterCategory === 'Review') {
@@ -55,7 +55,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
             if (filterCategory === 'Price') {
             // Check if the price falls within the specified range
             const price = course.discountedPrice || course.realPrice;
-            const [min, max] = filter.split(' - ').map(Number);
+            const [min, max] = filter.split(' - ')?.map(Number);
             // console.log(min, max)
             return price >= min && price <= max;
             }
@@ -66,7 +66,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
             return courseValue.includes(filter);
           }
   
-          return courseValue?.toString().toLowerCase().includes(filter.toLowerCase());
+          return courseValue?.toString()?.toLowerCase().includes(filter?.toLowerCase());
         });
   
         if (!matchesFilter) {
@@ -92,8 +92,8 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
     [...filteredCourses]
       .sort((a, b) => {
         // Move "coming soon" courses to the end
-        if (a.status.toLowerCase() === "coming soon" && b.status.toLowerCase() !== "coming soon") return 1;
-        if (a.status.toLowerCase() !== "coming soon" && b.status.toLowerCase() === "coming soon") return -1;
+        if (a?.status?.toLowerCase() === "coming soon" && b?.status?.toLowerCase() !== "coming soon") return 1;
+        if (a?.status?.toLowerCase() !== "coming soon" && b?.status?.toLowerCase() === "coming soon") return -1;
         return 0;
       })
           ?.map((course, index) => (
@@ -125,7 +125,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                     <div className={styles.ranking}>
                       {course.review ? (
                         <>
-                          {[...Array(Math.ceil(course?.review) || 0)].map(
+                          {[...Array(Math.ceil(course?.review) || 0)]?.map(
                             (_, i) => (
                               <img
                                 src="/starFilled.svg"
@@ -135,7 +135,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                               />
                             )
                           )}
-                          {[...Array(5 - (Math.ceil(course?.review) || 0))].map(
+                          {[...Array(5 - (Math.ceil(course?.review) || 0))]?.map(
                             (_, i) => (
                               <img
                                 src="/starEmpty.svg"
@@ -148,7 +148,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                         </>
                       ) : (
                         <>
-                          {[...Array(5)].map((_, i) => (
+                          {[...Array(5)]?.map((_, i) => (
                             <img
                               src="/starEmpty.svg"
                               alt="rating"
@@ -171,7 +171,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                   {/* Details */}
                   <div className={styles.details}>
                     <ul className={styles.pointsList}>
-                      {course.description.map((detail, i) => (
+                      {course.description?.map((detail, i) => (
                         <li key={i} className={styles.point}>
                           {
                             <span className={styles.primaryDetail}>

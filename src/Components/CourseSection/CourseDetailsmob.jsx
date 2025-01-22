@@ -272,7 +272,7 @@ const CourseDetailsmob = () => {
               </div>
             </div>
             <div className={styles.ratingBreakdown}>
-              {overallRating.map((rating, index) => (
+              {overallRating?.map((rating, index) => (
                 <div key={index} className={styles.ratingBarRow}>
                   <span>{rating.stars} ★</span>
                   <div className={styles.ratingBar}>
@@ -287,7 +287,7 @@ const CourseDetailsmob = () => {
             </div>
           </div>
           <div className={styles.commentSection}>
-            {currentReviews.map((review, index) => (
+            {currentReviews?.map((review, index) => (
               <div key={index} className={styles.comment}>
                 <div className={styles.commentHeader}>
                   <img
@@ -334,7 +334,7 @@ const CourseDetailsmob = () => {
   return (
     <div className={styles.tabscontainerMob}>
       <ul className={styles.tabul}>
-        {tabs.map((tab, index) => (
+        {tabs?.map((tab, index) => (
           <li className={styles.tabli} key={index}>
             <div 
               className={styles.tittle} 

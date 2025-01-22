@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import NotLogedIn from "../../UI/NotLogedIn";
 import { UserContext } from "../../context/userContext";
 
+
 const ContinuousVideo = () => {
   const carouselRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -21,6 +22,7 @@ const ContinuousVideo = () => {
       try {
         const response = await apiClass.getUserCourses();
         setCourses(response.course || []);
+        // setNoCourses(response.course.length === 0);
         setIsLoading(false);
       } catch (error) {
         setNoCourses(true);
@@ -71,7 +73,7 @@ const ContinuousVideo = () => {
           {!isLoggedIn ? (
             <NotLogedIn />
           ) : isLoading ? (
-            Array.from({ length: 4 }).map((_, index) => (
+            Array.from({ length: 4 })?.map((_, index) => (
               <div key={index} className={styles.card}>
                 <div
                   className={styles.image}
@@ -98,8 +100,18 @@ const ContinuousVideo = () => {
                 </div>
               </div>
             ))
-          ) : (
-            courses.map((lesson) => (
+          ) : 
+          // noCourses ? (
+          //   <div className={styles.card}>
+          //     <div className={styles.image}></div>
+          //     <h3 className={styles.title}>No courses found</h3>
+          //     <div className={styles.details}>
+          //       <span className={styles.instructor}>Please buy a course</span>
+          //     </div>
+          //   </div>
+          // ) :
+          // (
+            courses?.map((lesson) => (
               <div key={lesson.id} className={styles.card}>
                 <Link
                   to={`/view-lectures/${lesson.title}`}
@@ -131,7 +143,8 @@ const ContinuousVideo = () => {
                 </Link>
               </div>
             ))
-          )}
+          // )
+          }
         </div>
         {isLoggedIn && courses.length > 0 && (
           <div className={styles.navigationButtons}>

@@ -408,7 +408,7 @@ const ProfilePage = () => {
           </div>
           <div className={styles.profileName}>{userDetails?.name}</div>
         </div>
-        {sections.map((section) =>
+        {sections?.map((section) =>
           section.link ? (
             <a
               key={section.name}

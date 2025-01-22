@@ -55,7 +55,7 @@ function Testimonial() {
           <div className={styles.cardHeading}>
             <h4>What they say</h4>
             <div className={styles.dotContainer}>
-              {testimonialData.map((_, index) => (
+              {testimonialData?.map((_, index) => (
                 <div
                   key={index}
                   className={`${styles.dots} ${

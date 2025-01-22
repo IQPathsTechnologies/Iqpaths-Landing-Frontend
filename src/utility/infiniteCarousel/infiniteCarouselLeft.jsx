@@ -58,7 +58,7 @@ const InfiniteCarousel = ({ images, direction = 'left', speed = 20 }) => {
         }}
       >
         {/* Render images and their duplicate */}
-        {[...images, ...images].map((src, index) => (
+        {[...images, ...images]?.map((src, index) => (
           <img
             key={index}
             src={src}

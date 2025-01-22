@@ -54,7 +54,7 @@ const lectureHeader = ({
             style={{ cursor: "pointer" }}
           />
         </span>
-        {pathSegments.map((segment, index) => (
+        {pathSegments?.map((segment, index) => (
           <React.Fragment key={index}>
             <div>
               <img src="/CaretRight.svg" alt="Home" />
