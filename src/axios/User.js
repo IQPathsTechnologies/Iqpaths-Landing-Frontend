@@ -50,7 +50,7 @@ export class AuthService {
         try {
             const response =  await axios.post("/api/user/login", {email, password});
             // this.setUser(response.data.data);
-            // console.log(response);
+            console.log(response);
             return response.data.data;
              
          } catch (error) {
@@ -252,7 +252,7 @@ export class AuthService {
         try {
             return await axios.post("/api/coupon/useCoupon", {couponCode, courseId}, {withCredentials: true});
         } catch (error) {
-            // console.log("AuthService :: useCoupon :: error", error);
+            console.log("AuthService :: useCoupon :: error", error);
             notifyError("Please enter a valid coupon.");
             throw error;
         }
