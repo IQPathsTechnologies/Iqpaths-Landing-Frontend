@@ -603,7 +603,7 @@
         justify-content: center;
         padding: 15px 25px;
         /* background-color: #967c7c; */
-        background-color: #ffffff;
+        background: #ffffff;
         position: relative;
     }
 
@@ -1092,6 +1092,7 @@
         /* To indicate that it’s non-clickable */
         opacity: 0.8;
         /* Slightly muted to differentiate from active state */
+        margin-top: 5px;
     }
 
     .displayCoupon {
@@ -1110,7 +1111,7 @@
         font-weight: 500;
         font-size: 15px;
         width: 175px;
-        height: 20px;
+        height: fit-content;
         text-align: center;
         padding: 5px 10px;
         color: #0047B2;
@@ -1129,3 +1130,4 @@
     }
 
 }
+

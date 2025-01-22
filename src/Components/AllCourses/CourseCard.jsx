@@ -36,13 +36,13 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
         const matchesFilter = filterValues.some((filter) => {
           if (filterCategory === 'Course Category') {
             // Match filter values with the 'subject' field in the course
-            return course.subject?.toLowerCase().includes(filter.toLowerCase());
+            return course.subject?.toLowerCase().includes(filter?.toLowerCase());
           }
   
           if (filterCategory === 'Instructors') {
             // Check if any description includes the filter value
             // console.log(course?.instructor?.name.toLowerCase())
-            return course?.instructor?.name.toLowerCase().includes(filter.toLowerCase());
+            return course?.instructor?.name?.toLowerCase().includes(filter?.toLowerCase());
           }
   
           if (filterCategory === 'Review') {
@@ -66,7 +66,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
             return courseValue.includes(filter);
           }
   
-          return courseValue?.toString().toLowerCase().includes(filter.toLowerCase());
+          return courseValue?.toString()?.toLowerCase().includes(filter?.toLowerCase());
         });
   
         if (!matchesFilter) {
@@ -92,8 +92,8 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
     [...filteredCourses]
       .sort((a, b) => {
         // Move "coming soon" courses to the end
-        if (a.status.toLowerCase() === "coming soon" && b.status.toLowerCase() !== "coming soon") return 1;
-        if (a.status.toLowerCase() !== "coming soon" && b.status.toLowerCase() === "coming soon") return -1;
+        if (a?.status?.toLowerCase() === "coming soon" && b?.status?.toLowerCase() !== "coming soon") return 1;
+        if (a?.status?.toLowerCase() !== "coming soon" && b?.status?.toLowerCase() === "coming soon") return -1;
         return 0;
       })
           ?.map((course, index) => (

@@ -114,19 +114,22 @@ const CourseSection = ({
     navigate(-1);
   };
 
+
+
   const handleOpenPopup = () => {
     if (!isLoggedIn) {
-        setIsPopupVisible(true); 
-        document.body.style.overflow = "hidden"; 
+        navigate("/login");
+        notifyWarning("Please login to buy the course.");
     } else {
         //razor pay 
         if (!isPurchased) {
             handlePurchase();
         } else {
-            notifyWarning("You have already purchased this course.");
+            notifyError("You have already purchased this course.");
         }
     }
 };
+
 
   const handleClosePopup = () => {
     setIsPopupVisible(false); // Hide the pop-up
