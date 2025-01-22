@@ -4,7 +4,7 @@ import { AuthService } from "../../axios/User";
 import { Link } from "react-router-dom";
 import NotLogedIn from "../../UI/NotLogedIn";
 import { UserContext } from "../../context/userContext";
-import Notbought from "../../utility/notbought/notbought.jsx";
+// import Notbought from "../../utility/Notbought/Notbought.jsx"
 
 
 const ContinuousVideo = () => {
