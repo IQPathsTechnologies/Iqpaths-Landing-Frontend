@@ -1,9 +1,9 @@
-{
-    "rewrites": [
-      {
-        "source": "/api/:path*",
-        "destination": "https://quiz.iqpaths.com/api/:path*"
-      }
-    ]
-  }
+// {
+//     "rewrites": [
+//       {
+//         "source": "/api/:path*",
+//         "destination": "https://quiz.iqpaths.com/api/:path*"
+//       }
+//     ]
+//   }
   
