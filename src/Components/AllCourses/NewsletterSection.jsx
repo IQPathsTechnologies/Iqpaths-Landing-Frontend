@@ -40,7 +40,7 @@ const NewsletterSection = () => {
     <div className={styles.newsletterSection}>
       <div className={styles.textContainer}>
         <h1 className={styles.title}>{data.title}</h1>
-        <h1 className={styles.titleMobile}>NewsLetter- Stay Tuneed</h1>
+        <h1 className={styles.titleMobile}>NewsLetter- Stay Tuned</h1>
         <p className={styles.description}>{data.description}</p>
       </div>
       <div 
