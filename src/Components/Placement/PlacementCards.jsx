@@ -133,6 +133,7 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
                   <li className={styles.point}>
                       <span className={styles.priceDetail}>
                         {/* <span className={${styles.originalPrice} ${course.discountedPrice ? styles.strike : ""}}>Rs. {course.realPrice}</span>{" "} */}
+                        {/* <span className={`${styles.originalPrice} ${course.discountedPrice ? styles.strike : ""}`}>Rs. {course.realPrice}</span>{" "} */}
                         {course?.status == "coming soon"?<span className={`${styles.priceDetail}  `} style={{ color: ' #0047B2' }}>Prize will be announced soon</span>:<span className={styles.discountedPrice}>Rs. {course.price}</span>}
                       </span>
                   </li>
