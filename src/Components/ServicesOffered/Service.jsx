@@ -94,7 +94,7 @@ const Service = () => {
           </p>
         </div>
         <div className={styles.cardContainer}>
-          {console.log(content)}
+          {/* {console.log(content)} */}
           {Array.isArray(content) &&
             [...content]
               .sort((a, b) => (a.index ?? Infinity) - (b.index ?? Infinity))

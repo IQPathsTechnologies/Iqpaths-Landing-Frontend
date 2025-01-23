@@ -190,7 +190,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                         </li>
                       ))}
                       <li className={styles.point}>
-                        <span className={styles.priceDetail}>
+                        {course?.status == "coming soon"?<span className={`${styles.priceDetail}  `} style={{ color: ' #0047B2' }}>Prize will be announced soon</span>:<span className={styles.priceDetail}>
                           <span
                             className={`${styles.originalPrice} ${
                               course.discountedPrice ? styles.strike : ""
@@ -201,7 +201,7 @@ const CourseCard = ({ activeCategory, selectedFilters }) => {
                           <span className={styles.discountedPrice}>
                             Rs. {course.price}
                           </span>
-                        </span>
+                        </span>}
                       </li>
                     </ul>
                   </div>
