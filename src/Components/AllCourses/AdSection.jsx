@@ -3,7 +3,7 @@ import styles from "./AdSection.module.css";
 
 const AdSection = () => {
   const data = {
-    title: "Start learning now and get 35% off", 
+    title: "Start learning now and get 20% off", 
     description:
       "With our responsive themes and mobile and desktop apps, enjoy a seamless experience on any device so will your blog the best visitors",
     buttonText: "Enroll now",
