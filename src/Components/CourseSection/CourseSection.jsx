@@ -168,6 +168,12 @@ const CourseSection = ({
 
   const handleApplyCoupon = async () => {
 
+
+    if(!isLoggedIn){
+      notifyWarning("Please login to apply the coupon.");
+      return;
+    }
+
     if (couponCode.current.trim() !== "") {
       // console.log("CourseSection :: handleApplyCoupon :: couponCode", couponCode.current);
       const couponResponse = await apiClass.useCoupon({couponCode:  couponCode.current, courseId: id });
