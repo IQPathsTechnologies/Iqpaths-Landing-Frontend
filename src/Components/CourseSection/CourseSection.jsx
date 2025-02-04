@@ -360,7 +360,7 @@ const CourseSection = ({
               </div>
               <div className={styles.content}>
                 <img src="/download.png" alt="Download" />
-                <p> Hands on Projects and Assignments </p>
+                <p> Hands on Projects/Assignments </p>
               </div>
               <div className={styles.content}>
                 <img src="/access.png" alt="Access" />
