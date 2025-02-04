@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext,useState, useEffect} from 'react';
 import styles from './Course.module.css';
 import CourseSection from '../../Components/CourseSection/CourseSection'
 import CourseSectionmob from '../../Components/CourseSection/CourseSectionmob'
@@ -9,6 +9,9 @@ import Instructor from '../../Components/Instructor/Instructor'
 import SimilarCourses from '../../Components/SimilarCourses/SimilarCourses'
 import { UserContext } from '../../context/userContext';
 import NewsletterSection from '../../Components/AllCourses/NewsletterSection'
+import { useParams } from 'react-router-dom';
+import { AuthService } from '../../axios/User';
+
 
 
 const Course = () => {
@@ -17,6 +20,34 @@ const Course = () => {
     
 
     const { userId } = useContext(UserContext);
+    const {id} = useParams();
+
+    // console.log("ye id hai certificate k liye",id)
+
+
+      const apiClass = new AuthService();
+    
+
+    const [certificate, setCertificate] = useState(null);
+
+
+
+
+
+    useEffect(() => {
+        const fetchCertificate = async()=>{
+          try {
+            const response = await apiClass.getCertificate(id);
+            console.log("Certificate response", response);
+            setCertificate(response?.certificateImage);
+    
+          } catch (error) {
+            console.log("CourseSection me isCoursePurchased ka reponse", error);
+          }
+        }
+        fetchCertificate();
+      },[id])
+      
 
     return (
         <div>
@@ -31,7 +62,7 @@ const Course = () => {
                 </div>
             </div>
 
-            <Certificate />
+            <Certificate certificate = {certificate} />
             <Instructor />
             {/* <SimilarCourses /> */}
             <NewsletterSection />

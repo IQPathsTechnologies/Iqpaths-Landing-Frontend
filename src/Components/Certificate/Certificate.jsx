@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./Certificate.module.css";
 
-const Certificate = () => {
+const Certificate = ({certificate}) => {
+
+
+  // console.log("ye certificate hai",certificate)
   const certificates = [
     {
       image: '/certificate1.png', // Replace with the actual path or URL
@@ -33,20 +36,16 @@ const Certificate = () => {
 
   return (
     <div className={styles.section}>
-      {/* Certificates */}
+      /* Certificates */
       <div className={styles.certificates}>
-        
-          <div  className={styles.certificateCard}>
-            <img
-              src="/CERTIFICATE.png"
-              alt="Certificate"
-              className={styles.certificateImage}
-            />
-          </div>
-     
+        <div className={styles.certificateCard}>
+          <img
+            src={certificate ? certificate.certificateImage : "/CERTIFICATE.png"}
+            alt={certificate ? certificate.alt : "Certificate"}
+            className={styles.certificateImage}
+          />
+        </div>
       </div>
-
-      {/* Benefits */}
       <div className={styles.benefits}>
         {/* <button className={styles.benefitsss}>Benefits</button> */}
         <h2 className={styles.benefitsTitle}>{benefits.title}</h2>

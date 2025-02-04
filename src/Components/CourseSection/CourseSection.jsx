@@ -48,7 +48,8 @@ const CourseSection = ({
           setIsPurchased(response.data.data.isPurchased);
           // console.log(response.data.data.isPurchased)
       } catch (error) {
-        console.log("CourseSection me isCoursePurchased ka reponse", error);
+        console.log("course is not purchased",);
+
       }
     }
     fetchData();

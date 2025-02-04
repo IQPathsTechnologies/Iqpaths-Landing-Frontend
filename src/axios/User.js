@@ -420,4 +420,15 @@ export class AuthService {
         }
     }
 
+
+    async getCertificate(id){
+        try {
+            const response = await axios.post("/api/certificate/getCertificate", {id});
+            return response.data.data;
+        } catch (error) {
+            console.log("Failed to get certificate", error);
+            throw error;
+        }
+    }
+
 }
