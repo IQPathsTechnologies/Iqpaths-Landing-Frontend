@@ -14,7 +14,7 @@ const MainPopup = ({ onClose }) => {
       "Mock placement tests",
     ],
     buttonText: "Get It Now",
-    imageUrl: "/aptibanner.png", 
+    imageUrl: "/newbanner.png", 
     courseLink: "/course/Quant%20Aptitude%20&%20Reasoning/677e6daef63b686896f77ce7", 
   };
 
