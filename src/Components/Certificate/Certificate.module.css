@@ -1,17 +1,18 @@
 .section {
     /* width: 80%; */
     height: 380px;
-    margin-left: 70px;
+    /* margin-left: 70px; */
     margin-top: 80px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 20px;
     padding: 40px;
     /* background-color: #005eff; */
     border-radius: 12px;
     color: #ffffff;
     /* box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); */
+    border: 2px solid blue;
 }
 
 /* Certificates Section */
