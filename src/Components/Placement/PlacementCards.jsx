@@ -159,7 +159,7 @@ const PlacementCards = ({ activeCategory, selectedFilters }) => {
 
 
             {/* Action Button */}
-            <button className={styles.learnNowButton}>Comming soon!!!</button>
+            <button className={styles.learnNowButton}>Coming soon!!!</button>
           </div>
           // </Link>
         ))
