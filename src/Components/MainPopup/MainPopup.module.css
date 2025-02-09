@@ -132,6 +132,7 @@
     .popup {
         width: 90%; 
         height: 80%; 
+        height: fit-content;
         padding: 15px; 
         border-radius: 10px; 
         flex-direction: column; 
@@ -193,6 +194,7 @@
         width: 95%; 
         height: 55%; 
         padding: 15px; 
+        height: fit-content;
         border-radius: 10px; 
         flex-direction: column; 
         /* border: 2px solid red; */
@@ -209,7 +211,8 @@
 @media (max-width: 376px) { 
     .popup {
         width: 95%; 
-        height: 55%; 
+        /* height: 55%;  */
+        height: fit-content;
         padding: 15px; 
         border-radius: 10px; 
         flex-direction: column; 
