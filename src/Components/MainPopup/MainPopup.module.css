@@ -1,0 +1,232 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out; 
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.popup {
+    background: #e7f2ff;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
+    width: 600px;
+    height: 305px;
+    max-width: 90%;
+    animation: scaleUp 0.3s ease-in-out; 
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* .image {
+    /* border: 2px solid green; */
+/* } */ 
+
+.banner {
+    width: 95%;
+    height: 300px;
+    margin-right: 0px;
+    border-radius: 10px;
+}
+
+.content {
+    margin-top: -10px;
+    margin-right: 10px;
+    width: 80%;
+}
+
+.heading {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    color: #333;
+}
+
+.para {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.highlights {
+    text-align: left;
+    margin: 20px 0;
+    margin-left: -10px;
+    font-size: 1rem;
+    color: #444;
+}
+
+.highlights ul {
+    padding-left: 20px;
+}
+
+.highlights li {
+    margin-bottom: 10px;
+}
+
+.redirectBtn {
+    padding: 10px 20px;
+    background-color: #016ee2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    font-style: sans-serif;
+    margin-top: -8px;
+    text-transform: uppercase;
+}
+
+.redirectBtn:hover {
+    background-color: #0151a8;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.closeBtn:hover {
+    color: #007bff;
+}
+  
+@media (max-width: 767px) {
+    .popup {
+        width: 90%; 
+        height: 80%; 
+        padding: 15px; 
+        border-radius: 10px; 
+        flex-direction: column; 
+    }
+    
+    .banner {
+        width: 100%;
+        height: 200px; 
+        border-radius: 8px; 
+    }
+    
+    .content {
+        margin-top: -20px; 
+        width: 100%; 
+    }
+    
+    .heading {
+        font-size: 18px; 
+        margin-bottom: 0px;
+    }
+    
+    .para {
+        font-size: 0.9rem; 
+        line-height: 1.4;
+        margin-bottom: 15px;
+        margin-top: 8px;
+    }
+    
+    .highlights {
+        margin: 15px 0;
+        font-size: 0.9rem; 
+        margin-top: 0px;
+    }
+    
+    .highlights ul {
+        padding-left: 15px; 
+    }
+
+    .highlights li {
+        margin-bottom: 8px;
+    }
+
+    .redirectBtn {
+        padding: 8px 16px; 
+        font-size: 0.9rem;
+        margin-bottom: 4px;
+    }
+
+    .closeBtn {
+        font-size: 1.2rem; 
+        top: 8px; 
+        right: 8px;
+    }
+}
+
+@media (max-width: 426px) {
+    .banner {
+        width: 100%; 
+        height: 155px;
+        border-radius: 8px; 
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 376px) { 
+    .popup {
+        width: 95%; 
+        height: 80%; 
+        padding: 15px; 
+        border-radius: 10px; 
+        flex-direction: column; 
+    }
+
+    .banner {
+        width: 100%; 
+        height: 150px; 
+        border-radius: 8px; 
+        margin-top: 14px;
+    }
+
+    .content {
+        margin-top: -20px; 
+        width: 100%; 
+    }
+    
+    .redirectBtn {
+        padding: 8px 16px; 
+        font-size: 0.9rem; 
+        margin-bottom: 4px;
+        margin-bottom: -20px;
+    }
+}
+
+@media (max-width: 320px) { 
+    .banner {
+        width: 100%; 
+        height: 200px; 
+        border-radius: 8px; 
+        margin-top: 20px;
+    }
+}
