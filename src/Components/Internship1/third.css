@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.third {
+    width: 100%;
+    height: 70vh;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.third .mid3 {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    gap: 5rem;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.third .tittle-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 812px;
+}
+
+.third .tittle {
+    width: 812px;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 54px;
+    text-align: center;
+    color: #090808;
+}
+
+.third .text {
+    width: 754px;
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+}
+
+.third .benefits {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 24px;
+    width: 1200px;
+    height: 212px;
+}
+
+.third .row {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 30px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.third .box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 21px 16px;
+    gap: 12px;
+    width: 184px;
+    height: 60px;
+    background: #DCE8FD;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    justify-content: space-around;
+}
+
+.third .box svg {
+    width: 40px;
+    height: 40px;
+}
+
+.third .box i {
+    font-size: 25px;
+}
+
+
+
+.third .box .text {
+    width: 132px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    color: #000000;
+}
+
+@media only screen and (max-width: 600px) {
+    
+.third {
+    width: 100%;
+    height: 70vh;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.third .mid3 {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    gap: 2.5rem;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.third .tittle-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 100%;
+}
+
+.third .tittle {
+    width: 100%;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    text-align: center;
+    color: #090808;
+}
+
+.third .text {
+    width: 100%;
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000000;
+}
+
+.third .benefits {
+    display: flex
+    ;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px;
+            gap: 24px;
+            width: 100%;
+            height: auto;
+            justify-content: center;
+}
+
+.third .row {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 30px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.third .box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 21px 16px;
+    gap: 12px;
+    width: 143px;
+    height: 62px;
+    background: #DCE8FD;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    justify-content: space-around;
+}
+
+.third .box svg {
+    width: 40px;
+    height: 40px;
+}
+
+.third .box i {
+    font-size: 25px;
+}
+
+
+
+.third .box .text {
+    width: 132px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 160%;
+    color: #000000;
+}
+}

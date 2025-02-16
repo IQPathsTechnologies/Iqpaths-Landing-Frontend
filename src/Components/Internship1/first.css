@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.first {
+    width: 100%;
+    height: 80vh;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.first .mid {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    gap: 5rem;
+    align-content: center;
+    align-items: center;
+}
+
+.first .one {
+    width: 575px;
+    height: 480px;
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.first .tittle {
+    /* Join the team */
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 54px;
+    color: #090808;
+}
+
+.first .des,
+.text {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #090808;
+}
+
+.first .text {
+    margin-top: 1rem;
+}
+
+.first .button {
+    width: 194px;
+    height: 48px;
+    color: #FFFFFF;
+    gap: 0.5rem;
+    display: flex;
+    border: none;
+    background-color: #0040D8;
+    border-radius: 50px;
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.first .two {
+    width: 575px;
+    height: 480px;
+    background: #D9D9D9;
+}
+
+.first .two img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media only screen and (max-width: 600px) {
+    .first {
+        width: 100%;
+        height: 80vh;
+        background: #FFFFFF;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: medium;
+    }
+
+    .first .mid {
+        width: 80%;
+        height: 80%;
+        display: flex;
+        margin-top: 10rem;
+        gap: 1rem;
+        align-content: center;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .first .one {
+        width: 100%;
+        height: auto;
+        display: flex;
+        gap: 0.5rem;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .first .tittle {
+        /* Join the team */
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 54px;
+        color: #090808;
+    }
+
+    .first .des,
+    .text {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        color: #090808;
+    }
+
+    .first .text {
+        margin-top: 1rem;
+    }
+
+    .first .button {
+        width: 194px;
+        height: 48px;
+        color: #FFFFFF;
+        gap: 0.5rem;
+        display: flex;
+        border: none;
+        background-color: #0040D8;
+        border-radius: 50px;
+        margin-top: 1rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .first .two {
+        width: 120%;
+        height: 480px;
+        background: #D9D9D9;
+    }
+
+    .first .two img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

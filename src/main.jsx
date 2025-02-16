@@ -24,6 +24,7 @@ import Logout from './Components/LogOut/Logout';
 import Placement from './pages/Placement/Placement';
 import ComingSoon from './pages/ComingSoon/ComingSoon';
 import Internship from './pages/Internship/Internship';
+import Internshipankit from './pages/Internship/Internship1';
 import { ToastContainer } from 'react-toastify';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
@@ -114,6 +115,10 @@ const router = createBrowserRouter([
       {
         path: '/internship',
         element: <Internship />
+      },
+      {
+        path: '/internshipankit',
+        element: <Internshipankit />
       },
       {
         path: '/coming',
