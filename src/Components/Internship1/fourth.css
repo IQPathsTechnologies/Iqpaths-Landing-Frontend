@@ -5,7 +5,10 @@
 
 .fourth {
     width: 100%;
-    height: 1975px;
+    padding-top: 8rem;
+    padding-right: 2rem;
+    padding-bottom: 8rem;
+    height: auto;
     background: #F7F9FC;
     display: flex;
     flex-direction: column;
@@ -128,7 +131,7 @@
     align-items: flex-start;
     padding: 21px 34px;
     gap: 0.5rem;
-    width: 877px;
+    width: 800px;
     height: 250px;
     background: #FFFFFF;
     flex: none;
@@ -257,7 +260,9 @@
     
     .fourth {
         width: 100%;
-        height: 1975px;
+        height: auto;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
         background: #F7F9FC;
         display: flex;
         flex-direction: column;
@@ -268,7 +273,7 @@
     }
     
     .fourth .tittle {
-        width: 100%;
+        width: 80%;
         height: 0;
         font-family: 'Manrope';
         font-style: normal;
