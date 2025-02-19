@@ -45,6 +45,7 @@ const Footer = () => {
 
                 <div className={styles.linksContainer}>
                     <table>
+                        <tbody>
                         <tr>
                             <td><Link to="/">Home</Link></td>
                             <td><Link to="/about-us">About Us</Link></td>
@@ -63,7 +64,7 @@ const Footer = () => {
                             <td><Link to="/privacy">Privacy policy</Link></td>
                             <td><Link to="/cancellation">Return & refund policy </Link></td>
                         </tr>  
-                        
+                        </tbody>
                     </table>
                 </div>               
             </div>     

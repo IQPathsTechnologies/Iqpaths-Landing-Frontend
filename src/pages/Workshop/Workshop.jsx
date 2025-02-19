@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Hero from '../../Components/Workshop/Hero'
 import Section from '../../Components/Workshop/Section'
 import Benefits from '../../Components/Workshop/Benefits'
-import Newsletter from '../../Components/Workshop/Newsletter'
+import NewsletterSection from '../../Components/AllCourses/NewsletterSection'
 
 
 const Workshop = () => {
@@ -11,12 +11,13 @@ const Workshop = () => {
     window.scrollTo(0, 0);
 }
 , []);
+
   return (
     <>
     <Hero />
     <Section />
     <Benefits />
-    <Newsletter/>
+    <NewsletterSection/>
     </>
   )
 }
