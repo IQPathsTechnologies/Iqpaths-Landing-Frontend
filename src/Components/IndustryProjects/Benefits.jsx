@@ -1,6 +1,6 @@
 import React from 'react'
-import user from "../../assets/Workshop/userIcon.png"
 import styles from './Benefits.module.css'
+import user from '../../assets/IndustryProjects/userIcon.png'
 
 const Benefits = () => {
   return (
