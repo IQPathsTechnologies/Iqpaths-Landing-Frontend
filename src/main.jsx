@@ -26,7 +26,7 @@ import ComingSoon from './pages/ComingSoon/ComingSoon';
 import Internship from './pages/Internship/Internship';
 import Internshipankit from './pages/Internship/Internship1';
 import { ToastContainer } from 'react-toastify';
-import Workshop from './pages/Workshop/Workshop';
+import IndustryProject from './pages/IndustryProjects/IndustryProject';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -127,7 +127,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'Workshops & Webinars',
-        element: <Workshop />
+        element: <ComingSoon />
       },
       {
         path: 'Mock Technical Interviews',
@@ -135,7 +135,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'Industry Projects',
-        element: <ComingSoon />
+        element: < IndustryProject/>
       },
     ],
   },
