@@ -6,8 +6,8 @@ const Section = () => {
     <>
     <div className={styles.sec}>
         <div>
-            <h1>80</h1>
-            <p>Success Projects</p>
+            <h1>80+</h1>
+            <p>Successful Projects </p>
         </div>
         <hr />
         <div>
@@ -17,12 +17,12 @@ const Section = () => {
         <hr />
         <div>
             <h1>50</h1>
-            <p>Hours Course</p>
+            <p>Hours of Learning</p>
         </div>
         <hr />
         <div>
-            <h1>700</h1>
-            <p>Active Students</p>
+            <h1>700+</h1>
+            <p>Active Learners</p>
         </div>
     </div>
     </>

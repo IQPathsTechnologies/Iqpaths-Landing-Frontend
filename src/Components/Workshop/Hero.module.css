@@ -5,14 +5,18 @@
     display: flex;
     justify-content: space-evenly;
     margin: 70px 42px 60px 74px;
-    align-items: center;
+    /* align-items: center; */
     gap: 50px;
 
 }
+
 .text {
     display: flex;
     flex-direction: column;
-    width: 600px;
+    width: 594px;
+    height: 679px;
+    border-radius: 25px;
+    padding-top: 76px;
 }
 
 .text h1 {
@@ -22,11 +26,10 @@
     font-weight: 700;
     line-height: 90px;
     padding-left: 15px;
-
+    height: 480px;
 }
 
 .text p {
-    margin-top: 15px;
     font-family: Poppins;
     width: 510px;
     font-size: 22px;
@@ -37,12 +40,11 @@
 }
 
 .text button {
-    margin-top: 62px;
+    margin-top: 59px;
     width: 271px;
     height: 53px;
     border-radius: 25px;
     padding: 10px;
-    gap: 10px;
     font-size: 20px;
     font-family: Poppins;
     font-weight: 600;
@@ -53,18 +55,25 @@
     cursor: pointer;
 }
 
+.hero img {
+    width: 678.9089965820312px;
+    height: 702px;
+
+
+}
+
 @media (max-width:720px) {
     .hero {
         flex-direction: column;
         margin: 64px 23px;
-        gap: 56px;
-    
+        /* gap: 100px; */
     }
     .text {
         width: 366px;
         height: 360px;
         border-radius: 25px;
-        
+        padding-top: 0px;
+
     }
 
     .text h1 {
@@ -72,11 +81,11 @@
         font-weight: 700;
         font-size: 36px;
         line-height: 36px;
-        letter-spacing: 0%;
-
+        letter-spacing: 0%
     }
 
-    .text p{
+    .text p {
+        padding-top: 15px;
         font-family: Poppins;
         font-weight: 500;
         font-size: 22px;
@@ -84,11 +93,12 @@
         letter-spacing: 0%;
         width: 100%;
     }
-    .hero img{
-        margin: 0px auto;
+
+    .hero img {
+        margin: 56px auto 0px auto;
         width: 373px;
         height: 371px;
-        
-       
+
+
     }
 }
