@@ -108,7 +108,7 @@ const LoginSignup = () => {
   const handleGoogleLogin = (formType) => {
     const redirectUrl = formType === "login" ? "login" : "signup";
     // console.log(redirectUrl);
-    window.location.href = `http://localhost:8000/api/user/auth/google?state=${redirectUrl}`;
+    window.location.href = `http://localhost:8000/api/auth/google`;
   };
 
   const togglePasswordVisibility = () => {
@@ -221,14 +221,14 @@ const LoginSignup = () => {
                   Login
                 </button>
               </form>
-              {/* <button className={styles.googleButton} onClick={()=>handleGoogleLogin("login")}>
+              <button className={styles.googleButton} onClick={()=>handleGoogleLogin("login")}>
                 <img
                   src="/googleLogo.png"
                   alt="Google Logo"
                   className={styles.googleLogo}
                 />
                 log in with Google
-              </button> */}
+              </button>
             </div>
           ) : (
             <div className={styles.loginContainer}>
@@ -323,14 +323,14 @@ const LoginSignup = () => {
                   register
                 </button>
               </form>
-              {/* <button className={styles.googleButton} onClick={()=>handleGoogleLogin("signup")}>
+              <button className={styles.googleButton} onClick={()=>handleGoogleLogin("signup")}>
                 <img
                   src="/googleLogo.png"
                   alt="Google Logo"
                   className={styles.googleLogo}
                 />
                 Sign in with Google
-              </button> */}
+              </button>
             </div>
           )}
         </div>
