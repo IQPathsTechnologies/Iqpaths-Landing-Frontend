@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:  30px 150px;
+    padding: 40px 0px 0px 0px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+.heading{
+    font-weight: 400;
+    font-family: "Lexend", serif;
+    text-align: start;
+}
+.main{
+    width: 60%;
+    height: auto;
+    display: flex;
+    padding: 20px 80px 80px 80px;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 10px;
+
+}
+.main div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.label{
+    display: flex;
+    flex-direction: column;
+
+}
+.label label{
+    font-size: 16px;
+    font-family: "Lexend", serif;
+}
+.label .input{
+    height: 20px;
+    width: 300px;
+    padding: 10px 16px;
+    outline: none;
+    border: 1px solid #0047B2;
+    border-radius: 50px;
+}
+.right .label{
+    display: flex;
+}
+.main .lab{
+    display: flex;
+    align-items: start;
+    font-size: 16px;
+}
+.lab .select{
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 50px;
+    padding: 10px;
+    border: 1px solid #0047B2;
+    outline: none;
+}
+.main .resume{
+    display: flex ;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.resume input{
+    font-size: 14px;
+    padding:  5px 10px;
+ 
+}
+.error{
+  color: red;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-left: 10px;
+}
+.main label{
+    margin-bottom: -5px;
+}
+.main button{
+    height: 40px;
+    width: 150px;
+    padding: 10px 16px;
+    border-radius: 50px;
+    border: none;
+    background: #0047B2;
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+    margin-left: 180px ;
+
+}
+.success {
+    color: green;
+    margin-left: 180px ;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+@media  (max-width:600px) {
+    .form .main{
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        width: 90%;
+        padding: 20px 40px 40px 40px;
+    }
+    .form{
+        margin: 0px 0;
+        height: 100%;
+        border: none;
+    }
+    
+    .label .input{
+        height: 40px;
+        padding: 10px 16px;
+        outline: none;
+        border: 1px solid #0047B2;
+        border-radius: 50px;
+        margin: 0 auto;
+    }
+    .label{
+        margin: 0 auto;
+    }
+    .lab,.resume{
+      margin: 0 auto;
+    }
+    .resume{
+        margin-top: 20px;
+    }
+    .lab .select{
+        width: 300px;
+    }
+   
+    
+}

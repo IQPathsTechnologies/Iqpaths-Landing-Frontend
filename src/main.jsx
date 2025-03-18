@@ -24,9 +24,10 @@ import Logout from './Components/LogOut/Logout';
 import Placement from './pages/Placement/Placement';
 import ComingSoon from './pages/ComingSoon/ComingSoon';
 import Internship from './pages/Internship/Internship';
-import Internshipankit from './pages/Internship/Internship1';
+import Internship1 from './pages/Internship/Internship1';
 import { ToastContainer } from 'react-toastify';
 import IndustryProject from './pages/IndustryProjects/IndustryProject';
+import Forms from './pages/Form/Forms';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -115,11 +116,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/internship',
-        element: <Internship />
-      },
-      {
-        path: '/internshipankit',
-        element: <Internshipankit />
+        element: <Internship1 />
       },
       {
         path: '/coming',
@@ -136,6 +133,10 @@ const router = createBrowserRouter([
       {
         path: 'Industry Projects',
         element: < IndustryProject/>
+      },
+      {
+        path: '/internship/:title',
+        element: < Forms/>
       },
     ],
   },

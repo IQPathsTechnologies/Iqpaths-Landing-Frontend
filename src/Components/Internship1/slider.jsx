@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "./slider.css";
+import styles from "./Slider.module.css"
 
 function Slider() {
   const testimonials = [
@@ -63,15 +63,15 @@ function Slider() {
   };
 
   return (
-    <section className="slider">
-      <div className="mid3">
-        <div className="tittle-box">
-          <h1 className="tittle">Don’t just take our word for it!</h1>
-          <p className="text">See the feedback from your teammates.</p>
+    <section className={styles.slider}>
+      <div className={styles.mid3}>
+        <div className={styles.title_box}>
+          <h1 className={styles.title}>Don’t just take our word for it!</h1>
+          <p className={styles.text}>See the feedback from your teammates.</p>
         </div>
-        <div className="testimonial">
-          <img id="testimonial-image" src={testimonials[currentIndex].image} alt="Testimonial" />
-          <div className="testimonial-content">
+        <div className={styles.testimonial}>
+          <img id={styles.testimonial_image} src={testimonials[currentIndex].image} alt="Testimonial" />
+          <div className={styles.testimonial_content}>
             <div>
               <svg width="34" height="37" viewBox="0 0 34 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect opacity="0.2" width="33.8179" height="37" fill="url(#pattern0_1347_4677)" />
@@ -83,7 +83,7 @@ function Slider() {
                 </defs>
               </svg>
             </div>
-            <div className="part">
+            <div className={styles.part}>
               <p id="testimonial-text">{testimonials[currentIndex].text}</p>
               <div>
                 <p className="author" id="testimonial-author">{testimonials[currentIndex].author}</p>
@@ -97,13 +97,13 @@ function Slider() {
               </a>
             </div>
           </div>
-          <div className="avatars">
+          <div className={styles.avatars}>
             <img id="s1" src={testimonials[(currentIndex + 1) % testimonials.length].image} alt="Person 1" />
             <img id="s2" src={testimonials[(currentIndex + 2) % testimonials.length].image} alt="Person 2" />
             <img id="s3" src={testimonials[(currentIndex + 3) % testimonials.length].image} alt="Person 3" />
           </div>
         </div>
-        <div className="footer">
+        <div className={styles.footer}>
           <p id="testimonial-count">{currentIndex + 1}/{testimonials.length} Testimonials</p>
           <a href="#" id="next-button" onClick={nextTestimonial}>
             Next <svg width="20" height="20" viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">

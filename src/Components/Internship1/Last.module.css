@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-.last .mid-last {
+.last .mid_last {
     width: 80%;
     height: 80%;
     display: flex;
@@ -22,10 +22,10 @@
     align-items: center;
 }
 
-.last .tittle {
+.last .title {
     width: 1003px;
     height: 74px;
-    font-family: 'Manrope';
+    font-family: "Manrope",sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 54px;
@@ -52,7 +52,7 @@
     gap: 1rem;
 }
 
-.last .part-s {
+.last .part_s {
     width: 288.79px;
     display: flex;
     flex-direction: column;
@@ -85,7 +85,7 @@
     background: rgba(255, 255, 255, 0.1);
     /* transform: matrix(-1, 0, 0, 1, 0, 0); */
     display: flex;
-    font-family: 'Manrope';
+    font-family: "Manrope",sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
@@ -97,7 +97,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .last .mid-last {
+    .last .mid_last {
         width: 80%;
         height: 80%;
         display: flex;
@@ -117,10 +117,10 @@
         align-items: center;
     }
     
-    .last .tittle {
+    .last .title {
         width: 100%;
         height: 74px;
-        font-family: 'Manrope';
+        font-family: "Manrope",sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 30px;
@@ -149,7 +149,7 @@
         gap: 1rem;
     }
     
-    .last .part-s {
+    .last .part_s {
         width: 47%;
         display: flex;
         flex-direction: column;
@@ -170,7 +170,7 @@
         width: 47%;
         height: 125px;
     }
-    .last .part-s .small {
+    .last .part_s .small {
         width: 100%;
         height: 125px;
     }
@@ -186,7 +186,7 @@
         background: rgba(255, 255, 255, 0.1);
         /* transform: matrix(-1, 0, 0, 1, 0, 0); */
         display: flex;
-        font-family: 'Manrope';
+        font-family: "Manrope",sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 15px;

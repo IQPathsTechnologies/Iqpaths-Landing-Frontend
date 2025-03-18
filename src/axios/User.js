@@ -397,6 +397,17 @@ export class AuthService {
     }
 
 
+    async internshipFormSubmit(data){
+        try {
+            const response =  await axios.post("/api/internship/apply", data);
+            return response
+
+        } catch (error) {
+            throw error;
+        }
+    }
+
+
     async getInternshipCourses(){
         try {
             const response =  await axios.get("/api/internships/getInternships");
