@@ -34,7 +34,7 @@ const Form = () => {
     }
 
     if (file.size > maxSize) {
-      setUploadError('File size exceeds 5MB.');
+      setUploadError('File size exceeds 10MB.');
       return;
     }
 
