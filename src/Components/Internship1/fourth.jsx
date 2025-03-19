@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./Fourth.module.css"
 import Card from './Card';
+import { AuthService } from '../../axios/User';
 
 const tempData = [
     {
@@ -21,9 +22,27 @@ const tempData = [
 
 ]
 
+const apiClass = new AuthService();
+
 function Fourth() {
     const [positions, setPositions] = useState(tempData)
-    console.log(tempData[0].title)
+
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const responseInternship = await apiClass.getInternshipPositions();
+                console.log(responseInternship)
+                setPositions(responseInternship)
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchData();
+    }
+        , []);
+
 
     return (
         <section id='fourth' className={styles.fourth}>
@@ -33,7 +52,7 @@ function Fourth() {
             <div className={styles.wrapper}>
                 <div className={styles.left}>
                     <ul>
-                        <li className={styles.active}>All positions (17)</li>
+                        <li className={styles.active}>All positions ({positions.length})</li>
 
                         <li>Enginering (7)</li>
 
@@ -54,7 +73,7 @@ function Fourth() {
                 <div className={styles.right}>
                     <div>
                         {positions.map((item, index) => (
-                            
+
                             <Card key={index} title={item.title} description={item.description} />
                         ))}
                     </div>

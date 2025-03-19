@@ -227,6 +227,16 @@ export class AuthService {
             throw error;
         }
     }
+    async getInternshipPositions(){
+        try {
+            const response =  await axios.get("/api/internship/getData");
+            // console.log(response)
+            return response;
+        } catch (error) {
+            // console.log(error)
+            throw error;
+        }
+    }
 
     async getCourseDetails(courseId){
         try {

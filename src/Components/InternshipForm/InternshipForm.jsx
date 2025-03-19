@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from "./Form.module.css"
+import styles from "./InternshipForm.module.css"
 import { useForm } from "react-hook-form";
 import { AuthService } from "../../axios/User";
 import { notifySuccess } from "../../utility/Tostify/Tosts";
@@ -44,8 +44,6 @@ const Form = () => {
     if (uploadError == null) {
       handleFormSubmit(data);
       console.log(data);
-
-
     }
 
   };

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
+import Form from '../../Components/InternshipForm/InternshipForm';
 
 
-import Form from '../../Components/Form/Form';
 
-const Forms = () => {
+const InternshipForm = () => {
     useEffect(() => {
       window.scrollTo(0, 0);
   }
@@ -16,4 +16,4 @@ const Forms = () => {
   )
 }
 
-export default Forms
+export default InternshipForm
