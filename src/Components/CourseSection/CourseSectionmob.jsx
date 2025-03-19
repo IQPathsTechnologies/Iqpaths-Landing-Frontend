@@ -371,11 +371,9 @@ const CourseSection = ({
             </div>
             <div className={styles.courseInfo}>
               {courseDetails.whatYouWilLearn?.map((item, index) => (
-                <>
                   <p key={index} className={styles.points}>
                     {item}
                   </p>
-                </>
               ))}
             </div>
           </div>

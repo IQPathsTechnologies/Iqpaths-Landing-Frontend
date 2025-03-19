@@ -1,7 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-}
 
 .third {
     width: 100%;
@@ -168,15 +164,14 @@
 }
 
 .third .benefits {
-    display: flex
-    ;
-            flex-direction: row;
-            align-items: center;
-            padding: 0px;
-            gap: 24px;
-            width: 100%;
-            height: auto;
-            justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;
+    width: 100%;
+    height: auto;
+    justify-content: center;
 }
 
 .third .row {
