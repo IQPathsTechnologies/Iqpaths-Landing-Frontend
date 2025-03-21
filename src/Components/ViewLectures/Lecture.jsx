@@ -7,6 +7,7 @@ import styles from "./Lecture.module.css";
 import { AuthService } from '../../axios/User';
 import { useParams, useLocation  } from "react-router-dom";
 import { set } from "react-hook-form";
+import Notes from './Notes'
 
 const Lecture = () => {
   // const [isRightVisible, setIsRightVisible] = useState(true);
@@ -26,7 +27,7 @@ const Lecture = () => {
     const fetchChapters = async () => {
       try {
         const response = await apiClass.getPurchasedCourseDetails(courseId);
-        // console.log(response.details.chapters);
+        console.log(response.details.chapters);
         setChapters(response.details.chapters);
       } catch (error) {
         console.error("Error fetching chapters:", error);
@@ -108,6 +109,9 @@ const Lecture = () => {
   const handleLectureSelectionInHeader = (lectureDetails)=>{
     setSelectedLecture(lectureDetails);
   }
+
+
+  
   return (
     <div className={styles.appContainer}>
       {/* Header */}
@@ -129,9 +133,15 @@ const Lecture = () => {
         </div>
 
         <div className={styles.middleContainer}>
-          <LectureMiddle 
-            selectedLecture={selectedLecture}
-          />
+          <div className={styles.centerElement}>
+            <LectureMiddle 
+              selectedLecture={selectedLecture}
+            />
+            <Notes
+              lectureId = {selectedLecture?._id}      
+            />
+
+          </div>
         </div>
 
         {/* Right Section */}

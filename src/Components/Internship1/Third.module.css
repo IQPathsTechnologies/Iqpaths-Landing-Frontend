@@ -1,14 +1,13 @@
 
 .third {
     width: 100%;
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-    height: auto;
+    height: 100vh;
     background: #FFFFFF;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
 }
 
 .third .mid3 {
@@ -21,7 +20,7 @@
     flex-direction: column;
 }
 
-.third .tittle-box {
+.third .title_box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,9 +29,9 @@
     width: 812px;
 }
 
-.third .tittle {
+.third .title {
     width: 812px;
-    font-family: 'Manrope';
+    font-family: "Manrope",sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 54px;
@@ -43,7 +42,7 @@
 .third .text {
     width: 754px;
     text-align: center;
-    font-family: 'Roboto';
+    font-family: "Roboto",sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -102,10 +101,11 @@
 
 .third .box .text {
     width: 132px;
-    font-family: 'Roboto';
+    font-family: "Roboto",sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
+    text-align: start;
     line-height: 160%;
     color: #000000;
 }
@@ -114,9 +114,7 @@
     
 .third {
     width: 100%;
-    height: auto;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    height: 80vh;
     background: #FFFFFF;
     display: flex;
     flex-direction: row;
@@ -134,7 +132,7 @@
     flex-direction: column;
 }
 
-.third .tittle-box {
+.third .title_box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -143,9 +141,9 @@
     width: 100%;
 }
 
-.third .tittle {
+.third .title {
     width: 100%;
-    font-family: 'Manrope';
+   
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
@@ -156,7 +154,7 @@
 .third .text {
     width: 100%;
     text-align: center;
-    font-family: 'Roboto';
+ 
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -215,7 +213,7 @@
 
 .third .box .text {
     width: 132px;
-    font-family: 'Roboto';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 11px;

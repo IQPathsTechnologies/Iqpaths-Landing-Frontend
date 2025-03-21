@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import First from '../../Components/Internship1/first';
-import Second from '../../Components/Internship1/second';
-import Third from '../../Components/Internship1/third';
-import Fourth from '../../Components/Internship1/fourth';
+import Third from '../../Components/Internship1/Third';
+import Fourth from '../../Components/Internship1/Fourth';
 import Roadmap from '../../Components/Internship1/Roadmap';
-import Slider from '../../Components/Internship1/slider';
-import Last from '../../Components/Internship1/last';
+import Slider from '../../Components/Internship1/Slider';
+import Last from '../../Components/Internship1/Last';
+import First from '../../Components/Internship1/First';
+import Second from '../../Components/Internship1/second';
 
 const Intern = () => {
 

@@ -4,12 +4,20 @@ import styles from "./LectureMiddle.module.css";
 const LectureMiddle = ({ selectedLecture }) => {
 
   if(!selectedLecture){
-    return <img src="/lactureisnot.jpeg" className={styles.lactureisnot} alt="lecture coming soon.." /> ;
+    return  (
+      <div className={styles.illustrator}>
+        <img src="/lactureisnot.jpeg" className={styles.lactureisnot} alt="lecture coming soon.." /> ;
+      </div>
+    )
   }
 
   if (!selectedLecture?.video) {
     // return <p>Please select a lecture to start playing.</p>;
-    return <img src="/lactureisnot.jpeg" className={styles.lactureisnot} alt="lecture coming soon.." /> ;
+    return  (
+      <div className={styles.illustrator}>
+        <img src="/lactureisnot.jpeg" className={styles.lactureisnot} alt="lecture coming soon.." /> ;
+      </div>
+    )
   }
 
 
@@ -70,7 +78,7 @@ const LectureMiddle = ({ selectedLecture }) => {
         </div> */}
       </div>
       {/* Transcript Section */}
-      <div className={styles.transcriptSection}>
+      {/* <div className={styles.transcriptSection}>
         <h2 className={styles.transcriptTitle}>Full Transcript</h2>
         <div className={styles.transcriptContainer}>
           {transcriptData?.map((entry, index) => (
@@ -98,7 +106,7 @@ const LectureMiddle = ({ selectedLecture }) => {
             <p> Share </p>
         </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

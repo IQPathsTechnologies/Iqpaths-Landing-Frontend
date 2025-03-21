@@ -144,10 +144,15 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #ffffff;
-    border-radius: 12px;
-    font-size: smaller;
-    /* border: 2px solid green; */
+    background-color: transparent;
+    /* border-radius: 12px;
+    border-width: 0px, 0px, 0px, 0px;
+
+border-style: solid;
+
+border-color: #E6EBF2; */
+
+
 } 
 
 .heading {
@@ -249,5 +254,76 @@
   }
   
   
-
+    .stepContent {
+      width: 90%;
+      text-align: center;
+    }
+  
+    .stepCircle {
+      position: static;
+      transform: none;
+      margin: 20px 0;
+    }
+  
+    .timeline::before {
+      left: 50%;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+  
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 80px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 40px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: #ffffff;
+      border-radius: 12px;
+      font-size: smaller;
+      /* border: 2px solid green; */
+  } 
+  
+  .heading {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #004aad;
+      margin-bottom: 40px;
+  }
+  
+  .timeline {
+    width: 90%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .stepContainer {
+      display: flex;
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 50px;
+  }
+  
+  .stepContent {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: none;
+      width: 70%;
+      text-align: left;
+  }
+  
+  .left {
+    margin-top: -2px;
+    margin-left: 93px;
+    margin-right: 0;
+    text-align: left;
+  }
 }

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&display=swap');
+
+.sec {
+    display: flex;
+    justify-content: space-evenly;
+    height: 167px;
+    width: 100%;
+    background: #0166FF;
+    color: #fff;
+    align-items: center;
+}
+
+.sec h1 {
+    font-family: karma;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 62px;
+}
+
+.sec p {
+    font-family: poppins;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 37px;
+}
+
+.sec hr {
+    height: 57px;
+}
+
+@media (max-width:750px) {
+    .sec {
+        flex-direction: column;
+        width: 355px;
+        height: 747px;
+        padding-top: 86px;
+        padding-right: 58px;
+        padding-bottom: 86px;
+        padding-left: 58px;
+        gap: 60px;
+        margin: 0 auto;
+    }
+    .sec hr{
+        display: none ;
+    }
+
+}

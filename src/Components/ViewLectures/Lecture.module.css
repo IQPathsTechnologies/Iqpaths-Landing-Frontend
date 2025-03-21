@@ -14,8 +14,9 @@
   }
   
   .middleContainer {
-    flex: 1; /* Allow the middle section to take available space */
+    flex: 1;
     display: flex;
     flex-direction: column;
+    /* align-items: center; */
     overflow: auto;
   }
