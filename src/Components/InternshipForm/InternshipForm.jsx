@@ -78,7 +78,7 @@ const Form = () => {
               <input
                 type="text"
                 placeholder="full name "
-                {...register("fullName", { required: "Full Name is required" })}
+                {...register("name", { required: "Full Name is required" })}
                 className={styles.input}
               />
               {errors.fullName && (
@@ -108,7 +108,7 @@ const Form = () => {
               <input
                 type="tel"
                 placeholder="contact"
-                {...register("contact", { required: "contact is required" })}
+                {...register("mobileNo", { required: "contact is required" })}
                 className={styles.input}
               />
               {errors.contact && (

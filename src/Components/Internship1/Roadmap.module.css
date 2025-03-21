@@ -6,7 +6,7 @@
   margin-left: auto;
   margin-right: auto;
   padding: 40px 20px;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -16,10 +16,14 @@
 } 
 
 .heading {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #004aad;
-  margin-bottom: 40px;
+  font-family: Manrope;
+font-weight: 500;
+font-size: 54px;
+line-height: 100%;
+letter-spacing: 0%;
+margin-bottom: 80px;
+text-align: center;
+
 }
 
 .timeline {
@@ -136,30 +140,27 @@
   .container {
     width: 100%;
     max-width: 1200px;
-    margin-top: 5rem;
+    margin-top: 0;
     margin-left: auto;
     margin-right: auto;
     padding: 40px 0;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: transparent;
-    /* border-radius: 12px;
-    border-width: 0px, 0px, 0px, 0px;
-
-border-style: solid;
-
-border-color: #E6EBF2; */
-
-
+    background-color: #ffffff;
+    border-radius: 12px;
+    /* border: 2px solid green; */
 } 
 
 .heading {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #004aad;
-    margin-bottom: 40px;
+  font-family: "Manrope",sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-bottom: 80px;
+  text-align: center;
 }
 
 .timeline {
@@ -235,7 +236,7 @@ border-color: #E6EBF2; */
 
 .stepTitle {
     font-style: "Roboto", sans-serif;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 500;
     color: #090808;
     margin: 0 0 10px;
@@ -243,7 +244,7 @@ border-color: #E6EBF2; */
 
 .stepDescription {
     font-style: "Roboto", sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     color: #505c77;
     margin: 0;
@@ -254,76 +255,5 @@ border-color: #E6EBF2; */
   }
   
   
-    .stepContent {
-      width: 90%;
-      text-align: center;
-    }
-  
-    .stepCircle {
-      position: static;
-      transform: none;
-      margin: 20px 0;
-    }
-  
-    .timeline::before {
-      left: 50%;
-    }
-  }
-  @media only screen and (max-width: 600px) {
-  
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin-top: 80px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 40px 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background-color: #ffffff;
-      border-radius: 12px;
-      font-size: smaller;
-      /* border: 2px solid green; */
-  } 
-  
-  .heading {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #004aad;
-      margin-bottom: 40px;
-  }
-  
-  .timeline {
-    width: 90%;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-  
-  .stepContainer {
-      display: flex;
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      margin-bottom: 50px;
-  }
-  
-  .stepContent {
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: none;
-      width: 70%;
-      text-align: left;
-  }
-  
-  .left {
-    margin-top: -2px;
-    margin-left: 93px;
-    margin-right: 0;
-    text-align: left;
-  }
+
 }

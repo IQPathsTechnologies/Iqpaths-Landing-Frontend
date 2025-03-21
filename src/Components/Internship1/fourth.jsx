@@ -67,7 +67,7 @@ function Fourth() {
                 <div className={styles.right}>
                     <div>
                         {positions ? positions.map((item, index) => (
-                            <Card key={index} title={item.title} description={item.description} />
+                            <Card key={index} title={item.title} description={item.detailedDescription} />
                         )) : (
                             Array.from({ length: 4 }).map((_, index) => (
                                 <div key={index} className={styles.skeletonCard}></div>
