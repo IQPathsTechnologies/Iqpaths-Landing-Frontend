@@ -55,7 +55,7 @@ const Footer = () => {
                         </tr>
                         <tr>
                             <td><Link to="/courses">Courses</Link></td>
-                            <td><Link to="/terms">Terms and conditions</Link></td>
+                            <td><Link to="/terms">Terms & conditions</Link></td>
                             <td><a href="mailto:info@iqpaths.com?subject=Hello IQpaths Team&body=I want to get in touch">info@iqpaths.com</a></td>  
                         </tr>
                         <tr>
