@@ -45,6 +45,7 @@ const Footer = () => {
 
                 <div className={styles.linksContainer}>
                     <table>
+                        <tbody>
                         <tr>
                             <td><Link to="/">Home</Link></td>
                             <td><Link to="/about-us">About Us</Link></td>
@@ -54,7 +55,7 @@ const Footer = () => {
                         </tr>
                         <tr>
                             <td><Link to="/courses">Courses</Link></td>
-                            <td><Link to="/terms">Terms and conditions</Link></td>
+                            <td><Link to="/terms">Terms & conditions</Link></td>
                             <td><a href="mailto:info@iqpaths.com?subject=Hello IQpaths Team&body=I want to get in touch">info@iqpaths.com</a></td>  
                         </tr>
                         <tr>
@@ -63,7 +64,7 @@ const Footer = () => {
                             <td><Link to="/privacy">Privacy policy</Link></td>
                             <td><Link to="/cancellation">Return & refund policy </Link></td>
                         </tr>  
-                        
+                        </tbody>
                     </table>
                 </div>               
             </div>     
