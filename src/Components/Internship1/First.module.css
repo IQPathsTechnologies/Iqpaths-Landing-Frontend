@@ -11,6 +11,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    
 }
 
 .first .mid {
@@ -89,6 +90,7 @@ letter-spacing: 2%;
     .first {
        margin-top:220px ;
         text-align: center ;
+        
        
     }
 
@@ -151,6 +153,7 @@ letter-spacing: 2%;
 
     .first .two {
         background: transparent;
+        width: 100%;
     }
 
     .first .two img {

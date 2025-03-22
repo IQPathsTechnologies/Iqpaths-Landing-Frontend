@@ -12,6 +12,7 @@
     gap: 60px;
     padding: 60px 0px 0px 0px;
     justify-content: space-evenly;
+
 }
 
 .fourth .title {
@@ -262,13 +263,19 @@
     .fourth .left ul li:hover {
        color: #fff;
        background: transparent;
-       text-decoration: underline;
+       /* text-decoration: underline; */
        text-underline-offset: 9px; 
        text-decoration-color: #47A6EC;
        text-decoration-thickness: 4px ;
-    
 
-    
+    }
+    .fourth .active{
+        color: #fff;
+        background: transparent;
+        text-decoration: underline;
+        text-underline-offset: 9px; 
+        text-decoration-color: #47A6EC;
+        text-decoration-thickness: 4px ;
     }
     
     .fourth .left .text {

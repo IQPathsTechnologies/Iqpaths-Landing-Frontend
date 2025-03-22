@@ -1,7 +1,7 @@
-/* * {
+* {
     margin: 0;
     padding: 0;
-} */
+}
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -38,14 +38,14 @@
 
 .second .card_wrapper {
     display: flex;
-    gap: 2rem;  
+    gap: 1rem;  
 
 
 }
 
 .second .card {
     width: 265px;
-    height: 376px;
+    /* height: 376px; */
     padding: 16px;
     box-sizing: border-box;
     background: #FFFFFF;
@@ -125,11 +125,11 @@
         display: flex;
         gap: 1rem;
         width: 90%;
-        margin-left: 5%;
         height: auto;
         /* justify-content: flex-end; */
         flex-direction: row;
-        overflow-x: auto;
+        overflow-x: scroll;
+        margin: 0px;
 
     }
 
