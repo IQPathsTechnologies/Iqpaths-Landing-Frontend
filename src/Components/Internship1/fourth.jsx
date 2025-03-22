@@ -3,29 +3,11 @@ import styles from "./Fourth.module.css"
 import Card from './Card';
 import { AuthService } from '../../axios/User';
 
-const tempData = [
-    {
-        title: "Full Stack Developer",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat inventore, non commodi fugit nihil nemo accusantium ut eius et laborum modi dolorum recusandae ullam aspernatur obcaecati rem iusto? A, recusandae?"
-
-    },
-    {
-        title: "Operational Manager",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat inventore, non commodi fugit nihil nemo accusantium ut eius et laborum modi dolorum recusandae ullam aspernatur obcaecati rem iusto? A, recusandae?"
-
-    },
-    {
-        title: "React Developer",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat inventore, non commodi fugit nihil nemo accusantium ut eius et laborum modi dolorum recusandae ullam aspernatur obcaecati rem iusto? A, recusandae?"
-
-    },
-
-]
-
 const apiClass = new AuthService();
 
 function Fourth() {
     const [positions, setPositions] = useState(null)
+    
 
 
     useEffect(() => {
