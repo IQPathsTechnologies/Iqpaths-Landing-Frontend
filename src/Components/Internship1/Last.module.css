@@ -1,7 +1,7 @@
-/* * {
+* {
     margin: 0;
     padding: 0;
-} */
+}
 
 .last .mid_last {
     width: 80%;
@@ -119,6 +119,7 @@
         background: #0047B2;
         justify-content: center;
         align-items: center;
+        
     }
     
     .last .title {
