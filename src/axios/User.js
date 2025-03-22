@@ -409,7 +409,11 @@ export class AuthService {
 
     async internshipFormSubmit(data){
         try {
-            const response =  await axios.post("/api/internship/apply", data);
+            const response =  await axios.post("/api/internship/apply", data, {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                },
+              });
             return response
 
         } catch (error) {
@@ -455,7 +459,8 @@ export class AuthService {
 
     async grantAccess(lectureId){
         try {
-            const response = await axios.post("/api/access/grantaccess", lectureId);
+            console.log("lecture id ye jaa rahi ", lectureId)
+            const response = await axios.post("/api/access/grantaccess", {lectureId});
             return response.data;
         } catch (error) {
             console.log("Failed to grant notes access", error)

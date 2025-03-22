@@ -27,7 +27,7 @@ const Lecture = () => {
     const fetchChapters = async () => {
       try {
         const response = await apiClass.getPurchasedCourseDetails(courseId);
-        console.log(response.details.chapters);
+        // console.log(response.details.chapters);
         setChapters(response.details.chapters);
       } catch (error) {
         console.error("Error fetching chapters:", error);
@@ -48,6 +48,7 @@ const Lecture = () => {
   // };
 
   const handleLectureSelect = (lecture , ChapterSectionId) =>{
+    const response = apiClass.grantAccess(lecture._id);
     setSelectedLecture(lecture);
     setSelectedChapter(ChapterSectionId)
     // console.log("lecture is  line number 52", lecture);
@@ -108,7 +109,10 @@ const Lecture = () => {
 
   const handleLectureSelectionInHeader = (lectureDetails)=>{
     setSelectedLecture(lectureDetails);
+    console.log(lectureDetails)
   }
+  
+
 
 
   
@@ -139,6 +143,7 @@ const Lecture = () => {
             />
             <Notes
               lectureId = {selectedLecture?._id}      
+              selectedLecture = {selectedLecture}
             />
 
           </div>

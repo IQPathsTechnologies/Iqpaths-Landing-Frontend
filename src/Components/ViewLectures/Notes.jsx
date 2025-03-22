@@ -19,9 +19,11 @@ const NotesDummy = [
 ];
 
 
-const Notes = ({lectureId}) => {
+const Notes = ({lectureId, selectedLecture}) => {
   // const [Notes, setNotes] = useState();
 
+
+  console.log(selectedLecture)
 
   //yaha add karna hai ki notes nahi hai to null
 
