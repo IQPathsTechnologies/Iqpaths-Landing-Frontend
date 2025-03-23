@@ -9,7 +9,7 @@ function Second() {
         <div className={styles.card_wrapper}>
             <div className={styles.card}>
                 <div className={styles.card_img}>
-                    <img src="https://plus.unsplash.com/premium_photo-1679923906308-c26a0e2ca510?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""/>
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHRlY2h8ZW58MHx8MHx8fDA%3D" alt=""/>
                 </div>
                 <div className={styles.card_tittle}>
                 Inclusive Culture
@@ -20,7 +20,7 @@ function Second() {
             </div>
             <div className={styles.card}>
                 <div  className={styles.card_img}>
-                    <img src="https://plus.unsplash.com/premium_photo-1679922390184-2e21a7e06bdf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8" alt=""/>
+                    <img src= "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D" alt=""/>
                 </div>
                 <div className={styles.card_tittle}>
                 Passionate Team
@@ -31,7 +31,7 @@ function Second() {
             </div>
             <div className={styles.card}>
                 <div  className={styles.card_img}>
-                    <img src="https://plus.unsplash.com/premium_photo-1679923906308-c26a0e2ca510?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""/>
+                    <img src="https://images.pexels.com/photos/6937932/pexels-photo-6937932.jpeg?auto=compress&cs=tinysrgb&w=600" alt=""/>
                 </div>
                 <div className={styles.card_tittle}>
                 Continuous Learning
@@ -42,7 +42,7 @@ function Second() {
             </div>
             <div className={styles.card}>
                 <div  className={styles.card_img}>
-                    <img src="https://plus.unsplash.com/premium_photo-1679922390184-2e21a7e06bdf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8" alt=""/>
+                    <img src="https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849825_1280.jpg" alt=""/>
                 </div>
                 <div className={styles.card_tittle}>
                 Work-Life Balance
@@ -53,7 +53,7 @@ function Second() {
             </div>
             <div className={styles.card}>
                 <div  className={styles.card_img}>
-                    <img src="https://plus.unsplash.com/premium_photo-1679922390184-2e21a7e06bdf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8" alt=""/>
+                    <img src="https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_1280.jpg" alt=""/>
                 </div>
                 <div className={styles.card_tittle}>
                 Impactful Work
