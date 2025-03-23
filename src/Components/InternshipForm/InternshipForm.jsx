@@ -42,7 +42,7 @@ const Form = () => {
     // console.log('File uploaded:', file);
     setUploadError(null);
     if (uploadError == null) {
-      handleFormSubmit(data);
+      handleFormSubmit(data, file);
       console.log(data);
     }
 
@@ -53,11 +53,30 @@ const Form = () => {
 
   const apiClass = new AuthService();
 
-  const handleFormSubmit = async (data) => {
-    const resposne = await apiClass.internshipFormSubmit(data);
-    if (resposne.status === 201) {
-      setBookingResponse("form submitted");
-      notifySuccess("form submitted");
+  const handleFormSubmit = async (data, file) => {
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("email", data.email);
+    formData.append("mobileNo", data.mobileNo);
+    formData.append("college", data.college);
+    formData.append("year", data.year);
+    formData.append("github", data.github || ""); // Handle optional GitHub link
+    formData.append("position", title);
+    formData.append("resume", file); // Append the actual file
+  
+    console.log("FormData before sending:");
+    for (let pair of formData.entries()) {
+      console.log(pair[0], pair[1]); // Debugging
+    }
+  
+    try {
+      const response = await apiClass.internshipFormSubmit(formData);
+      if (response.status === 201) {
+        setBookingResponse("Form submitted successfully!");
+        notifySuccess("Form submitted successfully!");
+      }
+    } catch (error) {
+      console.error("Submission Error:", error.response?.data || error.message);
     }
 
 
