@@ -48,6 +48,7 @@ const roadmapSteps = [
 const Roadmap = () => {
   return (
     <div className={styles.container}>
+         <h2 className={styles.heading}>How to join iqpath?</h2>
       <div className={styles.timeline}>
         {roadmapSteps.map((step, index) => (
           <div key={step.id} className={styles.stepContainer}>

@@ -9,7 +9,7 @@ const apiClass = new AuthService();
 
 
 // Props: courses and selectedFilters
-const CourseCard = ({ activeCategory, selectedFilters }) => {
+const  CourseCard = ({ activeCategory, selectedFilters }) => {
   const {courses,setCourses}= useContext(CoursesContext)
   useEffect(() => {
     async function fetchData() {

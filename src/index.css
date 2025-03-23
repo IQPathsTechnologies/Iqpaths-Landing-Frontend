@@ -7,10 +7,12 @@ body {
     font-family: "Lexend", serif;
 }
 
+
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
   width: 8px; /* Vertical scrollbar width */
   height: 8px; /* Horizontal scrollbar height */
+
 }
 
 ::-webkit-scrollbar-track {

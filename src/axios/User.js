@@ -227,6 +227,16 @@ export class AuthService {
             throw error;
         }
     }
+    async getInternshipPositions(){
+        try {
+            const response =  await axios.get("/api/internships/getInternships");
+            // console.log(response)
+            return response.data.data;
+        } catch (error) {
+            // console.log(error)
+            throw error;
+        }
+    }
 
     async getCourseDetails(courseId){
         try {
@@ -397,6 +407,21 @@ export class AuthService {
     }
 
 
+    async internshipFormSubmit(data){
+        try {
+            const response =  await axios.post("/api/internship/apply", data, {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                },
+              });
+            return response
+
+        } catch (error) {
+            throw error;
+        }
+    }
+
+
     async getInternshipCourses(){
         try {
             const response =  await axios.get("/api/internships/getInternships");
@@ -428,6 +453,27 @@ export class AuthService {
         } catch (error) {
             console.log("Failed to get certificate", error);
             throw error;
+        }
+    }
+
+
+    async grantAccess(lectureId){
+        try {
+            console.log("lecture id ye jaa rahi ", lectureId)
+            const response = await axios.post("/api/access/grantaccess", {lectureId});
+            return response.data;
+        } catch (error) {
+            console.log("Failed to grant notes access", error)
+            
+        }
+    }
+    async removeAccess(lectureId){
+        try {
+            const response = await axios.post("/api/access/removeaccess", lectureId);
+            return response.data;
+        } catch (error) {
+            console.log("Failed to remove notes access", error)
+            
         }
     }
 

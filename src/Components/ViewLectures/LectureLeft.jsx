@@ -10,172 +10,172 @@ const LectureLeft = ({
   const [expandedSections, setExpandedSections] = useState({});
   // console.log("left me ye chapter aye", chapters);
   // Dynamic data
-  const sections = [
-    {
-      title: "Getting Started",
-      items: [
-        {
-          id: 1,
-          image: "/icons.png",
-          label: "Welcome to the course",
-          isActive: true,
-        },
-        {
-          id: 2,
-          image: "/icons.png",
-          label: "What is React JS?",
-          isActive: false,
-        },
-        {
-          id: 3,
-          image: "/icons.png",
-          label: "Why 'React' but not 'JavaScript'?",
-          isActive: false,
-        },
-        {
-          id: 4,
-          image: "/icons.png",
-          label: "Setting up Environment",
-          isActive: false,
-        },
-      ],
-    },
-    {
-      title: "JavaScript Refresher",
-      items: [],
-    },
-    {
-      title: "React Basics & Working with Components",
-      items: [],
-    },
-    {
-      title: "React States & Working with Events",
-      items: [],
-    },
-    {
-      title: "Getting Started",
-      items: [
-        {
-          id: 1,
-          image: "/icons.png",
-          label: "Welcome to the course",
-          isActive: true,
-        },
-        {
-          id: 2,
-          image: "/icons.png",
-          label: "What is React JS?",
-          isActive: false,
-        },
-        {
-          id: 3,
-          image: "/icons.png",
-          label: "Why 'React' but not 'JavaScript'?",
-          isActive: false,
-        },
-        {
-          id: 4,
-          image: "/icons.png",
-          label: "Setting up Environment",
-          isActive: false,
-        },
-      ],
-    },
-    {
-      title: "JavaScript Refresher",
-      items: [],
-    },
-    {
-      title: "React Basics & Working with Components",
-      items: [],
-    },
-    {
-      title: "React States & Working with Events",
-      items: [],
-    },
-    {
-      title: "Getting Started",
-      items: [
-        {
-          id: 1,
-          image: "/icons.png",
-          label: "Welcome to the course",
-          isActive: true,
-        },
-        {
-          id: 2,
-          image: "/icons.png",
-          label: "What is React JS?",
-          isActive: false,
-        },
-        {
-          id: 3,
-          image: "/icons.png",
-          label: "Why 'React' but not 'JavaScript'?",
-          isActive: false,
-        },
-        {
-          id: 4,
-          image: "/icons.png",
-          label: "Setting up Environment",
-          isActive: false,
-        },
-      ],
-    },
-    {
-      title: "JavaScript Refresher",
-      items: [],
-    },
-    {
-      title: "React Basics & Working with Components",
-      items: [],
-    },
-    {
-      title: "React States & Working with Events",
-      items: [],
-    },
-    {
-      title: "Getting Started",
-      items: [
-        {
-          id: 1,
-          image: "/icons.png",
-          label: "Welcome to the course",
-          isActive: true,
-        },
-        {
-          id: 2,
-          image: "/icons.png",
-          label: "What is React JS?",
-          isActive: false,
-        },
-        {
-          id: 3,
-          image: "/icons.png",
-          label: "Why 'React' but not 'JavaScript'?",
-          isActive: false,
-        },
-        {
-          id: 4,
-          image: "/icons.png",
-          label: "Setting up Environment",
-          isActive: false,
-        },
-      ],
-    },
-    {
-      title: "JavaScript Refresher",
-      items: [],
-    },
-    {
-      title: "React Basics & Working with Components",
-      items: [],
-    },
-    {
-      title: "React States & Working with Events",
-      items: [],
-    },
-  ];
+  // const sections = [
+  //   {
+  //     title: "Getting Started",
+  //     items: [
+  //       {
+  //         id: 1,
+  //         image: "/icons.png",
+  //         label: "Welcome to the course",
+  //         isActive: true,
+  //       },
+  //       {
+  //         id: 2,
+  //         image: "/icons.png",
+  //         label: "What is React JS?",
+  //         isActive: false,
+  //       },
+  //       {
+  //         id: 3,
+  //         image: "/icons.png",
+  //         label: "Why 'React' but not 'JavaScript'?",
+  //         isActive: false,
+  //       },
+  //       {
+  //         id: 4,
+  //         image: "/icons.png",
+  //         label: "Setting up Environment",
+  //         isActive: false,
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     title: "JavaScript Refresher",
+  //     items: [],
+  //   },
+  //   {
+  //     title: "React Basics & Working with Components",
+  //     items: [],
+  //   },
+  //   {
+  //     title: "React States & Working with Events",
+  //     items: [],
+  //   },
+  //   {
+  //     title: "Getting Started",
+  //     items: [
+  //       {
+  //         id: 1,
+  //         image: "/icons.png",
+  //         label: "Welcome to the course",
+  //         isActive: true,
+  //       },
+  //       {
+  //         id: 2,
+  //         image: "/icons.png",
+  //         label: "What is React JS?",
+  //         isActive: false,
+  //       },
+  //       {
+  //         id: 3,
+  //         image: "/icons.png",
+  //         label: "Why 'React' but not 'JavaScript'?",
+  //         isActive: false,
+  //       },
+  //       {
+  //         id: 4,
+  //         image: "/icons.png",
+  //         label: "Setting up Environment",
+  //         isActive: false,
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     title: "JavaScript Refresher",
+  //     items: [],
+  //   },
+  //   {
+  //     title: "React Basics & Working with Components",
+  //     items: [],
+  //   },
+  //   {
+  //     title: "React States & Working with Events",
+  //     items: [],
+  //   },
+  //   {
+  //     title: "Getting Started",
+  //     items: [
+  //       {
+  //         id: 1,
+  //         image: "/icons.png",
+  //         label: "Welcome to the course",
+  //         isActive: true,
+  //       },
+  //       {
+  //         id: 2,
+  //         image: "/icons.png",
+  //         label: "What is React JS?",
+  //         isActive: false,
+  //       },
+  //       {
+  //         id: 3,
+  //         image: "/icons.png",
+  //         label: "Why 'React' but not 'JavaScript'?",
+  //         isActive: false,
+  //       },
+  //       {
+  //         id: 4,
+  //         image: "/icons.png",
+  //         label: "Setting up Environment",
+  //         isActive: false,
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     title: "JavaScript Refresher",
+  //     items: [],
+  //   },
+  //   {
+  //     title: "React Basics & Working with Components",
+  //     items: [],
+  //   },
+  //   {
+  //     title: "React States & Working with Events",
+  //     items: [],
+  //   },
+  //   {
+  //     title: "Getting Started",
+  //     items: [
+  //       {
+  //         id: 1,
+  //         image: "/icons.png",
+  //         label: "Welcome to the course",
+  //         isActive: true,
+  //       },
+  //       {
+  //         id: 2,
+  //         image: "/icons.png",
+  //         label: "What is React JS?",
+  //         isActive: false,
+  //       },
+  //       {
+  //         id: 3,
+  //         image: "/icons.png",
+  //         label: "Why 'React' but not 'JavaScript'?",
+  //         isActive: false,
+  //       },
+  //       {
+  //         id: 4,
+  //         image: "/icons.png",
+  //         label: "Setting up Environment",
+  //         isActive: false,
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     title: "JavaScript Refresher",
+  //     items: [],
+  //   },
+  //   {
+  //     title: "React Basics & Working with Components",
+  //     items: [],
+  //   },
+  //   {
+  //     title: "React States & Working with Events",
+  //     items: [],
+  //   },
+  // ];
   const handleClickWhenChapterSectionIsPressed = (index) => {
     toggleSection(index);
   };

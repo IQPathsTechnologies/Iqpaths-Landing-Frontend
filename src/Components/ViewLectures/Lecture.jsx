@@ -7,6 +7,7 @@ import styles from "./Lecture.module.css";
 import { AuthService } from '../../axios/User';
 import { useParams, useLocation  } from "react-router-dom";
 import { set } from "react-hook-form";
+import Notes from './Notes'
 
 const Lecture = () => {
   // const [isRightVisible, setIsRightVisible] = useState(true);
@@ -47,6 +48,7 @@ const Lecture = () => {
   // };
 
   const handleLectureSelect = (lecture , ChapterSectionId) =>{
+    const response = apiClass.grantAccess(lecture._id);
     setSelectedLecture(lecture);
     setSelectedChapter(ChapterSectionId)
     // console.log("lecture is  line number 52", lecture);
@@ -107,7 +109,13 @@ const Lecture = () => {
 
   const handleLectureSelectionInHeader = (lectureDetails)=>{
     setSelectedLecture(lectureDetails);
+    console.log(lectureDetails)
   }
+  
+
+
+
+  
   return (
     <div className={styles.appContainer}>
       {/* Header */}
@@ -129,9 +137,16 @@ const Lecture = () => {
         </div>
 
         <div className={styles.middleContainer}>
-          <LectureMiddle 
-            selectedLecture={selectedLecture}
-          />
+          <div className={styles.centerElement}>
+            <LectureMiddle 
+              selectedLecture={selectedLecture}
+            />
+            <Notes
+              lectureId = {selectedLecture?._id}      
+              selectedLecture = {selectedLecture}
+            />
+
+          </div>
         </div>
 
         {/* Right Section */}

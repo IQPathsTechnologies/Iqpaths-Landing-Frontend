@@ -1,7 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-}
 
 .slider {
     width: 100%;
@@ -25,7 +21,7 @@
     flex-direction: column;
 }
 
-.slider .tittle-box {
+.slider .title_box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,9 +31,9 @@
     margin-bottom: 2rem;
 }
 
-.slider .tittle {
+.slider .title {
     width: 812px;
-    font-family: 'Manrope';
+    font-family: "Manrope",sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 54px;
@@ -48,7 +44,7 @@
 .slider .text {
     width: 754px;
     text-align: center;
-    font-family: 'Roboto';
+    font-family: "Roboto",sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -61,7 +57,7 @@
     align-items: center;
 }
 
-#testimonial-image {
+#testimonial_image {
     border-radius: 8px;
     width: 302px !important;
     object-fit: cover;
@@ -69,7 +65,7 @@
     height: 20rem;
 }
 
-.slider .testimonial-content {
+.slider .testimonial_content {
     background-color: #fff;
     padding: 20px;
         width: 25rem;
@@ -88,28 +84,28 @@
     gap: 0.8rem;
 }
 
-.slider .testimonial-content p {
+.slider .testimonial_content p {
     color: #4a5568;
     margin: 0 0 10px;
 }
 
-.slider .testimonial-content .author {
+.slider .testimonial_content .author {
     font-weight: bold;
     color: #2d3748;
 }
 
-.slider .testimonial-content .role {
+.slider .testimonial_content .role {
     color: #718096;
     margin-bottom: 10px;
 }
 
-.slider .testimonial-content a {
+.slider .testimonial_content a {
     color: #3182ce;
     display: flex;
     align-items: center;
 }
 
-.slider .testimonial-content a svg {
+.slider .testimonial_content a svg {
     margin-right: 5px;
 }
 
@@ -174,7 +170,7 @@
     flex-direction: column;
 }
 
-.slider .tittle-box {
+.slider .title_box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -184,9 +180,9 @@
     margin-bottom: 2rem;
 }
 
-.slider .tittle {
+.slider .title {
     width: 100%;
-    font-family: 'Manrope';
+    font-family: "Manrope",sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
@@ -197,7 +193,7 @@
 .slider .text {
     width: 100%;
     text-align: center;
-    font-family: 'Roboto';
+    font-family: "Roboto",sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -212,7 +208,7 @@
     align-items: center;
 }
 
-#testimonial-image {
+#testimonial_image {
     border-radius: 8px;
     object-fit: cover;
     padding: 0;
@@ -220,7 +216,7 @@
     width: 90% !important;
 }
 
-.slider .testimonial-content {
+.slider .testimonial_content {
     background-color: #fff;
         padding: 20px;
         width: 100%;
@@ -232,7 +228,7 @@
         flex-grow: 1;
         align-items: flex-start;
     }
-    .slider .testimonial-content div svg {
+    .slider .testimonial_content div svg {
         display: none;
     }
 
@@ -243,30 +239,30 @@
     gap: 0.8rem;
 }
 
-.slider .testimonial-content p {
+.slider .testimonial_content p {
     color: #4a5568;
     font-size: 15px;
     margin: 0 0 10px;
 }
 
-.slider .testimonial-content .author {
+.slider .testimonial_content .author {
     font-weight: bold;
     color: #2d3748;
 }
 
-.slider .testimonial-content .role {
+.slider .testimonial_content .role {
     color: #718096;
     margin-bottom: 10px;
 }
 
-.slider .testimonial-content a {
+.slider .testimonial_content a {
     color: #3182ce;
     display: flex;
     align-items: center;
     font-size: 15px;
 }
 
-.slider .testimonial-content a svg {
+.slider .testimonial_content a svg {
     margin-right: 5px;
 }
 

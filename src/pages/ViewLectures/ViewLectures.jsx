@@ -16,4 +16,4 @@ const ViewLectures = () => {
     );
 };
 
-export default ViewLectures;
+export default ViewLectures; 
