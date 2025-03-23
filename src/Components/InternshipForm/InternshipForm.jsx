@@ -2,18 +2,22 @@ import React, { useState } from 'react'
 import styles from "./InternshipForm.module.css"
 import { useForm } from "react-hook-form";
 import { AuthService } from "../../axios/User";
-import { notifySuccess } from "../../utility/Tostify/Tosts";
+import { notifyError, notifySuccess , } from "../../utility/Tostify/Tosts";
 import { useParams } from 'react-router-dom';
+import { LuLoaderCircle } from "react-icons/lu";
 
 const Form = () => {
-  const {title} = useParams();
+  const { title } = useParams();
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [uploadError, setUploadError] = useState(null);
   const [bookingResponse, setBookingResponse] = useState(null);
-  
+  const [submitting, setsubmitting] = useState(false)
+
+
 
 
   const onSubmit = (data) => {
+    setsubmitting(true)
     const file = data.resume[0];
     data.position = title;
 
@@ -43,7 +47,7 @@ const Form = () => {
     setUploadError(null);
     if (uploadError == null) {
       handleFormSubmit(data, file);
-      console.log(data);
+      // console.log(data); 
     }
 
   };
@@ -63,23 +67,24 @@ const Form = () => {
     formData.append("github", data.github || ""); // Handle optional GitHub link
     formData.append("position", title);
     formData.append("resume", file); // Append the actual file
-  
-    console.log("FormData before sending:");
+
+    // console.log("FormData before sending:");
     for (let pair of formData.entries()) {
-      console.log(pair[0], pair[1]); // Debugging
+      // console.log(pair[0], pair[1]); // Debugging
     }
-  
+
     try {
       const response = await apiClass.internshipFormSubmit(formData);
       if (response.status === 201) {
         setBookingResponse("Form submitted successfully!");
         notifySuccess("Form submitted successfully!");
+        setsubmitting(false)
       }
     } catch (error) {
       console.error("Submission Error:", error.response?.data || error.message);
+      setsubmitting(false)
+      notifyError("Try again later");
     }
-
-
   };
 
 
@@ -203,8 +208,11 @@ const Form = () => {
               <span className={styles.success}>{bookingResponse}</span>
             )}
 
-            <button>
-              Submit
+            <button className={styles.btn}>{
+              submitting ?
+              <LuLoaderCircle  size={30} className={styles.loader}/>: "Submit"
+            }
+
             </button>
           </div>
         </div>
