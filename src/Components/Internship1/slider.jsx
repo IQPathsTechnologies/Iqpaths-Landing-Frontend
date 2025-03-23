@@ -89,12 +89,7 @@ function Slider() {
                 <p className="author" id="testimonial-author">{testimonials[currentIndex].author}</p>
                 <p className="role" id="testimonial-role">{testimonials[currentIndex].role}</p>
               </div>
-              <a id="testimonial-link" href={testimonials[currentIndex].link}>
-              <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M1 3.75C1 1.67893 2.67893 0 4.75 0H21.25C23.3211 0 25 1.67893 25 3.75V20.25C25 22.3211 23.3211 24 21.25 24H4.75C2.67893 24 1 22.3211 1 20.25V3.75ZM7.15 9.975V18H9.7V9.975H7.15ZM7 7.425C7 8.25 7.6 8.85 8.425 8.85C9.25 8.85 9.85 8.25 9.85 7.425C9.85 6.6 9.25 6 8.425 6C7.675 6 7 6.6 7 7.425ZM16.45 18H18.85V13.05C18.85 10.575 17.35 9.75 15.925 9.75C14.65 9.75 13.75 10.575 13.525 11.1V9.975H11.125V18H13.675V13.725C13.675 12.6 14.425 12 15.175 12C15.925 12 16.45 12.375 16.45 13.65V18Z" fill="#0040D8"/>
-              </svg>
-               LinkedIn profile
-              </a>
+             
             </div>
           </div>
           <div className={styles.avatars}>

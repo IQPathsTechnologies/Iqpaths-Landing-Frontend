@@ -76,7 +76,7 @@ function Fourth() {
                     <p className={styles.text}>We are always seeking talented people. In case you cannot find your desired position
                         here, please send us your LinkedIn profile and give us your contact information. We will be in
                         touch. </p>
-                    <button type={styles.button}>Share your LinkedIn profile</button>
+                    <button type={styles.button}>Join the Team </button>
                 </div>
                 <div className={styles.right}>
                     <div>

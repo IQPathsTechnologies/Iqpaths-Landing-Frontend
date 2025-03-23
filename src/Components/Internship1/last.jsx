@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from "./Last.module.css"
+import { Link } from 'react-router-dom';
 
 function last() { 
   return (
@@ -47,8 +48,10 @@ function last() {
                 alt="" 
                 className={styles.long} 
               />
+               <Link to = "/about-us">
               <div className={styles.b}>
-                Explore more 
+               
+                Explore more  
                 <svg 
                   width="35" 
                   height="34" 
@@ -58,11 +61,12 @@ function last() {
                 >
                   <path
                     d="M6.30469 17.0007L29.113 17.0007M29.113 17.0007L19.3936 7.08398M29.113 17.0007L19.3936 26.9173"
-                    stroke="white" 
+                    stroke="black" 
                     strokeWidth="2" 
                   />
                 </svg>
               </div>
+              </Link>
             </div>
           </div>
         </div>
