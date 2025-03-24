@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from "./Third.module.css"
+import styles from "./Benifits.module.css"
 
-function Third() {
+function Benifits() {
     
   return (
     <section className={styles.third}>
@@ -156,4 +156,4 @@ function Third() {
   )
 }
 
-export default Third 
+export default Benifits 

@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from "./Second.module.css"
+import styles from "./Collage.module.css"
 
-function Second() {
+function Collage() {
     
   return (
     <section className={styles.second}>
@@ -69,4 +69,4 @@ function Second() {
   )
 }
 
-export default Second
+export default Collage

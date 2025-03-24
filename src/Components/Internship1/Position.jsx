@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import styles from "./Fourth.module.css"
+import styles from "./Position.module.css"
 import Card from './Card';
 import { AuthService } from '../../axios/User';
 
 const apiClass = new AuthService();
 
-function Fourth() {
+function Position() {
     const [positions, setPositions] = useState(null)
     // const position = [
     //     { _id: "677d1bc4d5f03c47e237798d", title: "Full Stack Web Development", category: "Engineering" },
@@ -95,4 +95,4 @@ function Fourth() {
     )
 }
 
-export default Fourth
+export default Position
