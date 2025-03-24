@@ -3,7 +3,6 @@ import styles from "./Photos.module.css"
 import { Link } from 'react-router-dom';
 
 function Photos() { 
-  
   return (
     <section className={styles.last}>
       <div className={styles.mid_last}>
