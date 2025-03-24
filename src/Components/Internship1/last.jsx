@@ -3,6 +3,7 @@ import styles from "./Last.module.css"
 import { Link } from 'react-router-dom';
 
 function last() { 
+  
   return (
     <section className={styles.last}>
       <div className={styles.mid_last}>

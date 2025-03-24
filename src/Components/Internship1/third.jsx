@@ -2,6 +2,7 @@ import React from 'react'
 import styles from "./Third.module.css"
 
 function Third() {
+    
   return (
     <section className={styles.third}>
     <div className={styles.mid3}>
