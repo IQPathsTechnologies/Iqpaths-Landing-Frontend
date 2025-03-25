@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styles from "./LectureMiddle.module.css";
+
 
 const LectureMiddle = ({ selectedLecture }) => {
 
@@ -19,7 +20,6 @@ const LectureMiddle = ({ selectedLecture }) => {
       </div>
     )
   }
-
 
   const transcriptData = [
     {
@@ -64,6 +64,7 @@ const LectureMiddle = ({ selectedLecture }) => {
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen
+          // sandbox="allow-scripts allow-same-origin" 
           // muted
         >
           {/* {console.log("selectedLecture.video", selectedLecture.video)} */}

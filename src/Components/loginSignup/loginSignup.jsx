@@ -108,7 +108,7 @@ const LoginSignup = () => {
   const handleGoogleLogin = (formType) => {
     const redirectUrl = formType === "login" ? "login" : "signup";
     // console.log(redirectUrl);
-    window.location.href = `http://localhost:8000/api/auth/google`;
+    window.location.href = `https://www.iqpaths.com/api/auth/google`;
   };
 
   const togglePasswordVisibility = () => {

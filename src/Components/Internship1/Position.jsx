@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import styles from "./Fourth.module.css"
+import styles from "./Position.module.css"
 import Card from './Card';
 import { AuthService } from '../../axios/User';
 
 const apiClass = new AuthService();
 
-function Fourth() {
+function Position() {
     const [positions, setPositions] = useState(null)
     // const position = [
     //     { _id: "677d1bc4d5f03c47e237798d", title: "Full Stack Web Development", category: "Engineering" },
@@ -19,6 +19,7 @@ function Fourth() {
     //     { _id: "67d96b8977712cb5eab31b65", title: "Graphic Designer", category: "Design" },
     //   ];
 
+    
     const categories = [
         { name: "All Positions", count: positions ? positions.length : 0 },
         { name: "Engineering", count: positions ? positions.filter((c) => c.category === "Engineering").length : 0 },
@@ -94,4 +95,4 @@ function Fourth() {
     )
 }
 
-export default Fourth
+export default Position

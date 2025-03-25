@@ -20,10 +20,13 @@ const NotesDummy = [
 
 
 const Notes = ({lectureId, selectedLecture}) => {
-  // const [Notes, setNotes] = useState();
+  const [Notes, setNotes] = useState(null);
 
+  useEffect(()=>{
+    setNotes(selectedLecture?.notesLink);
+  },[selectedLecture])
 
-  console.log(selectedLecture)
+  // console.log(selectedLecture)
 
   //yaha add karna hai ki notes nahi hai to null
 
@@ -39,7 +42,10 @@ const Notes = ({lectureId, selectedLecture}) => {
     const response = apiClass.grantAccess({lectureId});
     // setNotes(response);
   }
-  
+
+  if(!Notes){
+    return null
+  }
 
   return (
     <div className={styles.container}>
@@ -54,10 +60,11 @@ const Notes = ({lectureId, selectedLecture}) => {
 
       <div className={styles.notesContainer}>
         {
-          NotesDummy.map((note)=>{
-            return <NoteCard title={note.name} link = {note.link}/>
-          })
+          // Notes?.map((note)=>{
+          //   return <NoteCard title={note.name} link = {note.link}/>
+          // })
         }
+        <NoteCard title={selectedLecture.title} link = {Notes} />
         
       </div>
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from "./Slider.module.css"
 
 function Slider() {
+  
   const testimonials = [
     {
       image: 'https://plus.unsplash.com/premium_photo-1678197937465-bdbc4ed95815?w=500&auto=format&fit=crop&q=60',

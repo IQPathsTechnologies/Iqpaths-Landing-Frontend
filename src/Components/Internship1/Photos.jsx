@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from "./Last.module.css"
+import styles from "./Photos.module.css"
 import { Link } from 'react-router-dom';
 
-function last() { 
+function Photos() { 
   return (
     <section className={styles.last}>
       <div className={styles.mid_last}>
@@ -75,4 +75,4 @@ function last() {
   );
 }
 
-export default last;
+export default Photos;

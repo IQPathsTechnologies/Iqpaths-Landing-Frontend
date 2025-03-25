@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import Third from '../../Components/Internship1/Third';
-import Fourth from '../../Components/Internship1/Fourth';
 import Roadmap from '../../Components/Internship1/Roadmap';
-import Slider from '../../Components/Internship1/Slider';
-import Last from '../../Components/Internship1/Last';
-import First from '../../Components/Internship1/First';
-import Second from '../../Components/Internship1/second';
+import Herosection from '../../Components/Internship1/Herosection';
+import Collage from '../../Components/Internship1/Collage';
+import Benifits from '../../Components/Internship1/Benifits';
+import Position from '../../Components/Internship1/Position';
+import Photos from '../../Components/Internship1/Photos';
+import Slider from '../../Components/Internship1/slider';
 
 const Intern = () => {
 
@@ -16,13 +16,13 @@ const Intern = () => {
 
     return (
         <div>
-            <First />
-            <Second />
-            <Third />
-            <Fourth />
+            <Herosection />
+            <Collage />
+            <Benifits />
+            <Position />
             <Roadmap />
             <Slider />
-            <Last />
+            <Photos />
         </div>
     );
 };

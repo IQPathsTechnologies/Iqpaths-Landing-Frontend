@@ -1,8 +1,9 @@
 import React from 'react';
-import styles from "./First.module.css"; 
+import styles from "./Herosection.module.css"; 
 import { Link } from 'react-scroll';
 
 function First(){ 
+  
   return (
     <section className={styles.first}>
       <div className={styles.mid}>
