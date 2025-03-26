@@ -6,44 +6,44 @@ function Slider() {
   const testimonials = [
     {
       image: 'https://plus.unsplash.com/premium_photo-1678197937465-bdbc4ed95815?w=500&auto=format&fit=crop&q=60',
-      text: 'I do admire the company culture and, I like that. Visioncraft is truly the place where good attitudes have blended with proficiency. If you’re going to craft something great and you have a strong eagerness to do that, Visioncraft will remove all hassles in your journey.',
-      author: 'James Olson',
-      role: 'Product Designer',
+      text: "The courses at IQpaths strike the right balance between theoretical knowledge and practical application. The mentors are extremely supportive, making the learning process seamless.",
+      author: 'Ankit Gupta',
+      role: "Perfect Blend of Theory and Practice" ,
       link: '#'
     },
     {
       image: 'https://images.unsplash.com/photo-1545418776-a37fba72a75d?w=500&auto=format&fit=crop&q=60',
-      text: 'Visioncraft has been a game-changer for my career. The team is incredibly supportive and the work environment is fantastic.',
-      author: 'Sarah Johnson',
-      role: 'Software Engineer',
+      text: "I was looking to excel in Aptitude, and IQpaths delivered exactly what I needed. The interactive learning experience and expert guidance made it worth every penny." ,
+      author: "Karan Patel ",
+      role: "Best Investment in My Career" ,
       link: '#'
     },
     {
       image: 'https://images.unsplash.com/photo-1543117976-792a2d6ddb1d?w=500&auto=format&fit=crop&q=60',
-      text: 'Working at Visioncraft has been an amazing experience. The opportunities for growth and development are endless.',
-      author: 'Michael Brown',
-      role: 'Project Manager',
+      text:"I’ve taken many online courses, but IQpaths stands out. The content is engaging, easy to understand, and the mentors go above and beyond to clarify doubts.",
+      author: ' Varun Singh, Machine Learning Enthusiast',
+      role: "Engaging and Informative" ,
       link: '#'
     },
     {
       image: 'https://images.unsplash.com/photo-1595784279873-62b38b5e7cd6?w=500&auto=format&fit=crop&q=60',
-      text: 'The culture at Visioncraft is second to none. I feel valued and appreciated every single day.',
-      author: 'Emily Davis',
-      role: 'UX Designer',
+      text: "I was hesitant about entering the tech field, but IQpaths provided the right direction and motivation. The real-world projects gave me the confidence to apply my skills effectively.",
+      author: "Meera Yadav",
+      role: "Boosted My Confidence" ,
       link: '#'
     },
     {
       image: 'https://plus.unsplash.com/premium_photo-1664541336692-e931d407ba88?w=500&auto=format&fit=crop&q=60',
-      text: 'Visioncraft is a place where you can truly thrive. The support and encouragement from the team are unparalleled.',
-      author: 'David Wilson',
-      role: 'Marketing Specialist',
+      text: "IQpaths' curriculum is well-structured and aligned with industry demands. The mentorship and career guidance helped me secure a role as an AI researcher in a reputed firm.",
+      author: 'Sneha Arora',
+      role:"Career-Aligned Learning" ,
       link: '#'
     },
     {
       image: 'https://images.unsplash.com/photo-1589304444311-44c26adfcfb8?w=500&auto=format&fit=crop&q=60',
-      text: 'I am constantly inspired by the talented individuals I work with at Visioncraft. It’s a fantastic place to grow your career.',
-      author: 'Jessica Lee',
-      role: 'Data Analyst',
+      text: "The learning path at IQpaths is tailored to your goals. It’s personalized, interactive, and keeps you engaged throughout. I highly recommend it to anyone looking to grow in tech.",
+      author: 'Shweta Naire',
+      role: "Personalized Learning Experience" ,
       link: '#'
     }
   ];
