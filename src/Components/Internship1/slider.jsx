@@ -33,14 +33,14 @@ function Slider() {
       link: '#'
     },
     {
-      image: 'https://plus.unsplash.com/premium_photo-1664541336692-e931d407ba88?w=500&auto=format&fit=crop&q=60',
+      image: 'https://media.istockphoto.com/id/1171173195/photo/portrait-of-cheerful-female-programmer-enjoying-time-with-laptop-computer-and-distance-job.webp?a=1&b=1&s=612x612&w=0&k=20&c=gR70Hn06UZ3KnDVqsL5E-V_LVIpBIr-TyJBfzEdCU_I=',
       text: "IQpaths' curriculum is well-structured and aligned with industry demands. The mentorship and career guidance helped me secure a role as an AI researcher in a reputed firm.",
       author: 'Sneha Arora',
       role:"Career-Aligned Learning" ,
       link: '#'
     },
     {
-      image: 'https://images.unsplash.com/photo-1589304444311-44c26adfcfb8?w=500&auto=format&fit=crop&q=60',
+      image: 'https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.webp?a=1&b=1&s=612x612&w=0&k=20&c=u5RPl326UFf1oyrM1iLFJtqdQ3K28TdBdSaSPKeCrdc=',
       text: "The learning path at IQpaths is tailored to your goals. It’s personalized, interactive, and keeps you engaged throughout. I highly recommend it to anyone looking to grow in tech.",
       author: 'Shweta Naire',
       role: "Personalized Learning Experience" ,
