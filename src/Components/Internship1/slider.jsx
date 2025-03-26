@@ -7,42 +7,42 @@ function Slider() {
     {
       image: 'https://plus.unsplash.com/premium_photo-1678197937465-bdbc4ed95815?w=500&auto=format&fit=crop&q=60',
       text: "The courses at IQpaths strike the right balance between theoretical knowledge and practical application. The mentors are extremely supportive, making the learning process seamless.",
-      author: 'Ankit Gupta',
+      author: 'Deveshi Nema',
       role: "Perfect Blend of Theory and Practice" ,
       link: '#'
     },
     {
       image: 'https://images.unsplash.com/photo-1545418776-a37fba72a75d?w=500&auto=format&fit=crop&q=60',
       text: "I was looking to excel in Aptitude, and IQpaths delivered exactly what I needed. The interactive learning experience and expert guidance made it worth every penny." ,
-      author: "Karan Patel ",
+      author: "Renuka Vipat",
       role: "Best Investment in My Career" ,
       link: '#'
     },
     {
       image: 'https://images.unsplash.com/photo-1543117976-792a2d6ddb1d?w=500&auto=format&fit=crop&q=60',
       text:"I’ve taken many online courses, but IQpaths stands out. The content is engaging, easy to understand, and the mentors go above and beyond to clarify doubts.",
-      author: ' Varun Singh, Machine Learning Enthusiast',
+      author: 'Raj Raghuwanshi',
       role: "Engaging and Informative" ,
       link: '#'
     },
     {
       image: 'https://images.unsplash.com/photo-1595784279873-62b38b5e7cd6?w=500&auto=format&fit=crop&q=60',
       text: "I was hesitant about entering the tech field, but IQpaths provided the right direction and motivation. The real-world projects gave me the confidence to apply my skills effectively.",
-      author: "Meera Yadav",
+      author: "Aditya Bodani",
       role: "Boosted My Confidence" ,
       link: '#'
     },
     {
-      image: 'https://media.istockphoto.com/id/1171173195/photo/portrait-of-cheerful-female-programmer-enjoying-time-with-laptop-computer-and-distance-job.webp?a=1&b=1&s=612x612&w=0&k=20&c=gR70Hn06UZ3KnDVqsL5E-V_LVIpBIr-TyJBfzEdCU_I=',
+      image: 'https://plus.unsplash.com/premium_photo-1664541336692-e931d407ba88?w=500&auto=format&fit=crop&q=60',
       text: "IQpaths' curriculum is well-structured and aligned with industry demands. The mentorship and career guidance helped me secure a role as an AI researcher in a reputed firm.",
-      author: 'Sneha Arora',
+      author: 'Hardik Patodi',
       role:"Career-Aligned Learning" ,
       link: '#'
     },
     {
-      image: 'https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.webp?a=1&b=1&s=612x612&w=0&k=20&c=u5RPl326UFf1oyrM1iLFJtqdQ3K28TdBdSaSPKeCrdc=',
+      image: 'https://images.unsplash.com/photo-1589304444311-44c26adfcfb8?w=500&auto=format&fit=crop&q=60',
       text: "The learning path at IQpaths is tailored to your goals. It’s personalized, interactive, and keeps you engaged throughout. I highly recommend it to anyone looking to grow in tech.",
-      author: 'Shweta Naire',
+      author: 'Vinayak Mandloi',
       role: "Personalized Learning Experience" ,
       link: '#'
     }
