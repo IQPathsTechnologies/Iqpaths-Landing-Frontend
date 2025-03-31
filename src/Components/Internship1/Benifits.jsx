@@ -11,7 +11,7 @@ function Benifits() {
                 What benefits are waiting for you?
             </h3>
             <p className={styles.text}>
-            At IQpaths, we believe in nurturing talent and supporting growth. Here’s what you can look forward to:
+            At IQ Paths, we believe in nurturing talent and supporting growth. Here’s what you can look forward to:
             </p>
         </div>
         <div className={styles.benefits}>

@@ -160,7 +160,7 @@ const Form = () => {
 
 
             <div className={styles.lab}>
-              <label htmlFor="">Year</label>
+              <label htmlFor="">Year/Experienced</label>
               <select
                 {...register("year", { required: "year is required" })}
                 className={styles.select}
@@ -173,6 +173,7 @@ const Form = () => {
                 <option value="second year">2nd Year</option>
                 <option value="third year">3rd Year</option>
                 <option value="fourth year">4th Year</option>
+                <option value="experienced">Experienced</option>
               </select>
               {errors.year && (
                 <span className={styles.error}>{errors.year.message}</span>

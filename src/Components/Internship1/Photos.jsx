@@ -7,7 +7,7 @@ function Photos() {
     <section className={styles.last}>
       <div className={styles.mid_last}>
         <h2 className={styles.title}> 
-          Take a peep at what goes on at Iqpaths!
+          Take a peep at what goes on at IQPaths!
         </h2>
         <div className={styles.wrapper}>
           <div className={styles.part}>

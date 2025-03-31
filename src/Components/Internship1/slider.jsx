@@ -6,42 +6,42 @@ function Slider() {
   const testimonials = [
     {
       image: 'https://plus.unsplash.com/premium_photo-1678197937465-bdbc4ed95815?w=500&auto=format&fit=crop&q=60',
-      text: "The courses at IQpaths strike the right balance between theoretical knowledge and practical application. The mentors are extremely supportive, making the learning process seamless.",
+      text: "The courses at IQ Paths strike the right balance between theoretical knowledge and practical application. The mentors are extremely supportive, making the learning process seamless.",
       author: 'Deveshi Nema',
       role: "Perfect Blend of Theory and Practice" ,
       link: '#'
     },
     {
       image: 'https://images.unsplash.com/photo-1545418776-a37fba72a75d?w=500&auto=format&fit=crop&q=60',
-      text: "I was looking to excel in Aptitude, and IQpaths delivered exactly what I needed. The interactive learning experience and expert guidance made it worth every penny." ,
+      text: "I was looking to excel in Aptitude, and IQ Paths delivered exactly what I needed. The interactive learning experience and expert guidance made it worth every penny." ,
       author: "Renuka Vipat",
       role: "Best Investment in My Career" ,
       link: '#'
     },
     {
       image: 'https://images.unsplash.com/photo-1543117976-792a2d6ddb1d?w=500&auto=format&fit=crop&q=60',
-      text:"I’ve taken many online courses, but IQpaths stands out. The content is engaging, easy to understand, and the mentors go above and beyond to clarify doubts.",
+      text:"I’ve taken many online courses, but IQ Paths stands out. The content is engaging, easy to understand, and the mentors go above and beyond to clarify doubts.",
       author: 'Raj Raghuwanshi',
       role: "Engaging and Informative" ,
       link: '#'
     },
     {
       image: 'https://images.unsplash.com/photo-1595784279873-62b38b5e7cd6?w=500&auto=format&fit=crop&q=60',
-      text: "I was hesitant about entering the tech field, but IQpaths provided the right direction and motivation. The real-world projects gave me the confidence to apply my skills effectively.",
+      text: "I was hesitant about entering the tech field, but IQ Paths provided the right direction and motivation. The real-world projects gave me the confidence to apply my skills effectively.",
       author: "Aditya Bodani",
       role: "Boosted My Confidence" ,
       link: '#'
     },
     {
       image: 'https://plus.unsplash.com/premium_photo-1664541336692-e931d407ba88?w=500&auto=format&fit=crop&q=60',
-      text: "IQpaths' curriculum is well-structured and aligned with industry demands. The mentorship and career guidance helped me secure a role as an AI researcher in a reputed firm.",
+      text: "'IQ Paths' curriculum is well-structured and aligned with industry demands. The mentorship and career guidance helped me secure a role as an AI researcher in a reputed firm.",
       author: 'Hardik Patodi',
       role:"Career-Aligned Learning" ,
       link: '#'
     },
     {
       image: 'https://images.unsplash.com/photo-1589304444311-44c26adfcfb8?w=500&auto=format&fit=crop&q=60',
-      text: "The learning path at IQpaths is tailored to your goals. It’s personalized, interactive, and keeps you engaged throughout. I highly recommend it to anyone looking to grow in tech.",
+      text: "The learning path at IQ Paths is tailored to your goals. It’s personalized, interactive, and keeps you engaged throughout. I highly recommend it to anyone looking to grow in tech.",
       author: 'Vinayak Mandloi',
       role: "Personalized Learning Experience" ,
       link: '#'
