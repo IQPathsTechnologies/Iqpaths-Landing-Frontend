@@ -16,6 +16,10 @@ Branch: main
 - NPM
 - Deployed via Vercel
 
+### ✅ Prerequisites:
+
+- Install [Node.js](https://nodejs.org/en/download) (v18+ recommended)
+
 ## Getting Started
 
 Clone the repository:
