@@ -10,7 +10,7 @@ function First(){
         <div className={styles.one}> 
           <h3 className={styles.title}>Join the team</h3>
           <p className={styles.des}>
-            Iqpath is an employee-centered company that looks after every employee, gives autonomy to
+          IQ Paths is an employee-centered company that looks after every employee, gives autonomy to
             make choices, supports self-development and career growth. Our development team is always in search
             of talented individuals to join our employee-centered culture.
           </p>

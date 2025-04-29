@@ -21,7 +21,7 @@ const MainPopup = ({ onClose }) => {
   useEffect(() => {
     const isPopupShown = sessionStorage.getItem("popupShown");
     if (!isPopupShown) {
-      setIsVisible(true);
+      // setIsVisible(true);
       sessionStorage.setItem("popupShown", "true");
     }
   }, []);

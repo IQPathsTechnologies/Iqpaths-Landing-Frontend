@@ -11,7 +11,7 @@ function Benifits() {
                 What benefits are waiting for you?
             </h3>
             <p className={styles.text}>
-            At IQpaths, we believe in nurturing talent and supporting growth. Here’s what you can look forward to:
+            At IQ Paths, we believe in nurturing talent and supporting growth. Here’s what you can look forward to:
             </p>
         </div>
         <div className={styles.benefits}>
@@ -23,7 +23,7 @@ function Benifits() {
                 <path d="M20 11.25V20H28.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 
-                    <p className={styles.text}>Flexible working hours</p>
+                    <p className={styles.text}>Flexible Working Hours</p>
                 </div>
                 <div className={styles.box}>
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +36,7 @@ function Benifits() {
                 <path d="M1.25 20H3.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 
-                    <p className={styles.text}> Sport compensation</p>
+                    <p className={styles.text}>Dynamic & Sporty Environment</p>
                 </div>
                 <div className={styles.box}>
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -44,7 +44,7 @@ function Benifits() {
                 <path d="M26.875 16.25L17.7031 25L13.125 20.625" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 
-                    <p className={styles.text}> Health care Insurance</p>
+                    <p className={styles.text}>Comprehensive Health Care </p>
                 </div>
                 <div className={styles.box}>
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +59,7 @@ function Benifits() {
                 <path d="M36.0313 7.64062L33.9844 9.07812" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 
-                    <p className={styles.text}> Marriage bonus</p>
+                    <p className={styles.text}> Recognition & Appreciation</p>
                 </div>
                 <div className={styles.box}>
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -80,7 +80,7 @@ function Benifits() {
                             stroke-linejoin="round" />
                     </svg>
 
-                    <p className={styles.text}> Fun team events</p>
+                    <p className={styles.text}> Exciting Team Events </p>
                 </div>
 
             </div>
@@ -94,7 +94,7 @@ function Benifits() {
                 <path d="M21.764 11.1562H11.6703C11.3406 11.1609 11.0261 11.2957 10.7953 11.5313L5.7328 16.5781C5.57286 16.7382 5.4594 16.9388 5.40451 17.1583C5.34962 17.3779 5.35537 17.6082 5.42113 17.8247C5.4869 18.0413 5.61021 18.2359 5.77793 18.3879C5.94564 18.5398 6.15146 18.6434 6.37342 18.6875L12.9203 20" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 
-                    <p className={styles.text}> Perfessional grow budget</p>
+                    <p className={styles.text}> Personal & Professional Growth </p>
                 </div>
                 <div className={styles.box}>
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -106,7 +106,7 @@ function Benifits() {
                 <path d="M22.5 21.875L25 20V28.125" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 
-                    <p className={styles.text}> 30 days paid vacation</p>
+                    <p className={styles.text}>Flexible Leave Policy </p>
                 </div>
                 <div className={styles.box}>
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -114,7 +114,7 @@ function Benifits() {
                 <path d="M28.125 24.375C29.1605 24.375 30 23.5355 30 22.5C30 21.4645 29.1605 20.625 28.125 20.625C27.0895 20.625 26.25 21.4645 26.25 22.5C26.25 23.5355 27.0895 24.375 28.125 24.375Z" fill="black"/>
                 </svg>
                 
-                    <p className={styles.text}> Competitive salary</p>
+                    <p className={styles.text}> Performance-Based Incentives </p>
                 </div>
                 <div className={styles.box}>
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +134,7 @@ function Benifits() {
                             stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
-                    <p className={styles.text}> Compensation for eyeglasses</p>
+                    <p className={styles.text}> Collaborate with Experts</p>
                 </div>
                 <div className={styles.box}>
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -143,7 +143,7 @@ function Benifits() {
                 <path d="M34.375 17.3281V25.8594C34.3739 26.1249 34.2861 26.3827 34.125 26.5937C33.0781 28 28.6406 33.125 20 33.125C11.3594 33.125 6.92187 28 5.875 26.5937C5.7139 26.3827 5.62612 26.1249 5.625 25.8594V17.3281" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 
-                    <p className={styles.text}> Allowance for first-graders
+                    <p className={styles.text}>   Career Growth & Learning
                     </p>
                 </div>
 

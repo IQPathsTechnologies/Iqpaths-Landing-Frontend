@@ -1,8 +1,45 @@
-# React + Vite
+# IQPath Landing Page – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend codebase for the official landing page of [IQPath](https://iqpaths.com). It is a private project intended only for internal use by the IQPath development team.
 
-Currently, two official plugins are available:
+## Live Site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+https://iqpaths.com
+
+Hosted on: Vercel  
+Branch: main
+
+## Tech Stack
+
+- React (with Vite)
+- Modular CSS
+- NPM
+- Deployed via Vercel
+
+### ✅ Prerequisites:
+
+- Install [Node.js](https://nodejs.org/en/download) (v18+ recommended)
+
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Vishesh-Verma-07/iqpath-landing-frontend.git
+cd iqpath-landing-frontend
+```
+
+```bash
+npm run install
+```
+
+```bash
+npm run dev
+```
+
+## Deployment
+Pushing to the main branch triggers deployment on Vercel.
+
+## Deployment
+- Keep components modular
+- Mobile-first and fully responsive design.
