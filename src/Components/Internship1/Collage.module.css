@@ -16,7 +16,7 @@
 }
 
 .second .mid2 {
-    width: 80%;
+    width: 70%;
     height: 80%;
     display: flex;
     gap: 5rem;
@@ -31,7 +31,7 @@
     font-weight: 500;
     font-size: 54px;
     color: #090808;
-    width: 753px;
+    width: 653px;
     text-align: center;
 }
 
@@ -85,6 +85,90 @@
     font-weight: 400;
     font-size: 16px;
     color: #53648B;
+}
+@media only screen and (max-width: 1400px){
+    
+.second {
+    width: 100%;
+    background: #F7F9FC;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px 10px 0px;
+}
+
+.second .mid2 {
+    width: 70%;
+    height: 80%;
+    display: flex;
+    gap: 5rem;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.second .tittle {
+    font-family: "Manrope",sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 54px;
+    color: #090808;
+    width: auto;
+    text-align: center;
+}
+
+
+.second .card_wrapper {
+    display: flex;
+    gap: 1rem;  
+
+
+}
+
+.second .card {
+    /* width: auto; */
+    /* height: 376px; */
+    padding: 16px;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid #253A670D;  
+ 
+
+
+}
+
+
+.second .card_img {
+    width: auto;
+    height: 200px;
+    margin-bottom: 24px;
+}
+
+.second .card_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    
+}
+
+.second .card_tittle {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    color: #090808;
+    margin-bottom: 16px;
+}
+
+.second .card_des {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #53648B;
+}
 }
 
 @media only screen and (max-width: 600px) {
