@@ -9,11 +9,11 @@ function InternPage() {
   
   
   return (
-    <>
+    <div className='section'>
       <InternHero />
       <ApplicationForm className  selectedInternshipId={selectedInternshipId} />
       <FAQSection />
-    </>
+    </div>
   );
 }
 

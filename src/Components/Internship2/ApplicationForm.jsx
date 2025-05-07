@@ -135,7 +135,7 @@ const ApplicationForm = ({ selectedInternshipId }) => {
     <section
       
       id="apply"
-      className="section" 
+      className={styles.section} 
       
     >
       <div className={styles.header}>
