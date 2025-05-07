@@ -115,7 +115,7 @@ const router = createBrowserRouter([
         element:<Logout/>
       },
       {
-        path: '/internship',
+        path: '/Careers',
         element: <Internship1 />
       },
       {
@@ -132,7 +132,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'Industry Projects',
-        element: < IndustryProject/>
+        element: < ComingSoon/>
       },
       {
         path: '/internship/:title',
