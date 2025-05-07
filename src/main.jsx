@@ -28,6 +28,7 @@ import Internship1 from './pages/Internship/Internship1';
 import { ToastContainer } from 'react-toastify';
 import IndustryProject from './pages/IndustryProjects/IndustryProject';
 import InternshipForm from './pages/InternshipForm/InternshipForm';
+import InternPage from './pages/Internship2/InternPage';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -100,7 +101,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/internships',
-        element: <ComingSoon/>
+        element: <InternPage/>
       },
       {
         path: '/privacy',

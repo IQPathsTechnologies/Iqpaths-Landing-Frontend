@@ -405,9 +405,21 @@ export class AuthService {
             throw error;
         }
     }
-
-
     async internshipFormSubmit(data){
+        try {
+            const response =  await axios.post("/api/internshipapplication/applyforinternship", data, {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                },
+              });
+            return response
+    
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async careerFormSubmit(data){
         try {
             const response =  await axios.post("/api/internship/apply", data, {
                 headers: {

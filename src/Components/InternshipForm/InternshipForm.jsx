@@ -74,7 +74,7 @@ const Form = () => {
     }
 
     try {
-      const response = await apiClass.internshipFormSubmit(formData);
+      const response = await apiClass.careerFormSubmit(formData);
       if (response.status === 201) {
         setBookingResponse("Form submitted successfully!");
         notifySuccess("Form submitted successfully!");
