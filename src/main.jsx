@@ -99,6 +99,10 @@ const router = createBrowserRouter([
         element: <AboutUs />
       },
       {
+        path: '/internships',
+        element: <ComingSoon/>
+      },
+      {
         path: '/privacy',
         element: <PrivacyPolicy />
       },
