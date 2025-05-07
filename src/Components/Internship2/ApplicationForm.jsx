@@ -438,6 +438,7 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                             accept=".pdf"
                             onChange={handleFileChange}
                             {...field}
+                            className={styles.fileInput}
                           />
                         </div>
                       </FormControl>
