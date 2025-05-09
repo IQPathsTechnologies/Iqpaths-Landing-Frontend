@@ -18,6 +18,8 @@ import styles from "./ApplicationForm.module.css";
 import { Textarea } from "../../UI/TextArea";
 import { Progress } from "../../UI/progress";
 import { AuthService } from "../../axios/User";
+import { notifySuccess } from "../../utility/Tostify/Tosts";
+import { notifyError } from "../../utility/Tostify/Tosts";
 
 
 const apiClass = new AuthService();
@@ -107,11 +109,11 @@ const ApplicationForm = ({ selectedInternshipId }) => {
       const response = await apiClass.internshipFormSubmit(data);
       console.log("Form submitted successfully:", response.data);
       if (response.status === 201) {
-        // notifySuccess("Form submitted successfully!");
+        notifySuccess("Form submitted successfully!");
       }
     } catch (error) {
       console.error("Submission Error:", error.response?.data || error.message);
-      // notifyError("Try again later");
+      notifyError("Try again later");
     }
   }
 
