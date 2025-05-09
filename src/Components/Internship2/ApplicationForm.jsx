@@ -48,8 +48,8 @@ const formSchema = z.object({
     ),
   motivation: z
     .string()
-    .min(50, "Please write at least 50 words")
-    .max(500, "Please write at most 500 words"),
+    .min(10, "Please write at least 50 words")
+    .max(50000, "Please write at most 500 words"),
   consent: z.literal(true, {
     errorMap: () => ({ message: "You must agree to the terms and conditions" }),
   }),
@@ -106,6 +106,7 @@ const ApplicationForm = ({ selectedInternshipId }) => {
 
   const handleForm = async (data) => {
     try {
+      console.log("Form Data:", data);
       const response = await apiClass.internshipFormSubmit(data);
       console.log("Form submitted successfully:", response.data);
       if (response.status === 201) {
