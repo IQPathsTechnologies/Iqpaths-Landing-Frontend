@@ -105,19 +105,29 @@ const ApplicationForm = ({ selectedInternshipId }) => {
     handleForm(data);
   };
 
-  const handleForm = async (data) => {
-    try {
-      console.log("Form Data:", data);
-      const response = await apiClass.internshipFormSubmit(data);
-      console.log("Form submitted successfully:", response.data);
-      if (response.status === 201) {
-        notifySuccess("Form submitted successfully!");
-      }
-    } catch (error) {
-      console.error("Submission Error:", error.response?.data || error.message);
-      notifyError("Try again later");
+ const handleForm = async (data) => {
+  try {
+    
+    const updatedData = {
+      ...data,
+      internshipSelection: data.internships.join(','),
+      internships: undefined, 
+    };
+
+    console.log("Modified Form Data:", updatedData);
+
+    const response = await apiClass.internshipFormSubmit(updatedData);
+    console.log("Form submitted successfully:", response.data);
+
+    if (response.status === 201) {
+      notifySuccess("Form submitted successfully!");
     }
+  } catch (error) {
+    console.error("Submission Error:", error.response?.data || error.message);
+    notifyError("Try again later");
   }
+};
+
 
   const handleFileChange = (event) => {
     const file = event.target.files?.[0];
