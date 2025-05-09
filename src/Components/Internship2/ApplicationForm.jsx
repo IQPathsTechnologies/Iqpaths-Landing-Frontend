@@ -49,7 +49,7 @@ const formSchema = z.object({
   motivation: z
     .string()
     .min(50, "Please write at least 50 words")
-    .max(300, "Please write at most 300 words"),
+    .max(500, "Please write at most 500 words"),
   consent: z.literal(true, {
     errorMap: () => ({ message: "You must agree to the terms and conditions" }),
   }),
@@ -461,7 +461,7 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                     <FormItem>
                       <FormLabel>
                         Why do you want this internship?{" "}
-                        <span className={styles.optionalText}>(50-300 words)</span>
+                        <span className={styles.optionalText}>(50-500 words)</span>
                       </FormLabel>
                       <FormControl>
                         <Textarea
