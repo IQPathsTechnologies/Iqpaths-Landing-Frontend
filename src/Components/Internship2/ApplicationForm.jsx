@@ -27,7 +27,8 @@ const apiClass = new AuthService();
 const formSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
-  phone: z.string().min(10, "Please enter a valid phone number"),
+  phoneNumber: z.string().regex(/^\d{10}$/, "Phone number must be exactly 10 digits"),
+  
   university: z.string().min(2, "Please enter your university/college name"),
   program: z.string().min(2, "Please enter your program/course"),
   yearOfStudy: z.enum(["1", "2", "3", "4", "5+"]),
@@ -65,7 +66,7 @@ const ApplicationForm = ({ selectedInternshipId }) => {
     defaultValues: {
       fullName: "",
       email: "",
-      phone: "",
+      phoneNumber: "",
       university: "",
       program: "",
       yearOfStudy: "1",
@@ -209,7 +210,7 @@ const ApplicationForm = ({ selectedInternshipId }) => {
 
                   <FormField
                     control={form.control}
-                    name="phone"
+                    name="phoneNumber"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Phone Number</FormLabel>
