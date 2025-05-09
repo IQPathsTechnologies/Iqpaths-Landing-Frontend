@@ -45,6 +45,15 @@ export const INTERNSHIPS = [
         description: "Assist in identifying business opportunities, market research, and partnership development. You'll learn practical skills in client relationship management and sales strategies."
     },
     {
+        id: 7,
+        title: "Software Development Intern",
+        department: "Software Engineering",
+        duration: "5 months",
+        location: "Hybrid",
+        deadline: "2025-06-20",
+        description: "Contribute to the development of scalable software solutions using Java, Python, and cloud technologies. Collaborate with cross-functional teams to deliver high-quality applications."
+    },
+    {
         id: 6,
         title: "Content Writer Intern",
         department: "Content Creation",
@@ -52,5 +61,15 @@ export const INTERNSHIPS = [
         location: "Remote",
         deadline: "2025-05-08",
         description: "Create engaging content for blogs, social media, and marketing materials. You'll develop your writing skills while learning about SEO and content strategy."
+    }
+    ,
+    {
+        id: 8,
+        title: "Backend Development Intern",
+        department: "Web Development",
+        duration: "4 months",
+        location: "Remote",
+        deadline: "2025-06-25",
+        description: "Work on building and optimizing server-side logic, APIs, and databases using Node.js, Express, and MongoDB. Gain hands-on experience in backend architecture and deployment."
     }
 ];
