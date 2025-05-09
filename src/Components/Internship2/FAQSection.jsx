@@ -5,7 +5,7 @@ import {
     AccordionTrigger,
   } from "../../UI/Accordian.jsx";
   import styles from "./FAQSection.module.css";
-  
+
   const FAQSection = () => {
     // const faqs = [
     //   {
@@ -50,6 +50,9 @@ import {
     //   },
     // ];
   
+
+  
+
 const faqs = [
   {
     question: "Is it compulsory to do an internship? If yes, why?",
