@@ -29,6 +29,7 @@ import { ToastContainer } from 'react-toastify';
 import IndustryProject from './pages/IndustryProjects/IndustryProject';
 import InternshipForm from './pages/InternshipForm/InternshipForm';
 import InternPage from './pages/Internship2/InternPage';
+import { CartProvider } from './context/cartContext';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -152,7 +153,10 @@ createRoot(document.getElementById('root')).render(
   <>
   <CoursesProvider>
   <UserProvider>
+  <CartProvider>
     <RouterProvider router = {router} />
+
+  </CartProvider>
   </UserProvider>
   </CoursesProvider>
 

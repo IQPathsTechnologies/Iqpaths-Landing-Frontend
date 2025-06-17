@@ -1,25 +1,49 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import styles from './SearchTab.module.css';
-// import { FaSearch } from 'react-icons/fa'; 
 import {AllTypeOfSearch} from '../../axios/Search';
 import { CoursesContext } from '../../context/coursesContext'; 
 
 const SearchTab = ({flag}) => {
   const searchClass = new AllTypeOfSearch();
-  const{setCourses}=useContext(CoursesContext);
+  const{setCourses} = useContext(CoursesContext);
   
   const dataWhichNeedToBeSearched = useRef(""); 
+  const [suggestions, setSuggestions] = useState([]);
+
   const handleWhatweWantToSearch =async()=>{
-    // console.log("data jo search kiya ", dataWhichNeedToBeSearched.current.value);
     const response = await searchClass.search(dataWhichNeedToBeSearched.current?.value, flag);
-    // console.log("search ka data",response.data.data.items);
-    // console.log("search ka pura data",response);
+
     setCourses(response.data.data.items);
   }
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       handleWhatweWantToSearch();
     }
+  };
+
+  const fetchSuggestions = async (value) => {
+    if (!value) {
+      setSuggestions([]);
+      return;
+    }
+
+    try {
+      const response = await searchClass.getSuggestions(value);
+      setSuggestions(response.data.data.suggestions);
+    } catch (error) {
+      console.error("Error fetching suggestions:", error);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    dataWhichNeedToBeSearched.current.value = e.target.value;
+    fetchSuggestions(e.target.value);
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    dataWhichNeedToBeSearched.current.value = suggestion;
+    setSuggestions([]);
+    handleWhatweWantToSearch();
   };
 
   return (
@@ -38,7 +62,9 @@ const SearchTab = ({flag}) => {
               placeholder="Lessons Name"
               ref={dataWhichNeedToBeSearched}
               onKeyDown={handleKeyPress}
+              onChange={handleInputChange}
             />
+            
           </div>
           <button className={styles.searchButton} onClick={handleWhatweWantToSearch}>
             <img src="/Search.png" alt="Search" />
@@ -46,6 +72,20 @@ const SearchTab = ({flag}) => {
           </button>
         </div>
       </div>
+
+      {suggestions.length > 0 && (
+        <ul className={styles.suggestionList}>
+          {suggestions.map((s, idx) => (
+            <li
+              key={idx}
+              onClick={() => handleSuggestionClick(s)}
+              className={styles.suggestionItem}
+            >
+              {s}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

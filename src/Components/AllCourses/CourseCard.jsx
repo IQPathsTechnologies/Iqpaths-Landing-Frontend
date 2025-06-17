@@ -34,14 +34,21 @@ const  CourseCard = ({ activeCategory, selectedFilters }) => {
     for (const [filterCategory, filterValues] of Object.entries(selectedFilters)) {
       if (filterValues.length > 0) {
         const matchesFilter = filterValues.some((filter) => {
-          if (filterCategory === 'Course Category') {
+            if (filterCategory === 'Course Category') {
+            // If "All Program" is selected, match all courses
+            if (filter?.toLowerCase() === 'all program') {
+              return true;
+            }
             // Match filter values with the 'subject' field in the course
             return course.subject?.toLowerCase().includes(filter?.toLowerCase());
-          }
+            }
   
           if (filterCategory === 'Instructors') {
             // Check if any description includes the filter value
-            // console.log(course?.instructor?.name.toLowerCase())
+            console.log("course me instructor name ", course?.instructor?.name.toLowerCase())
+            console.log("filter me instructor name", filter?.toLowerCase())
+            
+
             return course?.instructor?.name?.toLowerCase().includes(filter?.toLowerCase());
           }
   
@@ -55,9 +62,13 @@ const  CourseCard = ({ activeCategory, selectedFilters }) => {
             if (filterCategory === 'Price') {
             // Check if the price falls within the specified range
             const price = course.discountedPrice || course.realPrice;
+
+
+
+
             const [min, max] = filter.split(' - ')?.map(Number);
             // console.log(min, max)
-            return price >= min && price <= max;
+            return price >= min && price <= max && course.status?.toLowerCase() !== "coming soon";
             }
   
           // Default case for other fields (e.g., strings or arrays)
@@ -81,13 +92,15 @@ const  CourseCard = ({ activeCategory, selectedFilters }) => {
 
   // Filter courses based on the active category and selectedFilters
   const filteredCourses =
-    activeCategory === "ALL PROGRAM"
+    activeCategory.toUpperCase() === "ALL PROGRAM"
       ? courses?.filter(applyFilters)
-      : courses?.filter((course) => (course.subject)?.toUpperCase() === activeCategory && applyFilters(course));
+      : courses?.filter((course) => (course.subject?.toUpperCase() === activeCategory.toUpperCase()) && applyFilters(course));
 
 
   return (
     <div className={styles.cardsContainer}>
+
+      {console.log("filteredCourses", filteredCourses)}
       {filteredCourses?.length > 0 ? (
     [...filteredCourses]
       .sort((a, b) => {

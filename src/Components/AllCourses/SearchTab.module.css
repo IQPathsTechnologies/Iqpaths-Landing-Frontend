@@ -89,6 +89,33 @@
   margin-right: 10px;
 }
 
+
+.suggestionList {
+  position: absolute;
+  /* top: 100%; */
+  left: 0;
+  right: 0;
+  border-radius: 10px;
+  z-index: 10;
+  background: #fff;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.suggestionItem {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestionItem:hover {
+  background-color: #f0f0f0;
+}
+
+
 /* Responsive Styles */
 
 /* 1440px and above */
