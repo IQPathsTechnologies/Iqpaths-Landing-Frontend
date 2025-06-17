@@ -21,36 +21,59 @@ import { notifySuccess } from "../../utility/Tostify/Tosts";
 import { notifyError } from "../../utility/Tostify/Tosts";
 const apiClass = new AuthService();
 const formSchema = z.object({
-  fullName: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  phoneNumber: z.string().regex(/^\d{10}$/, "Phone number must be exactly 10 digits"),
-  
-  university: z.string().min(2, "Please enter your university/college name"),
-  program: z.string().min(2, "Please enter your program/course"),
+  fullName: z
+    .string()
+    .min(2, "Name must be at least 2 characters")
+    .regex(/^[A-Za-z\s]+$/, "Only alphabets and spaces are allowed"),
+
+  email: z
+    .string()
+    .email("Please enter a valid email address"),
+
+  phoneNumber: z
+    .string()
+    .regex(/^\d{10}$/, "Phone number must be exactly 10 digits"),
+
+  university: z
+    .string()
+    .min(2, "Please enter your university/college name")
+    .regex(/^[A-Za-z\s]+$/, "Only alphabets and spaces are allowed"),
+
+  program: z
+    .string()
+    .min(2, "Please enter your program/course"),
+
   yearOfStudy: z.enum(["1", "2", "3", "4", "5+"]),
+
   internships: z
     .array(z.number())
     .min(1, "Please select at least one internship"),
-  linkedinUrl: z.string().url("Please enter a valid URL").or(z.literal("")),
-  portfolioUrl: z.string().url("Please enter a valid URL").or(z.literal("")),
+
+  linkedinUrl: z
+    .string()
+    .url("Please enter a valid URL")
+    .or(z.literal("")),
+
+  portfolioUrl: z
+    .string()
+    .url("Please enter a valid URL")
+    .or(z.literal("")),
+
   resume: z
     .instanceof(File)
-    .refine(
-      (file) => file?.size <= 2 * 1024 * 1024,
-      "File size must be less than 2MB"
-    )
-    .refine(
-      (file) => file?.type === "application/pdf",
-      "Only PDF files are accepted"
-    ),
+    .refine((file) => file?.size <= 2 * 1024 * 1024, "File size must be less than 2MB")
+    .refine((file) => file?.type === "application/pdf", "Only PDF files are accepted"),
+
   motivation: z
     .string()
-    .min(50, "Please write at least 50 words")
-    .max(500, "Please write at most 500 words"),
+    .min(50, "Please write at least 50 characters")  // You may need to validate word count manually if needed
+    .max(500, "Please write at most 500 characters"),
+
   consent: z.literal(true, {
     errorMap: () => ({ message: "You must agree to the terms and conditions" }),
   }),
 });
+
 const ApplicationForm = ({ selectedInternshipId }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [progress, setProgress] = useState(0);
