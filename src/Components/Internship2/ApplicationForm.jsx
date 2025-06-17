@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { INTERNSHIPS } from "./InternshipList";
-
 import {
   Form,
   FormControl,
@@ -20,10 +19,7 @@ import { Progress } from "../../UI/progress";
 import { AuthService } from "../../axios/User";
 import { notifySuccess } from "../../utility/Tostify/Tosts";
 import { notifyError } from "../../utility/Tostify/Tosts";
-
-
 const apiClass = new AuthService();
-
 const formSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
@@ -49,18 +45,16 @@ const formSchema = z.object({
     ),
   motivation: z
     .string()
-    .min(10, "Please write at least 50 words")
-    .max(50000, "Please write at most 500 words"),
+    .min(50, "Please write at least 50 words")
+    .max(500, "Please write at most 500 words"),
   consent: z.literal(true, {
     errorMap: () => ({ message: "You must agree to the terms and conditions" }),
   }),
 });
-
 const ApplicationForm = ({ selectedInternshipId }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [progress, setProgress] = useState(0);
   const [selectedFile, setSelectedFile] = useState(null);
-
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -78,22 +72,17 @@ const ApplicationForm = ({ selectedInternshipId }) => {
     },
     mode: "onBlur",
   });
-
   useState(() => {
     if (selectedInternshipId) {
       form.setValue("internships", [selectedInternshipId]);
     }
   });
-
   const onSubmit = (data) => {
     setIsSubmitting(true);
-
-
     let progressVal = 0;
     const interval = setInterval(() => {
       progressVal += 10;
       setProgress(progressVal);
-
       if (progressVal >= 100) {
         clearInterval(interval);
         setIsSubmitting(false);
@@ -104,21 +93,16 @@ const ApplicationForm = ({ selectedInternshipId }) => {
     }, 300);
     handleForm(data);
   };
-
  const handleForm = async (data) => {
   try {
-    
     const updatedData = {
       ...data,
       internshipSelection: data.internships.join(','),
       internships: undefined, 
     };
-
     console.log("Modified Form Data:", updatedData);
-
     const response = await apiClass.internshipFormSubmit(updatedData);
     console.log("Form submitted successfully:", response.data);
-
     if (response.status === 201) {
       notifySuccess("Form submitted successfully!");
     }
@@ -127,16 +111,15 @@ const ApplicationForm = ({ selectedInternshipId }) => {
     notifyError("Try again later");
   }
 };
-
-
   const handleFileChange = (event) => {
     const file = event.target.files?.[0];
+    console.log(file)
     if (file) {
       setSelectedFile(file);
       form.setValue("resume", file);
     }
+    console.log(selectedFile)
   };
-
   const yearOptions = [
     { value: "1", label: "1st Year" },
     { value: "2", label: "2nd Year" },
@@ -144,13 +127,10 @@ const ApplicationForm = ({ selectedInternshipId }) => {
     { value: "4", label: "4th Year" },
     { value: "5+", label: "5th Year or Above" },
   ];
-
   return (
     <section
-      
       id="apply"
       className={styles.section} 
-      
     >
       <div className={styles.header}>
         <h2
@@ -164,7 +144,6 @@ const ApplicationForm = ({ selectedInternshipId }) => {
           Fill out the form below to apply for your selected internship
           opportunity
         </p>
-
         <div
           className={styles.container2}
         >
@@ -173,7 +152,6 @@ const ApplicationForm = ({ selectedInternshipId }) => {
               onSubmit={form.handleSubmit(onSubmit)}
               className={styles.form}
             >
-              {/* Personal Information */}
               <div
                 className={styles.section2}
               >
@@ -182,7 +160,6 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                 }>
                   Personal Information  
                 </h3>
-
                 <FormField
                   control={form.control}
                   name="fullName"
@@ -196,7 +173,6 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                     </FormItem>
                   )}
                 />
-
                 <div
                   className={styles.gridTwoCols}
                 >
@@ -217,7 +193,6 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                       </FormItem>
                     )}
                   />
-
                   <FormField
                     control={form.control}
                     name="phoneNumber"
@@ -233,15 +208,12 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                   />
                 </div>
               </div>
-
-              {/* Education Information */}
               <div
                 className={styles.education}
               >
                 <h3 className={styles.educationText}>
                   Education
                 </h3>
-
                 <FormField
                   control={form.control}
                   name="university"
@@ -258,7 +230,6 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                     </FormItem>
                   )}
                 />
-
                 <div
                   className={styles.program}
                 >
@@ -278,7 +249,6 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                       </FormItem>
                     )}
                   />
-
                   <FormField
                     control={form.control}
                     name="yearOfStudy"
@@ -301,15 +271,11 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                   />
                 </div>
               </div>
-
-              {/* Additional sections */}
-              {/* Add similar inline styles for other sections */}
               <div className={styles.internshipGroup}>
                 <h3 className={styles.educationText
                 }>
                   Internship Selection
                 </h3>
-
                 <FormField
                   control={form.control}
                   name="internships"
@@ -333,9 +299,7 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                               return (
                                 <FormItem
                                   key={internship.id}
-
                                   className={styles.selectIntern}
-
                                 >
                                   <FormControl>
                                     <input
@@ -380,7 +344,6 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                   )}
                 />
               </div>
-
               <div
                 className={styles.additionalSection}
               >
@@ -410,7 +373,6 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                       </FormItem>
                     )}
                   />
-
                   <FormField
                     control={form.control}
                     name="portfolioUrl"
@@ -431,7 +393,6 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                     )}
                   />
                 </div>
-
                 <FormField
                   control={form.control}
                   name="resume"
@@ -451,7 +412,7 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                             type="file"
                             accept=".pdf"
                             onChange={handleFileChange}
-                            {...field}
+                            //{...field}
                             className={styles.fileInput}
                           />
                         </div>
@@ -465,7 +426,6 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                     </FormItem>
                   )}
                 />
-
                 <FormField
                   control={form.control}
                   name="motivation"
@@ -478,7 +438,6 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                       <FormControl>
                         <Textarea
                           placeholder="Tell us why you're interested in this internship and what you hope to achieve..."
-
                           style={{
                             minHeight: "120px",
                             border: "1px solid #ced4da",
@@ -502,7 +461,6 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                   )}
                 />
               </div>
-
               <FormField
                 control={form.control}
                 name="consent"
@@ -519,7 +477,6 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                       />
                     </FormControl>
                     <div
-
                       className={styles.checkboxText}
                     >
                       <FormLabel className={styles.checkboxLabel}>
@@ -534,7 +491,6 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                   </FormItem>
                 )}
               />
-
               {isSubmitting && (
                 <div className="space-y-2">
                   <Progress value={progress} className="w-full" />
@@ -543,7 +499,6 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                   </p>
                 </div>
               )}
-
               <button className={styles.button} onClick={() => { }}>
                 Submit Application
               </button>
@@ -554,5 +509,4 @@ const ApplicationForm = ({ selectedInternshipId }) => {
     </section>
   );
 };
-
 export default ApplicationForm;

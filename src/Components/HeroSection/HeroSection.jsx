@@ -11,7 +11,7 @@ function HeroSection() {
               <p>Empowering future leaders with cutting-edge data-driven learning and personalized placement solutions.</p>
             </div>
             <div className={styles.buttonContainer}>
-              <Link to="/courses" className={styles.button}>
+              <Link to="/signup" className={styles.button}>
                 Register
               </Link>
               {/* <div className={styles.button}>
