@@ -29,7 +29,7 @@ function HeroSection() {
               </div>
               <div className={styles.statsSection}>
                 <h1 className={styles.red}>10+</h1>
-                <span>Professional Trainers</span>
+                <span>Expert Mentors</span>
               </div>
             </div>
         </div>

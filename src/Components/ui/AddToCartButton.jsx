@@ -10,7 +10,7 @@ const AddToCartButton = ({ courseId }) => {
     try {
       const res = await addToCart(courseId);
       console.log("Add to cart response:", res);
-        if (res.status === "success" && res.success) {
+        if (res.success) {
             notifySuccess("Item added to cart successfully");
         } 
         else if(res.success && res.message == "Course already in cart"){
