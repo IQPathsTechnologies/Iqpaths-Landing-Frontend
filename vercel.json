@@ -1,7 +1,7 @@
 {
   "git": {
-    "deploymentEnabled": false,
-    "autoDeploy": false
+    "deploymentEnabled": true,
+    "autoDeploy": true
   },
   "rewrites": [
     {
