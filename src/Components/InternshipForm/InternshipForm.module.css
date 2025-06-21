@@ -88,6 +88,12 @@
 .main label{
     margin-bottom: -5px;
 }
+
+
+.required {
+  color: rgb(240, 114, 114);
+}
+
 .main button{
     height: 40px;
     width: 150px;

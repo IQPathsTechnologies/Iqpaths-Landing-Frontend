@@ -12,6 +12,14 @@ export class AllTypeOfSearch{
         catch(error){
             throw error;
         }
+    }
 
+    async getSuggestions(keyword) {
+        try {
+            const suggestionData = await axios.get(`/api/course-suggestions?keyword=${keyword}`);
+            return suggestionData;
+        } catch (error) {
+            throw error;
+        }
     }
 }

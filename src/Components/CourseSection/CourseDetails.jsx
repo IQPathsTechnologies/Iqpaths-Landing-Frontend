@@ -21,17 +21,50 @@ const CourseDetails = () => {
     // console.log(title, id);  
 
 
-
     const allReviews = [
-        { name: "Guy Hawkins", date: "October 03, 2022", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
-        { name: "Jacob Jones", date: "October 03, 2023", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
-        { name: "Laura Hipster", date: "October 03, 2024", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
-        { name: "Laura Hipster", date: "October 03, 2024", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
-        { name: "Laura Hipster", date: "October 03, 2024", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
-        { name: "Laura Hipster", date: "October 03, 2024", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
-        { name: "Laura Hipster", date: "October 03, 2024", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
-        { name: "Laura Hipster", date: "October 03, 2024", comment: "Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in." },
-    ];  
+  {
+    name: "Aman Verma",
+    date: "2025-05-10",
+    comment: "Iqpaths ka Data Structures course bahut achha tha."
+  },
+  {
+    name: "Shruti Sharma",
+    date: "2025-04-28",
+    comment: "Main ne Aptitude crash course liya tha placement ke liye. Bahut helpful raha."
+  },
+  {
+    name: "Rohit Singh",
+    date: "2025-03-18",
+    comment: "Web Development bootcamp beginner-friendly hai."
+  },
+  {
+    name: "Neha Kumari",
+    date: "2025-02-06",
+    comment: "Coding se dar rahi thi pehle, lekin confidence aaya."
+  },
+  {
+    name: "Arjun Yadav",
+    date: "2025-01-21",
+    comment: "Mock Interviews se kaafi help mili. Feedback genuine tha."
+  },
+  {
+    name: "Simran Kapoor",
+    date: "2024-12-17",
+    comment: "Python course projects ache level ke the."
+  },
+  {
+    name: "Vikas Chauhan",
+    date: "2024-11-11",
+    comment: "Resume building session practical tha."
+  },
+  {
+    name: "Riya Mehra",
+    date: "2024-10-03",
+    comment: "Course content updated hai, placement prep ke liye best."
+  }
+];
+
+
 
     const overallRating = [
         { stars: 5, percentage: 90 },
@@ -40,6 +73,14 @@ const CourseDetails = () => {
         { stars: 2, percentage: 2 },
         { stars: 1, percentage: 1 },
     ]
+
+    const colors = ["#F44336", "#E91E63", "#9C27B0", "#3F51B5", "#2196F3", "#009688", "#4CAF50", "#FF9800", "#795548"];
+
+
+    function getRandomColor(name) {
+      const charCodeSum = Array.from(name).reduce((sum, char) => sum + char.charCodeAt(0), 0);
+      return colors[charCodeSum % colors.length];
+    }
 
     const indexOfLastReview = currentPage * reviewsPerPage;
     const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
@@ -300,17 +341,24 @@ const CourseDetails = () => {
             </div>
           </div>
           <div className={styles.commentSection}>
-            {review?.map((review, index) => (
+            {currentReviews?.map((review, index) => (
               <div key={index} className={styles.comment}>
                 <div className={styles.commentHeader}>
-                  <img
+                  {/* <img
                     src="/user.png"
                     alt="User"
                     className={styles.commentAvatar}
-                  />
+                  /> */}
+                  <div
+                    className={styles.commentAvatar}
+                    style={{ backgroundColor: getRandomColor(review.name) }}
+                  >
+                    {review.name.charAt(0).toUpperCase()}
+                  </div>
+
                   <div className={styles.names}>
                     <h4 className={styles.commentName}>{review.name}</h4>
-                    <p className={styles.commentDate}>{new Date(review.updatedAt).toLocaleDateString()}</p>
+                    <p className={styles.commentDate}> {new Date(review.date).toLocaleDateString()} </p>
                   </div>
                 </div>
                 <p className={styles.commentText}>{review.comment}</p>
@@ -327,12 +375,11 @@ const CourseDetails = () => {
               disabled={currentPage === 1}
               className={styles.paginationButton}
             >
-              &lt; {/* Left Arrow (Backward) */}
+              &lt; 
             </button>
             <span className={styles.pageNumber}>{currentPage}</span>
             <span className={styles.totalPages}>
               / {Math.ceil(allReviews.length / reviewsPerPage)}{" "}
-              {/* Total Pages */}
             </span>
             <button
               onClick={() => paginate(currentPage + 1)}
@@ -341,7 +388,7 @@ const CourseDetails = () => {
               }
               className={styles.paginationButton}
             >
-              &gt; {/* Right Arrow (Forward) */}
+              &gt;
             </button>
           </div>
         </div>

@@ -92,6 +92,8 @@ const CourseFilter = ({ onCategoryChange, onFilterChange }) => {
 
   return (
     <div className={styles.coursesSection}>
+
+
       {/* Header Section */}
       <div className={styles.header}>
         <h1 className={styles.title}>{title}</h1>
@@ -102,6 +104,11 @@ const CourseFilter = ({ onCategoryChange, onFilterChange }) => {
           <p>FILTERS</p>
         </button>
       </div>
+
+
+      
+
+      
 
       {/* Category Tabs Section */}
       <div className={styles.categoryTabs}>
@@ -119,52 +126,7 @@ const CourseFilter = ({ onCategoryChange, onFilterChange }) => {
       </div>
 
       {/* Filter Dropdown */}
-      {isFilterDropdownOpen && (
-        <div className={styles.filterDropdown}>
-          {categories?.map((category, index) => (
-            <div key={index} className={styles.category}>
-              <div
-                className={styles.categoryHeader}
-                onClick={() => toggleCategory(category.name)}
-              >
-                <h3 className={styles.categoryTitle}>
-                  {category.name}
-                  <span className={styles.arrow}>
-                    {expandedCategories[category.name] ? "▲" : "▼"}
-                  </span>
-                </h3>
-              </div>
-              {expandedCategories[category.name] && (
-                <ul className={`${styles.subcategories} ${styles.open}`}>
-                  {category.subcategories.map((subcategory, subIndex) => (
-                    <li key={subIndex} className={styles.subcategory}>
-                      <label>
-                        <input
-                          type="checkbox"
-                          className={styles.checkbox}
-                          onChange={() =>
-                            handleCheckboxChange(category.name, subcategory)
-                          }
-                          checked={
-                            selectedFilters[category.name]?.includes(subcategory)
-                          }
-                        />
-                        {subcategory}
-                      </label>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-          <button
-            className={styles.applyFiltersButton}
-            onClick={applyFilters}
-          >
-            Apply Filters
-          </button>
-        </div>
-      )}
+      
     </div>
   );
 };

@@ -8,6 +8,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { AuthService } from '../../axios/User';
 import { UserContext } from "../../context/userContext";
 import { notifyWarning, notifyError } from "../../utility/Tostify/Tosts";
+import AddToCartButton from "../ui/AddToCartButton";
 
 
 const CourseSection = ({
@@ -327,9 +328,10 @@ const CourseSection = ({
             </div>
             <div className={styles.buyDetails}>
               <div className={styles.details}>
-                <button className={styles.cart} onClick={handleOpenPopup}>
+                {/* <button className={styles.cart} onClick={handleOpenPopup}>
                   <p> Add to cart </p>
-                </button>
+                </button> */}
+                <AddToCartButton courseId={courseId} />
 
                 <div className={styles.whishlist} onClick={addToWhishlist}>
 

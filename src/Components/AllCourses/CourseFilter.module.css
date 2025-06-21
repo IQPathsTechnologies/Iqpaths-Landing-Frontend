@@ -105,8 +105,11 @@
 
 /* Filter Dropdown */
 .filterDropdown {
+  border: 2px solid #0047B2;
   position: absolute;
-  right: 20px;
+  right: 9%;
+  /* bottom: 0; */
+  transform: translateY(-30px);
   background-color: #ffffff;
   border: 1px solid #ddd;
   border-radius: 10px;
