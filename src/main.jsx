@@ -30,6 +30,7 @@ import IndustryProject from './pages/IndustryProjects/IndustryProject';
 import InternshipForm from './pages/InternshipForm/InternshipForm';
 import InternPage from './pages/Internship2/InternPage';
 import { CartProvider } from './context/cartContext';
+import OAuthSuccess from './Components/loginSignup/OAuthSuccess';
 // import SignUpPopup from './Components/CourseSection/SignUpPopUp';
 
 
@@ -84,6 +85,11 @@ const router = createBrowserRouter([
         element: <LoginSignup />,
         loader: checkForLoginLoader
       },
+      {
+        path: '/oauth-success',
+        element: <OAuthSuccess />
+      },
+
       {
         path: '/cart',
         element: <CartPage />
