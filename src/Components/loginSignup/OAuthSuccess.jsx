@@ -8,11 +8,12 @@ const OAuthSuccess = () => {
     const redirectTo = urlParams.get("redirect") || "courses";
 
     if (token) {
-      axios.post("https://quiz.iqpaths.com/set-token", 
+      const res = axios.post("https://quiz.iqpaths.com/set-token", 
         { token },
         { withCredentials: true }
       )
       .then(() => {
+        console.log("Token set successfully", res);
         window.location.href = `/${redirectTo}`;
       })
       .catch((err) => {
