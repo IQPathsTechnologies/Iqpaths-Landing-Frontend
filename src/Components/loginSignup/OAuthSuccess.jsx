@@ -11,7 +11,7 @@ const OAuthSuccess = () => {
       if (token) {
         try {
           const res = await axios.post(
-            "https://quiz.iqpaths.com/set-token",
+            "https://localhost:8000/set-token",
             { token },
             { withCredentials: true }
           );
@@ -22,6 +22,7 @@ const OAuthSuccess = () => {
           // window.location.href = "/";
         }
       } else {
+        console.log("No token found in URL");
         window.location.href = "/";
       }
     };

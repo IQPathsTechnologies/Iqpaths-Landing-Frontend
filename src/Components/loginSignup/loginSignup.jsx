@@ -107,7 +107,7 @@ const LoginSignup = () => {
 
   const handleGoogleLogin = (formType) => {
     const redirectUrl = formType === "login" ? "login" : "signup";
-    window.location.href = `https://quiz.iqpaths.com/api/auth/google?redirect=${redirectUrl}`;
+    window.location.href = `http://localhost:8000/api/auth/google?redirect=${redirectUrl}`;
   };
 
 
