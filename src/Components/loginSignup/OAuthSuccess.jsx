@@ -16,10 +16,10 @@ const OAuthSuccess = () => {
             { withCredentials: true }
           );
           console.log("Token set successfully", res);
-          window.location.href = `/${redirectTo}`;
+          // window.location.href = `/${redirectTo}`;
         } catch (err) {
           console.error("Failed to set cookie:", err);
-          window.location.href = "/";
+          // window.location.href = "/";
         }
       } else {
         window.location.href = "/";
