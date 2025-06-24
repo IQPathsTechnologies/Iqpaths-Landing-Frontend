@@ -107,7 +107,7 @@ const LoginSignup = () => {
 
   const handleGoogleLogin = (formType) => {
     const redirectUrl = formType === "login" ? "login" : "signup";
-    window.location.href = `http://localhost:8000/api/auth/google?redirect=${redirectUrl}`;
+    window.location.href = `https://stagingiqpathscom.vercel.app/api/auth/google?redirect=${redirectUrl}`;
   };
 
 
