@@ -21,7 +21,15 @@ function App() {
     const token = urlParams.get("token");
 
     if (token) {
-      localStorage.setItem("accessToken", token); // Save token in localStorage
+      localStorage.setItem("accessToken", token); // Save access token in localStorage
+      document.cookie = `accessToken=${token}; path=/;`;
+
+      const refreshToken = urlParams.get("refreshToken");
+      if (refreshToken) {
+        localStorage.setItem("refreshToken", refreshToken); // Save refresh token in localStorage
+        document.cookie = `refreshToken=${refreshToken}; path=/;`;
+      }
+
       navigate("/home"); // Redirect to home
     }
   }, [navigate]);
