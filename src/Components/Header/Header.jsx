@@ -1,16 +1,17 @@
-import React, { useState, useEffect, useContext, lazy } from 'react';
-import { NavLink, redirect, useNavigate } from 'react-router-dom';
-import styles from './Header.module.css';
+import React, { useState, useEffect, useContext, lazy } from "react";
+import { NavLink, redirect, useNavigate } from "react-router-dom";
+import styles from "./Header.module.css";
 import SignUpPopup from "../CourseSection/SignUpPopup";
-import { UserContext } from '../../context/userContext';
-import { AuthService } from '../../axios/User';
-import { LogOut, ShoppingCart } from 'lucide-react';
+import { UserContext } from "../../context/userContext";
+import { AuthService } from "../../axios/User";
+import { LoaderCircle, LogOut, ShoppingCart } from "lucide-react";
 
 const Header = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [popupType, setPopupType] = useState("");
   const [isSideBarVisible, setIsSideBarVisible] = useState(false);
   const [userDetails, setUserDetails] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
 
@@ -29,24 +30,38 @@ const Header = () => {
   ];
   const navigate = useNavigate();
   const handleLogout = async () => {
-    navigate('/logout');
+    setIsLoading(true);
+    try {
+      await apiClass.logout();
+      setIsLoggedIn(false);
+      notifySuccess("Logged out successfully");
+
+      // Redirect to the login page
+    } catch (error) {
+      // Log the error for debugging
+      console.error("Logout failed", error);
+      // Optionally provide feedback to the user
+      notifyError("An error occurred while logging out. Please try again.");
+    }
+    finally
+    {
+      setIsLoading(false);
+      navigate("/");
+    }
   };
 
-
   useEffect(() => {
-      const fetchUserDetails = async () => {
-        try {
-          const response = await apiClass.getUserDetails();
-          // console.log('ProfilePage :: fetchUserDetails :: response', response);
-          setUserDetails(response.user);
-        } catch (error) {
-          console.error("ProfilePage :: fetchUserDetails", error);
-        }
-      };
-      fetchUserDetails();
-    }, []);
-
-
+    const fetchUserDetails = async () => {
+      try {
+        const response = await apiClass.getUserDetails();
+        // console.log('ProfilePage :: fetchUserDetails :: response', response);
+        setUserDetails(response.user);
+      } catch (error) {
+        console.error("ProfilePage :: fetchUserDetails", error);
+      }
+    };
+    fetchUserDetails();
+  }, []);
 
   const handleClosePopup = () => {
     setIsPopupVisible(false);
@@ -75,14 +90,13 @@ const Header = () => {
     checkUser();
   }, []);
 
-
   const openSideBar = () => {
     setIsSideBarVisible(true);
   };
 
   const closeSideBar = () => {
     setIsSideBarVisible(false);
-  }
+  };
 
   return (
     <>
@@ -105,10 +119,7 @@ const Header = () => {
               </li>
             ))}
 
-            <li
-              className={`${styles.hamburgerMenu}`}
-              onClick={openSideBar}
-            >
+            <li className={`${styles.hamburgerMenu}`} onClick={openSideBar}>
               <img src="./hamburgerMenu.svg" alt="" />
             </li>
           </ul>
@@ -118,11 +129,9 @@ const Header = () => {
             {isLoggedIn ? (
               <div className={styles.authButtons}>
                 <NavLink to="/cart" className={styles.link}>
-
                   <div className={styles.nacircle}>
                     <div className={styles.svg}>
                       <ShoppingCart size={30} />
-
                     </div>
                   </div>
                 </NavLink>
@@ -130,15 +139,18 @@ const Header = () => {
                   <div className={`${styles.nacircle} ${styles.naProfile}`}>
                     <img
                       id="profileImage"
-                      src={userDetails?.profilePhoto ? userDetails.profilePhoto : `/dummyProfilePhoto.jpg`}
+                      src={
+                        userDetails?.profilePhoto
+                          ? userDetails.profilePhoto
+                          : `/dummyProfilePhoto.jpg`
+                      }
                       alt="Profile"
                       className={styles.profilephoto}
                       onClick={toggleDropdown}
                       loading="lazy"
                     />
-
                   </div>
-                    {/* {isDropdownVisible && (
+                  {/* {isDropdownVisible && (
                       <div id="dropdownMenu" className={styles.dropdownMenu}>
                         <ul className={styles.dropdownMenuul}>
                           <NavLink to="/profile" className={styles.link}>
@@ -152,13 +164,10 @@ const Header = () => {
                     )} */}
                 </NavLink>
                 <NavLink to="/logout" className={styles.link}>
-
-                  <div className={`${styles.nacircle} `}>
-                      {/* <img src="/logout.png" alt="Logout" /> */}
-                      <LogOut size={30} />
+                  <div className={`${styles.nacircle} `} onClick={handleLogout}>
+                    {isLoading ? <LoaderCircle /> : <LogOut size={30} />}
                   </div>
                 </NavLink>
-
               </div>
             ) : (
               <div className={styles.authButtons}>
@@ -193,7 +202,11 @@ const Header = () => {
                 <img src="./HamburgerClose.svg" alt="" />
               </li>
               {navItems?.map((tab) => (
-                <li key={tab.name} className={styles.navItemSideBar} onClick={closeSideBar}>
+                <li
+                  key={tab.name}
+                  className={styles.navItemSideBar}
+                  onClick={closeSideBar}
+                >
                   <NavLink
                     to={tab.link}
                     className={({ isActive }) =>
@@ -208,14 +221,20 @@ const Header = () => {
           </nav>
           {isLoggedIn ? (
             <div>
-              <NavLink to="/profile" className={styles.link} onClick={closeSideBar}>
+              <NavLink
+                to="/profile"
+                className={styles.link}
+                onClick={closeSideBar}
+              >
                 <div className={styles.btnSideBar}>Profile</div>
               </NavLink>
-              <div className={`${styles.btnSideBar} ${styles.loginBtn}`} onClick=
-                {() => {
+              <div
+                className={`${styles.btnSideBar} ${styles.loginBtn}`}
+                onClick={() => {
                   handleLogout();
                   closeSideBar();
-                }}>
+                }}
+              >
                 Logout
               </div>
             </div>
