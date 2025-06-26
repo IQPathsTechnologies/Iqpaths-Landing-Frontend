@@ -163,11 +163,11 @@ const Header = () => {
                       </div>
                     )} */}
                 </NavLink>
-                <NavLink to="/logout" className={styles.link}>
+                {/* <NavLink to="/logout" className={styles.link}> */}
                   <div className={`${styles.nacircle} `} onClick={handleLogout}>
                     {isLoading ? <LoaderCircle /> : <LogOut size={30} />}
                   </div>
-                </NavLink>
+                {/* </NavLink> */}
               </div>
             ) : (
               <div className={styles.authButtons}>
