@@ -4,7 +4,7 @@ This is the frontend codebase for the official landing page of [IQPath](https://
 
 ## Live Site
 
-https://iqpaths.com
+https://iqpaths.com 
 
 Hosted on: Vercel  
 Branch: main
