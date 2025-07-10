@@ -70,7 +70,7 @@ const Footer = () => {
             </div>     
         </footer>
         <hr className={styles.footerDivider} />
-        <p className={styles.copyright}>Copyright © 2025 IQpaths - All Rights Reserved</p>
+        <p className={styles.copyright}>Copyright © 2025 IQ Paths Technologies Private Limited - All Rights Reserved</p>
         </div>
     );
 };

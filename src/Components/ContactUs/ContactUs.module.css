@@ -1,9 +1,9 @@
 .container {
     /* max-width: 500px; */
-    width: 70%;
+    width: 40%;
     margin: 0 auto;
-    margin-top: 100px;
-    padding: 20px;
+    /* margin-top: 100px; */
+    padding: 10px 20px;
     text-align: center;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -29,7 +29,7 @@
 
 .subtitle {
     font-style: "Lexend", sans-serif;
-    font-size: 50px;
+    font-size: 30px;
     font-weight: 700;
     color: #252B42;
     margin-top: 0px;
@@ -47,7 +47,8 @@
 
 .inputs {
     display: flex;
-    justify-content: center;
+    justify-content: column;
+    flex-direction: column;
     /* align-items: center; */
     gap: 20px;
     /* border: 2px solid green; */
@@ -73,6 +74,7 @@
 .selects {
     /* width: 350px; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     /* align-items: center; */
     gap: 20px;
@@ -279,7 +281,7 @@
     }
     .inputs {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
     }
     .selects {
         display: flex;
@@ -307,14 +309,14 @@
 @media screen and (max-width: 1439px) and (min-width: 1024px) {
     .container {
         width: 80%;
-        margin-top: 120px;
+        /* margin-top: 120px; */
         padding: 40px;
     }
     .title {
         font-size: 36px;
     }
     .subtitle {
-        font-size: 55px;
+        font-size: 35px;
     }
     .input, .select {
         width: 450px;
@@ -338,15 +340,15 @@
 
 @media screen and (min-width: 1440px) {
     .container {
-        width: 80%;
-        margin-top: 120px;
-        padding: 40px;
+        width: 30%;
+        /* margin-top: 120px; */
+        padding: 10px 40px;
     }
     .title {
         font-size: 36px;
     }
     .subtitle {
-        font-size: 55px;
+        font-size: 35px;
     }
     .input, .select {
         width: 450px;
@@ -358,7 +360,7 @@
         width: 405px;
     }
     .textarea {
-        width: 70%;
+        /* width: 70%; */
         height: 160px;
         /* border: 2px solid red; */
     }
@@ -366,4 +368,156 @@
         width: 320px;
         font-size: 24px;
     }
+}
+
+.mainContainer{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: start;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.contactUsContainer {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #f5f7fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.contactUsHeader {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contactUsHeader img {
+  width: 150px;
+  padding: 0px;
+  /* margin-bottom: 10px; */
+}
+
+.contactUsHeader h1 {
+  color: #003366;
+  font-size: 26px;
+}
+
+.contactUsAddress {
+  background: #dbe9f6;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  font-size: 16px;
+  color: #003366;
+}
+
+.contactUsInfoSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.contactUsCard {
+  flex: 1;
+  min-width: 200px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contactUsCard h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #003366;
+}
+
+.contactUsCard a,
+.contactUsCard p {
+  margin-top: 5px;
+  font-size: 15px;
+  color: #555;
+  text-decoration: none;
+}
+
+.contactUsCard a:hover {
+  text-decoration: underline;
+}
+
+
+/* Desktop to Tablet */
+@media screen and (max-width: 1024px) {
+  .mainContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container, .contactUsContainer {
+    width: 90%;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 26px;
+  }
+
+  .input, .select, .textarea {
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Tablet to Mobile Landscape */
+@media screen and (max-width: 768px) {
+  .contactUsInfoSection {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contactUsCard {
+    min-width: 100%;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .subtitle {
+    font-size: 24px;
+  }
+
+  .contactUsHeader h1 {
+    font-size: 22px;
+  }
+}
+
+/* Mobile Portrait */
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 22px;
+  }
+
+  .contactUsHeader h1 {
+    font-size: 20px;
+  }
+
+  .button {
+    font-size: 16px;
+    padding: 10px;
+  }
 }

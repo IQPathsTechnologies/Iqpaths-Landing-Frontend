@@ -20,6 +20,11 @@ const lectureHeader = ({
     .filter((segment) => segment);
 
   const handleBreadcrumbClick = (index) => {
+    // If the first segment is 'view-lectures', navigate to '/my-learnings'
+    if (pathSegments[0] === "view-lectures") {
+      navigate("/my-learnings");
+      return;
+    }
     // Generate the path for the clicked breadcrumb
     const pathToNavigate = `/${pathSegments.slice(0, index + 1).join("/")}`;
     navigate(pathToNavigate);
@@ -68,6 +73,7 @@ const lectureHeader = ({
               className={index === pathSegments.length - 1 ? styles.active : ""}
             >
               {decodeURIComponent(segment)}
+              {console.log("segment", segment)}
             </span>
           </React.Fragment>
         ))}

@@ -73,9 +73,11 @@ const Lecture = () => {
   }
 
   const PrevLecture = async (lectureId) => {
+
+    console.log("lectureId is", lectureId);
     try{
       const prevLectureId = await apiClass.getPrevLecture(lectureId);
-      // console.log("prev lecture is", prevLectureId);
+      console.log("prev lecture is", prevLectureId);
 
       if(prevLectureId !== "no prev lec"){
         const response = await apiClass.getLectureDetails(prevLectureId);
