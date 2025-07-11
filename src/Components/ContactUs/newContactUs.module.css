@@ -1,0 +1,93 @@
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  background-color: #fefefe;
+}
+
+.companyInfo {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.logo {
+  width: 140px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.companyInfo h1 {
+  font-size: 24px;
+  color: #2c3e50;
+}
+
+.companyInfo p {
+  margin: 8px 0;
+  color: #555;
+}
+
+.companyInfo a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.companyInfo a:hover {
+  text-decoration: underline;
+}
+
+.formSection {
+  flex: 1 1 300px;
+}
+
+.formSection h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form input,
+.form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form button {
+  padding: 14px;
+  background-color: #0077cc;
+  color: white;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: #005fa3;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
