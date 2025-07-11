@@ -11,7 +11,7 @@ const Course = () => {
             {/* <Location /> */}
             <newContactUs />
             {/* <Location /> */}
-            <NewsletterSection />
+            {/* <NewsletterSection /> */}
         </div>
     );
 };

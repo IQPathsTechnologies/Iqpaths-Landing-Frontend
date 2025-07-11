@@ -1,79 +1,92 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import styles from "./ContactUs.module.css";
+import styles from "./newContactUs.module.css";
 import { AuthService } from "../../axios/User";
-
+import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaGlobe } from "react-icons/fa";
+import { notifySuccess, notifyError } from "../../utility/Tostify/Tosts";
 
 const ContactUs = () => {
-
   const [bookingResponse, setBookingResponse] = useState(null);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
-
-
-    const apiClass = new AuthService();
+  const apiClass = new AuthService();
 
   const handleContactUsSubmit = async (data) => {
-    const resposne = await apiClass.contactUsFormSubmit(data);
-    if(resposne.status === 201){ 
-      setBookingResponse("Appointment Booked Successfully");
-    }
 
-    // setBookingResponse(resposne.);
-    // console.log("Response:", resposne);
+    // console.log("Form Data:", data);
+    const response = await apiClass.contactUsFormSubmit(data);
+    if (response.status === 201) {
+      setBookingResponse("Appointment Booked Successfully");
+      notifySuccess("Thank you for reaching out!");
+      reset();
+    } else {
+      setBookingResponse("Something went wrong. Please try again.");
+      notifyError("Failed to submit the form. Please try again.");
+    }
   };
 
-
   const onSubmit = (data) => {
-      // console.log("Form Data:", data);
-      handleContactUsSubmit(data);
+    handleContactUsSubmit(data);
   };
 
   return (
-    <div className={styles.mainContainer}>
-    <div className={styles.contactUsContainer}>
-      <div className={styles.contactUsHeader}>
-        <img  src="./newLogo.svg" alt="IQPaths Logo" />
-        <h1>INTELLECT QUEST PATHS TECHNOLOGIES PRIVATE LIMITED</h1>
-      </div>
+    <div className={styles.pageWrapper}>
+      <div className={styles.container}>
+        {/* Left Side: Company Details */}
+        <div className={styles.companyCard}>
+          <div className={styles.logoSection}>
+            <img src="/logo.png" alt="IQPaths Logo" className={styles.logo} />
+            <h1>IQ Paths Technologies</h1>
+            <span className={styles.tagline}>
+              INTELLECT QUEST PATHS TECHNOLOGIES PRIVATE LIMITED
+            </span>
+          </div>
 
-      <div className={styles.contactUsAddress}>
-        Flat No. 301, 74, Pricanco Colony, Sudama Nagar, Indore, Indore-452009, M.P
-      </div>
+          <div className={styles.infoGroup}>
+            <FaMapMarkerAlt className={styles.icon} style={{ marginTop: "10px"}} />
+            <p>
+              Flat No. 301, 74, Pricanco Colony, Sudama Nagar, Indore,
+              Indore-452009, M.P
+            </p>
+          </div>
 
-      <div className={styles.contactUsInfoSection}>
-        <div className={styles.contactUsCard}>
-          <h3>Website</h3>
-          <a href="https://www.iqpaths.com" target="_blank" rel="noopener noreferrer">
-            www.iqpaths.com
-          </a>
+          <div className={styles.infoGroup}>
+            <FaGlobe className={styles.icon} />
+            <a
+              href="http://www.iqpaths.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              www.iqpaths.com
+            </a>
+          </div>
+
+          <div className={styles.infoGroup}>
+            <FaEnvelope className={styles.icon} />
+            <a href="mailto:Sanket.iqpaths@gmail.com">Sanket.iqpaths@gmail.com</a>
+          </div>
+
+          <div className={styles.infoGroup}>
+            <FaPhoneAlt className={styles.icon} />
+            <span>+91 8120390205</span>
+          </div>
         </div>
 
-        <div className={styles.contactUsCard}>
-          <h3>Email</h3>
-          <p>Sanket.iqpaths@gmail.com</p>
-        </div>
+        {/* Right Side: Functional Contact Form */}
+        <div className={styles.formCard}>
+          <h2>Contact Us</h2>
 
-        <div className={styles.contactUsCard}>
-          <h3>Phone</h3>
-          <p>+91 8120390205</p>
-        </div>
-      </div>
-    </div>
-    <div className={styles.container}>
-      <h2 className={styles.title}>Contact Us</h2>
-      <h3 className={styles.subtitle}>Make an Appointment</h3>
-      <div className={styles.forms}>
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles.inputs}>
+          <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <input
               type="text"
-              placeholder="Full Name *"
-              {...register("fullName", { required: "Full Name is required" })}
+              placeholder="Your Name *"
+              {...register("fullName", { required: "Name is required" })}
               className={styles.input}
             />
             {errors.fullName && (
@@ -82,7 +95,7 @@ const ContactUs = () => {
 
             <input
               type="email"
-              placeholder="Email *"
+              placeholder="Your Email *"
               {...register("email", {
                 required: "Email is required",
                 pattern: {
@@ -95,60 +108,26 @@ const ContactUs = () => {
             {errors.email && (
               <span className={styles.error}>{errors.email.message}</span>
             )}
-          </div>
 
-          <div className={styles.selects}>
-            <select
-              {...register("category", { required: "Category is required" })}
-              className={styles.select}
-              defaultValue=""
-            >
-              <option value="" disabled>
-                Please Select
-              </option>
-              <option value="Courses">Courses</option>
-              <option value="Internship">Internship</option>
-              <option value="Placement Preparation">Placement Preparation</option>
-            </select>
-            {errors.category && (
-              <span className={styles.error}>{errors.category.message}</span>
+            <textarea
+              placeholder="Your Message *"
+              {...register("message", { required: "Message is required" })}
+              className={styles.textarea}
+            />
+            {errors.message && (
+              <span className={styles.error}>{errors.message.message}</span>
             )}
 
-            <select
-              {...register("time", { required: "Time is required" })}
-              className={styles.select}
-              defaultValue=""
-            >
-              <option value="" disabled>
-                Select Time
-              </option>
-              <option value="4:00">4:00 PM</option>
-              <option value="5:00">5:00 PM</option>
-            </select>
-            {errors.time && (
-              <span className={styles.error}>{errors.time.message}</span>
+            {bookingResponse && (
+              <span className={styles.success}>{bookingResponse}</span>
             )}
-          </div>
 
-          <textarea
-            placeholder="Message"
-            {...register("message", { required: "Message is required" })}
-            className={styles.textarea}
-          ></textarea>
-          {errors.message && (
-            <span className={styles.error}>{errors.message.message}</span>
-          )}
-
-          {bookingResponse && (
-            <span className={styles.success}>{bookingResponse}</span>
-          )}
-
-          <button type="submit" className={styles.button}>
-            Book Appointment
-          </button>
-        </form>
+            <button type="submit" className={styles.button}>
+              Send Message
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
