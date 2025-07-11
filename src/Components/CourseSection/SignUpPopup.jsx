@@ -13,7 +13,7 @@ const SignUpPopup = ({ onClose }) => {
         <div className={styles.leftSection}>
         {/* Header Section */}
         <div className={styles.header}>
-          <img src="/logo.svg" alt="Logo" className={styles.logo} />
+          <img src="/newLogo.svg" alt="Logo" className={styles.logo} />
           <button className={styles.closeButton} onClick={onClose}>
             &times;
           </button>

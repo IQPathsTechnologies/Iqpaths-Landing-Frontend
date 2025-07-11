@@ -102,7 +102,7 @@ const Header = () => {
     <>
       <header className={styles.header}>
         <div className={styles.logo}>
-          <img src="/logo.svg" alt="Paths Logo" className={styles.logoImage} />
+          <img src="/newLogo.svg" alt="Paths Logo" className={styles.logoImage} />
         </div>
         <nav className={styles.navbar}>
           <ul className={styles.navList}>
