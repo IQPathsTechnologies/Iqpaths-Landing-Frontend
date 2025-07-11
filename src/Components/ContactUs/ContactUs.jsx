@@ -37,7 +37,7 @@ const ContactUs = () => {
     <div className={styles.mainContainer}>
     <div className={styles.contactUsContainer}>
       <div className={styles.contactUsHeader}>
-        <img  src="./newLogo.svg" alt="IQPaths Logo" style={{ transform: "rotate(270deg)" }}/>
+        <img  src="./newLogo.svg" alt="IQPaths Logo" />
         <h1>INTELLECT QUEST PATHS TECHNOLOGIES PRIVATE LIMITED</h1>
       </div>
 
