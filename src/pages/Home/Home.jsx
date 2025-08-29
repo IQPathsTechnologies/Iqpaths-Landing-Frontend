@@ -7,6 +7,7 @@ import Mentor from '../../Components/Mentors/Mentor';
 //import Collaborator from '../../Components/Collaborator/Collaborator';
 import Testimonials from '../../Components/Testimonials/Testimonials';
 import NewsletterSection from '../../Components/AllCourses/NewsletterSection'
+import SuccessCard from '../../Components/Event/SuccessCard';
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <HeroSection />
             <Service />
             <BeniftsSection />
+            <SuccessCard />
             <Banner />
             <Mentor />
             {/* <Collaborator /> */}
