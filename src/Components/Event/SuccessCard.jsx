@@ -3,7 +3,7 @@ import './SuccessCard.css';
 
 function SuccessCard() {
   return (
-    <div className="success-card">
+    <div className="success-card success-card-body">
       <div className="content-section">
         <div className="badge">Success Story</div>
         <h2 className="title">Revolutionary AI Platform Launch</h2>
