@@ -44,31 +44,44 @@ const SuccessCard = () => {
       <div className="success-card">
         <div className="content-section">
           <div className="badge">Success Story</div>
-          <h2 className="title">Revolutionary AI Platform Launch</h2>
+          <h2 className="title">AI/ML Bootcamp Completion</h2>
           <p className="description">
-            Our groundbreaking AI platform has transformed how businesses
-            approach automation and intelligence. With cutting-edge machine
-            learning algorithms and intuitive user interfaces, we've empowered
-            over 10,000 companies to streamline their operations and boost
-            productivity by an average of 40%.
+            Our 2-day free AI/ML Bootcamp successfully introduced aspiring
+            learners to the foundations of Machine Learning and Artificial
+            Intelligence. Through interactive sessions, hands-on practice, and
+            real-world insights, participants gained clarity on core ML concepts
+            and their applications. The program created an engaging environment
+            where beginners could confidently take their first step toward
+            AI-driven careers.
           </p>
 
           <div className="metrics">
             <div className="metric">
-              <span className="metric-value">10K+</span>
-              <div className="metric-label">Active Users</div>
+              <span className="metric-value">500+</span>
+              <div className="metric-label">Participants Joined</div>
             </div>
             <div className="metric">
-              <span className="metric-value">40%</span>
-              <div className="metric-label">Efficiency Boost</div>
+              <span className="metric-value">85%</span>
+              <div className="metric-label">Found It Highly Valuable</div>
             </div>
             <div className="metric">
-              <span className="metric-value">98%</span>
-              <div className="metric-label">Satisfaction</div>
+              <span className="metric-value">90%</span>
+              <div className="metric-label">Interested in Advanced Courses</div>
             </div>
           </div>
 
-          <div className="date">Achievement Date: March 2024</div>
+          <div className="date">Achievement Date: August 2025</div>
+          <div className="location">
+            Location: Online
+            <button
+              className="youtube-button"
+              onClick={() =>
+                window.open("https://www.youtube.com/@IQPaths", "_blank")
+              }
+            >
+              Visit YouTube
+            </button>
+          </div>
         </div>
 
         <div className="image-section">
