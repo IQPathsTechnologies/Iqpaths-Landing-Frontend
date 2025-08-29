@@ -71,7 +71,7 @@ const SuccessCard = () => {
           </div>
 
           <div className="date">Achievement Date: August 2025</div>
-          <div className="location">
+          <div className="date">
             Location: Online
             <button
               className="youtube-button"
