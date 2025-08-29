@@ -42,7 +42,34 @@ const SuccessCard = () => {
   return (
     <div className="success-card-container">
       <div className="success-card">
-        {/* ... content-section same as before ... */}
+        <div className="content-section">
+          <div className="badge">Success Story</div>
+          <h2 className="title">Revolutionary AI Platform Launch</h2>
+          <p className="description">
+            Our groundbreaking AI platform has transformed how businesses
+            approach automation and intelligence. With cutting-edge machine
+            learning algorithms and intuitive user interfaces, we've empowered
+            over 10,000 companies to streamline their operations and boost
+            productivity by an average of 40%.
+          </p>
+
+          <div className="metrics">
+            <div className="metric">
+              <span className="metric-value">10K+</span>
+              <div className="metric-label">Active Users</div>
+            </div>
+            <div className="metric">
+              <span className="metric-value">40%</span>
+              <div className="metric-label">Efficiency Boost</div>
+            </div>
+            <div className="metric">
+              <span className="metric-value">98%</span>
+              <div className="metric-label">Satisfaction</div>
+            </div>
+          </div>
+
+          <div className="date">Achievement Date: March 2024</div>
+        </div>
 
         <div className="image-section">
           <div className="image-container">
