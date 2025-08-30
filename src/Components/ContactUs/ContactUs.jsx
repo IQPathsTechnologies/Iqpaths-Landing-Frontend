@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./newContactUs.module.css";
 import { AuthService } from "../../axios/User";
-import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaGlobe } from "react-icons/fa";
+import {
+  FaMapMarkerAlt,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaGlobe,
+} from "react-icons/fa";
 import { notifySuccess, notifyError } from "../../utility/Tostify/Tosts";
 
 const ContactUs = () => {
@@ -18,7 +23,6 @@ const ContactUs = () => {
   const apiClass = new AuthService();
 
   const handleContactUsSubmit = async (data) => {
-
     // console.log("Form Data:", data);
     const response = await apiClass.contactUsFormSubmit(data);
     if (response.status === 201) {
@@ -49,7 +53,10 @@ const ContactUs = () => {
           </div>
 
           <div className={styles.infoGroup}>
-            <FaMapMarkerAlt className={styles.icon} style={{ marginTop: "10px"}} />
+            <FaMapMarkerAlt
+              className={styles.icon}
+              style={{ marginTop: "10px" }}
+            />
             <p>
               Flat No. 301, 74, Pricanco Colony, Sudama Nagar, Indore,
               Indore-452009, M.P
@@ -69,7 +76,14 @@ const ContactUs = () => {
 
           <div className={styles.infoGroup}>
             <FaEnvelope className={styles.icon} />
-            <a href="mailto:Sanket.iqpaths@gmail.com">Sanket.iqpaths@gmail.com</a>
+            <a href="mailto:info@iqpaths.com">info@iqpaths.com</a>
+          </div>
+
+          <div className={styles.infoGroup}>
+            <FaEnvelope className={styles.icon} />
+            <a href="mailto:iqpathstechnologies@gmail.com">
+              iqpathstechnologies@gmail.com
+            </a>
           </div>
 
           <div className={styles.infoGroup}>
