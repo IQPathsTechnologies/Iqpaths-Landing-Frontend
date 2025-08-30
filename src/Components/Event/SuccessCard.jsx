@@ -1,4 +1,11 @@
 import React, { useState } from "react";
+
+import Bootcamp from "../../assets/successStroy/Bootcamp.png";
+import Certificate from "../../assets/successStroy/Certificate.png";
+import lacture from "../../assets/successStroy/lacture.png";
+import lacture1 from "../../assets/successStroy/lacture1.png";
+import lacture2 from "../../assets/successStroy/lacture2.png";
+import AIML from "../../assets/successStroy/AIML.png";
 import "./SuccessCard.css";
 
 const SuccessCard = () => {
@@ -14,27 +21,27 @@ const SuccessCard = () => {
 
   const thumbnails = [
     {
-      src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      src: Bootcamp,
       alt: "Team meeting",
     },
     {
-      src: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      src: Certificate,
       alt: "Office workspace",
     },
     {
-      src: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      src: lacture,
       alt: "Technology dashboard",
     },
     {
-      src: "https://images.unsplash.com/photo-1553028826-f4804a6dfd3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      src: lacture1,
       alt: "Business presentation",
     },
     {
-      src: "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      src: lacture2,
       alt: "Team celebration",
     },
     {
-      src: "https://images.unsplash.com/photo-1556155092-8707de31f9c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      src: AIML,
       alt: "Innovation lab",
     },
   ];
@@ -87,12 +94,12 @@ const SuccessCard = () => {
         <div className="image-section">
           <div className="image-container">
             <img
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+              src={Bootcamp}
               alt="Team collaboration"
               className="main-image"
             />
             <img
-              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+              src={Certificate}
               alt="Technology innovation"
               className="hover-image"
             />
