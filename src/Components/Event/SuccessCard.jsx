@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 import Bootcamp from "../../assets/successStroy/Bootcamp.png";
-import Certificate from "../../assets/successStroy/Certificate.png";
+import Certificate from "../../assets/successStroy/certifacate.png";
 import lacture from "../../assets/successStroy/lacture.png";
 import lacture1 from "../../assets/successStroy/lacture1.png";
 import lacture2 from "../../assets/successStroy/lacture2.png";
-import AIML from "../../assets/successStroy/AIML.png";
+import AIML from "../../assets/successStroy/AIML.jpeg";
 import "./SuccessCard.css";
 
 const SuccessCard = () => {
