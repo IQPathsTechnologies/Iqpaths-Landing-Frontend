@@ -189,7 +189,7 @@ const CourseDetails = () => {
                     </div>
                     <div className={styles.button}>
                       <button className={styles.previewButton}>
-                         {lesson.preview ? "Preview - Free Lecture" : "LIVE"}
+                        {lesson.preview ? "Preview" : "LIVE"}
                       </button>
                       <span className={styles.lessonTime}>{lesson.duration} lecture</span>
                       {lesson.preview && (
