@@ -7,7 +7,7 @@ import VideoPop from "./VideoPop";
 const CourseDetails = () => {
   const [activeTab, setActiveTab] = useState("Overview");
   const [openDropdown, setOpenDropdown] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1); // State to manage current page of reviews
+  const [currentPage, setCurrentPage] = useState(1);
   const [courseDetails, setCourseDetails] = useState([]);
   const [review, setReview] = useState([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -17,50 +17,17 @@ const CourseDetails = () => {
   const reviewsPerPage = 3;
 
   const { title, id } = useParams();
-  // console.log(title, id);
+  const apiClass = new AuthService();
 
   const allReviews = [
-    {
-      name: "Aman Verma",
-      date: "2025-05-10",
-      comment: "Iqpaths ka Data Structures course bahut achha tha.",
-    },
-    {
-      name: "Shruti Sharma",
-      date: "2025-04-28",
-      comment:
-        "Main ne Aptitude crash course liya tha placement ke liye. Bahut helpful raha.",
-    },
-    {
-      name: "Rohit Singh",
-      date: "2025-03-18",
-      comment: "Web Development bootcamp beginner-friendly hai.",
-    },
-    {
-      name: "Neha Kumari",
-      date: "2025-02-06",
-      comment: "Coding se dar rahi thi pehle, lekin confidence aaya.",
-    },
-    {
-      name: "Arjun Yadav",
-      date: "2025-01-21",
-      comment: "Mock Interviews se kaafi help mili. Feedback genuine tha.",
-    },
-    {
-      name: "Simran Kapoor",
-      date: "2024-12-17",
-      comment: "Python course projects ache level ke the.",
-    },
-    {
-      name: "Vikas Chauhan",
-      date: "2024-11-11",
-      comment: "Resume building session practical tha.",
-    },
-    {
-      name: "Riya Mehra",
-      date: "2024-10-03",
-      comment: "Course content updated hai, placement prep ke liye best.",
-    },
+    { name: "Aman Verma", date: "2025-05-10", comment: "Iqpaths ka Data Structures course bahut achha tha." },
+    { name: "Shruti Sharma", date: "2025-04-28", comment: "Main ne Aptitude crash course liya tha placement ke liye. Bahut helpful raha." },
+    { name: "Rohit Singh", date: "2025-03-18", comment: "Web Development bootcamp beginner-friendly hai." },
+    { name: "Neha Kumari", date: "2025-02-06", comment: "Coding se dar rahi thi pehle, lekin confidence aaya." },
+    { name: "Arjun Yadav", date: "2025-01-21", comment: "Mock Interviews se kaafi help mili. Feedback genuine tha." },
+    { name: "Simran Kapoor", date: "2024-12-17", comment: "Python course projects ache level ke the." },
+    { name: "Vikas Chauhan", date: "2024-11-11", comment: "Resume building session practical tha." },
+    { name: "Riya Mehra", date: "2024-10-03", comment: "Course content updated hai, placement prep ke liye best." },
   ];
 
   const overallRating = [
@@ -71,17 +38,7 @@ const CourseDetails = () => {
     { stars: 1, percentage: 1 },
   ];
 
-  const colors = [
-    "#F44336",
-    "#E91E63",
-    "#9C27B0",
-    "#3F51B5",
-    "#2196F3",
-    "#009688",
-    "#4CAF50",
-    "#FF9800",
-    "#795548",
-  ];
+  const colors = ["#F44336","#E91E63","#9C27B0","#3F51B5","#2196F3","#009688","#4CAF50","#FF9800","#795548"];
 
   function getRandomColor(name) {
     const charCodeSum = Array.from(name).reduce(
@@ -93,22 +50,15 @@ const CourseDetails = () => {
 
   const indexOfLastReview = currentPage * reviewsPerPage;
   const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
-  const currentReviews = allReviews.slice(
-    indexOfFirstReview,
-    indexOfLastReview
-  );
-
-  // Change page
+  const currentReviews = allReviews.slice(indexOfFirstReview, indexOfLastReview);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const apiClass = new AuthService();
 
   useEffect(() => {
     window.scrollTo(0, 0);
     async function fetchData() {
       try {
         const response = await apiClass.getCourseDetails(id);
-        // console.log("CourseSection :: useEffect :: response ye card k liye", response);
         setCourseDetails(response.details);
       } catch (error) {
         console.log("CourseSection :: useEffect :: error", error);
@@ -121,7 +71,6 @@ const CourseDetails = () => {
     async function fetchData() {
       try {
         const response = await apiClass.getReviews(id);
-        // console.log("CourseSection :: useEffect :: response ye card k liye review aa gaye hai ", response);
         setReview(response.review);
       } catch (error) {
         console.log("CourseSection :: useEffect :: error", error);
@@ -129,15 +78,6 @@ const CourseDetails = () => {
     }
     fetchData();
   }, [id]);
-
-  // const handleLectureClick = (lectureTitle) => {
-  //   setPopupContent(`You selected: ${lectureTitle}`);
-  //   setPopupVisible(true);
-
-  //   setTimeout(() => {
-  //     setPopupVisible(false);
-  //   }, 60000);
-  // };
 
   const handlePopupClose = (e) => {
     if (popupRef.current && !popupRef.current.contains(e.target)) {
@@ -147,7 +87,6 @@ const CourseDetails = () => {
 
   useEffect(() => {
     document.addEventListener("click", handlePopupClose);
-
     return () => {
       document.removeEventListener("click", handlePopupClose);
     };
@@ -156,15 +95,17 @@ const CourseDetails = () => {
   const handleLectureClick = (lessonId) => {
     setIsPopupOpen(true);
   };
+
+  // -------------------------------
+  // 🔑 Free / Locked Logic
   let freeCounter = 0;
-  const freeLimit = 3;
+  const freeLimit = 3; // Only first 3 lectures free
+  // -------------------------------
 
   const tabContent = {
     Overview: (
       <div className={styles.overview}>
         <p>{courseDetails.overview}</p>
-        {/* <p>{courseDetails.description}</p>
-          <p>{courseDetails.description}</p> */}
       </div>
     ),
     Curriculum: (
@@ -172,18 +113,14 @@ const CourseDetails = () => {
         <p>
           Unlock the power of data with our comprehensive Machine Learning
           course, featuring a well-structured curriculum that blends theoretical
-          foundations with hands-on experience to equip you with the skills
-          needed to build cutting-edge models and advance your career in AI and
-          data science.
+          foundations with hands-on experience.
         </p>
 
         {courseDetails?.chapters?.map((section, index) => (
           <div key={index} className={styles.section}>
             <div
               className={styles.sectionHeader}
-              onClick={() =>
-                setOpenDropdown(openDropdown === index ? null : index)
-              }
+              onClick={() => setOpenDropdown(openDropdown === index ? null : index)}
             >
               <span>{section.name}</span>
               <span>{section.lectures.length} Lessons</span>
@@ -200,7 +137,6 @@ const CourseDetails = () => {
                 {section?.lectures?.map((lesson, idx) => {
                   freeCounter++;
                   const isFree = freeCounter <= freeLimit;
-                  const isLocked = !isFree;
 
                   return (
                     <div
@@ -242,7 +178,6 @@ const CourseDetails = () => {
           <div className={styles.popup} ref={popupRef}>
             <div className={styles.popupContent}>
               <p>Lesson Details</p>
-              {/* Add content related to the selected lesson */}
               <button onClick={() => setIsPopupOpen(false)}>Close</button>
             </div>
           </div>
