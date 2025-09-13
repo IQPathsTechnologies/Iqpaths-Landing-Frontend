@@ -156,6 +156,8 @@ const CourseDetails = () => {
   const handleLectureClick = (lessonId) => {
     setIsPopupOpen(true);
   };
+  let freeCounter = 0;
+  const freeLimit = 3;
 
   const tabContent = {
     Overview: (
@@ -174,6 +176,7 @@ const CourseDetails = () => {
           needed to build cutting-edge models and advance your career in AI and
           data science.
         </p>
+
         {courseDetails?.chapters?.map((section, index) => (
           <div key={index} className={styles.section}>
             <div
@@ -195,8 +198,8 @@ const CourseDetails = () => {
             {openDropdown === index && (
               <div className={styles.sectionContent}>
                 {section?.lectures?.map((lesson, idx) => {
-                  // ✅ Free lecture limit (3 free lectures only)
-                  const isFree = idx < 3;
+                  freeCounter++;
+                  const isFree = freeCounter <= freeLimit;
                   const isLocked = !isFree;
 
                   return (
