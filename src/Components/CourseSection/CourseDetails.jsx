@@ -100,27 +100,33 @@ const CourseDetails = () => {
       ),
       Curriculum: (
       <div className={styles.curriculum}>
-  {courseDetails?.chapters?.map((section, index) => (
-    <div key={index} className={styles.section}>
-      <div
-        className={styles.sectionHeader}
-        onClick={() => setOpenDropdown(openDropdown === index ? null : index)}
-      >
-        <span>{section.name}</span>
-        <span>{section.lectures.length} Lessons</span>
-        <span className={styles.arrowIcon}>
-          {openDropdown === index ? (
-            <img src="/upArrow.png" alt="Up Arrow" />
-          ) : (
-            <img src="/downArrow.png" alt="Down Arrow" />
-          )}
-        </span>
-      </div>
+ {courseDetails?.chapters?.map((section, sectionIndex) => (
+  <div key={sectionIndex} className={styles.section}>
+    {/* Section Header */}
+    <div
+      className={styles.sectionHeader}
+      onClick={() => setOpenDropdown(openDropdown === sectionIndex ? null : sectionIndex)}
+    >
+      <span>{section.name}</span>
+      <span>{section.lectures.length} Lessons</span>
+      <span className={styles.arrowIcon}>
+        {openDropdown === sectionIndex ? (
+          <img src="/upArrow.png" alt="Up Arrow" />
+        ) : (
+          <img src="/downArrow.png" alt="Down Arrow" />
+        )}
+      </span>
+    </div>
 
-      {openDropdown === index && (
-        <div className={styles.sectionContent}>
-          {section.lectures.map((lesson, idx) => (
-            <div key={idx} className={styles.lesson}>
+    {/* Section Content */}
+    {openDropdown === sectionIndex && (
+      <div className={styles.sectionContent}>
+        {section.lectures.map((lesson, lectureIndex) => {
+          // Pehla chapter ka pehle 2 lectures free hain
+          const isPreview = sectionIndex === 0 && lectureIndex < 2;
+
+          return (
+            <div key={lectureIndex} className={styles.lesson}>
               <div className={styles.lessons}>
                 <img src="/lesson.png" alt="Lesson" />
                 <span className={styles.name}>{lesson.title}</span>
@@ -129,17 +135,15 @@ const CourseDetails = () => {
               <div className={styles.button}>
                 <button
                   className={styles.previewButton}
-                  onClick={() => lesson.videoUrl && handleLectureClick(lesson)}
-                  disabled={!lesson.videoUrl}
+                  onClick={() => isPreview && handleLectureClick(lesson)}
+                  disabled={!isPreview}
                 >
-                  {lesson.videoUrl ? "Preview" : "Locked"}
+                  {isPreview ? "Preview" : "Locked"}
                 </button>
 
-                <span className={styles.lessonTime}>
-                  {lesson.duration} lecture
-                </span>
+                <span className={styles.lessonTime}>{lesson.duration} lecture</span>
 
-                {lesson.videoUrl ? (
+                {isPreview ? (
                   <span className={styles.lessonCheck}>
                     <img src="/tick.png" alt="Tick" />
                   </span>
@@ -150,11 +154,13 @@ const CourseDetails = () => {
                 )}
               </div>
             </div>
-          ))}
-        </div>
-      )}
-    </div>
-  ))}
+          );
+        })}
+      </div>
+    )}
+  </div>
+))}
+
 
   {/* Video Popup */}
   {isPopupOpen && popupContent && (
