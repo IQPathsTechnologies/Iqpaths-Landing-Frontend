@@ -127,10 +127,8 @@ const CourseDetails = () => {
             const isPreview = sectionIndex === 0 && lectureIndex < 2;
 
             // Console log here
-            console.log(
-              console.log(`Lecture: ${lesson.title}, preview: ${isPreview}, videoUrl: ${lesson.videoUrl || lesson.video}`);
+           console.log(`Lecture: ${lesson.title}, preview: ${isPreview}, videoUrl: ${lesson.videoUrl || lesson.video}`);
 
-            );
 
             return (
               <div key={lectureIndex} className={styles.lesson}>
