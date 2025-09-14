@@ -124,10 +124,30 @@ const CourseDetails = () => {
     };
   }, []);
 
-  const handleLectureClick = (lesson) => {
-    setPopupContent(lesson);
-    setIsPopupOpen(true);
+  const handleLectureClick = async (lesson) => {
+    try {
+      const response = await apiClass.getPurchasedCourseDetails(id);
+
+      // Find current lesson ka video data
+      const purchasedLectures = response?.lectures || [];
+      const matchedLecture = purchasedLectures.find(
+        (lec) => lec.id === lesson.id
+      );
+
+      if (matchedLecture?.videoUrl) {
+        setPopupContent({
+          ...lesson,
+          videoUrl: matchedLecture.videoUrl,
+        });
+        setIsPopupOpen(true);
+      } else {
+        console.log("No video URL found for this lecture");
+      }
+    } catch (error) {
+      console.error("Error fetching purchased course details:", error);
+    }
   };
+
 
   const tabContent = {
     Overview: (
@@ -189,85 +209,89 @@ const CourseDetails = () => {
                           <img src="/lesson.png" alt="Lesson" />
                           <span className={styles.name}>{lesson.title}</span>
                         </div>
-                        <div className={styles.button}>
-                          <button
-                            className={styles.previewButton}
-                            onClick={() =>
-                              lesson.preview
-                                ? handleLectureClick(lesson)
-                                : handleLockedLecture()
-                            }
-                          >
-                            {lesson.preview ? "Preview" : "LIVE"}
-                          </button>
-                          <span className={styles.lessonTime}>
-                            {lesson.duration} lecture
+                        <button
+                          className={styles.previewButton}
+                          onClick={() =>
+                            lesson.preview
+                              ? handleLectureClick(lesson)
+                              : handleLockedLecture()
+                          }
+                        >
+                          {lesson.preview ? "Preview" : "LIVE"}
+                        </button>
+                        <span className={styles.lessonTime}>
+                          {lesson.duration} lecture
+                        </span>
+
+                        {lesson.preview && (
+                          <span className={styles.lessonCheck}>
+                            <img src="/tick.png" alt="Tick" />
                           </span>
+                        )}
 
-                          {lesson.preview && (
-                            <span className={styles.lessonCheck}>
-                              <img src="/tick.png" alt="Tick" />
-                            </span>
-                          )}
-
-                          {lesson.locked && (
-                            <span className={styles.lessonLock}>
-                              <img src="/lock.png" alt="Lock" />
-                            </span>
-                          )}
-                        </div>
+                        {lesson.locked && (
+                          <span className={styles.lessonLock}>
+                            <img src="/lock.png" alt="Lock" />
+                          </span>
+                        )}
                       </div>
-                    ))}
+                      </div>
+                ))}
 
-                    {lecturesToShow.length === 0 && <p>No lectures found.</p>}
-                  </div>
-                )}
+                {lecturesToShow.length === 0 && <p>No lectures found.</p>}
               </div>
-            );
-          })
+            )
+          }
+              </div>
+    );
+  })
         )}
 
-        {isPopupOpen && popupContent && popupContent.videoUrl ? (
-          <div className={styles.popup} ref={popupRef}>
-            <div className={styles.popupContent}>
-              <h3>{popupContent.title}</h3>
-              <video
-                src={popupContent.videoUrl}
-                controls
-                autoPlay
-                muted
-                playsInline
-                style={{ width: "100%", borderRadius: "8px" }}
-              />
-              <button
-                onClick={() => setIsPopupOpen(false)}
-                className={styles.closeButton}
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        ) : null}
-
-        {showToast && (
-          <div className={styles.toast}>
-            Please enroll to unlock this lecture.
-          </div>
-        )}
+{
+  isPopupOpen && popupContent && popupContent.videoUrl ? (
+    <div className={styles.popup} ref={popupRef}>
+      <div className={styles.popupContent}>
+        <h3>{popupContent.title}</h3>
+        <video
+          src={popupContent.videoUrl}
+          controls
+          autoPlay
+          muted
+          playsInline
+          style={{ width: "100%", borderRadius: "8px" }}
+        />
+        <button
+          onClick={() => setIsPopupOpen(false)}
+          className={styles.closeButton}
+        >
+          Close
+        </button>
       </div>
+    </div>
+  ) : null
+}
+
+{
+  showToast && (
+    <div className={styles.toast}>
+      Please enroll to unlock this lecture.
+    </div>
+  )
+}
+      </div >
     ),
 
-    Instructor: (
-      <div className={styles.instructor}>
-        {/* Instructor details can go here */}
-      </div>
-    ),
+Instructor: (
+  <div className={styles.instructor}>
+    {/* Instructor details can go here */}
+  </div>
+),
 
-    FAQs: (
-      <div className={styles.faqs}>
-        {/* FAQs content can go here */}
-      </div>
-    ),
+  FAQs: (
+    <div className={styles.faqs}>
+      {/* FAQs content can go here */}
+    </div>
+  ),
 
     Reviews: (
       <div className={styles.reviews}>
@@ -276,26 +300,25 @@ const CourseDetails = () => {
     ),
   };
 
-  return (
-    <>
-      <div className={styles.tabsContainer}>
-        <div className={styles.tabs}>
-          {Object.keys(tabContent).map((tab) => (
-            <button
-              key={tab}
-              className={`${styles.tabButton} ${
-                activeTab === tab ? styles.active : ""
+return (
+  <>
+    <div className={styles.tabsContainer}>
+      <div className={styles.tabs}>
+        {Object.keys(tabContent).map((tab) => (
+          <button
+            key={tab}
+            className={`${styles.tabButton} ${activeTab === tab ? styles.active : ""
               }`}
-              onClick={() => setActiveTab(tab)}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-        <div className={styles.tabContent}>{tabContent[activeTab]}</div>
+            onClick={() => setActiveTab(tab)}
+          >
+            {tab}
+          </button>
+        ))}
       </div>
-    </>
-  );
+      <div className={styles.tabContent}>{tabContent[activeTab]}</div>
+    </div>
+  </>
+);
 };
 
 export default CourseDetails;
