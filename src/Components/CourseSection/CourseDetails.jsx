@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { AuthService } from "../../axios/User";
 import { useParams } from "react-router-dom";
 import styles from "./CourseDetails.module.css";
-import VideoPop from "./VideoPop";
 
 const CourseDetails = () => {
   const [activeTab, setActiveTab] = useState("Overview");
@@ -17,7 +16,6 @@ const CourseDetails = () => {
   const reviewsPerPage = 3;
 
   const { title, id } = useParams();
-  // console.log(title, id);
 
   const allReviews = [
     {
@@ -99,8 +97,8 @@ const CourseDetails = () => {
   );
 
   // Change page
-
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   const apiClass = new AuthService();
   const [showToast, setShowToast] = useState(false);
 
@@ -114,7 +112,6 @@ const CourseDetails = () => {
     async function fetchData() {
       try {
         const response = await apiClass.getCourseDetails(id);
-        // console.log("CourseSection :: useEffect :: response ye card k liye", response);
         setCourseDetails(response.details);
       } catch (error) {
         console.log("CourseSection :: useEffect :: error", error);
@@ -127,7 +124,6 @@ const CourseDetails = () => {
     async function fetchData() {
       try {
         const response = await apiClass.getReviews(id);
-        // console.log("CourseSection :: useEffect :: response ye card k liye review aa gaye hai ", response);
         setReview(response.review);
       } catch (error) {
         console.log("CourseSection :: useEffect :: error", error);
@@ -135,15 +131,6 @@ const CourseDetails = () => {
     }
     fetchData();
   }, [id]);
-
-  // const handleLectureClick = (lectureTitle) => {
-  //   setPopupContent(`You selected: ${lectureTitle}`);
-  //   setPopupVisible(true);
-
-  //   setTimeout(() => {
-  //     setPopupVisible(false);
-  //   }, 60000);
-  // };
 
   const handlePopupClose = (e) => {
     if (popupRef.current && !popupRef.current.contains(e.target)) {
@@ -160,6 +147,7 @@ const CourseDetails = () => {
   }, []);
 
   const handleLectureClick = (lesson) => {
+    console.log("🎬 handleLectureClick ->", lesson); // Preview lecture clicked
     setPopupContent(lesson);
     setIsPopupOpen(true);
   };
@@ -168,8 +156,6 @@ const CourseDetails = () => {
     Overview: (
       <div className={styles.overview}>
         <p>{courseDetails.overview}</p>
-        {/* <p>{courseDetails.description}</p>
-          <p>{courseDetails.description}</p> */}
       </div>
     ),
     Curriculum: (
@@ -183,18 +169,18 @@ const CourseDetails = () => {
           <p>Loading curriculum...</p>
         ) : (
           courseDetails.chapters.map((section, index) => {
-            // ✅ Add preview & locked flags based on index and lecture number
             const lecturesToShow =
               section.lectures?.map((lecture, idx) => {
                 const isPreview = index === 0 && idx < 2;
+                if (isPreview) {
+                  console.log("🟢 Preview Lecture Found:", lecture);
+                }
                 return {
                   ...lecture,
                   preview: isPreview,
                   locked: !isPreview,
                 };
               }) || [];
-
-            console.log(`Section ${index}:`, lecturesToShow);
 
             return (
               <div key={index} className={styles.section}>
@@ -229,7 +215,7 @@ const CourseDetails = () => {
                             onClick={() =>
                               lesson.preview
                                 ? handleLectureClick(lesson)
-                                : handleLockedLecture()
+                                : (console.log("🔒 Locked Lecture Clicked:", lesson.title), handleLockedLecture())
                             }
                           >
                             {lesson.preview ? "Preview" : "LIVE"}
@@ -269,8 +255,8 @@ const CourseDetails = () => {
                 src={popupContent.videoUrl}
                 controls
                 autoPlay
-                muted // add muted
-                playsInline // add playsInline
+                muted
+                playsInline
                 style={{ width: "100%", borderRadius: "8px" }}
               />
               <button
@@ -283,7 +269,6 @@ const CourseDetails = () => {
           </div>
         ) : null}
 
-        {/* ✅ Toast for Locked Lectures */}
         {showToast && (
           <div className={styles.toast}>
             Please enroll to unlock this lecture.
@@ -296,7 +281,6 @@ const CourseDetails = () => {
       <div className={styles.instructor}>
         <div className={styles.instructorHeader}>
           <img
-            // src="/instructor.png"
             src={courseDetails.instructor?.profilePhoto || "/instructor.png"}
             alt="Instructor Logo"
             className={styles.instructorLogo}
@@ -335,24 +319,6 @@ const CourseDetails = () => {
             theoretical concepts but also learn how to apply them effectively.
           </p>
         </div>
-        {/* <div className={styles.socialMedia}>
-            <span>Follow:</span>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/facebookIcon.png" alt="Facebook" />
-            </a>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/pinterestIcon.png" alt="Pinterest" />
-            </a>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/twitterIcon.png" alt="Twitter" />
-            </a>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/instagramIcon.png" alt="Instagram" />
-            </a>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/youtubeIcon.png" alt="YouTube" />
-            </a>
-          </div> */}
       </div>
     ),
     FAQs: (
@@ -394,7 +360,6 @@ const CourseDetails = () => {
           <div className={styles.averageRating}>
             <span className={styles.ratingScore}>5.0</span>
             <div className={styles.count}>
-              {/* ☆ */}
               <div className={styles.stars}>★★★★★</div>
               <p className={styles.ratingCount}>based on 1,500+ ratings</p>
             </div>
@@ -418,11 +383,6 @@ const CourseDetails = () => {
           {currentReviews?.map((review, index) => (
             <div key={index} className={styles.comment}>
               <div className={styles.commentHeader}>
-                {/* <img
-                    src="/user.png"
-                    alt="User"
-                    className={styles.commentAvatar}
-                  /> */}
                 <div
                   className={styles.commentAvatar}
                   style={{ backgroundColor: getRandomColor(review.name) }}
@@ -439,10 +399,6 @@ const CourseDetails = () => {
                 </div>
               </div>
               <p className={styles.commentText}>{review.comment}</p>
-              {/* <div className={styles.reply}>
-                  <img src="/reply.png" alt="Reply" /> 
-                  <button className={styles.replyButton}>Reply</button>
-                </div> */}
             </div>
           ))}
         </div>
@@ -450,22 +406,25 @@ const CourseDetails = () => {
           <button
             onClick={() => paginate(currentPage - 1)}
             disabled={currentPage === 1}
-            className={styles.paginationButton}
           >
-            &lt;
+            Prev
           </button>
-          <span className={styles.pageNumber}>{currentPage}</span>
-          <span className={styles.totalPages}>
-            / {Math.ceil(allReviews.length / reviewsPerPage)}{" "}
-          </span>
+          {[...Array(Math.ceil(allReviews.length / reviewsPerPage)).keys()].map(
+            (page) => (
+              <button
+                key={page}
+                onClick={() => paginate(page + 1)}
+                className={currentPage === page + 1 ? styles.activePage : ""}
+              >
+                {page + 1}
+              </button>
+            )
+          )}
           <button
             onClick={() => paginate(currentPage + 1)}
-            disabled={
-              currentPage === Math.ceil(allReviews.length / reviewsPerPage)
-            }
-            className={styles.paginationButton}
+            disabled={currentPage === Math.ceil(allReviews.length / reviewsPerPage)}
           >
-            &gt;
+            Next
           </button>
         </div>
       </div>
@@ -474,23 +433,40 @@ const CourseDetails = () => {
 
   return (
     <>
-      <div className={styles.tabsContainer}>
-        <div className={styles.tabs}>
-          {Object.keys(tabContent)?.map((tab) => (
-            <button
-              key={tab}
-              className={`${styles.tabButton} ${
-                activeTab === tab ? styles.active : ""
-              }`}
-              onClick={() => setActiveTab(tab)}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-        <div className={styles.tabContent}>{tabContent[activeTab]}</div>
+      <div className={styles.container}>
+        <div className={styles.left}>
+          <h2>{courseDetails.name}</h2>
+          <div className={styles.tabSection}>
+            {["Overview", "Curriculum", "Instructor", "FAQs", "Reviews"].map(
+              (tab) => (
+                <button
+                  key={tab}
+                  className={`${styles.tabButton} ${
+                    activeTab === tab ? styles.activeTab : ""
+                  }`}
+                  onClick={() => {
+                    setActiveTab(tab);
+                    setOpenDropdown(null);
+                  }}
+                >
+                  {tab}
+                </button>
+              )
+            )}
+          </div>
 
-        {/* {isPopupVisible && <VideoPop content={popupContent} />} */}
+          <div className={styles.tabContent}>{tabContent[activeTab]}</div>
+        </div>
+
+        <div className={styles.right}>
+          <img
+            src={courseDetails.image || "/defaultCourseImage.png"}
+            alt={courseDetails.name}
+            className={styles.courseImage}
+          />
+          <h3>₹{courseDetails.price}</h3>
+          <button className={styles.enrollButton}>Enroll Now</button>
+        </div>
       </div>
     </>
   );
