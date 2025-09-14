@@ -99,69 +99,76 @@ const CourseDetails = () => {
         </div>
       ),
       Curriculum: (
-      <div className={styles.curriculum}>
- {courseDetails?.chapters?.map((section, sectionIndex) => (
-  <div key={sectionIndex} className={styles.section}>
-    {/* Section Header */}
-    <div
-      className={styles.sectionHeader}
-      onClick={() => setOpenDropdown(openDropdown === sectionIndex ? null : sectionIndex)}
-    >
-      <span>{section.name}</span>
-      <span>{section.lectures.length} Lessons</span>
-      <span className={styles.arrowIcon}>
-        {openDropdown === sectionIndex ? (
-          <img src="/upArrow.png" alt="Up Arrow" />
-        ) : (
-          <img src="/downArrow.png" alt="Down Arrow" />
-        )}
-      </span>
-    </div>
-
-    {/* Section Content */}
-    {openDropdown === sectionIndex && (
-      <div className={styles.sectionContent}>
-        {section.lectures.map((lesson, lectureIndex) => {
-          // Pehla chapter ka pehle 2 lectures free hain
-          const isPreview = sectionIndex === 0 && lectureIndex < 6;
-           console.log(`Lecture: ${lesson.title}, preview: ${isPreview}, videoUrl: ${lesson.video}`);
-
-          return (
-            <div key={lectureIndex} className={styles.lesson}>
-              <div className={styles.lessons}>
-                <img src="/lesson.png" alt="Lesson" />
-                <span className={styles.name}>{lesson.title}</span>
-              </div>
-
-              <div className={styles.button}>
-                <button
-                  className={styles.previewButton}
-                  onClick={() => isPreview && handleLectureClick(lesson)}
-                  disabled={!isPreview}
-                >
-                  {isPreview ? "Preview" : "Locked"}
-                </button>
-
-                <span className={styles.lessonTime}>{lesson.duration} lecture</span>
-
-                {isPreview ? (
-                  <span className={styles.lessonCheck}>
-                    <img src="/tick.png" alt="Tick" />
-                  </span>
-                ) : (
-                  <span className={styles.lessonLock}>
-                    <img src="/lock.png" alt="Lock" />
-                  </span>
-                )}
-              </div>
-            </div>
-          );
-        })}
+  <div className={styles.curriculum}>
+  {courseDetails?.chapters?.map((section, sectionIndex) => (
+    <div key={sectionIndex} className={styles.section}>
+      {/* Section Header */}
+      <div
+        className={styles.sectionHeader}
+        onClick={() =>
+          setOpenDropdown(openDropdown === sectionIndex ? null : sectionIndex)
+        }
+      >
+        <span>{section.name}</span>
+        <span>{section.lectures.length} Lessons</span>
+        <span className={styles.arrowIcon}>
+          {openDropdown === sectionIndex ? (
+            <img src="/upArrow.png" alt="Up Arrow" />
+          ) : (
+            <img src="/downArrow.png" alt="Down Arrow" />
+          )}
+        </span>
       </div>
-    )}
-  </div>
-))}
 
+      {/* Section Content */}
+      {openDropdown === sectionIndex && (
+        <div className={styles.sectionContent}>
+          {section.lectures.map((lesson, lectureIndex) => {
+            const isPreview = sectionIndex === 0 && lectureIndex < 2;
+
+            console.log(
+              `Lecture: ${lesson.title}, preview: ${isPreview}, videoUrl: ${lesson.videoUrl}`
+            );
+
+            return (
+              <div key={lectureIndex} className={styles.lesson}>
+                <div className={styles.lessons}>
+                  <img src="/lesson.png" alt="Lesson" />
+                  <span className={styles.name}>{lesson.title}</span>
+                </div>
+
+                <div className={styles.button}>
+                  <button
+                    className={styles.previewButton}
+                    onClick={() =>
+                      isPreview && lesson.videoUrl && handleLectureClick(lesson)
+                    }
+                    disabled={!isPreview || !lesson.videoUrl}
+                  >
+                    {isPreview ? "Preview" : "Locked"}
+                  </button>
+
+                  <span className={styles.lessonTime}>
+                    {lesson.duration} lecture
+                  </span>
+
+                  {isPreview ? (
+                    <span className={styles.lessonCheck}>
+                      <img src="/tick.png" alt="Tick" />
+                    </span>
+                  ) : (
+                    <span className={styles.lessonLock}>
+                      <img src="/lock.png" alt="Lock" />
+                    </span>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  ))}
 
   {/* Video Popup */}
   {isPopupOpen && popupContent && (
@@ -169,18 +176,22 @@ const CourseDetails = () => {
       <div className={styles.popupContent}>
         <h3>{popupContent.title}</h3>
         <video
-          src={popupContent.video}
+          src={popupContent.videoUrl}
           controls
           autoPlay
           style={{ width: "100%", borderRadius: "8px" }}
         />
-        <button onClick={() => setIsPopupOpen(false)} className={styles.closeButton}>
+        <button
+          onClick={() => setIsPopupOpen(false)}
+          className={styles.closeButton}
+        >
           Close
         </button>
       </div>
     </div>
   )}
 </div>
+
 
       ),      
       Instructor: (
