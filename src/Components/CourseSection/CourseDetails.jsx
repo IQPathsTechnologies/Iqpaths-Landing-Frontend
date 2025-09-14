@@ -123,7 +123,7 @@ const CourseDetails = () => {
       <div className={styles.sectionContent}>
         {section.lectures.map((lesson, lectureIndex) => {
           // Pehla chapter ka pehle 2 lectures free hain
-          const isPreview = sectionIndex === 0 && lectureIndex < 2;
+          const isPreview = sectionIndex === 0 && lectureIndex < 6;
            console.log(`Lecture: ${lesson.title}, preview: ${isPreview}, videoUrl: ${lesson.videoUrl}`);
 
           return (
