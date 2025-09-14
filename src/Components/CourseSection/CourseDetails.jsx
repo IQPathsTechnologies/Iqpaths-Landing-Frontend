@@ -126,9 +126,7 @@ const CourseDetails = () => {
           {section.lectures.map((lesson, lectureIndex) => {
             const isPreview = sectionIndex === 0 && lectureIndex < 2;
 
-            console.log(
-              `Lecture: ${lesson.title}, preview: ${isPreview}, videoUrl: ${lesson.videoUrl}`
-            );
+          console.log(`Lecture: ${lesson.title}, preview: ${isPreview}, videoUrl: ${lesson.videoUrl}`);
 
             return (
               <div key={lectureIndex} className={styles.lesson}>
@@ -175,12 +173,8 @@ const CourseDetails = () => {
     <div className={styles.popup} ref={popupRef}>
       <div className={styles.popupContent}>
         <h3>{popupContent.title}</h3>
-        <video
-          src={popupContent.videoUrl}
-          controls
-          autoPlay
-          style={{ width: "100%", borderRadius: "8px" }}
-        />
+       <video src={lesson.videoUrl} controls autoPlay style={{ width: "100%", borderRadius: "8px" }} />
+
         <button
           onClick={() => setIsPopupOpen(false)}
           className={styles.closeButton}
