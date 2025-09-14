@@ -171,31 +171,36 @@ const CourseDetails = () => {
           <p>{courseDetails.description}</p> */}
       </div>
     ),
-    Curriculum: (
+Curriculum: (
   <div className={styles.curriculum}>
     <p>
       Unlock the power of data with our comprehensive Machine Learning course...
     </p>
 
-    { !courseDetails?.chapters || courseDetails.chapters.length === 0 ? (
+    {!courseDetails?.chapters || courseDetails.chapters.length === 0 ? (
       <p>Loading curriculum...</p>
     ) : (
       courseDetails.chapters.map((section, index) => {
-        console.log("Section", index, section);
-        const lecturesToShow = section.lectures?.map((lecture, idx) => {
-          const isPreview = index === 0 && idx < 2;
-          return {
-            ...lecture,
-            preview: isPreview,
-            locked: !isPreview,
-          };
-        }) || [];
+        // ✅ Add preview & locked flags based on index and lecture number
+        const lecturesToShow =
+          section.lectures?.map((lecture, idx) => {
+            const isPreview = index === 0 && idx < 2;
+            return {
+              ...lecture,
+              preview: isPreview,
+              locked: !isPreview,
+            };
+          }) || [];
+
+        console.log(`Section ${index}:`, lecturesToShow);
 
         return (
           <div key={index} className={styles.section}>
             <div
               className={styles.sectionHeader}
-              onClick={() => setOpenDropdown(openDropdown === index ? null : index)}
+              onClick={() =>
+                setOpenDropdown(openDropdown === index ? null : index)
+              }
             >
               <span>{section.name}</span>
               <span>{section.lectures?.length || 0} Lessons</span>
@@ -208,7 +213,7 @@ const CourseDetails = () => {
               </span>
             </div>
 
-            { openDropdown === index && (
+            {openDropdown === index && (
               <div className={styles.sectionContent}>
                 {lecturesToShow.map((lesson, idx) => (
                   <div key={idx} className={styles.lesson}>
@@ -227,7 +232,10 @@ const CourseDetails = () => {
                       >
                         {lesson.preview ? "Preview" : "LIVE"}
                       </button>
-                      <span className={styles.lessonTime}>{lesson.duration} lecture</span>
+
+                      <span className={styles.lessonTime}>
+                        {lesson.duration} lecture
+                      </span>
 
                       {lesson.preview && (
                         <span className={styles.lessonCheck}>
@@ -244,14 +252,15 @@ const CourseDetails = () => {
                   </div>
                 ))}
 
-                { lecturesToShow.length === 0 && <p>No lectures found.</p> }
+                {lecturesToShow.length === 0 && <p>No lectures found.</p>}
               </div>
-            ) }
+            )}
           </div>
         );
       })
     )}
 
+    {/* ✅ Preview Popup */}
     {isPopupOpen && popupContent && (
       <div className={styles.popup} ref={popupRef}>
         <div className={styles.popupContent}>
@@ -262,20 +271,23 @@ const CourseDetails = () => {
             autoPlay
             style={{ width: "100%", borderRadius: "8px" }}
           />
-          <button onClick={() => setIsPopupOpen(false)} className={styles.closeButton}>
+          <button
+            onClick={() => setIsPopupOpen(false)}
+            className={styles.closeButton}
+          >
             Close
           </button>
         </div>
       </div>
     )}
 
+    {/* ✅ Toast for Locked Lectures */}
     {showToast && (
-      <div className={styles.toast}>
-        Please enroll to unlock this lecture.
-      </div>
+      <div className={styles.toast}>Please enroll to unlock this lecture.</div>
     )}
   </div>
 ),
+
 
 
     Instructor: (
