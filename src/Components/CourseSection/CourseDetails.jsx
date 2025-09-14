@@ -7,64 +7,27 @@ import VideoPop from './VideoPop';
 const CourseDetails = () => {
     const [activeTab, setActiveTab] = useState("Overview");
     const [openDropdown, setOpenDropdown] = useState(null);
-    const [currentPage, setCurrentPage] = useState(1);  // State to manage current page of reviews
-    const [courseDetails, setCourseDetails] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);  
+    const [courseDetails, setCourseDetails] = useState({}); // Initialized as object
     const [review, setReview ] = useState([]);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const popupRef = useRef(null);
-    const [popupContent, setPopupContent] = useState('');
+    const [popupContent, setPopupContent] = useState(null); // store clicked lecture
 
     const reviewsPerPage = 3;
-
-    
-    const { title, id } = useParams();
-    // console.log(title, id);  
-
+    const { id } = useParams();
+    const apiClass = new AuthService();
 
     const allReviews = [
-  {
-    name: "Aman Verma",
-    date: "2025-05-10",
-    comment: "Iqpaths ka Data Structures course bahut achha tha."
-  },
-  {
-    name: "Shruti Sharma",
-    date: "2025-04-28",
-    comment: "Main ne Aptitude crash course liya tha placement ke liye. Bahut helpful raha."
-  },
-  {
-    name: "Rohit Singh",
-    date: "2025-03-18",
-    comment: "Web Development bootcamp beginner-friendly hai."
-  },
-  {
-    name: "Neha Kumari",
-    date: "2025-02-06",
-    comment: "Coding se dar rahi thi pehle, lekin confidence aaya."
-  },
-  {
-    name: "Arjun Yadav",
-    date: "2025-01-21",
-    comment: "Mock Interviews se kaafi help mili. Feedback genuine tha."
-  },
-  {
-    name: "Simran Kapoor",
-    date: "2024-12-17",
-    comment: "Python course projects ache level ke the."
-  },
-  {
-    name: "Vikas Chauhan",
-    date: "2024-11-11",
-    comment: "Resume building session practical tha."
-  },
-  {
-    name: "Riya Mehra",
-    date: "2024-10-03",
-    comment: "Course content updated hai, placement prep ke liye best."
-  }
-];
-
-
+        { name: "Aman Verma", date: "2025-05-10", comment: "Iqpaths ka Data Structures course bahut achha tha." },
+        { name: "Shruti Sharma", date: "2025-04-28", comment: "Main ne Aptitude crash course liya tha placement ke liye. Bahut helpful raha." },
+        { name: "Rohit Singh", date: "2025-03-18", comment: "Web Development bootcamp beginner-friendly hai." },
+        { name: "Neha Kumari", date: "2025-02-06", comment: "Coding se dar rahi thi pehle, lekin confidence aaya." },
+        { name: "Arjun Yadav", date: "2025-01-21", comment: "Mock Interviews se kaafi help mili. Feedback genuine tha." },
+        { name: "Simran Kapoor", date: "2024-12-17", comment: "Python course projects ache level ke the." },
+        { name: "Vikas Chauhan", date: "2024-11-11", comment: "Resume building session practical tha." },
+        { name: "Riya Mehra", date: "2024-10-03", comment: "Course content updated hai, placement prep ke liye best." }
+    ];
 
     const overallRating = [
         { stars: 5, percentage: 90 },
@@ -72,10 +35,9 @@ const CourseDetails = () => {
         { stars: 3, percentage: 2 },
         { stars: 2, percentage: 2 },
         { stars: 1, percentage: 1 },
-    ]
+    ];
 
     const colors = ["#F44336", "#E91E63", "#9C27B0", "#3F51B5", "#2196F3", "#009688", "#4CAF50", "#FF9800", "#795548"];
-
 
     function getRandomColor(name) {
       const charCodeSum = Array.from(name).reduce((sum, char) => sum + char.charCodeAt(0), 0);
@@ -85,49 +47,32 @@ const CourseDetails = () => {
     const indexOfLastReview = currentPage * reviewsPerPage;
     const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
     const currentReviews = allReviews.slice(indexOfFirstReview, indexOfLastReview);
-
-    // Change page
-
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
-    const apiClass = new AuthService();
 
     useEffect(() => {
         window.scrollTo(0, 0);
         async function fetchData() {
           try {
             const response = await apiClass.getCourseDetails(id);
-            // console.log("CourseSection :: useEffect :: response ye card k liye", response);
             setCourseDetails(response.details);    
           } catch (error) {
-            console.log("CourseSection :: useEffect :: error", error);
+            console.log("Error fetching course details:", error);
           }
         }
         fetchData();
     }, [id]);
 
-
     useEffect(() => {
         async function fetchData() {
           try {
             const response = await apiClass.getReviews(id);
-            // console.log("CourseSection :: useEffect :: response ye card k liye review aa gaye hai ", response);
             setReview(response.review);    
           } catch (error) {
-            console.log("CourseSection :: useEffect :: error", error);
+            console.log("Error fetching reviews:", error);
           }
         }
         fetchData();
-    }
-    , [id]);
-
-    // const handleLectureClick = (lectureTitle) => {
-    //   setPopupContent(`You selected: ${lectureTitle}`);
-    //   setPopupVisible(true);
-
-    //   setTimeout(() => {
-    //     setPopupVisible(false);
-    //   }, 60000); 
-    // };
+    }, [id]);
 
     const handlePopupClose = (e) => {
       if (popupRef.current && !popupRef.current.contains(e.target)) {
@@ -137,150 +82,133 @@ const CourseDetails = () => {
 
     useEffect(() => {
       document.addEventListener("click", handlePopupClose);
-
-      return () => {
-        document.removeEventListener("click", handlePopupClose);
-      };
+      return () => document.removeEventListener("click", handlePopupClose);
     }, []);
 
-    const handleLectureClick = (lessonId) => {
+    const handleLectureClick = (lesson) => {
+      setPopupContent(lesson); // store clicked lecture
       setIsPopupOpen(true);
     };
-
 
     const tabContent = {
       Overview: (
         <div className={styles.overview}>
           <p>{courseDetails.overview}</p>
-          {/* <p>{courseDetails.description}</p>
-          <p>{courseDetails.description}</p> */}
         </div>
       ),
-      Curriculum: (
-        <div className={styles.curriculum}>
-          <p>
-          Unlock the power of data with our comprehensive Machine Learning course, featuring a well-structured curriculum that blends theoretical foundations with hands-on experience to equip you with the skills needed to build cutting-edge models and advance your career in AI and data science.
-          </p>
-          {courseDetails?.chapters?.map((section, index) => (
-            <div key={index} className={styles.section}>
-              <div
-                className={styles.sectionHeader}
-                onClick={() => setOpenDropdown(openDropdown === index ? null : index)}
-              >
-                <span>{section.name}</span>
-                <span>
-                  {section.lectures.length} Lessons
-                </span>
-                <span className={styles.arrowIcon}>
-                  {openDropdown === index ? (
-                    <img src="/upArrow.png" alt="Up Arrow" />
-                  ) : (
-                    <img src="/downArrow.png" alt="Down Arrow" />
-                  )}
-                </span>
-              </div>
-            {openDropdown === index && (
-              <div className={styles.sectionContent}>
-                {section?.lectures?.map((lesson, idx) => (
-                  <div key={idx} className={styles.lesson} onClick={() => handleLectureClick(lesson.id)}>
-                    <div className={styles.lessons}>
-                      <img src="/lesson.png" alt="Lesson" />
-                      <span className={styles.name}>{lesson.title}</span>
-                    </div>
-                    <div className={styles.button}>
-                      <button className={styles.previewButton}>
-                        {lesson.preview ? "Preview" : "LIVE"}
-                      </button>
-                      <span className={styles.lessonTime}>{lesson.duration} lecture</span>
-                      {lesson.preview && (
-                        <span className={styles.lessonCheck}>
-                          <img src="/tick.png" alt="Tick" />
-                        </span>
-                      )}
-                      {lesson.locked && (
-                        <span className={styles.lessonLock}>
-                          <img src="/lock.png" alt="Lock" />
-                        </span>
-                      )}
-                    </div>
+
+   Curriculum: (
+  <div className={styles.curriculum}>
+    {courseDetails?.chapters?.map((section, index) => {
+      // First chapter: first 2 lectures free
+      let lecturesToShow = section.lectures.map((lecture, idx) => ({
+        ...lecture,
+        preview: index === 0 && idx < 2 ? true : false
+      }));
+
+      return (
+        <div key={index} className={styles.section}>
+          <div
+            className={styles.sectionHeader}
+            onClick={() => setOpenDropdown(openDropdown === index ? null : index)}
+          >
+            <span>{section.name}</span>
+            <span>{section.lectures.length} Lessons</span>
+            <span className={styles.arrowIcon}>
+              {openDropdown === index ? (
+                <img src="/upArrow.png" alt="Up Arrow" />
+              ) : (
+                <img src="/downArrow.png" alt="Down Arrow" />
+              )}
+            </span>
+          </div>
+
+          {openDropdown === index && (
+            <div className={styles.sectionContent}>
+              {lecturesToShow.map((lesson, idx) => (
+                <div key={idx} className={styles.lesson}>
+                  <div className={styles.lessons}>
+                    <img src="/lesson.png" alt="Lesson" />
+                    <span className={styles.name}>{lesson.title}</span>
                   </div>
-                ))}
+                  <div className={styles.button}>
+                    <button
+                      className={styles.previewButton}
+                      onClick={() => lesson.preview && handleLectureClick(lesson)}
+                    >
+                      {lesson.preview ? "Preview" : "LIVE"}
+                    </button>
+                    <span className={styles.lessonTime}>{lesson.duration} lecture</span>
+                    {lesson.preview && (
+                      <span className={styles.lessonCheck}>
+                        <img src="/tick.png" alt="Tick" />
+                      </span>
+                    )}
+                    {!lesson.preview && (
+                      <span className={styles.lessonLock}>
+                        <img src="/lock.png" alt="Lock" />
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
           )}
         </div>
-      ))}
+      );
+    })}
 
-      {isPopupOpen && (
-        <div className={styles.popup} ref={popupRef}>
-          <div className={styles.popupContent}>
-            <p>Lesson Details</p>
-            {/* Add content related to the selected lesson */}
-            <button onClick={() => setIsPopupOpen(false)}>Close</button>
-          </div>
+    {isPopupOpen && popupContent && (
+      <div className={styles.popup} ref={popupRef}>
+        <div className={styles.popupContent}>
+          <h3>{popupContent.title}</h3>
+          <video
+            src={popupContent.videoUrl}
+            controls
+            autoPlay
+            style={{ width: "100%", borderRadius: "8px" }}
+          />
+          <button onClick={() => setIsPopupOpen(false)} className={styles.closeButton}>
+            Close
+          </button>
         </div>
-      )}
-        </div>
-      ),      
+      </div>
+    )}
+  </div>
+),
+
+
       Instructor: (
         <div className={styles.instructor}>
           <div className={styles.instructorHeader}>
             <img
-              // src="/instructor.png"
-              src= {courseDetails.instructor?.profilePhoto || "/instructor.png"}
+              src={courseDetails.instructor?.profilePhoto || "/instructor.png"}
               alt="Instructor Logo"
               className={styles.instructorLogo}
             />
             <div className={styles.instructorInfo}>
               <h3>{courseDetails?.instructor?.name}</h3>
-              <p>
-              
-              {courseDetails?.instructor?.description}
-              </p>
+              <p>{courseDetails?.instructor?.description}</p>
               <div className={styles.instructorStats}>
                 <span>
-                  <img
-                    src="/studentIcon.png"
-                    alt="Students Icon"
-                    className={styles.icon}
-                  />
+                  <img src="/studentIcon.png" alt="Students Icon" className={styles.icon} />
                   100+ Students Taught
                 </span>
                 <span>
-                  <img
-                    src="/lessonIcon.png"
-                    alt="Lessons Icon"
-                    className={styles.icon}
-                  />
+                  <img src="/lessonIcon.png" alt="Lessons Icon" className={styles.icon} />
                   20 Lessons
                 </span>
               </div>
             </div>
           </div>
           <div className={styles.instructorDescription}>
-          <p>
-            Our instructor at IQPaths is a seasoned professional with extensive experience in the field. With a passion for teaching and a deep understanding of the subject matter, they have successfully guided numerous students towards achieving their learning goals. Their engaging teaching style, combined with practical insights and real-world examples, which ensures that students not only grasp theoretical concepts but also learn how to apply them effectively.
-          </p>
+            <p>
+              Our instructor at IQPaths is a seasoned professional with extensive experience in the field...
+            </p>
           </div>
-          {/* <div className={styles.socialMedia}>
-            <span>Follow:</span>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/facebookIcon.png" alt="Facebook" />
-            </a>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/pinterestIcon.png" alt="Pinterest" />
-            </a>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/twitterIcon.png" alt="Twitter" />
-            </a>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/instagramIcon.png" alt="Instagram" />
-            </a>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/youtubeIcon.png" alt="YouTube" />
-            </a>
-          </div> */}
         </div>
       ),
+
       FAQs: (
         <div className={styles.faqs}>
           {courseDetails?.faq?.map((faq, index) => (
@@ -291,11 +219,7 @@ const CourseDetails = () => {
                   setOpenDropdown(openDropdown === index ? null : index)
                 }
               >
-                <span
-                  className={`${styles.faqQuestion} ${
-                    openDropdown === index ? styles.activeQuestion : ""
-                  }`}
-                >
+                <span className={`${styles.faqQuestion} ${openDropdown === index ? styles.activeQuestion : ""}`}>
                   {faq.question}
                 </span>
                 <span className={styles.arrows}>
@@ -313,6 +237,7 @@ const CourseDetails = () => {
           ))}
         </div>
       ),
+
       Reviews: (
         <div className={styles.reviews}>
           <div className={styles.comments}> Comments </div>
@@ -320,13 +245,12 @@ const CourseDetails = () => {
             <div className={styles.averageRating}>
               <span className={styles.ratingScore}>5.0</span>
               <div className={styles.count}>
-              {/* ☆ */}
                 <div className={styles.stars}>★★★★★</div>
                 <p className={styles.ratingCount}>based on 1,500+ ratings</p>
               </div>
             </div>
             <div className={styles.ratingBreakdown}>
-              {overallRating?.map((rating, index) => (
+              {overallRating.map((rating, index) => (
                 <div key={index} className={styles.ratingBarRow}>
                   <span>{rating.stars} ★</span>
                   <div className={styles.ratingBar}>
@@ -341,31 +265,21 @@ const CourseDetails = () => {
             </div>
           </div>
           <div className={styles.commentSection}>
-            {currentReviews?.map((review, index) => (
+            {currentReviews.map((review, index) => (
               <div key={index} className={styles.comment}>
                 <div className={styles.commentHeader}>
-                  {/* <img
-                    src="/user.png"
-                    alt="User"
-                    className={styles.commentAvatar}
-                  /> */}
                   <div
                     className={styles.commentAvatar}
                     style={{ backgroundColor: getRandomColor(review.name) }}
                   >
                     {review.name.charAt(0).toUpperCase()}
                   </div>
-
                   <div className={styles.names}>
                     <h4 className={styles.commentName}>{review.name}</h4>
                     <p className={styles.commentDate}> {new Date(review.date).toLocaleDateString()} </p>
                   </div>
                 </div>
                 <p className={styles.commentText}>{review.comment}</p>
-                {/* <div className={styles.reply}>
-                  <img src="/reply.png" alt="Reply" /> 
-                  <button className={styles.replyButton}>Reply</button>
-                </div> */}
               </div>
             ))}
           </div>
@@ -379,13 +293,11 @@ const CourseDetails = () => {
             </button>
             <span className={styles.pageNumber}>{currentPage}</span>
             <span className={styles.totalPages}>
-              / {Math.ceil(allReviews.length / reviewsPerPage)}{" "}
+              / {Math.ceil(allReviews.length / reviewsPerPage)}
             </span>
             <button
               onClick={() => paginate(currentPage + 1)}
-              disabled={
-                currentPage === Math.ceil(allReviews.length / reviewsPerPage)
-              }
+              disabled={currentPage === Math.ceil(allReviews.length / reviewsPerPage)}
               className={styles.paginationButton}
             >
               &gt;
@@ -396,24 +308,20 @@ const CourseDetails = () => {
     };
 
     return (
-        <>
-            <div className={styles.tabsContainer}>
-                <div className={styles.tabs}>
-                    {Object.keys(tabContent)?.map((tab) => (
-                        <button
-                            key={tab}
-                            className={`${styles.tabButton} ${activeTab === tab ? styles.active : ""}`}
-                            onClick={() => setActiveTab(tab)}
-                        >
-                            {tab}
-                        </button>
-                    ))}
-                </div>
-                <div className={styles.tabContent}>{tabContent[activeTab]}</div>
-
-                {/* {isPopupVisible && <VideoPop content={popupContent} />} */}
-            </div>
-        </>
+      <div className={styles.tabsContainer}>
+        <div className={styles.tabs}>
+          {Object.keys(tabContent).map((tab) => (
+            <button
+              key={tab}
+              className={`${styles.tabButton} ${activeTab === tab ? styles.active : ""}`}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+        <div className={styles.tabContent}>{tabContent[activeTab]}</div>
+      </div>
     );
 };
 
