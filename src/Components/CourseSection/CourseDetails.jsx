@@ -124,29 +124,29 @@ const CourseDetails = () => {
     };
   }, []);
 
-  const handleLectureClick = async (lesson) => {
-    try {
-      const response = await apiClass.getPurchasedCourseDetails(id);
+ const handleLectureClick = async (lesson) => {
+  try {
+    const response = await apiClass.getPurchasedCourseDetails(id);
 
-      // Find current lesson ka video data
-      const purchasedLectures = response?.lectures || [];
-      const matchedLecture = purchasedLectures.find(
-        (lec) => lec.id === lesson.id
-      );
+    // Find current lesson ka video data
+    const purchasedLectures = response?.lectures || [];
+    const matchedLecture = purchasedLectures.find(
+      (lec) => lec.id === lesson.id
+    );
 
-      if (matchedLecture?.videoUrl) {
-        setPopupContent({
-          ...lesson,
-          videoUrl: matchedLecture.videoUrl,
-        });
-        setIsPopupOpen(true);
-      } else {
-        console.log("No video URL found for this lecture");
-      }
-    } catch (error) {
-      console.error("Error fetching purchased course details:", error);
+    if (matchedLecture?.videoUrl) {
+      setPopupContent({
+        ...lesson,
+        videoUrl: matchedLecture.videoUrl,
+      });
+      setIsPopupOpen(true);
+    } else {
+      console.log("No video URL found for this lecture");
     }
-  };
+  } catch (error) {
+    console.error("Error fetching purchased course details:", error);
+  }
+};
 
 
   const tabContent = {
@@ -156,142 +156,137 @@ const CourseDetails = () => {
       </div>
     ),
     Curriculum: (
-      <div className={styles.curriculum}>
-        <p>
-          Unlock the power of data with our comprehensive Machine Learning
-          course...
-        </p>
+  <div className={styles.curriculum}>
+    <p>
+      Unlock the power of data with our comprehensive Machine Learning
+      course...
+    </p>
 
-        {!courseDetails?.chapters || courseDetails.chapters.length === 0 ? (
-          <p>Loading curriculum...</p>
-        ) : (
-          courseDetails.chapters.map((section, index) => {
-            const lecturesToShow =
-              section.lectures?.map((lecture, idx) => {
-                const isPreview = index === 0 && idx < 5;
-                return {
-                  ...lecture,
-                  preview: isPreview,
-                  locked: !isPreview,
-                };
-              }) || [];
+    {!courseDetails?.chapters || courseDetails.chapters.length === 0 ? (
+      <p>Loading curriculum...</p>
+    ) : (
+      courseDetails.chapters.map((section, index) => {
+        const lecturesToShow =
+          section.lectures?.map((lecture, idx) => {
+            const isPreview = index === 0 && idx < 5;
+            return {
+              ...lecture,
+              preview: isPreview,
+              locked: !isPreview,
+            };
+          }) || [];
 
-            // Preview lectures ka console log
-            console.log(
-              `Section ${index} Preview Lectures:`,
-              lecturesToShow.filter((lec) => lec.preview)
-            );
+        return (
+          <div key={index} className={styles.section}>
+            <div
+              className={styles.sectionHeader}
+              onClick={() =>
+                setOpenDropdown(openDropdown === index ? null : index)
+              }
+            >
+              <span>{section.name}</span>
+              <span>{section.lectures?.length || 0} Lessons</span>
+              <span className={styles.arrowIcon}>
+                {openDropdown === index ? (
+                  <img src="/upArrow.png" alt="Up Arrow" />
+                ) : (
+                  <img src="/downArrow.png" alt="Down Arrow" />
+                )}
+              </span>
+            </div>
 
-            return (
-              <div key={index} className={styles.section}>
-                <div
-                  className={styles.sectionHeader}
-                  onClick={() =>
-                    setOpenDropdown(openDropdown === index ? null : index)
-                  }
-                >
-                  <span>{section.name}</span>
-                  <span>{section.lectures?.length || 0} Lessons</span>
-                  <span className={styles.arrowIcon}>
-                    {openDropdown === index ? (
-                      <img src="/upArrow.png" alt="Up Arrow" />
-                    ) : (
-                      <img src="/downArrow.png" alt="Down Arrow" />
-                    )}
-                  </span>
-                </div>
+            {openDropdown === index && (
+              <div className={styles.sectionContent}>
+                {lecturesToShow.length > 0 ? (
+                  lecturesToShow.map((lesson, idx) => (
+                    <div key={idx} className={styles.lesson}>
+                      <div className={styles.lessons}>
+                        <img src="/lesson.png" alt="Lesson" />
+                        <span className={styles.name}>{lesson.title}</span>
+                      </div>
 
-                {openDropdown === index && (
-                  <div className={styles.sectionContent}>
-                    {lecturesToShow.map((lesson, idx) => (
-                      <div key={idx} className={styles.lesson}>
-                        <div className={styles.lessons}>
-                          <img src="/lesson.png" alt="Lesson" />
-                          <span className={styles.name}>{lesson.title}</span>
-                        </div>
-                        <button
-                          className={styles.previewButton}
-                          onClick={() =>
-                            lesson.preview
-                              ? handleLectureClick(lesson)
-                              : handleLockedLecture()
-                          }
-                        >
-                          {lesson.preview ? "Preview" : "LIVE"}
-                        </button>
-                        <span className={styles.lessonTime}>
-                          {lesson.duration} lecture
+                      <button
+                        className={styles.previewButton}
+                        onClick={() =>
+                          lesson.preview
+                            ? handleLectureClick(lesson)
+                            : handleLockedLecture()
+                        }
+                      >
+                        {lesson.preview ? "Preview" : "LIVE"}
+                      </button>
+
+                      <span className={styles.lessonTime}>
+                        {lesson.duration} lecture
+                      </span>
+
+                      {lesson.preview && (
+                        <span className={styles.lessonCheck}>
+                          <img src="/tick.png" alt="Tick" />
                         </span>
+                      )}
 
-                        {lesson.preview && (
-                          <span className={styles.lessonCheck}>
-                            <img src="/tick.png" alt="Tick" />
-                          </span>
-                        )}
-
-                        {lesson.locked && (
-                          <span className={styles.lessonLock}>
-                            <img src="/lock.png" alt="Lock" />
-                          </span>
-                        )}
-                      </div>
-                      </div>
-                ))}
-
-                {lecturesToShow.length === 0 && <p>No lectures found.</p>}
+                      {lesson.locked && (
+                        <span className={styles.lessonLock}>
+                          <img src="/lock.png" alt="Lock" />
+                        </span>
+                      )}
+                    </div>
+                  ))
+                ) : (
+                  <p>No lectures found.</p>
+                )}
               </div>
-            )
-          }
-              </div>
-    );
-  })
-        )}
+            )}
+          </div>
+        );
+      })
+    )}
 
-{
-  isPopupOpen && popupContent && popupContent.videoUrl ? (
-    <div className={styles.popup} ref={popupRef}>
-      <div className={styles.popupContent}>
-        <h3>{popupContent.title}</h3>
-        <video
-          src={popupContent.videoUrl}
-          controls
-          autoPlay
-          muted
-          playsInline
-          style={{ width: "100%", borderRadius: "8px" }}
-        />
-        <button
-          onClick={() => setIsPopupOpen(false)}
-          className={styles.closeButton}
-        >
-          Close
-        </button>
+    {/* Popup for video */}
+    {isPopupOpen && popupContent && popupContent.videoUrl && (
+      <div className={styles.popup} ref={popupRef}>
+        <div className={styles.popupContent}>
+          <h3>{popupContent.title}</h3>
+          <video
+            src={popupContent.videoUrl}
+            controls
+            autoPlay
+            muted
+            playsInline
+            style={{ width: "100%", borderRadius: "8px" }}
+          />
+          <button
+            onClick={() => setIsPopupOpen(false)}
+            className={styles.closeButton}
+          >
+            Close
+          </button>
+        </div>
       </div>
-    </div>
-  ) : null
-}
+    )}
 
-{
-  showToast && (
-    <div className={styles.toast}>
-      Please enroll to unlock this lecture.
-    </div>
-  )
-}
-      </div >
-    ),
-
-Instructor: (
-  <div className={styles.instructor}>
-    {/* Instructor details can go here */}
+    {/* Toast for locked lectures */}
+    {showToast && (
+      <div className={styles.toast}>
+        Please enroll to unlock this lecture.
+      </div>
+    )}
   </div>
 ),
 
-  FAQs: (
-    <div className={styles.faqs}>
-      {/* FAQs content can go here */}
-    </div>
-  ),
+
+    Instructor: (
+      <div className={styles.instructor}>
+        {/* Instructor details can go here */}
+      </div>
+    ),
+
+    FAQs: (
+      <div className={styles.faqs}>
+        {/* FAQs content can go here */}
+      </div>
+    ),
 
     Reviews: (
       <div className={styles.reviews}>
@@ -300,25 +295,26 @@ Instructor: (
     ),
   };
 
-return (
-  <>
-    <div className={styles.tabsContainer}>
-      <div className={styles.tabs}>
-        {Object.keys(tabContent).map((tab) => (
-          <button
-            key={tab}
-            className={`${styles.tabButton} ${activeTab === tab ? styles.active : ""
+  return (
+    <>
+      <div className={styles.tabsContainer}>
+        <div className={styles.tabs}>
+          {Object.keys(tabContent).map((tab) => (
+            <button
+              key={tab}
+              className={`${styles.tabButton} ${
+                activeTab === tab ? styles.active : ""
               }`}
-            onClick={() => setActiveTab(tab)}
-          >
-            {tab}
-          </button>
-        ))}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+        <div className={styles.tabContent}>{tabContent[activeTab]}</div>
       </div>
-      <div className={styles.tabContent}>{tabContent[activeTab]}</div>
-    </div>
-  </>
-);
+    </>
+  );
 };
 
 export default CourseDetails;
