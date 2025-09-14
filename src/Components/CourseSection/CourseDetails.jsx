@@ -49,18 +49,19 @@ const CourseDetails = () => {
     const currentReviews = allReviews.slice(indexOfFirstReview, indexOfLastReview);
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        async function fetchData() {
-          try {
-            const response = await apiClass.getCourseDetails(id);
-            setCourseDetails(response.details);    
-          } catch (error) {
-            console.log("Error fetching course details:", error);
-          }
+useEffect(() => {
+    window.scrollTo(0, 0);
+    async function fetchData() {
+        try {
+            const response = await apiClass.getPurchasedCourseDetails({ courseId: id });
+            setCourseDetails(response.details);
+        } catch (error) {
+            console.log("Error fetching purchased course details:", error);
         }
-        fetchData();
-    }, [id]);
+    }
+    fetchData();
+}, [id]);
+
 
     useEffect(() => {
         async function fetchData() {
@@ -99,83 +100,78 @@ const CourseDetails = () => {
         </div>
       ),
       Curriculum: (
-       <div className={styles.curriculum}>
-    {courseDetails?.chapters?.map((section, index) => {
-      // First chapter: first 2 lectures free
-      let lecturesToShow = section.lectures.map((lecture, idx) => ({
-        ...lecture,
-        preview: index === 0 && idx < 2 ? true : false
-      }));
+     <div className={styles.curriculum}>
+  {courseDetails?.chapters?.map((section, index) => {
+    return (
+      <div key={index} className={styles.section}>
+        <div
+          className={styles.sectionHeader}
+          onClick={() => setOpenDropdown(openDropdown === index ? null : index)}
+        >
+          <span>{section.name}</span>
+          <span>{section.lectures.length} Lessons</span>
+          <span className={styles.arrowIcon}>
+            {openDropdown === index ? (
+              <img src="/upArrow.png" alt="Up Arrow" />
+            ) : (
+              <img src="/downArrow.png" alt="Down Arrow" />
+            )}
+          </span>
+        </div>
 
-      return (
-        <div key={index} className={styles.section}>
-          <div
-            className={styles.sectionHeader}
-            onClick={() => setOpenDropdown(openDropdown === index ? null : index)}
-          >
-            <span>{section.name}</span>
-            <span>{section.lectures.length} Lessons</span>
-            <span className={styles.arrowIcon}>
-              {openDropdown === index ? (
-                <img src="/upArrow.png" alt="Up Arrow" />
-              ) : (
-                <img src="/downArrow.png" alt="Down Arrow" />
-              )}
-            </span>
-          </div>
-
-          {openDropdown === index && (
-            <div className={styles.sectionContent}>
-              {lecturesToShow.map((lesson, idx) => (
-                <div key={idx} className={styles.lesson}>
-                  <div className={styles.lessons}>
-                    <img src="/lesson.png" alt="Lesson" />
-                    <span className={styles.name}>{lesson.title}</span>
-                  </div>
-                  <div className={styles.button}>
-                    <button
-                      className={styles.previewButton}
-                      onClick={() => lesson.preview && handleLectureClick(lesson)}
-                    >
-                      {lesson.preview ? "Preview" : "LIVE"}
-                    </button>
-                    <span className={styles.lessonTime}>{lesson.duration} lecture</span>
-                    {lesson.preview && (
-                      <span className={styles.lessonCheck}>
-                        <img src="/tick.png" alt="Tick" />
-                      </span>
-                    )}
-                    {!lesson.preview && (
-                      <span className={styles.lessonLock}>
-                        <img src="/lock.png" alt="Lock" />
-                      </span>
-                    )}
-                  </div>
+        {openDropdown === index && (
+          <div className={styles.sectionContent}>
+            {section.lectures.map((lesson, idx) => (
+              <div key={idx} className={styles.lesson}>
+                <div className={styles.lessons}>
+                  <img src="/lesson.png" alt="Lesson" />
+                  <span className={styles.name}>{lesson.title}</span>
                 </div>
-              ))}
-            </div>
-          )}
-        </div>
-      );
-    })}
-
-    {isPopupOpen && popupContent && (
-      <div className={styles.popup} ref={popupRef}>
-        <div className={styles.popupContent}>
-          <h3>{popupContent.title}</h3>
-          <video
-            src={popupContent.videoUrl}
-            controls
-            autoPlay
-            style={{ width: "100%", borderRadius: "8px" }}
-          />
-          <button onClick={() => setIsPopupOpen(false)} className={styles.closeButton}>
-            Close
-          </button>
-        </div>
+                <div className={styles.button}>
+                  <button
+                    className={styles.previewButton}
+                    onClick={() => handleLectureClick(lesson)}
+                    disabled={!lesson.videoUrl}
+                  >
+                    {lesson.videoUrl ? "Play" : "Locked"}
+                  </button>
+                  <span className={styles.lessonTime}>{lesson.duration}</span>
+                  {lesson.videoUrl ? (
+                    <span className={styles.lessonCheck}>
+                      <img src="/tick.png" alt="Tick" />
+                    </span>
+                  ) : (
+                    <span className={styles.lessonLock}>
+                      <img src="/lock.png" alt="Lock" />
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
-    )}
-  </div>
+    );
+  })}
+
+  {isPopupOpen && popupContent && (
+    <div className={styles.popup} ref={popupRef}>
+      <div className={styles.popupContent}>
+        <h3>{popupContent.title}</h3>
+        <video
+          src={popupContent.videoUrl}
+          controls
+          autoPlay
+          style={{ width: "100%", borderRadius: "8px" }}
+        />
+        <button onClick={() => setIsPopupOpen(false)} className={styles.closeButton}>
+          Close
+        </button>
+      </div>
+    </div>
+  )}
+</div>
+
       ),      
       Instructor: (
         <div className={styles.instructor}>
