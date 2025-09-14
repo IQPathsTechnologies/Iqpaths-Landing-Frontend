@@ -128,7 +128,8 @@ const CourseDetails = () => {
 
             // Console log here
             console.log(
-              `Lecture: ${lesson.title}, preview: ${isPreview}, videoUrl: ${lesson.videoUrl}`
+              console.log(`Lecture: ${lesson.title}, preview: ${isPreview}, videoUrl: ${lesson.videoUrl || lesson.video}`);
+
             );
 
             return (
