@@ -148,7 +148,7 @@ const CourseDetails = () => {
           courseDetails.chapters.map((section, index) => {
             const lecturesToShow =
               section.lectures?.map((lecture, idx) => {
-                const isPreview = index === 0 && idx < 2;
+                const isPreview = index === 0 && idx < 5;
                 return {
                   ...lecture,
                   preview: isPreview,
