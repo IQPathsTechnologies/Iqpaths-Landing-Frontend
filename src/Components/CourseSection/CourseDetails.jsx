@@ -124,7 +124,7 @@ const CourseDetails = () => {
         {section.lectures.map((lesson, lectureIndex) => {
           // Pehla chapter ka pehle 2 lectures free hain
           const isPreview = sectionIndex === 0 && lectureIndex < 6;
-           console.log(`Lecture: ${lesson.title}, preview: ${isPreview}, videoUrl: ${lesson.videoUrl}`);
+           console.log(`Lecture: ${lesson.title}, preview: ${isPreview}, videoUrl: ${lesson.video}`);
 
           return (
             <div key={lectureIndex} className={styles.lesson}>
@@ -169,7 +169,7 @@ const CourseDetails = () => {
       <div className={styles.popupContent}>
         <h3>{popupContent.title}</h3>
         <video
-          src={popupContent.videoUrl}
+          src={popupContent.video}
           controls
           autoPlay
           style={{ width: "100%", borderRadius: "8px" }}
