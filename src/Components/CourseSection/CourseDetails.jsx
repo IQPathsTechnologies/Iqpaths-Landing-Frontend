@@ -124,20 +124,26 @@ const CourseDetails = () => {
     };
   }, []);
 
- const handleLectureClick = async (lesson) => {
+const handleLectureClick = async (lesson) => {
   try {
     const response = await apiClass.getPurchasedCourseDetails(id);
+    const chapters = response?.details?.chapters || [];
 
-    // Find current lesson ka video data
-    const purchasedLectures = response?.lectures || [];
-    const matchedLecture = purchasedLectures.find(
-      (lec) => lec.id === lesson.id
-    );
+    let matchedLecture = null;
 
-    if (matchedLecture?.videoUrl) {
+    // Go through each chapter and find the matching lecture
+    for (const chapter of chapters) {
+      const found = chapter.lectures.find((lec) => lec._id === lesson._id);
+      if (found) {
+        matchedLecture = found;
+        break;
+      }
+    }
+
+    if (matchedLecture?.video) {
       setPopupContent({
         ...lesson,
-        videoUrl: matchedLecture.videoUrl,
+        videoUrl: matchedLecture.video, // this is the correct field
       });
       setIsPopupOpen(true);
     } else {
@@ -147,6 +153,7 @@ const CourseDetails = () => {
     console.error("Error fetching purchased course details:", error);
   }
 };
+
 
 
   const tabContent = {
