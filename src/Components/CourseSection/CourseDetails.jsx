@@ -167,22 +167,32 @@ const CourseDetails = () => {
   ))}
 
   {/* Video Popup */}
-  {isPopupOpen && popupContent && (
-    <div className={styles.popup} ref={popupRef}>
-      <div className={styles.popupContent}>
-        <h3>{popupContent.title}</h3>
-        <video
-          src={popupContent.videoUrl}
-          controls
-          autoPlay
-          style={{ width: "100%", borderRadius: "8px" }}
-        />
-        <button onClick={() => setIsPopupOpen(false)} className={styles.closeButton}>
-          Close
-        </button>
-      </div>
+{isPopupOpen && popupContent && (
+  <div className={styles.popup} ref={popupRef}>
+    <div className={styles.popupContent}>
+      <h3>{popupContent.title}</h3>
+
+      {console.log("Popup videoUrl:", popupContent.videoUrl)}
+
+      <iframe
+        src={popupContent.videoUrl}
+        width="100%"
+        height="400"
+        allow="autoplay"
+        allowFullScreen
+        style={{ borderRadius: "8px" }}
+      ></iframe>
+
+      <button
+        onClick={() => setIsPopupOpen(false)}
+        className={styles.closeButton}
+      >
+        Close
+      </button>
     </div>
-  )}
+  </div>
+)}
+
 </div>
 
 
