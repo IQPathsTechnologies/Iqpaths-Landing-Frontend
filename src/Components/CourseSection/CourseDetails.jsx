@@ -7,27 +7,64 @@ import VideoPop from './VideoPop';
 const CourseDetails = () => {
     const [activeTab, setActiveTab] = useState("Overview");
     const [openDropdown, setOpenDropdown] = useState(null);
-    const [currentPage, setCurrentPage] = useState(1);  
-    const [courseDetails, setCourseDetails] = useState({}); // Initialized as object
+    const [currentPage, setCurrentPage] = useState(1);  // State to manage current page of reviews
+    const [courseDetails, setCourseDetails] = useState([]);
     const [review, setReview ] = useState([]);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const popupRef = useRef(null);
-    const [popupContent, setPopupContent] = useState(null); // store clicked lecture
+    const [popupContent, setPopupContent] = useState('');
 
     const reviewsPerPage = 3;
-    const { id } = useParams();
-    const apiClass = new AuthService();
+
+    
+    const { title, id } = useParams();
+    // console.log(title, id);  
+
 
     const allReviews = [
-        { name: "Aman Verma", date: "2025-05-10", comment: "Iqpaths ka Data Structures course bahut achha tha." },
-        { name: "Shruti Sharma", date: "2025-04-28", comment: "Main ne Aptitude crash course liya tha placement ke liye. Bahut helpful raha." },
-        { name: "Rohit Singh", date: "2025-03-18", comment: "Web Development bootcamp beginner-friendly hai." },
-        { name: "Neha Kumari", date: "2025-02-06", comment: "Coding se dar rahi thi pehle, lekin confidence aaya." },
-        { name: "Arjun Yadav", date: "2025-01-21", comment: "Mock Interviews se kaafi help mili. Feedback genuine tha." },
-        { name: "Simran Kapoor", date: "2024-12-17", comment: "Python course projects ache level ke the." },
-        { name: "Vikas Chauhan", date: "2024-11-11", comment: "Resume building session practical tha." },
-        { name: "Riya Mehra", date: "2024-10-03", comment: "Course content updated hai, placement prep ke liye best." }
-    ];
+  {
+    name: "Aman Verma",
+    date: "2025-05-10",
+    comment: "Iqpaths ka Data Structures course bahut achha tha."
+  },
+  {
+    name: "Shruti Sharma",
+    date: "2025-04-28",
+    comment: "Main ne Aptitude crash course liya tha placement ke liye. Bahut helpful raha."
+  },
+  {
+    name: "Rohit Singh",
+    date: "2025-03-18",
+    comment: "Web Development bootcamp beginner-friendly hai."
+  },
+  {
+    name: "Neha Kumari",
+    date: "2025-02-06",
+    comment: "Coding se dar rahi thi pehle, lekin confidence aaya."
+  },
+  {
+    name: "Arjun Yadav",
+    date: "2025-01-21",
+    comment: "Mock Interviews se kaafi help mili. Feedback genuine tha."
+  },
+  {
+    name: "Simran Kapoor",
+    date: "2024-12-17",
+    comment: "Python course projects ache level ke the."
+  },
+  {
+    name: "Vikas Chauhan",
+    date: "2024-11-11",
+    comment: "Resume building session practical tha."
+  },
+  {
+    name: "Riya Mehra",
+    date: "2024-10-03",
+    comment: "Course content updated hai, placement prep ke liye best."
+  }
+];
+
+
 
     const overallRating = [
         { stars: 5, percentage: 90 },
@@ -35,9 +72,10 @@ const CourseDetails = () => {
         { stars: 3, percentage: 2 },
         { stars: 2, percentage: 2 },
         { stars: 1, percentage: 1 },
-    ];
+    ]
 
     const colors = ["#F44336", "#E91E63", "#9C27B0", "#3F51B5", "#2196F3", "#009688", "#4CAF50", "#FF9800", "#795548"];
+
 
     function getRandomColor(name) {
       const charCodeSum = Array.from(name).reduce((sum, char) => sum + char.charCodeAt(0), 0);
@@ -47,32 +85,49 @@ const CourseDetails = () => {
     const indexOfLastReview = currentPage * reviewsPerPage;
     const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
     const currentReviews = allReviews.slice(indexOfFirstReview, indexOfLastReview);
+
+    // Change page
+
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    const apiClass = new AuthService();
 
     useEffect(() => {
         window.scrollTo(0, 0);
         async function fetchData() {
           try {
             const response = await apiClass.getCourseDetails(id);
+            // console.log("CourseSection :: useEffect :: response ye card k liye", response);
             setCourseDetails(response.details);    
           } catch (error) {
-            console.log("Error fetching course details:", error);
+            console.log("CourseSection :: useEffect :: error", error);
           }
         }
         fetchData();
     }, [id]);
 
+
     useEffect(() => {
         async function fetchData() {
           try {
             const response = await apiClass.getReviews(id);
+            // console.log("CourseSection :: useEffect :: response ye card k liye review aa gaye hai ", response);
             setReview(response.review);    
           } catch (error) {
-            console.log("Error fetching reviews:", error);
+            console.log("CourseSection :: useEffect :: error", error);
           }
         }
         fetchData();
-    }, [id]);
+    }
+    , [id]);
+
+    // const handleLectureClick = (lectureTitle) => {
+    //   setPopupContent(`You selected: ${lectureTitle}`);
+    //   setPopupVisible(true);
+
+    //   setTimeout(() => {
+    //     setPopupVisible(false);
+    //   }, 60000); 
+    // };
 
     const handlePopupClose = (e) => {
       if (popupRef.current && !popupRef.current.contains(e.target)) {
@@ -82,13 +137,16 @@ const CourseDetails = () => {
 
     useEffect(() => {
       document.addEventListener("click", handlePopupClose);
-      return () => document.removeEventListener("click", handlePopupClose);
+
+      return () => {
+        document.removeEventListener("click", handlePopupClose);
+      };
     }, []);
 
-    const handleLectureClick = (lesson) => {
-      setPopupContent(lesson); // store clicked lecture
+    const handleLectureClick = (lessonId) => {
       setIsPopupOpen(true);
     };
+
 
     const tabContent = {
       Overview: (
@@ -99,104 +157,69 @@ const CourseDetails = () => {
         </div>
       ),
       Curriculum: (
-<div className={styles.curriculum}>
-  {courseDetails?.chapters?.map((section, sectionIndex) => (
-    <div key={sectionIndex} className={styles.section}>
-      {/* Section Header */}
-      <div
-        className={styles.sectionHeader}
-        onClick={() =>
-          setOpenDropdown(openDropdown === sectionIndex ? null : sectionIndex)
-        }
-      >
-        <span>{section.name}</span>
-        <span>{section.lectures.length} Lessons</span>
-        <span className={styles.arrowIcon}>
-          {openDropdown === sectionIndex ? (
-            <img src="/upArrow.png" alt="Up Arrow" />
-          ) : (
-            <img src="/downArrow.png" alt="Down Arrow" />
-          )}
-        </span>
-      </div>
-
-      {/* Section Content */}
-      {openDropdown === sectionIndex && (
-        <div className={styles.sectionContent}>
-          {section.lectures.map((lesson, lectureIndex) => {
-            const isPreview = sectionIndex === 0 && lectureIndex < 2;
-
-            // Console log here
-           console.log(`Lecture: ${lesson.title}, preview: ${isPreview}, videoUrl: ${lesson.videoUrl || lesson.video}`);
-
-
-            return (
-              <div key={lectureIndex} className={styles.lesson}>
-                <div className={styles.lessons}>
-                  <img src="/lesson.png" alt="Lesson" />
-                  <span className={styles.name}>{lesson.title}</span>
-                </div>
-
-                <div className={styles.button}>
-                  <button
-                    className={styles.previewButton}
-                    onClick={() => isPreview && handleLectureClick(lesson)}
-                    disabled={!isPreview}
-                  >
-                    {isPreview ? "Preview" : "Locked"}
-                  </button>
-
-                  <span className={styles.lessonTime}>{lesson.duration} lecture</span>
-
-                  {isPreview ? (
-                    <span className={styles.lessonCheck}>
-                      <img src="/tick.png" alt="Tick" />
-                    </span>
+        <div className={styles.curriculum}>
+          <p>
+          Unlock the power of data with our comprehensive Machine Learning course, featuring a well-structured curriculum that blends theoretical foundations with hands-on experience to equip you with the skills needed to build cutting-edge models and advance your career in AI and data science.
+          </p>
+          {courseDetails?.chapters?.map((section, index) => (
+            <div key={index} className={styles.section}>
+              <div
+                className={styles.sectionHeader}
+                onClick={() => setOpenDropdown(openDropdown === index ? null : index)}
+              >
+                <span>{section.name}</span>
+                <span>
+                  {section.lectures.length} Lessons
+                </span>
+                <span className={styles.arrowIcon}>
+                  {openDropdown === index ? (
+                    <img src="/upArrow.png" alt="Up Arrow" />
                   ) : (
-                    <span className={styles.lessonLock}>
-                      <img src="/lock.png" alt="Lock" />
-                    </span>
+                    <img src="/downArrow.png" alt="Down Arrow" />
                   )}
-                </div>
+                </span>
               </div>
-            );
-          })}
+            {openDropdown === index && (
+              <div className={styles.sectionContent}>
+                {section?.lectures?.map((lesson, idx) => (
+                  <div key={idx} className={styles.lesson} onClick={() => handleLectureClick(lesson.id)}>
+                    <div className={styles.lessons}>
+                      <img src="/lesson.png" alt="Lesson" />
+                      <span className={styles.name}>{lesson.title}</span>
+                    </div>
+                    <div className={styles.button}>
+                      <button className={styles.previewButton}>
+                        {lesson.preview ? "Preview" : "LIVE"}
+                      </button>
+                      <span className={styles.lessonTime}>{lesson.duration} lecture</span>
+                      {lesson.preview && (
+                        <span className={styles.lessonCheck}>
+                          <img src="/tick.png" alt="Tick" />
+                        </span>
+                      )}
+                      {lesson.locked && (
+                        <span className={styles.lessonLock}>
+                          <img src="/lock.png" alt="Lock" />
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+            </div>
+          )}
+        </div>
+      ))}
+
+      {isPopupOpen && (
+        <div className={styles.popup} ref={popupRef}>
+          <div className={styles.popupContent}>
+            <p>Lesson Details</p>
+            {/* Add content related to the selected lesson */}
+            <button onClick={() => setIsPopupOpen(false)}>Close</button>
+          </div>
         </div>
       )}
-    </div>
-  ))}
-
-  {/* Video Popup */}
-{isPopupOpen && popupContent && (
-  <div className={styles.popup} ref={popupRef}>
-    <div className={styles.popupContent}>
-      <h3>{popupContent.title}</h3>
-
-      {console.log("Popup videoUrl:", popupContent.videoUrl)}
-
-      <iframe
-        src={popupContent.videoUrl}
-        width="100%"
-        height="400"
-        allow="autoplay"
-        allowFullScreen
-        style={{ borderRadius: "8px" }}
-      ></iframe>
-
-      <button
-        onClick={() => setIsPopupOpen(false)}
-        className={styles.closeButton}
-      >
-        Close
-      </button>
-    </div>
-  </div>
-)}
-
-</div>
-
-
-
+        </div>
       ),      
       Instructor: (
         <div className={styles.instructor}>
