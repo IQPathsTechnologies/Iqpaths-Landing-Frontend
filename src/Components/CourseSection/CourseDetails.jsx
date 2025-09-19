@@ -198,69 +198,66 @@ const CourseDetails = () => {
 
 
       ),      
-Instructor: (
-  <div className={styles.instructor}>
-    {console.log("👉 Instructor Data:", courseDetails?.instructor)} {/* 🔍 Debug log */}
-
-    {courseDetails?.instructor ? (
-      <>
-        <div className={styles.instructorHeader}>
-          <img
-            src={courseDetails.instructor?.profilePhoto || "/instructor.png"}
-            alt="Instructor Logo"
-            className={styles.instructorLogo}
-          />
-          <div className={styles.instructorInfo}>
-            <h3>{courseDetails.instructor?.name}</h3>
-            <p>{courseDetails.instructor?.designation}</p>
-            <p>{courseDetails.instructor?.expertise}</p>
-
-            <div className={styles.instructorStats}>
-              <span>
-                <img
-                  src="/studentIcon.png"
-                  alt="Students Icon"
-                  className={styles.icon}
-                />
-                100+ Students Taught
-              </span>
-              <span>
-                <img
-                  src="/lessonIcon.png"
-                  alt="Lessons Icon"
-                  className={styles.icon}
-                />
-                20 Lessons
-              </span>
+      Instructor: (
+        <div className={styles.instructor}>
+          <div className={styles.instructorHeader}>
+            <img
+              // src="/instructor.png"
+              src= {courseDetails.instructor?.profilePhoto || "/instructor.png"}
+              alt="Instructor Logo"
+              className={styles.instructorLogo}
+            />
+            <div className={styles.instructorInfo}>
+              <h3>{courseDetails?.instructor?.name}</h3>
+              <p>
+              
+              {courseDetails?.instructor?.description}
+              </p>
+              <div className={styles.instructorStats}>
+                <span>
+                  <img
+                    src="/studentIcon.png"
+                    alt="Students Icon"
+                    className={styles.icon}
+                  />
+                  100+ Students Taught
+                </span>
+                <span>
+                  <img
+                    src="/lessonIcon.png"
+                    alt="Lessons Icon"
+                    className={styles.icon}
+                  />
+                  20 Lessons
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div className={styles.instructorDescription}>
-          <p>{courseDetails.instructor?.description}</p>
-        </div>
-
-        {courseDetails.instructor?.linkedIn && (
-          <div className={styles.socialMedia}>
-            <span>Connect:</span>
-            <a
-              href={courseDetails.instructor.linkedIn}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.socialIcon}
-            >
-              <img src="/linkedinIcon.png" alt="LinkedIn" />
-            </a>
+          <div className={styles.instructorDescription}>
+          <p>
+            Our instructor at IQPaths is a seasoned professional with extensive experience in the field. With a passion for teaching and a deep understanding of the subject matter, they have successfully guided numerous students towards achieving their learning goals. Their engaging teaching style, combined with practical insights and real-world examples, which ensures that students not only grasp theoretical concepts but also learn how to apply them effectively.
+          </p>
           </div>
-        )}
-      </>
-    ) : (
-      <p>No instructor data available for this course.</p>
-    )}
-  </div>
-),
-
-
+          {/* <div className={styles.socialMedia}>
+            <span>Follow:</span>
+            <a href="#" className={styles.socialIcon}>
+              <img src="/facebookIcon.png" alt="Facebook" />
+            </a>
+            <a href="#" className={styles.socialIcon}>
+              <img src="/pinterestIcon.png" alt="Pinterest" />
+            </a>
+            <a href="#" className={styles.socialIcon}>
+              <img src="/twitterIcon.png" alt="Twitter" />
+            </a>
+            <a href="#" className={styles.socialIcon}>
+              <img src="/instagramIcon.png" alt="Instagram" />
+            </a>
+            <a href="#" className={styles.socialIcon}>
+              <img src="/youtubeIcon.png" alt="YouTube" />
+            </a>
+          </div> */}
+        </div>
+      ),
       FAQs: (
         <div className={styles.faqs}>
           {courseDetails?.faq?.map((faq, index) => (
