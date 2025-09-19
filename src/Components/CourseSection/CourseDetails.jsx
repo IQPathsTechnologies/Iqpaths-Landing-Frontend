@@ -5,6 +5,8 @@ import styles from './CourseDetails.module.css';
 import VideoPop from './VideoPop';
 
 const CourseDetails = () => {
+
+  
     const [activeTab, setActiveTab] = useState("Overview");
     const [openDropdown, setOpenDropdown] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);  
@@ -90,6 +92,53 @@ const CourseDetails = () => {
       setPopupContent(lesson); // store clicked lecture
       setIsPopupOpen(true);
     };
+    const CourseInstructor = ({ courseDetails, setCourseDetails }) => {
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [profilePhoto, setProfilePhoto] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
+  const { id: courseId } = useParams(); // Current course ID
+  const apiClass = new AuthService();
+
+  const handleInstructorCreate = async (e) => {
+    e.preventDefault();
+    if (!name) return setMessage('Instructor name is required!');
+    setLoading(true);
+    setMessage('');
+
+    try {
+      // 1️⃣ Create Instructor
+      const response = await axios.post('/api/instructors/createInstructor', {
+        name,
+        description,
+        profilePhoto,
+      });
+      const newInstructorId = response.data.data._id;
+
+      // 2️⃣ Assign Instructor to Course
+      await axios.post('/api/instructors/assignInstructorToCourse', {
+        courseId,
+        instructorId: newInstructorId,
+      });
+
+      setMessage('Instructor created and assigned successfully!');
+      
+      // 3️⃣ Update courseDetails locally
+      const updatedCourse = await apiClass.getCourseDetails(courseId);
+      setCourseDetails(updatedCourse.details);
+
+      // Reset form
+      setName('');
+      setDescription('');
+      setProfilePhoto('');
+    } catch (err) {
+      console.error(err);
+      setMessage('Error creating or assigning instructor.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
     const tabContent = {
       Overview: (
@@ -200,64 +249,50 @@ const CourseDetails = () => {
 
       ),      
       Instructor: (
-        <div className={styles.instructor}>
-          <div className={styles.instructorHeader}>
-            <img
-              // src="/instructor.png"
-              src= {courseDetails.instructor?.profilePhoto || "/instructor.png"}
-              alt="Instructor Logo"
-              className={styles.instructorLogo}
-            />
-            <div className={styles.instructorInfo}>
-              <h3>{courseDetails?.instructor?.name}</h3>
-              <p>
-              
-              {courseDetails?.instructor?.description}
-              </p>
-              <div className={styles.instructorStats}>
-                <span>
-                  <img
-                    src="/studentIcon.png"
-                    alt="Students Icon"
-                    className={styles.icon}
-                  />
-                  100+ Students Taught
-                </span>
-                <span>
-                  <img
-                    src="/lessonIcon.png"
-                    alt="Lessons Icon"
-                    className={styles.icon}
-                  />
-                  20 Lessons
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className={styles.instructorDescription}>
-          <p>
-            Our instructor at IQPaths is a seasoned professional with extensive experience in the field. With a passion for teaching and a deep understanding of the subject matter, they have successfully guided numerous students towards achieving their learning goals. Their engaging teaching style, combined with practical insights and real-world examples, which ensures that students not only grasp theoretical concepts but also learn how to apply them effectively.
-          </p>
-          </div>
-          {/* <div className={styles.socialMedia}>
-            <span>Follow:</span>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/facebookIcon.png" alt="Facebook" />
-            </a>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/pinterestIcon.png" alt="Pinterest" />
-            </a>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/twitterIcon.png" alt="Twitter" />
-            </a>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/instagramIcon.png" alt="Instagram" />
-            </a>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/youtubeIcon.png" alt="YouTube" />
-            </a>
-          </div> */}
+        <div className={styles.instructorTab}>
+      <h2>Instructor Details</h2>
+
+      {courseDetails.instructor ? (
+        <div className={styles.instructorInfo}>
+          <img
+            src={courseDetails.instructor.profilePhoto || '/instructor.png'}
+            alt="Instructor"
+            className={styles.instructorLogo}
+          />
+          <h3>{courseDetails.instructor.name}</h3>
+          <p>{courseDetails.instructor.description}</p>
         </div>
+      ) : (
+        <p>No instructor assigned yet.</p>
+      )}
+
+      <form className={styles.instructorForm} onSubmit={handleInstructorCreate}>
+        <h3>Create & Assign New Instructor</h3>
+        <input
+          type="text"
+          placeholder="Instructor Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+        <textarea
+          placeholder="Instructor Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        ></textarea>
+        <input
+          type="text"
+          placeholder="Profile Photo URL"
+          value={profilePhoto}
+          onChange={(e) => setProfilePhoto(e.target.value)}
+        />
+        <button type="submit" disabled={loading}>
+          {loading ? 'Processing...' : 'Create & Assign'}
+        </button>
+      </form>
+
+      {message && <p className={styles.message}>{message}</p>}
+    </div>
       ),
       FAQs: (
         <div className={styles.faqs}>
