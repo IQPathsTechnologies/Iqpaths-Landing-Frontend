@@ -54,6 +54,7 @@ const CourseDetails = () => {
         async function fetchData() {
           try {
             const response = await apiClass.getCourseDetails(id);
+            console.log("get fetch getCourseDetails", response);
             setCourseDetails(response.details);    
           } catch (error) {
             console.log("Error fetching course details:", error);
