@@ -8,11 +8,11 @@ const CourseDetails = () => {
     const [activeTab, setActiveTab] = useState("Overview");
     const [openDropdown, setOpenDropdown] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);  
-    const [courseDetails, setCourseDetails] = useState({}); // Initialized as object
+    const [courseDetails, setCourseDetails] = useState({});
     const [review, setReview ] = useState([]);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const popupRef = useRef(null);
-    const [popupContent, setPopupContent] = useState(null); // store clicked lecture
+    const [popupContent, setPopupContent] = useState(null);
 
     const reviewsPerPage = 3;
     const { id } = useParams();
@@ -38,11 +38,7 @@ const CourseDetails = () => {
     ];
 
     const colors = ["#F44336", "#E91E63", "#9C27B0", "#3F51B5", "#2196F3", "#009688", "#4CAF50", "#FF9800", "#795548"];
-
-    function getRandomColor(name) {
-      const charCodeSum = Array.from(name).reduce((sum, char) => sum + char.charCodeAt(0), 0);
-      return colors[charCodeSum % colors.length];
-    }
+    const getRandomColor = (name) => colors[Array.from(name).reduce((sum, char) => sum + char.charCodeAt(0), 0) % colors.length];
 
     const indexOfLastReview = currentPage * reviewsPerPage;
     const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
@@ -86,7 +82,7 @@ const CourseDetails = () => {
     }, []);
 
     const handleLectureClick = (lesson) => {
-      setPopupContent(lesson); // store clicked lecture
+      setPopupContent(lesson);
       setIsPopupOpen(true);
     };
 
@@ -94,168 +90,108 @@ const CourseDetails = () => {
       Overview: (
         <div className={styles.overview}>
           <p>{courseDetails.overview}</p>
-          {/* <p>{courseDetails.description}</p>
-          <p>{courseDetails.description}</p> */}
         </div>
       ),
       Curriculum: (
-<div className={styles.curriculum}>
-  {courseDetails?.chapters?.map((section, sectionIndex) => (
-    <div key={sectionIndex} className={styles.section}>
-      {/* Section Header */}
-      <div
-        className={styles.sectionHeader}
-        onClick={() =>
-          setOpenDropdown(openDropdown === sectionIndex ? null : sectionIndex)
-        }
-      >
-        <span>{section.name}</span>
-        <span>{section.lectures.length} Lessons</span>
-        <span className={styles.arrowIcon}>
-          {openDropdown === sectionIndex ? (
-            <img src="/upArrow.png" alt="Up Arrow" />
-          ) : (
-            <img src="/downArrow.png" alt="Down Arrow" />
-          )}
-        </span>
-      </div>
-
-      {/* Section Content */}
-      {openDropdown === sectionIndex && (
-        <div className={styles.sectionContent}>
-          {section.lectures.map((lesson, lectureIndex) => {
-            const isPreview = sectionIndex === 0 && lectureIndex < 2;
-
-            // Console log here
-           console.log(`Lecture: ${lesson.title}, preview: ${isPreview}, videoUrl: ${lesson.videoUrl || lesson.video}`);
-
-
-            return (
-              <div key={lectureIndex} className={styles.lesson}>
-                <div className={styles.lessons}>
-                  <img src="/lesson.png" alt="Lesson" />
-                  <span className={styles.name}>{lesson.title}</span>
-                </div>
-
-                <div className={styles.button}>
-                  <button
-                    className={styles.previewButton}
-                    onClick={() => isPreview && handleLectureClick(lesson)}
-                    disabled={!isPreview}
-                  >
-                    {isPreview ? "Preview" : "Locked"}
-                  </button>
-
-                  <span className={styles.lessonTime}>{lesson.duration} lecture</span>
-
-                  {isPreview ? (
-                    <span className={styles.lessonCheck}>
-                      <img src="/tick.png" alt="Tick" />
-                    </span>
+        <div className={styles.curriculum}>
+          {courseDetails?.chapters?.map((section, sectionIndex) => (
+            <div key={sectionIndex} className={styles.section}>
+              <div
+                className={styles.sectionHeader}
+                onClick={() =>
+                  setOpenDropdown(openDropdown === sectionIndex ? null : sectionIndex)
+                }
+              >
+                <span>{section.name}</span>
+                <span>{section.lectures.length} Lessons</span>
+                <span className={styles.arrowIcon}>
+                  {openDropdown === sectionIndex ? (
+                    <img src="/upArrow.png" alt="Up Arrow" />
                   ) : (
-                    <span className={styles.lessonLock}>
-                      <img src="/lock.png" alt="Lock" />
-                    </span>
+                    <img src="/downArrow.png" alt="Down Arrow" />
                   )}
-                </div>
+                </span>
               </div>
-            );
-          })}
+
+              {openDropdown === sectionIndex && (
+                <div className={styles.sectionContent}>
+                  {section.lectures.map((lesson, lectureIndex) => {
+                    // Lecture free if lesson.free === true
+                    const isPreview = lesson.free;
+
+                    return (
+                      <div key={lectureIndex} className={styles.lesson}>
+                        <div className={styles.lessons}>
+                          <img src="/lesson.png" alt="Lesson" />
+                          <span className={styles.name}>{lesson.title}</span>
+                        </div>
+
+                        <div className={styles.button}>
+                          <button
+                            className={styles.previewButton}
+                            onClick={() => isPreview && handleLectureClick(lesson)}
+                            disabled={!isPreview}
+                          >
+                            {isPreview ? "Preview" : "Locked"}
+                          </button>
+
+                          <span className={styles.lessonTime}>{lesson.duration}</span>
+
+                          {isPreview ? (
+                            <span className={styles.lessonCheck}>
+                              <img src="/tick.png" alt="Tick" />
+                            </span>
+                          ) : (
+                            <span className={styles.lessonLock}>
+                              <img src="/lock.png" alt="Lock" />
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          ))}
+
+          {isPopupOpen && popupContent && (
+            <div className={styles.popup} ref={popupRef}>
+              <div className={styles.popupContent}>
+                <h3>{popupContent.title}</h3>
+                <iframe
+                  src={popupContent.video || popupContent.videoUrl}
+                  width="100%"
+                  height="400"
+                  allow="autoplay"
+                  allowFullScreen
+                  style={{ borderRadius: "8px" }}
+                  title="Lecture Video"
+                ></iframe>
+                <button
+                  onClick={() => setIsPopupOpen(false)}
+                  className={styles.closeButton}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
         </div>
-      )}
-    </div>
-  ))}
-
-  {/* Video Popup */}
-{isPopupOpen && popupContent && (
-  <div className={styles.popup} ref={popupRef}>
-    <div className={styles.popupContent}>
-      <h3>{popupContent.title}</h3>
-
-      {console.log("Popup videoUrl:", popupContent.videoUrl)}
-
-      <iframe
-        src={popupContent.videoUrl}
-        width="100%"
-        height="400"
-        allow="autoplay"
-        allowFullScreen
-        style={{ borderRadius: "8px" }}
-      ></iframe>
-
-      <button
-        onClick={() => setIsPopupOpen(false)}
-        className={styles.closeButton}
-      >
-        Close
-      </button>
-    </div>
-  </div>
-)}
-
-</div>
-
-
-
-      ),      
+      ),
       Instructor: (
         <div className={styles.instructor}>
           <div className={styles.instructorHeader}>
             <img
-              // src="/instructor.png"
-              src= {courseDetails.instructor?.profilePhoto || "/instructor.png"}
+              src={courseDetails.instructor?.profilePhoto || "/instructor.png"}
               alt="Instructor Logo"
               className={styles.instructorLogo}
             />
             <div className={styles.instructorInfo}>
               <h3>{courseDetails?.instructor?.name}</h3>
-              <p>
-              
-              {courseDetails?.instructor?.description}
-              </p>
-              <div className={styles.instructorStats}>
-                <span>
-                  <img
-                    src="/studentIcon.png"
-                    alt="Students Icon"
-                    className={styles.icon}
-                  />
-                  100+ Students Taught
-                </span>
-                <span>
-                  <img
-                    src="/lessonIcon.png"
-                    alt="Lessons Icon"
-                    className={styles.icon}
-                  />
-                  20 Lessons
-                </span>
-              </div>
+              <p>{courseDetails?.instructor?.description}</p>
             </div>
           </div>
-          <div className={styles.instructorDescription}>
-          <p>
-            Our instructor at IQPaths is a seasoned professional with extensive experience in the field. With a passion for teaching and a deep understanding of the subject matter, they have successfully guided numerous students towards achieving their learning goals. Their engaging teaching style, combined with practical insights and real-world examples, which ensures that students not only grasp theoretical concepts but also learn how to apply them effectively.
-          </p>
-          </div>
-          {/* <div className={styles.socialMedia}>
-            <span>Follow:</span>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/facebookIcon.png" alt="Facebook" />
-            </a>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/pinterestIcon.png" alt="Pinterest" />
-            </a>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/twitterIcon.png" alt="Twitter" />
-            </a>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/instagramIcon.png" alt="Instagram" />
-            </a>
-            <a href="#" className={styles.socialIcon}>
-              <img src="/youtubeIcon.png" alt="YouTube" />
-            </a>
-          </div> */}
         </div>
       ),
       FAQs: (
@@ -268,11 +204,7 @@ const CourseDetails = () => {
                   setOpenDropdown(openDropdown === index ? null : index)
                 }
               >
-                <span
-                  className={`${styles.faqQuestion} ${
-                    openDropdown === index ? styles.activeQuestion : ""
-                  }`}
-                >
+                <span className={`${styles.faqQuestion} ${openDropdown === index ? styles.activeQuestion : ""}`}>
                   {faq.question}
                 </span>
                 <span className={styles.arrows}>
@@ -292,105 +224,42 @@ const CourseDetails = () => {
       ),
       Reviews: (
         <div className={styles.reviews}>
-          <div className={styles.comments}> Comments </div>
-          <div className={styles.ratingSection}>
-            <div className={styles.averageRating}>
-              <span className={styles.ratingScore}>5.0</span>
-              <div className={styles.count}>
-              {/* ☆ */}
-                <div className={styles.stars}>★★★★★</div>
-                <p className={styles.ratingCount}>based on 1,500+ ratings</p>
-              </div>
-            </div>
-            <div className={styles.ratingBreakdown}>
-              {overallRating?.map((rating, index) => (
-                <div key={index} className={styles.ratingBarRow}>
-                  <span>{rating.stars} ★</span>
-                  <div className={styles.ratingBar}>
-                    <div
-                      className={styles.ratingFill}
-                      style={{ width: `${rating.percentage}%` }}
-                    ></div>
-                  </div>
-                  <span>{rating.percentage}%</span>
+          {currentReviews?.map((review, index) => (
+            <div key={index} className={styles.comment}>
+              <div className={styles.commentHeader}>
+                <div
+                  className={styles.commentAvatar}
+                  style={{ backgroundColor: getRandomColor(review.name) }}
+                >
+                  {review.name.charAt(0).toUpperCase()}
                 </div>
-              ))}
-            </div>
-          </div>
-          <div className={styles.commentSection}>
-            {currentReviews?.map((review, index) => (
-              <div key={index} className={styles.comment}>
-                <div className={styles.commentHeader}>
-                  {/* <img
-                    src="/user.png"
-                    alt="User"
-                    className={styles.commentAvatar}
-                  /> */}
-                  <div
-                    className={styles.commentAvatar}
-                    style={{ backgroundColor: getRandomColor(review.name) }}
-                  >
-                    {review.name.charAt(0).toUpperCase()}
-                  </div>
-
-                  <div className={styles.names}>
-                    <h4 className={styles.commentName}>{review.name}</h4>
-                    <p className={styles.commentDate}> {new Date(review.date).toLocaleDateString()} </p>
-                  </div>
+                <div className={styles.names}>
+                  <h4 className={styles.commentName}>{review.name}</h4>
+                  <p className={styles.commentDate}>{new Date(review.date).toLocaleDateString()}</p>
                 </div>
-                <p className={styles.commentText}>{review.comment}</p>
-                {/* <div className={styles.reply}>
-                  <img src="/reply.png" alt="Reply" /> 
-                  <button className={styles.replyButton}>Reply</button>
-                </div> */}
               </div>
-            ))}
-          </div>
-          <div className={styles.pagination}>
-            <button
-              onClick={() => paginate(currentPage - 1)}
-              disabled={currentPage === 1}
-              className={styles.paginationButton}
-            >
-              &lt; 
-            </button>
-            <span className={styles.pageNumber}>{currentPage}</span>
-            <span className={styles.totalPages}>
-              / {Math.ceil(allReviews.length / reviewsPerPage)}{" "}
-            </span>
-            <button
-              onClick={() => paginate(currentPage + 1)}
-              disabled={
-                currentPage === Math.ceil(allReviews.length / reviewsPerPage)
-              }
-              className={styles.paginationButton}
-            >
-              &gt;
-            </button>
-          </div>
+              <p className={styles.commentText}>{review.comment}</p>
+            </div>
+          ))}
         </div>
-      ),
+      )
     };
 
     return (
-        <>
-            <div className={styles.tabsContainer}>
-                <div className={styles.tabs}>
-                    {Object.keys(tabContent)?.map((tab) => (
-                        <button
-                            key={tab}
-                            className={`${styles.tabButton} ${activeTab === tab ? styles.active : ""}`}
-                            onClick={() => setActiveTab(tab)}
-                        >
-                            {tab}
-                        </button>
-                    ))}
-                </div>
-                <div className={styles.tabContent}>{tabContent[activeTab]}</div>
-
-                {/* {isPopupVisible && <VideoPop content={popupContent} />} */}
+        <div className={styles.tabsContainer}>
+            <div className={styles.tabs}>
+                {Object.keys(tabContent)?.map((tab) => (
+                    <button
+                        key={tab}
+                        className={`${styles.tabButton} ${activeTab === tab ? styles.active : ""}`}
+                        onClick={() => setActiveTab(tab)}
+                    >
+                        {tab}
+                    </button>
+                ))}
             </div>
-        </>
+            <div className={styles.tabContent}>{tabContent[activeTab]}</div>
+        </div>
     );
 };
 
