@@ -290,7 +290,7 @@ const CourseSection = ({
               <p>What you'll learn</p>
             </div>
             <div className={styles.courseInfo}>
-              {courseDetails.whatYouWilLearn?.map((item, index) => (
+              {courseDetails.whatYouWillLearn?.map((item, index) => (
                 <>
                 <p key={index} className={styles.points}>
                   {item}

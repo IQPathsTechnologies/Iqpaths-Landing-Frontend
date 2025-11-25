@@ -27,6 +27,7 @@ const Header = () => {
     { name: "Courses", link: "/courses" },
     { name: "My Learnings", link: "/my-learnings" },
     { name: "Contact Us", link: "/contact-us" },
+    { name: "Create Resume", link: "https://resume.iqpaths.com" },
   ];
   const navigate = useNavigate();
   const handleLogout = async () => {
