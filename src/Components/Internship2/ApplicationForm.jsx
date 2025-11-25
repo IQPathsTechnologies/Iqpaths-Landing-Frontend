@@ -62,12 +62,18 @@ const formSchema = z.object({
   resume: z
     .instanceof(File)
     .refine((file) => file?.size <= 2 * 1024 * 1024, "File size must be less than 2MB")
-    .refine((file) => file?.type === "application/pdf", "Only PDF files are accepted"),
+     .refine(
+        (file) =>
+          ["image/png", "image/jpeg", "image/jpg", "image/webp"].includes(file?.type),
+        "Only image files (PNG, JPG, JPEG, WEBP) are accepted"
+      ),
 
   motivation: z
     .string()
-    .min(50, "Please write at least 50 characters")  // You may need to validate word count manually if needed
-    .max(500, "Please write at most 500 characters"),
+    .min(0, "Please write at least 50 characters")  // You may need to validate word count manually if needed
+    .max(500, "Please write at most 500 characters")
+    .optional()
+    .or(z.literal("")),
 
   consent: z.literal(true, {
     errorMap: () => ({ message: "You must agree to the terms and conditions" }),
@@ -424,7 +430,7 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                       <FormLabel>
                         Resume Upload{" "}
                         <span className={styles.optionalText}>
-                          (PDF only, max 2MB)
+                          (images only, max 2MB)
                         </span>
                       </FormLabel>
                       <FormControl>
@@ -433,7 +439,7 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                         >
                           <Input
                             type="file"
-                            accept=".pdf"
+                            accept="image/png, image/jpeg, image/jpg, image/webp"
                             onChange={handleFileChange}
                             //{...field}
                             className={styles.fileInput}
