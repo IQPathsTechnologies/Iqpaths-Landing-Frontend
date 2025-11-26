@@ -62,11 +62,12 @@ const formSchema = z.object({
   resume: z
     .instanceof(File)
     .refine((file) => file?.size <= 2 * 1024 * 1024, "File size must be less than 2MB")
-     .refine(
-        (file) =>
-          ["image/png", "image/jpeg", "image/jpg", "image/webp"].includes(file?.type),
-        "Only image files (PNG, JPG, JPEG, WEBP) are accepted"
-      ),
+    .refine((file) => file?.type === "application/pdf", "Only PDF files are accepted"),
+    //  .refine(
+    //     (file) =>
+    //       ["image/png", "image/jpeg", "image/jpg", "image/webp"].includes(file?.type),
+    //     "Only image files (PNG, JPG, JPEG, WEBP) are accepted"
+    //   ),
 
   motivation: z
     .string()
@@ -430,7 +431,7 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                       <FormLabel>
                         Resume Upload{" "}
                         <span className={styles.optionalText}>
-                          (images only, max 2MB)
+                          (pdf only, max 2MB)
                         </span>
                       </FormLabel>
                       <FormControl>
@@ -439,7 +440,8 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                         >
                           <Input
                             type="file"
-                            accept="image/png, image/jpeg, image/jpg, image/webp"
+                            // accept="image/png, image/jpeg, image/jpg, image/webp"
+                            accept=".pdf"
                             onChange={handleFileChange}
                             //{...field}
                             className={styles.fileInput}
