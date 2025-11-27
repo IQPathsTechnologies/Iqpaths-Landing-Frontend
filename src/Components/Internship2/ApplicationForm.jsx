@@ -34,12 +34,12 @@ const formSchema = z.object({
     .string()
     .regex(/^\d{10}$/, "Phone number must be exactly 10 digits"),
 
-  university: z
+  collegeUniversity: z
     .string()
     .min(2, "Please enter your university/college name")
     .regex(/^[A-Za-z\s]+$/, "Only alphabets and spaces are allowed"),
 
-  program: z
+  programCourse: z
     .string()
     .min(2, "Please enter your program/course"),
 
@@ -91,8 +91,8 @@ const ApplicationForm = ({ selectedInternshipId }) => {
       fullName: "",
       email: "",
       phoneNumber: "",
-      university: "",
-      program: "",
+      collegeUniversity: "",
+      programCourse: "",
       yearOfStudy: "1",
       internships: selectedInternshipId ? [selectedInternshipId] : [],
       linkedinUrl: "",
@@ -246,7 +246,7 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                 </h3>
                 <FormField
                   control={form.control}
-                  name="university"
+                  name="collegeUniversity"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>College/University</FormLabel>
@@ -265,7 +265,7 @@ const ApplicationForm = ({ selectedInternshipId }) => {
                 >
                   <FormField
                     control={form.control}
-                    name="program"
+                    name="programCourse"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Program/Course</FormLabel>
