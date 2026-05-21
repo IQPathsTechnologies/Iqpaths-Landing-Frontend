@@ -59,10 +59,17 @@ const formSchema = z.object({
     .url("Please enter a valid URL")
     .or(z.literal("")),
 
-  resume: z
-    .instanceof(File)
-    .refine((file) => file?.size <= 2 * 1024 * 1024, "File size must be less than 2MB")
-    .refine((file) => file?.type === "application/pdf", "Only PDF files are accepted"),
+  // resume: z
+  //   .instanceof(File)
+  //   .refine((file) => file?.size <= 2 * 1024 * 1024, "File size must be less than 2MB")
+  //   .refine((file) => file?.type === "application/pdf", "Only PDF files are accepted"),
+  // // Schema mein ye change karo:
+resume: z
+  .instanceof(File)
+  .refine((file) => file?.size <= 2 * 1024 * 1024, "File size must be less than 2MB")
+  .refine((file) => file?.type === "application/pdf", "Only PDF files are accepted")
+  .optional()
+  .or(z.literal(undefined)),
     //  .refine(
     //     (file) =>
     //       ["image/png", "image/jpeg", "image/jpg", "image/webp"].includes(file?.type),
@@ -123,16 +130,46 @@ const ApplicationForm = ({ selectedInternshipId }) => {
     }, 300);
     handleForm(data);
   };
- const handleForm = async (data) => {
+//  const handleForm = async (data) => {
+//   try {
+//     const updatedData = {
+//       ...data,
+//       internshipSelection: data.internships.join(','),
+//       internships: undefined, 
+//       resume: data.resume ?? null,
+//     };
+//     console.log("Modified Form Data:", updatedData);
+//     const response = await apiClass.internshipFormSubmit(updatedData);
+//     console.log("Form submitted successfully:", response.data);
+//     if (response.status === 201) {
+//       notifySuccess("Form submitted successfully!");
+//     }
+//   } catch (error) {
+//     console.error("Submission Error:", error.response?.data || error.message);
+//     notifyError("Try again later");
+//   }
+// };
+
+const handleForm = async (data) => {
   try {
-    const updatedData = {
-      ...data,
-      internshipSelection: data.internships.join(','),
-      internships: undefined, 
-    };
-    console.log("Modified Form Data:", updatedData);
-    const response = await apiClass.internshipFormSubmit(updatedData);
-    console.log("Form submitted successfully:", response.data);
+    const formData = new FormData();
+    formData.append('fullName', data.fullName);
+    formData.append('email', data.email);
+    formData.append('phoneNumber', data.phoneNumber);
+    formData.append('collegeUniversity', data.collegeUniversity);
+    formData.append('programCourse', data.programCourse);
+    formData.append('yearOfStudy', data.yearOfStudy);
+    formData.append('internshipSelection', data.internships.join(','));
+    formData.append('linkedinUrl', data.linkedinUrl || '');
+    formData.append('portfolioUrl', data.portfolioUrl || '');
+    formData.append('motivation', data.motivation || '');
+
+    // Sirf tab append karo jab file select ki ho
+    if (data.resume instanceof File) {
+      formData.append('resume', data.resume);
+    }
+
+    const response = await apiClass.internshipFormSubmit(formData);
     if (response.status === 201) {
       notifySuccess("Form submitted successfully!");
     }
@@ -141,6 +178,7 @@ const ApplicationForm = ({ selectedInternshipId }) => {
     notifyError("Try again later");
   }
 };
+
   const handleFileChange = (event) => {
     const file = event.target.files?.[0];
     console.log(file)
@@ -155,7 +193,7 @@ const ApplicationForm = ({ selectedInternshipId }) => {
     { value: "2", label: "2nd Year" },
     { value: "3", label: "3rd Year" },
     { value: "4", label: "4th Year" },
-    { value: "5+", label: "5th Year or Above" },
+    { value: "5+", label: "Experienced" },
   ];
   return (
     <section
