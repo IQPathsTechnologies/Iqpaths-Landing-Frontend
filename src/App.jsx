@@ -4,7 +4,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import Footer from './Components/Footer/Footer';
 import { useState, useEffect } from 'react';
 import Popup from './Components/MainPopup/MainPopup'; // Import Popup Component
-import RedirectPopup from './Components/HeroSection/RedirectPopup'; 
+import RedirectPopup from './Components/MainPopup/RedirectPopup'; 
 
 function App() {
   const [showPopup, setShowPopup] = useState(false);
