@@ -25,7 +25,6 @@ const LoginSignup = () => {
     window.scrollTo(0, 0);
   }, [type]);
 
-
   useEffect(() => {
     // Check for the error query parameter in the URL
     const queryParams = new URLSearchParams(location.search);
@@ -54,7 +53,7 @@ const LoginSignup = () => {
     setErrorMessageLogin("");
     try {
       const response = await axios.post("/api/user/login", data);
-      console.log(response)
+      console.log(response);
       if (response.status === 200) {
         // console.log("Login successful!");
         // console.log(response.data.data);
@@ -97,7 +96,7 @@ const LoginSignup = () => {
         // ) {
         //   setErrorMessageSignup("Error: User already exists with this email.");
         // } else {
-          setErrorMessageSignup(error?.response?.data?.message);
+        setErrorMessageSignup(error?.response?.data?.message);
         // }
       } else {
         console.log("Error message not found");
@@ -107,9 +106,12 @@ const LoginSignup = () => {
 
   const handleGoogleLogin = (formType) => {
     const redirectUrl = formType === "login" ? "login" : "signup";
-    window.location.href = `https://stagingiqpathscom.vercel.app/api/auth/google?redirect=${redirectUrl}`;
+    const backendURL =
+      process.env.NODE_ENV === "production"
+        ? "https://quiz.iqpaths.com"
+        : "http://localhost:8000";
+    window.location.href = `${backendURL}/api/auth/google?redirect=${redirectUrl}`;
   };
-
 
   const togglePasswordVisibility = () => {
     setPasswordVisibleLogin(!passwordVisibleLogin);
@@ -117,8 +119,7 @@ const LoginSignup = () => {
 
   const togglePasswordVisibilitySignup = () => {
     setPasswordVisibleSignup(!passwordVisibleSignup);
-  }
-
+  };
 
   return (
     <div>
@@ -194,13 +195,11 @@ const LoginSignup = () => {
                       className={styles.eyeIcon}
                       onClick={togglePasswordVisibility}
                     >
-                      
-                      {
-                      passwordVisibleLogin ? 
-                       <img src="/hide.svg"></img>
-                       :
-                       <img src="/show.svg"></img>
-                       }
+                      {passwordVisibleLogin ? (
+                        <img src="/hide.svg"></img>
+                      ) : (
+                        <img src="/show.svg"></img>
+                      )}
                     </button>
                   </div>
                   {loginErrors.password && (
@@ -221,7 +220,10 @@ const LoginSignup = () => {
                   Login
                 </button>
               </form>
-              <button className={styles.googleButton} onClick={()=>handleGoogleLogin("login")}>
+              <button
+                className={styles.googleButton}
+                onClick={() => handleGoogleLogin("login")}
+              >
                 <img
                   src="/googleLogo.png"
                   alt="Google Logo"
@@ -301,11 +303,11 @@ const LoginSignup = () => {
                       className={styles.eyeIcon}
                       onClick={togglePasswordVisibilitySignup}
                     >
-                      {passwordVisibleSignup ? 
-                      <img src="/hide.svg"></img>
-                      :
-                      <img src="/show.svg"></img>
-                      }
+                      {passwordVisibleSignup ? (
+                        <img src="/hide.svg"></img>
+                      ) : (
+                        <img src="/show.svg"></img>
+                      )}
                     </button>
                   </div>
                   {signupErrors.password && (
@@ -323,7 +325,10 @@ const LoginSignup = () => {
                   register
                 </button>
               </form>
-              <button className={styles.googleButton} onClick={()=>handleGoogleLogin("signup")}>
+              <button
+                className={styles.googleButton}
+                onClick={() => handleGoogleLogin("signup")}
+              >
                 <img
                   src="/googleLogo.png"
                   alt="Google Logo"
