@@ -4,7 +4,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import Footer from './Components/Footer/Footer';
 import { useState, useEffect } from 'react';
 import Popup from './Components/MainPopup/MainPopup'; // Import Popup Component
-import RedirectPopup from './Components/MainPopup/RedirectPopup'; 
+// import RedirectPopup from './Components/MainPopup/RedirectPopup'; 
 
 function App() {
   const [showPopup, setShowPopup] = useState(false);
@@ -43,7 +43,7 @@ function App() {
         {showPopup && <Popup onClose={() => setShowPopup(false)} />}
         <Outlet />
       </main>
-      <RedirectPopup redirectUrl="https://iqpathstech.com" />
+      {/* <RedirectPopup redirectUrl="https://iqpathstech.com" /> */}
       <Footer />
     </>
   );
